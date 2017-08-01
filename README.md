@@ -4,6 +4,7 @@ Auto-generated with [swagger-codegen](https://github.com/swagger-api/swagger-cod
 
 Supported environments:
 
+- Bash
 - C#
 - Java
 - Javascript
