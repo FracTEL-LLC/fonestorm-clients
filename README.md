@@ -9,7 +9,6 @@ Supported environments:
 - Erlang
 - Java
 - Javascript
-- Node.js
 - Perl
 - Rails 5
 - Ruby
