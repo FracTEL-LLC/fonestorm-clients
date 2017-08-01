@@ -15,14 +15,14 @@ Rails.application.routes.draw do
     match full_path, to: "#{opts.fetch(:controller_name)}##{opts[:action_name]}", via: http_method
   end
 
-  add_swagger_route 'POST', '//auth', controller_name: 'auth', action_name: 'create'
-  add_swagger_route 'DELETE', '//fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'destroy'
-  add_swagger_route 'GET', '//fonenumbers', controller_name: 'fonenumbers', action_name: 'index'
-  add_swagger_route 'GET', '//fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'show'
-  add_swagger_route 'POST', '//fonenumbers', controller_name: 'fonenumbers', action_name: 'create'
-  add_swagger_route 'PUT', '//fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'update'
-  add_swagger_route 'POST', '//messages/receive', controller_name: 'messages', action_name: 'post_messages_receive'
-  add_swagger_route 'POST', '//messages/receive_notify', controller_name: 'messages', action_name: 'post_messages_receive_notify'
-  add_swagger_route 'POST', '//messages/send', controller_name: 'messages', action_name: 'post_messages_send'
-  add_swagger_route 'POST', '//messages/send_notify', controller_name: 'messages', action_name: 'post_messages_send_notify'
+  add_swagger_route 'POST', '/v2/auth', controller_name: 'auth', action_name: 'create'
+  add_swagger_route 'DELETE', '/v2/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'destroy'
+  add_swagger_route 'GET', '/v2/fonenumbers', controller_name: 'fonenumbers', action_name: 'index'
+  add_swagger_route 'GET', '/v2/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'show'
+  add_swagger_route 'POST', '/v2/fonenumbers', controller_name: 'fonenumbers', action_name: 'create'
+  add_swagger_route 'PUT', '/v2/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'update'
+  add_swagger_route 'POST', '/v2/messages/receive', controller_name: 'messages', action_name: 'post_messages_receive'
+  add_swagger_route 'POST', '/v2/messages/receive_notify', controller_name: 'messages', action_name: 'post_messages_receive_notify'
+  add_swagger_route 'POST', '/v2/messages/send', controller_name: 'messages', action_name: 'post_messages_send'
+  add_swagger_route 'POST', '/v2/messages/send_notify', controller_name: 'messages', action_name: 'post_messages_send_notify'
 end

@@ -46,9 +46,9 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default http://localhost:3000
+     * @default https://api.fractel.net/v2
      */
-    this.basePath = 'http://localhost:3000'.replace(/\/+$/, '');
+    this.basePath = 'https://api.fractel.net/v2'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.

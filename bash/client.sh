@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-07-31T20:31:37.007-06:00
+# ! Generated on: 2017-08-01T12:10:14.291-06:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -699,7 +699,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "  -V,--version\t\t\t\tPrint API version"
     echo -e "  --about\t\t\t\tPrint the information about service"
     echo -e "  --host $(tput setaf 6)<url>$(tput sgr0)\t\t\t\tSpecify the host URL "
-echo -e "              \t\t\t\t(e.g. 'https://localhost:3000')"
+echo -e "              \t\t\t\t(e.g. 'https://api.fractel.net')"
 
     echo -e "  --force\t\t\t\tForce command invocation in spite of missing"
     echo -e "         \t\t\t\trequired parameters or wrong content type"
@@ -1110,10 +1110,10 @@ call_postAuth() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/auth" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/auth" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/auth" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/auth" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1141,10 +1141,10 @@ call_deleteFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="DELETE"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1172,10 +1172,10 @@ call_getFonenumbers() {
     local query_parameter_names=(filter)
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/fonenumbers" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/fonenumbers" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
     local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1203,10 +1203,10 @@ call_getFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1234,10 +1234,10 @@ call_postFonenumbers() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/fonenumbers" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/fonenumbers" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1265,10 +1265,10 @@ call_putFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="PUT"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1296,10 +1296,10 @@ call_postMessagesReceive() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/messages/receive" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/receive" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/messages/receive" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/receive" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1327,10 +1327,10 @@ call_postMessagesReceiveNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/messages/receive_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/receive_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/messages/receive_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/receive_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1358,10 +1358,10 @@ call_postMessagesSend() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/messages/send" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/send" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/messages/send" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/send" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1389,10 +1389,10 @@ call_postMessagesSendNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/messages/send_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/send_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/messages/send_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/send_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then

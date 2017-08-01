@@ -1,6 +1,6 @@
 # IO.Swagger.Api.AuthApi
 
-All URIs are relative to *http://localhost:3000*
+All URIs are relative to *https://api.fractel.net/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

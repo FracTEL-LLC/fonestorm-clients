@@ -3,8 +3,8 @@ swagger: "2.0"
 info:
   version: "2.1.0"
   title: "FracTEL API 2.1.0"
-host: "localhost:3000"
-basePath: "/"
+host: "api.fractel.net"
+basePath: "/v2"
 tags:
 - name: "api"
   description: "API Functions"
@@ -17,7 +17,7 @@ tags:
     description: "Extended API Documentation"
     url: "https://developer.fractel.net/api/2.0.0"
 schemes:
-- "http"
+- "https"
 paths:
   /auth:
     post:

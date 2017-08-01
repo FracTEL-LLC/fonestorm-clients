@@ -128,9 +128,9 @@ module SwaggerClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
-      @host = 'localhost:3000'
-      @base_path = '/'
+      @scheme = 'https'
+      @host = 'api.fractel.net'
+      @base_path = '/v2'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0

@@ -46,7 +46,7 @@ sub _new_instance
     my $class = shift;
     my (%args) = (
         'ua' => LWP::UserAgent->new,
-        'base_url' => 'http://localhost:3000',
+        'base_url' => 'https://api.fractel.net/v2',
         @_
     );
   
