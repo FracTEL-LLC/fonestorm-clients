@@ -1,0 +1,501 @@
+---
+swagger: "2.0"
+info:
+  version: "2.1.0"
+  title: "FracTEL API 2.1.0"
+host: "localhost:3000"
+basePath: "/"
+tags:
+- name: "api"
+  description: "API Functions"
+  externalDocs:
+    description: "Extended API Documentation"
+    url: "https://developer.fractel.net/api/2.0.0"
+- name: "messaging"
+  description: "Messaging Functions"
+  externalDocs:
+    description: "Extended API Documentation"
+    url: "https://developer.fractel.net/api/2.0.0"
+schemes:
+- "http"
+paths:
+  /auth:
+    post:
+      tags:
+      - "auth"
+      summary: "Obtain a FracTEL Auth token."
+      description: "Returns a token that can be used to make authenticated requests"
+      operationId: "postAuth"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "username"
+        in: "formData"
+        description: "FracTEL username"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "formData"
+        description: "FracTEL password"
+        required: true
+        type: "string"
+      - name: "expires"
+        in: "formData"
+        description: "FracTEL Token Life Time in Seconds | Default is 3600 seconds\
+          \ | Maximum is 24 hours"
+        required: false
+        type: "integer"
+        maximum: 86400
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Auth"
+  /fonenumbers:
+    get:
+      tags:
+      - "fonenumbers"
+      summary: "Get all active fonenumbers listed under the account."
+      description: "Returns a JSON response"
+      operationId: "getFonenumbers"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "filter"
+        in: "query"
+        description: "Filters for the response."
+        required: false
+        type: "string"
+        enum:
+        - "foneNumbers"
+        - "all"
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Fonenumbers"
+    post:
+      tags:
+      - "fonenumbers"
+      summary: "Order quick fonenumber for the account."
+      description: "Returns a JSON response"
+      operationId: "postFonenumbers"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "area_code"
+        in: "formData"
+        description: "A valid 3-digit Area Code."
+        required: true
+        type: "string"
+        x-constraint:
+          length: 3
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Fonenumbers"
+  /messages/receive:
+    post:
+      tags:
+      - "messages"
+      summary: "Configure the delivery service type used as the destination for received\
+        \ messages."
+      description: "Returns a JSON response"
+      operationId: "postMessagesReceive"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "fonenumber"
+        in: "formData"
+        description: "Your FracTEL phone number."
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      - name: "type"
+        in: "formData"
+        description: "Message routing type."
+        required: true
+        type: "string"
+        enum:
+        - "None"
+        - "Device"
+        - "Email"
+        - "URL"
+        - "Forward"
+      - name: "value"
+        in: "formData"
+        description: "Message routing type value."
+        required: false
+        type: "string"
+        x-alternatives:
+        - type: "string"
+          description: "Message routing type value."
+        - type: "string"
+          description: "Message routing type value."
+        - type: "string"
+          description: "Message routing type value."
+          x-format:
+            email: true
+        - type: "string"
+          description: "Message routing type value."
+          x-format:
+            uri:
+              scheme:
+              - "http"
+              - "https"
+        - type: "string"
+          description: "Message routing type value."
+          x-constraint:
+            length: 10
+      - name: "url_method"
+        in: "formData"
+        description: "URL method when type is URL."
+        required: false
+        type: "string"
+        enum:
+        - "GET"
+        - "POST"
+        - "JSON"
+        x-alternatives:
+        - type: "string"
+          description: "URL method when type is URL."
+          enum:
+          - "GET"
+          - "POST"
+          - "JSON"
+      - name: "url_username"
+        in: "formData"
+        description: "Optional URL username when type is URL."
+        required: false
+        type: "string"
+      - name: "url_password"
+        in: "formData"
+        description: "Optional URL password when type is URL."
+        required: false
+        type: "string"
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Messages"
+  /messages/receive_notify:
+    post:
+      tags:
+      - "messages"
+      summary: "Configure the callback URL to notify when a message is received."
+      description: "Returns a JSON response"
+      operationId: "postMessagesReceive_notify"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "fonenumber"
+        in: "formData"
+        description: "Your FracTEL phone number."
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      - name: "method"
+        in: "formData"
+        description: "Callback URL method."
+        required: true
+        type: "string"
+        enum:
+        - "GET"
+        - "POST"
+        - "JSON"
+      - name: "url"
+        in: "formData"
+        description: "Callback URL."
+        required: true
+        type: "string"
+        x-format:
+          uri:
+            scheme:
+            - "http"
+            - "https"
+      - name: "url_username"
+        in: "formData"
+        description: "Callback URL username."
+        required: false
+        type: "string"
+      - name: "url_password"
+        in: "formData"
+        description: "Callback URL password."
+        required: false
+        type: "string"
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Messages"
+  /messages/send:
+    post:
+      tags:
+      - "messages"
+      summary: "Send an SMS or MMS message to a recipient."
+      description: "Returns a JSON response"
+      operationId: "postMessagesSend"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "to"
+        in: "formData"
+        description: "The recipient's 10 digits phone number."
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      - name: "fonenumber"
+        in: "formData"
+        description: "Your FracTEL phone number to use as from"
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      - name: "message"
+        in: "formData"
+        description: "Content of SMS"
+        required: true
+        type: "string"
+      - name: "media_url"
+        in: "formData"
+        description: "URL for media for send via SMS (up to 10)"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          x-format:
+            uri:
+              scheme:
+              - "http"
+              - "https"
+        collectionFormat: "multi"
+        maxItems: 10
+      - name: "confirmation_url"
+        in: "formData"
+        description: "Callback URL for confirmation"
+        required: false
+        type: "string"
+        x-format:
+          uri:
+            scheme:
+            - "http"
+            - "https"
+      - name: "confirmation_url_username"
+        in: "formData"
+        description: "Callback URL username for confirmation"
+        required: false
+        type: "string"
+      - name: "confirmation_url_password"
+        in: "formData"
+        description: "Callback URL password for confirmation"
+        required: false
+        type: "string"
+      - name: "require_confirmation"
+        in: "formData"
+        description: "Only send message if confirmation is available"
+        required: false
+        type: "boolean"
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Messages"
+  /messages/send_notify:
+    post:
+      tags:
+      - "messages"
+      summary: "Configure the callback URL to notify when a message is sent."
+      description: "Returns a JSON response"
+      operationId: "postMessagesSend_notify"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "fonenumber"
+        in: "formData"
+        description: "Your FracTEL phone number"
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      - name: "method"
+        in: "formData"
+        description: "Callback URL method."
+        required: true
+        type: "string"
+        enum:
+        - "GET"
+        - "POST"
+        - "JSON"
+      - name: "url"
+        in: "formData"
+        description: "Callback URL."
+        required: true
+        type: "string"
+        x-format:
+          uri:
+            scheme:
+            - "http"
+            - "https"
+      - name: "url_username"
+        in: "formData"
+        description: "Callback URL username."
+        required: false
+        type: "string"
+      - name: "url_password"
+        in: "formData"
+        description: "Callback URL password."
+        required: false
+        type: "string"
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Messages"
+  /fonenumbers/{fonenumber}:
+    get:
+      tags:
+      - "fonenumbers"
+      summary: "Get a single fonenumber listed under the account."
+      description: "Returns a JSON response"
+      operationId: "getFonenumbersFonenumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "fonenumber"
+        in: "path"
+        description: "Your FracTEL fonenumber."
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Fonenumbers"
+    put:
+      tags:
+      - "fonenumbers"
+      summary: "Configure the service type for an account fonenumber."
+      description: "Returns a JSON response"
+      operationId: "putFonenumbersFonenumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "fonenumber"
+        in: "path"
+        description: "Your FracTEL fonenumber."
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      - name: "type"
+        in: "formData"
+        description: "Message routing type."
+        required: true
+        type: "string"
+        enum:
+        - "None"
+        - "Device"
+        - "Email"
+        - "URL"
+        - "Forward"
+      - name: "value"
+        in: "formData"
+        description: "Message routing type value."
+        required: false
+        type: "string"
+        x-alternatives:
+        - type: "string"
+          description: "Message routing type value."
+        - type: "string"
+          description: "Message routing type value."
+          x-constraint:
+            length: 12
+        - type: "string"
+          description: "Message routing type value."
+          x-format:
+            email: true
+        - type: "string"
+          description: "Message routing type value."
+          x-format:
+            uri:
+              scheme:
+              - "http"
+              - "https"
+        - type: "string"
+          description: "Message routing type value."
+          x-constraint:
+            length: 10
+      - name: "url_method"
+        in: "formData"
+        description: "URL method."
+        required: false
+        type: "string"
+        enum:
+        - "GET"
+        - "POST"
+        - "JSON"
+        x-alternatives:
+        - type: "string"
+          description: "URL method."
+          enum:
+          - "GET"
+          - "POST"
+          - "JSON"
+      - name: "url_username"
+        in: "formData"
+        description: "URL auth username."
+        required: false
+        type: "string"
+      - name: "url_password"
+        in: "formData"
+        description: "URL auth password."
+        required: false
+        type: "string"
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Fonenumbers"
+    delete:
+      tags:
+      - "fonenumbers"
+      summary: "Remove fonenumber from the account."
+      description: "Returns a JSON response"
+      operationId: "deleteFonenumbersFonenumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "fonenumber"
+        in: "path"
+        description: "Your FracTEL fonenumber."
+        required: true
+        type: "string"
+        x-constraint:
+          length: 10
+      responses:
+        default:
+          description: "Successful"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Fonenumbers"
+securityDefinitions:
+  jwt:
+    type: "apiKey"
+    name: "token"
+    in: "header"
+definitions: {}
