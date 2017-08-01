@@ -6,6 +6,7 @@ Supported environments:
 
 - Bash
 - C#
+- Erlang
 - Java
 - Javascript
 - Node.js
