@@ -1,0 +1,6 @@
+php/SwaggerClient-php/vendor
+php/SwaggerClient-php/composer.lock
+php/php_errors.log
+php/test.php
+ruby/Gemfile.lock
+ruby/test.rb
