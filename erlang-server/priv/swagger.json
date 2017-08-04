@@ -1,8 +1,8 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "version" : "2.1.0",
-    "title" : "FracTEL API 2.1.0"
+    "version" : "2.1.1",
+    "title" : "FracTEL API 2.1.1"
   },
   "host" : "api.fractel.net",
   "basePath" : "/v2",
@@ -60,20 +60,82 @@
         }
       }
     },
-    "/fonenumbers" : {
-      "get" : {
-        "tags" : [ "fonenumbers" ],
-        "summary" : "Get all active fonenumbers listed under the account.",
+    "/messages/send" : {
+      "post" : {
+        "tags" : [ "messages" ],
+        "summary" : "Send an SMS or MMS message to a recipient.",
         "description" : "Returns a JSON response",
-        "operationId" : "getFonenumbers",
+        "operationId" : "postMessagesSend",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
-          "name" : "filter",
-          "in" : "query",
-          "description" : "Filters for the response.",
+          "name" : "to",
+          "in" : "formData",
+          "description" : "The recipient's 10 digits phone number.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number to use as from",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "message",
+          "in" : "formData",
+          "description" : "Content of SMS",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "media_url",
+          "in" : "formData",
+          "description" : "URL for media for send via SMS (up to 10)",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "x-format" : {
+              "uri" : {
+                "scheme" : [ "http", "https" ]
+              }
+            }
+          },
+          "collectionFormat" : "multi",
+          "maxItems" : 10
+        }, {
+          "name" : "confirmation_url",
+          "in" : "formData",
+          "description" : "Callback URL for confirmation",
           "required" : false,
           "type" : "string",
-          "enum" : [ "foneNumbers", "all" ]
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "confirmation_url_username",
+          "in" : "formData",
+          "description" : "Callback URL username for confirmation",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "confirmation_url_password",
+          "in" : "formData",
+          "description" : "Callback URL password for confirmation",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "require_confirmation",
+          "in" : "formData",
+          "description" : "Only send message if confirmation is available",
+          "required" : false,
+          "type" : "boolean"
         } ],
         "responses" : {
           "default" : {
@@ -83,22 +145,54 @@
             }
           }
         }
-      },
+      }
+    },
+    "/messages/send_notify" : {
       "post" : {
-        "tags" : [ "fonenumbers" ],
-        "summary" : "Order quick fonenumber for the account.",
+        "tags" : [ "messages" ],
+        "summary" : "Configure the callback URL to notify when a message is sent.",
         "description" : "Returns a JSON response",
-        "operationId" : "postFonenumbers",
+        "operationId" : "postMessagesSend_notify",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
-          "name" : "area_code",
+          "name" : "fonenumber",
           "in" : "formData",
-          "description" : "A valid 3-digit Area Code.",
+          "description" : "Your FracTEL phone number",
           "required" : true,
           "type" : "string",
           "x-constraint" : {
-            "length" : 3
+            "length" : 10
           }
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL.",
+          "required" : true,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Callback URL username.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Callback URL password.",
+          "required" : false,
+          "type" : "string"
         } ],
         "responses" : {
           "default" : {
@@ -258,82 +352,20 @@
         }
       }
     },
-    "/messages/send" : {
-      "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Send an SMS or MMS message to a recipient.",
+    "/fonenumbers" : {
+      "get" : {
+        "tags" : [ "fonenumbers" ],
+        "summary" : "Get all active fonenumbers listed under the account.",
         "description" : "Returns a JSON response",
-        "operationId" : "postMessagesSend",
+        "operationId" : "getFonenumbers",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
-          "name" : "to",
-          "in" : "formData",
-          "description" : "The recipient's 10 digits phone number.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number to use as from",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "message",
-          "in" : "formData",
-          "description" : "Content of SMS",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "media_url",
-          "in" : "formData",
-          "description" : "URL for media for send via SMS (up to 10)",
-          "required" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "x-format" : {
-              "uri" : {
-                "scheme" : [ "http", "https" ]
-              }
-            }
-          },
-          "collectionFormat" : "multi",
-          "maxItems" : 10
-        }, {
-          "name" : "confirmation_url",
-          "in" : "formData",
-          "description" : "Callback URL for confirmation",
+          "name" : "filter",
+          "in" : "query",
+          "description" : "Filters for the response.",
           "required" : false,
           "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "confirmation_url_username",
-          "in" : "formData",
-          "description" : "Callback URL username for confirmation",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "confirmation_url_password",
-          "in" : "formData",
-          "description" : "Callback URL password for confirmation",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "require_confirmation",
-          "in" : "formData",
-          "description" : "Only send message if confirmation is available",
-          "required" : false,
-          "type" : "boolean"
+          "enum" : [ "foneNumbers", "all" ]
         } ],
         "responses" : {
           "default" : {
@@ -343,54 +375,22 @@
             }
           }
         }
-      }
-    },
-    "/messages/send_notify" : {
+      },
       "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Configure the callback URL to notify when a message is sent.",
+        "tags" : [ "fonenumbers" ],
+        "summary" : "Order quick fonenumber for the account.",
         "description" : "Returns a JSON response",
-        "operationId" : "postMessagesSend_notify",
+        "operationId" : "postFonenumbers",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
-          "name" : "fonenumber",
+          "name" : "area_code",
           "in" : "formData",
-          "description" : "Your FracTEL phone number",
+          "description" : "A valid 3-digit Area Code.",
           "required" : true,
           "type" : "string",
           "x-constraint" : {
-            "length" : 10
+            "length" : 3
           }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
         } ],
         "responses" : {
           "default" : {
@@ -548,7 +548,7 @@
     }
   },
   "securityDefinitions" : {
-    "jwt" : {
+    "APIKeyHeader" : {
       "type" : "apiKey",
       "name" : "token",
       "in" : "header"

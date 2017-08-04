@@ -1,7 +1,7 @@
-# FracTEL API 2.1.0 Bash client
+# FracTEL API 2.1.1 Bash client
 
 ## Overview
-This is a Bash client script for accessing FracTEL API 2.1.0 service.
+This is a Bash client script for accessing FracTEL API 2.1.1 service.
 
 The script uses  cURL underneath for making all REST calls.
 

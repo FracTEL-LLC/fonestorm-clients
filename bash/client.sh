@@ -8,12 +8,12 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-08-01T12:10:14.291-06:00
+# ! Generated on: 2017-08-02T16:08:00.390-06:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for FracTEL API 2.1.0.
+# This is a Bash client for FracTEL API 2.1.1.
 #
 # LICENSE:
 # 
@@ -635,7 +635,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-$(tput bold)$(tput setaf 7)FracTEL API 2.1.0 command line client (API version 2.1.0)$(tput sgr0)
+$(tput bold)$(tput setaf 7)FracTEL API 2.1.1 command line client (API version 2.1.1)$(tput sgr0)
 
 $(tput bold)$(tput setaf 7)Usage$(tput sgr0)
 
@@ -719,7 +719,7 @@ echo -e "              \t\t\t\t(e.g. 'https://api.fractel.net')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)FracTEL API 2.1.0 command line client (API version 2.1.0)$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)FracTEL API 2.1.1 command line client (API version 2.1.1)$(tput sgr0)"
     echo ""
     echo -e "License: "
     echo -e "Contact: "
@@ -739,7 +739,7 @@ echo "$appdescription" | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "$(tput bold)FracTEL API 2.1.0 command line client (API version 2.1.0)$(tput sgr0)"
+    echo -e "$(tput bold)FracTEL API 2.1.1 command line client (API version 2.1.1)$(tput sgr0)"
     echo ""
 }
 

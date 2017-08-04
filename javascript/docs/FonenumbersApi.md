@@ -1,4 +1,4 @@
-# FracTelApi210.FonenumbersApi
+# FracTelApi211.FonenumbersApi
 
 All URIs are relative to *https://api.fractel.net/v2*
 
@@ -21,9 +21,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi210 = require('frac_tel_api_210');
+var FracTelApi211 = require('frac_tel_api_211');
 
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var apiInstance = new FracTelApi211.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 
@@ -67,9 +67,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi210 = require('frac_tel_api_210');
+var FracTelApi211 = require('frac_tel_api_211');
 
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var apiInstance = new FracTelApi211.FonenumbersApi();
 
 var opts = { 
   'filter': "filter_example" // String | Filters for the response.
@@ -114,9 +114,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi210 = require('frac_tel_api_210');
+var FracTelApi211 = require('frac_tel_api_211');
 
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var apiInstance = new FracTelApi211.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 
@@ -160,9 +160,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi210 = require('frac_tel_api_210');
+var FracTelApi211 = require('frac_tel_api_211');
 
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var apiInstance = new FracTelApi211.FonenumbersApi();
 
 var areaCode = "areaCode_example"; // String | A valid 3-digit Area Code.
 
@@ -206,9 +206,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi210 = require('frac_tel_api_210');
+var FracTelApi211 = require('frac_tel_api_211');
 
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var apiInstance = new FracTelApi211.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 

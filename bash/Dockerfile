@@ -24,8 +24,8 @@ source /etc/bash-completion.d/\n\
 #
 # Setup prompt
 #
-RUN echo 'export PS1="[FracTEL API 2.1.0] \$ "' >> ~/.bashrc
-RUN echo 'export PROMPT="[FracTEL API 2.1.0] \$ "' >> ~/.zshrc
+RUN echo 'export PS1="[FracTEL API 2.1.1] \$ "' >> ~/.bashrc
+RUN echo 'export PROMPT="[FracTEL API 2.1.1] \$ "' >> ~/.zshrc
 
 #
 # Setup a welcome message with basic instruction
@@ -33,7 +33,7 @@ RUN echo 'export PROMPT="[FracTEL API 2.1.0] \$ "' >> ~/.zshrc
 RUN echo 'cat << EOF\n\
 \n\
 This Docker provides preconfigured environment for running the command\n\
-line REST client for $(tput setaf 6)FracTEL API 2.1.0$(tput sgr0).\n\
+line REST client for $(tput setaf 6)FracTEL API 2.1.1$(tput sgr0).\n\
 \n\
 For convenience, you can export the following environment variables:\n\
 \n\

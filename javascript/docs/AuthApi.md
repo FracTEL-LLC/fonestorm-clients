@@ -1,4 +1,4 @@
-# FracTelApi210.AuthApi
+# FracTelApi211.AuthApi
 
 All URIs are relative to *https://api.fractel.net/v2*
 
@@ -17,9 +17,9 @@ Returns a token that can be used to make authenticated requests
 
 ### Example
 ```javascript
-var FracTelApi210 = require('frac_tel_api_210');
+var FracTelApi211 = require('frac_tel_api_211');
 
-var apiInstance = new FracTelApi210.AuthApi();
+var apiInstance = new FracTelApi211.AuthApi();
 
 var username = "username_example"; // String | FracTEL username
 
