@@ -1,6 +1,6 @@
 # IO.Swagger.Api.FonenumbersApi
 
-All URIs are relative to *https://api.fractel.net/v2*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

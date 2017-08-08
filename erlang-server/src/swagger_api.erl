@@ -165,7 +165,7 @@ request_param_info('GetFonenumbers', 'filter') ->
         source => qs_val  ,
         rules => [
             {type, 'binary'},
-            {enum, ['foneNumbers', 'all'] },
+            {enum, ['fonenumbers', 'all'] },
             not_required
         ]
     };

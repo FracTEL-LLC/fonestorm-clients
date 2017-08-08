@@ -1,6 +1,6 @@
-# FracTelApi211.MessagesApi
+# FracTelApi212.MessagesApi
 
-All URIs are relative to *https://api.fractel.net/v2*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,15 +20,15 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.MessagesApi();
+var apiInstance = new FracTelApi212.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number.
 
 var type = "type_example"; // String | Message routing type.
 
-var opts = {
+var opts = { 
   'value': "value_example", // String | Message routing type value.
   'urlMethod': "urlMethod_example", // String | URL method when type is URL.
   'urlUsername': "urlUsername_example", // String | Optional URL username when type is URL.
@@ -49,12 +49,12 @@ apiInstance.postMessagesReceive(fonenumber, type, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **String**| Your FracTEL phone number. |
- **type** | **String**| Message routing type. |
- **value** | **String**| Message routing type value. | [optional]
- **urlMethod** | **String**| URL method when type is URL. | [optional]
- **urlUsername** | **String**| Optional URL username when type is URL. | [optional]
- **urlPassword** | **String**| Optional URL password when type is URL. | [optional]
+ **fonenumber** | **String**| Your FracTEL phone number. | 
+ **type** | **String**| Message routing type. | 
+ **value** | **String**| Message routing type value. | [optional] 
+ **urlMethod** | **String**| URL method when type is URL. | [optional] 
+ **urlUsername** | **String**| Optional URL username when type is URL. | [optional] 
+ **urlPassword** | **String**| Optional URL password when type is URL. | [optional] 
 
 ### Return type
 
@@ -79,9 +79,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.MessagesApi();
+var apiInstance = new FracTelApi212.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number.
 
@@ -89,7 +89,7 @@ var method = "method_example"; // String | Callback URL method.
 
 var url = "url_example"; // String | Callback URL.
 
-var opts = {
+var opts = { 
   'urlUsername': "urlUsername_example", // String | Callback URL username.
   'urlPassword': "urlPassword_example" // String | Callback URL password.
 };
@@ -108,11 +108,11 @@ apiInstance.postMessagesReceiveNotify(fonenumber, method, url, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **String**| Your FracTEL phone number. |
- **method** | **String**| Callback URL method. |
- **url** | **String**| Callback URL. |
- **urlUsername** | **String**| Callback URL username. | [optional]
- **urlPassword** | **String**| Callback URL password. | [optional]
+ **fonenumber** | **String**| Your FracTEL phone number. | 
+ **method** | **String**| Callback URL method. | 
+ **url** | **String**| Callback URL. | 
+ **urlUsername** | **String**| Callback URL username. | [optional] 
+ **urlPassword** | **String**| Callback URL password. | [optional] 
 
 ### Return type
 
@@ -137,9 +137,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.MessagesApi();
+var apiInstance = new FracTelApi212.MessagesApi();
 
 var to = "to_example"; // String | The recipient's 10 digits phone number.
 
@@ -147,7 +147,7 @@ var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number to 
 
 var message = "message_example"; // String | Content of SMS
 
-var opts = {
+var opts = { 
   'mediaUrl': ["mediaUrl_example"], // [String] | URL for media for send via SMS (up to 10)
   'confirmationUrl': "confirmationUrl_example", // String | Callback URL for confirmation
   'confirmationUrlUsername': "confirmationUrlUsername_example", // String | Callback URL username for confirmation
@@ -169,14 +169,14 @@ apiInstance.postMessagesSend(to, fonenumber, message, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **to** | **String**| The recipient&#39;s 10 digits phone number. |
- **fonenumber** | **String**| Your FracTEL phone number to use as from |
- **message** | **String**| Content of SMS |
- **mediaUrl** | [**[String]**](String.md)| URL for media for send via SMS (up to 10) | [optional]
- **confirmationUrl** | **String**| Callback URL for confirmation | [optional]
- **confirmationUrlUsername** | **String**| Callback URL username for confirmation | [optional]
- **confirmationUrlPassword** | **String**| Callback URL password for confirmation | [optional]
- **requireConfirmation** | **Boolean**| Only send message if confirmation is available | [optional]
+ **to** | **String**| The recipient&#39;s 10 digits phone number. | 
+ **fonenumber** | **String**| Your FracTEL phone number to use as from | 
+ **message** | **String**| Content of SMS | 
+ **mediaUrl** | [**[String]**](String.md)| URL for media for send via SMS (up to 10) | [optional] 
+ **confirmationUrl** | **String**| Callback URL for confirmation | [optional] 
+ **confirmationUrlUsername** | **String**| Callback URL username for confirmation | [optional] 
+ **confirmationUrlPassword** | **String**| Callback URL password for confirmation | [optional] 
+ **requireConfirmation** | **Boolean**| Only send message if confirmation is available | [optional] 
 
 ### Return type
 
@@ -201,9 +201,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.MessagesApi();
+var apiInstance = new FracTelApi212.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number
 
@@ -211,7 +211,7 @@ var method = "method_example"; // String | Callback URL method.
 
 var url = "url_example"; // String | Callback URL.
 
-var opts = {
+var opts = { 
   'urlUsername': "urlUsername_example", // String | Callback URL username.
   'urlPassword': "urlPassword_example" // String | Callback URL password.
 };
@@ -230,11 +230,11 @@ apiInstance.postMessagesSendNotify(fonenumber, method, url, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **String**| Your FracTEL phone number |
- **method** | **String**| Callback URL method. |
- **url** | **String**| Callback URL. |
- **urlUsername** | **String**| Callback URL username. | [optional]
- **urlPassword** | **String**| Callback URL password. | [optional]
+ **fonenumber** | **String**| Your FracTEL phone number | 
+ **method** | **String**| Callback URL method. | 
+ **url** | **String**| Callback URL. | 
+ **urlUsername** | **String**| Callback URL username. | [optional] 
+ **urlPassword** | **String**| Callback URL password. | [optional] 
 
 ### Return type
 
@@ -248,3 +248,4 @@ No authorization required
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: Not defined
+

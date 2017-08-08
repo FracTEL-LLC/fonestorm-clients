@@ -1,6 +1,6 @@
-# FracTelApi211.AuthApi
+# FracTelApi212.AuthApi
 
-All URIs are relative to *https://api.fractel.net/v2*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,9 +17,9 @@ Returns a token that can be used to make authenticated requests
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.AuthApi();
+var apiInstance = new FracTelApi212.AuthApi();
 
 var username = "username_example"; // String | FracTEL username
 

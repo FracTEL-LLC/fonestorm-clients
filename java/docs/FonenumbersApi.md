@@ -1,6 +1,6 @@
 # FonenumbersApi
 
-All URIs are relative to *https://api.fractel.net/v2*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -86,7 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **String**| Filters for the response. | [optional] [enum: foneNumbers, all]
+ **filter** | **String**| Filters for the response. | [optional] [enum: fonenumbers, all]
 
 ### Return type
 

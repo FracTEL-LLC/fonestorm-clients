@@ -53,7 +53,7 @@ public class FonenumbersAPI: APIBase {
      * enum for parameter filter
      */
     public enum Filter_getFonenumbers: String { 
-        case Fonenumbers = "foneNumbers"
+        case Fonenumbers = "fonenumbers"
         case All = "all"
     }
 

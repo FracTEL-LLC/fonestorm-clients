@@ -8,12 +8,12 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-08-02T16:08:00.390-06:00
+# ! Generated on: 2017-08-08T09:24:05.092-06:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for FracTEL API 2.1.1.
+# This is a Bash client for FracTEL API 2.1.2.
 #
 # LICENSE:
 # 
@@ -635,7 +635,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-$(tput bold)$(tput setaf 7)FracTEL API 2.1.1 command line client (API version 2.1.1)$(tput sgr0)
+$(tput bold)$(tput setaf 7)FracTEL API 2.1.2 command line client (API version 2.1.2)$(tput sgr0)
 
 $(tput bold)$(tput setaf 7)Usage$(tput sgr0)
 
@@ -699,7 +699,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "  -V,--version\t\t\t\tPrint API version"
     echo -e "  --about\t\t\t\tPrint the information about service"
     echo -e "  --host $(tput setaf 6)<url>$(tput sgr0)\t\t\t\tSpecify the host URL "
-echo -e "              \t\t\t\t(e.g. 'https://api.fractel.net')"
+echo -e "              \t\t\t\t(e.g. 'https://api.fonestorm.com')"
 
     echo -e "  --force\t\t\t\tForce command invocation in spite of missing"
     echo -e "         \t\t\t\trequired parameters or wrong content type"
@@ -719,7 +719,7 @@ echo -e "              \t\t\t\t(e.g. 'https://api.fractel.net')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)FracTEL API 2.1.1 command line client (API version 2.1.1)$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)FracTEL API 2.1.2 command line client (API version 2.1.2)$(tput sgr0)"
     echo ""
     echo -e "License: "
     echo -e "Contact: "
@@ -739,7 +739,7 @@ echo "$appdescription" | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "$(tput bold)FracTEL API 2.1.1 command line client (API version 2.1.1)$(tput sgr0)"
+    echo -e "$(tput bold)FracTEL API 2.1.2 command line client (API version 2.1.2)$(tput sgr0)"
     echo ""
 }
 

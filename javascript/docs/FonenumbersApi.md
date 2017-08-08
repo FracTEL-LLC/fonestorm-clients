@@ -1,6 +1,6 @@
-# FracTelApi211.FonenumbersApi
+# FracTelApi212.FonenumbersApi
 
-All URIs are relative to *https://api.fractel.net/v2*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,9 +21,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.FonenumbersApi();
+var apiInstance = new FracTelApi212.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 
@@ -67,9 +67,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.FonenumbersApi();
+var apiInstance = new FracTelApi212.FonenumbersApi();
 
 var opts = { 
   'filter': "filter_example" // String | Filters for the response.
@@ -114,9 +114,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.FonenumbersApi();
+var apiInstance = new FracTelApi212.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 
@@ -160,9 +160,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.FonenumbersApi();
+var apiInstance = new FracTelApi212.FonenumbersApi();
 
 var areaCode = "areaCode_example"; // String | A valid 3-digit Area Code.
 
@@ -206,9 +206,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 
-var apiInstance = new FracTelApi211.FonenumbersApi();
+var apiInstance = new FracTelApi212.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 
