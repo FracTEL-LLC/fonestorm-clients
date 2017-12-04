@@ -1,20 +1,20 @@
 # SwaggerClient::FonenumbersApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_fonenumbers_fonenumber**](FonenumbersApi.md#delete_fonenumbers_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Remove fonenumber from the account.
-[**get_fonenumbers**](FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get all active fonenumbers listed under the account.
-[**get_fonenumbers_fonenumber**](FonenumbersApi.md#get_fonenumbers_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get a single fonenumber listed under the account.
-[**post_fonenumbers**](FonenumbersApi.md#post_fonenumbers) | **POST** /fonenumbers | Order quick fonenumber for the account.
-[**put_fonenumbers_fonenumber**](FonenumbersApi.md#put_fonenumbers_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Configure the service type for an account fonenumber.
+[**delete_fonenumbers_fonenumber**](FonenumbersApi.md#delete_fonenumbers_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete a fonenumber identified by fonenumber.
+[**get_fonenumbers**](FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get a list of all active fonenumbers under the account.
+[**get_fonenumbers_fonenumber**](FonenumbersApi.md#get_fonenumbers_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get a fonenumber identified by fonenumber.
+[**post_fonenumbers**](FonenumbersApi.md#post_fonenumbers) | **POST** /fonenumbers | Create a fonenumber under the account.
+[**put_fonenumbers_fonenumber**](FonenumbersApi.md#put_fonenumbers_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Update a fonenumber identified by fonenumber.
 
 
 # **delete_fonenumbers_fonenumber**
 > String delete_fonenumbers_fonenumber(fonenumber)
 
-Remove fonenumber from the account.
+Delete a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -29,7 +29,7 @@ fonenumber = "fonenumber_example" # String | Your FracTEL fonenumber.
 
 
 begin
-  #Remove fonenumber from the account.
+  #Delete a fonenumber identified by fonenumber.
   result = api_instance.delete_fonenumbers_fonenumber(fonenumber)
   p result
 rescue SwaggerClient::ApiError => e
@@ -61,7 +61,7 @@ No authorization required
 # **get_fonenumbers**
 > String get_fonenumbers(opts)
 
-Get all active fonenumbers listed under the account.
+Get a list of all active fonenumbers under the account.
 
 Returns a JSON response
 
@@ -77,7 +77,7 @@ opts = {
 }
 
 begin
-  #Get all active fonenumbers listed under the account.
+  #Get a list of all active fonenumbers under the account.
   result = api_instance.get_fonenumbers(opts)
   p result
 rescue SwaggerClient::ApiError => e
@@ -109,7 +109,7 @@ No authorization required
 # **get_fonenumbers_fonenumber**
 > String get_fonenumbers_fonenumber(fonenumber)
 
-Get a single fonenumber listed under the account.
+Get a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -124,7 +124,7 @@ fonenumber = "fonenumber_example" # String | Your FracTEL fonenumber.
 
 
 begin
-  #Get a single fonenumber listed under the account.
+  #Get a fonenumber identified by fonenumber.
   result = api_instance.get_fonenumbers_fonenumber(fonenumber)
   p result
 rescue SwaggerClient::ApiError => e
@@ -156,7 +156,7 @@ No authorization required
 # **post_fonenumbers**
 > String post_fonenumbers(area_code)
 
-Order quick fonenumber for the account.
+Create a fonenumber under the account.
 
 Returns a JSON response
 
@@ -171,7 +171,7 @@ area_code = "area_code_example" # String | A valid 3-digit Area Code.
 
 
 begin
-  #Order quick fonenumber for the account.
+  #Create a fonenumber under the account.
   result = api_instance.post_fonenumbers(area_code)
   p result
 rescue SwaggerClient::ApiError => e
@@ -203,7 +203,7 @@ No authorization required
 # **put_fonenumbers_fonenumber**
 > String put_fonenumbers_fonenumber(fonenumber, type, opts)
 
-Configure the service type for an account fonenumber.
+Update a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -226,7 +226,7 @@ opts = {
 }
 
 begin
-  #Configure the service type for an account fonenumber.
+  #Update a fonenumber identified by fonenumber.
   result = api_instance.put_fonenumbers_fonenumber(fonenumber, type, opts)
   p result
 rescue SwaggerClient::ApiError => e

@@ -21,6 +21,59 @@ request_params('PostAuth') ->
     ];
 
 
+request_params('PostCalls') ->
+    [
+        'fonenumber',
+        'to',
+        'tts'
+    ];
+
+request_params('PostCallsReceiveNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('PostCallsSendNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+
+request_params('PostFaxes') ->
+    [
+        'fonenumber',
+        'to',
+        'message',
+        'pdf'
+    ];
+
+request_params('PostFaxesReceiveNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('PostFaxesSendNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+
 request_params('DeleteFonenumbersFonenumber') ->
     [
         'fonenumber'
@@ -146,6 +199,255 @@ request_param_info('PostAuth', 'expires') ->
         rules => [
             {type, 'integer'},
             {max, 86400 }, 
+            not_required
+        ]
+    };
+
+
+request_param_info('PostCalls', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostCalls', 'to') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostCalls', 'tts') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostCallsReceiveNotify', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostCallsReceiveNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('PostCallsReceiveNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostCallsReceiveNotify', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostCallsReceiveNotify', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostCallsSendNotify', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostCallsSendNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('PostCallsSendNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostCallsSendNotify', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostCallsSendNotify', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+
+request_param_info('PostFaxes', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostFaxes', 'to') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostFaxes', 'message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostFaxes', 'pdf') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostFaxesReceiveNotify', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostFaxesReceiveNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('PostFaxesReceiveNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostFaxesReceiveNotify', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostFaxesReceiveNotify', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostFaxesSendNotify', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostFaxesSendNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('PostFaxesSendNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('PostFaxesSendNotify', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('PostFaxesSendNotify', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
             not_required
         ]
     };
@@ -508,6 +810,26 @@ populate_request_param(OperationID, Name, Req0, ValidatorState) ->
 
 
 validate_response('PostAuth', 0, Body, ValidatorState) ->
+    validate_response_body('binary', 'string', Body, ValidatorState);
+
+
+validate_response('PostCalls', 0, Body, ValidatorState) ->
+    validate_response_body('binary', 'string', Body, ValidatorState);
+
+validate_response('PostCallsReceiveNotify', 0, Body, ValidatorState) ->
+    validate_response_body('binary', 'string', Body, ValidatorState);
+
+validate_response('PostCallsSendNotify', 0, Body, ValidatorState) ->
+    validate_response_body('binary', 'string', Body, ValidatorState);
+
+
+validate_response('PostFaxes', 0, Body, ValidatorState) ->
+    validate_response_body('binary', 'string', Body, ValidatorState);
+
+validate_response('PostFaxesReceiveNotify', 0, Body, ValidatorState) ->
+    validate_response_body('binary', 'string', Body, ValidatorState);
+
+validate_response('PostFaxesSendNotify', 0, Body, ValidatorState) ->
     validate_response_body('binary', 'string', Body, ValidatorState);
 
 

@@ -1,21 +1,21 @@
 # IO.Swagger.Api.FonenumbersApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteFonenumbersFonenumber**](FonenumbersApi.md#deletefonenumbersfonenumber) | **DELETE** /fonenumbers/{fonenumber} | Remove fonenumber from the account.
-[**GetFonenumbers**](FonenumbersApi.md#getfonenumbers) | **GET** /fonenumbers | Get all active fonenumbers listed under the account.
-[**GetFonenumbersFonenumber**](FonenumbersApi.md#getfonenumbersfonenumber) | **GET** /fonenumbers/{fonenumber} | Get a single fonenumber listed under the account.
-[**PostFonenumbers**](FonenumbersApi.md#postfonenumbers) | **POST** /fonenumbers | Order quick fonenumber for the account.
-[**PutFonenumbersFonenumber**](FonenumbersApi.md#putfonenumbersfonenumber) | **PUT** /fonenumbers/{fonenumber} | Configure the service type for an account fonenumber.
+[**DeleteFonenumbersFonenumber**](FonenumbersApi.md#deletefonenumbersfonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete a fonenumber identified by fonenumber.
+[**GetFonenumbers**](FonenumbersApi.md#getfonenumbers) | **GET** /fonenumbers | Get a list of all active fonenumbers under the account.
+[**GetFonenumbersFonenumber**](FonenumbersApi.md#getfonenumbersfonenumber) | **GET** /fonenumbers/{fonenumber} | Get a fonenumber identified by fonenumber.
+[**PostFonenumbers**](FonenumbersApi.md#postfonenumbers) | **POST** /fonenumbers | Create a fonenumber under the account.
+[**PutFonenumbersFonenumber**](FonenumbersApi.md#putfonenumbersfonenumber) | **PUT** /fonenumbers/{fonenumber} | Update a fonenumber identified by fonenumber.
 
 
 <a name="deletefonenumbersfonenumber"></a>
 # **DeleteFonenumbersFonenumber**
 > string DeleteFonenumbersFonenumber (string fonenumber)
 
-Remove fonenumber from the account.
+Delete a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -38,7 +38,7 @@ namespace Example
 
             try
             {
-                // Remove fonenumber from the account.
+                // Delete a fonenumber identified by fonenumber.
                 string result = apiInstance.DeleteFonenumbersFonenumber(fonenumber);
                 Debug.WriteLine(result);
             }
@@ -76,7 +76,7 @@ No authorization required
 # **GetFonenumbers**
 > string GetFonenumbers (string filter = null)
 
-Get all active fonenumbers listed under the account.
+Get a list of all active fonenumbers under the account.
 
 Returns a JSON response
 
@@ -99,7 +99,7 @@ namespace Example
 
             try
             {
-                // Get all active fonenumbers listed under the account.
+                // Get a list of all active fonenumbers under the account.
                 string result = apiInstance.GetFonenumbers(filter);
                 Debug.WriteLine(result);
             }
@@ -137,7 +137,7 @@ No authorization required
 # **GetFonenumbersFonenumber**
 > string GetFonenumbersFonenumber (string fonenumber)
 
-Get a single fonenumber listed under the account.
+Get a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -160,7 +160,7 @@ namespace Example
 
             try
             {
-                // Get a single fonenumber listed under the account.
+                // Get a fonenumber identified by fonenumber.
                 string result = apiInstance.GetFonenumbersFonenumber(fonenumber);
                 Debug.WriteLine(result);
             }
@@ -198,7 +198,7 @@ No authorization required
 # **PostFonenumbers**
 > string PostFonenumbers (string areaCode)
 
-Order quick fonenumber for the account.
+Create a fonenumber under the account.
 
 Returns a JSON response
 
@@ -221,7 +221,7 @@ namespace Example
 
             try
             {
-                // Order quick fonenumber for the account.
+                // Create a fonenumber under the account.
                 string result = apiInstance.PostFonenumbers(areaCode);
                 Debug.WriteLine(result);
             }
@@ -259,7 +259,7 @@ No authorization required
 # **PutFonenumbersFonenumber**
 > string PutFonenumbersFonenumber (string fonenumber, string type, string value = null, string urlMethod = null, string urlUsername = null, string urlPassword = null)
 
-Configure the service type for an account fonenumber.
+Update a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -287,7 +287,7 @@ namespace Example
 
             try
             {
-                // Configure the service type for an account fonenumber.
+                // Update a fonenumber identified by fonenumber.
                 string result = apiInstance.PutFonenumbersFonenumber(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }

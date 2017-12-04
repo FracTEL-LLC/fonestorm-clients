@@ -56,52 +56,82 @@ group_paths() ->
 get_operations() ->
     #{ 
         'PostAuth' => #{
-            path => "/v2/auth",
+            path => "/edge/auth",
             method => <<"POST">>,
             handler => 'swagger_auth_handler'
         },
+        'PostCalls' => #{
+            path => "/edge/calls",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'PostCallsReceiveNotify' => #{
+            path => "/edge/calls/receive_notify",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'PostCallsSendNotify' => #{
+            path => "/edge/calls/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'PostFaxes' => #{
+            path => "/edge/faxes",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'PostFaxesReceiveNotify' => #{
+            path => "/edge/faxes/receive_notify",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'PostFaxesSendNotify' => #{
+            path => "/edge/faxes/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
         'DeleteFonenumbersFonenumber' => #{
-            path => "/v2/fonenumbers/:fonenumber",
+            path => "/edge/fonenumbers/:fonenumber",
             method => <<"DELETE">>,
             handler => 'swagger_fonenumbers_handler'
         },
         'GetFonenumbers' => #{
-            path => "/v2/fonenumbers",
+            path => "/edge/fonenumbers",
             method => <<"GET">>,
             handler => 'swagger_fonenumbers_handler'
         },
         'GetFonenumbersFonenumber' => #{
-            path => "/v2/fonenumbers/:fonenumber",
+            path => "/edge/fonenumbers/:fonenumber",
             method => <<"GET">>,
             handler => 'swagger_fonenumbers_handler'
         },
         'PostFonenumbers' => #{
-            path => "/v2/fonenumbers",
+            path => "/edge/fonenumbers",
             method => <<"POST">>,
             handler => 'swagger_fonenumbers_handler'
         },
         'PutFonenumbersFonenumber' => #{
-            path => "/v2/fonenumbers/:fonenumber",
+            path => "/edge/fonenumbers/:fonenumber",
             method => <<"PUT">>,
             handler => 'swagger_fonenumbers_handler'
         },
         'PostMessagesReceive' => #{
-            path => "/v2/messages/receive",
+            path => "/edge/messages/receive",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         },
         'PostMessagesReceiveNotify' => #{
-            path => "/v2/messages/receive_notify",
+            path => "/edge/messages/receive_notify",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         },
         'PostMessagesSend' => #{
-            path => "/v2/messages/send",
+            path => "/edge/messages/send",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         },
         'PostMessagesSendNotify' => #{
-            path => "/v2/messages/send_notify",
+            path => "/edge/messages/send_notify",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         }

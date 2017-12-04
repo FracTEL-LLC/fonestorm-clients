@@ -1,20 +1,20 @@
 # swagger_client.FonenumbersApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_fonenumbers_fonenumber**](FonenumbersApi.md#delete_fonenumbers_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Remove fonenumber from the account.
-[**get_fonenumbers**](FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get all active fonenumbers listed under the account.
-[**get_fonenumbers_fonenumber**](FonenumbersApi.md#get_fonenumbers_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get a single fonenumber listed under the account.
-[**post_fonenumbers**](FonenumbersApi.md#post_fonenumbers) | **POST** /fonenumbers | Order quick fonenumber for the account.
-[**put_fonenumbers_fonenumber**](FonenumbersApi.md#put_fonenumbers_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Configure the service type for an account fonenumber.
+[**delete_fonenumbers_fonenumber**](FonenumbersApi.md#delete_fonenumbers_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete a fonenumber identified by fonenumber.
+[**get_fonenumbers**](FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get a list of all active fonenumbers under the account.
+[**get_fonenumbers_fonenumber**](FonenumbersApi.md#get_fonenumbers_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get a fonenumber identified by fonenumber.
+[**post_fonenumbers**](FonenumbersApi.md#post_fonenumbers) | **POST** /fonenumbers | Create a fonenumber under the account.
+[**put_fonenumbers_fonenumber**](FonenumbersApi.md#put_fonenumbers_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Update a fonenumber identified by fonenumber.
 
 
 # **delete_fonenumbers_fonenumber**
 > str delete_fonenumbers_fonenumber(fonenumber)
 
-Remove fonenumber from the account.
+Delete a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -31,7 +31,7 @@ api_instance = swagger_client.FonenumbersApi()
 fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
 
 try: 
-    # Remove fonenumber from the account.
+    # Delete a fonenumber identified by fonenumber.
     api_response = api_instance.delete_fonenumbers_fonenumber(fonenumber)
     pprint(api_response)
 except ApiException as e:
@@ -62,7 +62,7 @@ No authorization required
 # **get_fonenumbers**
 > str get_fonenumbers(filter=filter)
 
-Get all active fonenumbers listed under the account.
+Get a list of all active fonenumbers under the account.
 
 Returns a JSON response
 
@@ -79,7 +79,7 @@ api_instance = swagger_client.FonenumbersApi()
 filter = 'filter_example' # str | Filters for the response. (optional)
 
 try: 
-    # Get all active fonenumbers listed under the account.
+    # Get a list of all active fonenumbers under the account.
     api_response = api_instance.get_fonenumbers(filter=filter)
     pprint(api_response)
 except ApiException as e:
@@ -110,7 +110,7 @@ No authorization required
 # **get_fonenumbers_fonenumber**
 > str get_fonenumbers_fonenumber(fonenumber)
 
-Get a single fonenumber listed under the account.
+Get a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -127,7 +127,7 @@ api_instance = swagger_client.FonenumbersApi()
 fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
 
 try: 
-    # Get a single fonenumber listed under the account.
+    # Get a fonenumber identified by fonenumber.
     api_response = api_instance.get_fonenumbers_fonenumber(fonenumber)
     pprint(api_response)
 except ApiException as e:
@@ -158,7 +158,7 @@ No authorization required
 # **post_fonenumbers**
 > str post_fonenumbers(area_code)
 
-Order quick fonenumber for the account.
+Create a fonenumber under the account.
 
 Returns a JSON response
 
@@ -175,7 +175,7 @@ api_instance = swagger_client.FonenumbersApi()
 area_code = 'area_code_example' # str | A valid 3-digit Area Code.
 
 try: 
-    # Order quick fonenumber for the account.
+    # Create a fonenumber under the account.
     api_response = api_instance.post_fonenumbers(area_code)
     pprint(api_response)
 except ApiException as e:
@@ -206,7 +206,7 @@ No authorization required
 # **put_fonenumbers_fonenumber**
 > str put_fonenumbers_fonenumber(fonenumber, type, value=value, url_method=url_method, url_username=url_username, url_password=url_password)
 
-Configure the service type for an account fonenumber.
+Update a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -228,7 +228,7 @@ url_username = 'url_username_example' # str | URL auth username. (optional)
 url_password = 'url_password_example' # str | URL auth password. (optional)
 
 try: 
-    # Configure the service type for an account fonenumber.
+    # Update a fonenumber identified by fonenumber.
     api_response = api_instance.put_fonenumbers_fonenumber(fonenumber, type, value=value, url_method=url_method, url_username=url_username, url_password=url_password)
     pprint(api_response)
 except ApiException as e:

@@ -11,7 +11,7 @@ import Alamofire
 
 public class FonenumbersAPI: APIBase {
     /**
-     Remove fonenumber from the account.
+     Delete a fonenumber identified by fonenumber.
      
      - parameter fonenumber: (path) Your FracTEL fonenumber. 
      - parameter completion: completion handler to receive the data and the error objects
@@ -24,7 +24,7 @@ public class FonenumbersAPI: APIBase {
 
 
     /**
-     Remove fonenumber from the account.
+     Delete a fonenumber identified by fonenumber.
      - DELETE /fonenumbers/{fonenumber}
      - Returns a JSON response
      - examples: [{contentType=application/json, example="aeiou"}]
@@ -58,7 +58,7 @@ public class FonenumbersAPI: APIBase {
     }
 
     /**
-     Get all active fonenumbers listed under the account.
+     Get a list of all active fonenumbers under the account.
      
      - parameter filter: (query) Filters for the response. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -71,7 +71,7 @@ public class FonenumbersAPI: APIBase {
 
 
     /**
-     Get all active fonenumbers listed under the account.
+     Get a list of all active fonenumbers under the account.
      - GET /fonenumbers
      - Returns a JSON response
      - examples: [{contentType=application/json, example="aeiou"}]
@@ -98,7 +98,7 @@ public class FonenumbersAPI: APIBase {
     }
 
     /**
-     Get a single fonenumber listed under the account.
+     Get a fonenumber identified by fonenumber.
      
      - parameter fonenumber: (path) Your FracTEL fonenumber. 
      - parameter completion: completion handler to receive the data and the error objects
@@ -111,7 +111,7 @@ public class FonenumbersAPI: APIBase {
 
 
     /**
-     Get a single fonenumber listed under the account.
+     Get a fonenumber identified by fonenumber.
      - GET /fonenumbers/{fonenumber}
      - Returns a JSON response
      - examples: [{contentType=application/json, example="aeiou"}]
@@ -137,7 +137,7 @@ public class FonenumbersAPI: APIBase {
     }
 
     /**
-     Order quick fonenumber for the account.
+     Create a fonenumber under the account.
      
      - parameter areaCode: (form) A valid 3-digit Area Code. 
      - parameter completion: completion handler to receive the data and the error objects
@@ -150,7 +150,7 @@ public class FonenumbersAPI: APIBase {
 
 
     /**
-     Order quick fonenumber for the account.
+     Create a fonenumber under the account.
      - POST /fonenumbers
      - Returns a JSON response
      - examples: [{contentType=application/json, example="aeiou"}]
@@ -197,7 +197,7 @@ public class FonenumbersAPI: APIBase {
     }
 
     /**
-     Configure the service type for an account fonenumber.
+     Update a fonenumber identified by fonenumber.
      
      - parameter fonenumber: (path) Your FracTEL fonenumber. 
      - parameter type: (form) Message routing type. 
@@ -215,7 +215,7 @@ public class FonenumbersAPI: APIBase {
 
 
     /**
-     Configure the service type for an account fonenumber.
+     Update a fonenumber identified by fonenumber.
      - PUT /fonenumbers/{fonenumber}
      - Returns a JSON response
      - examples: [{contentType=application/json, example="aeiou"}]

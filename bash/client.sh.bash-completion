@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-08-08T09:24:05.092-06:00
+# ! Generated on: 2017-12-04T14:58:35.677-07:00
 # !
 # !
 # ! System wide installation:
@@ -70,6 +70,12 @@ _()
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
     operations["postAuth"]=1
+    operations["postCalls"]=1
+    operations["postCallsReceiveNotify"]=1
+    operations["postCallsSendNotify"]=1
+    operations["postFaxes"]=1
+    operations["postFaxesReceiveNotify"]=1
+    operations["postFaxesSendNotify"]=1
     operations["deleteFonenumbersFonenumber"]=1
     operations["getFonenumbers"]=1
     operations["getFonenumbersFonenumber"]=1
@@ -84,6 +90,12 @@ _()
     # Only include path, query and header parameters
     declare -A operation_parameters
     operation_parameters["postAuth"]=""
+    operation_parameters["postCalls"]=""
+    operation_parameters["postCallsReceiveNotify"]=""
+    operation_parameters["postCallsSendNotify"]=""
+    operation_parameters["postFaxes"]=""
+    operation_parameters["postFaxesReceiveNotify"]=""
+    operation_parameters["postFaxesSendNotify"]=""
     operation_parameters["deleteFonenumbersFonenumber"]="fonenumber= "
     operation_parameters["getFonenumbers"]="filter= "
     operation_parameters["getFonenumbersFonenumber"]="fonenumber= "

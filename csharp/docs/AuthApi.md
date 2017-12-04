@@ -1,17 +1,17 @@
 # IO.Swagger.Api.AuthApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PostAuth**](AuthApi.md#postauth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**PostAuth**](AuthApi.md#postauth) | **POST** /auth | Create a FoneStorm authentication token.
 
 
 <a name="postauth"></a>
 # **PostAuth**
 > string PostAuth (string username, string password, int? expires = null)
 
-Obtain a FracTEL Auth token.
+Create a FoneStorm authentication token.
 
 Returns a token that can be used to make authenticated requests
 
@@ -36,7 +36,7 @@ namespace Example
 
             try
             {
-                // Obtain a FracTEL Auth token.
+                // Create a FoneStorm authentication token.
                 string result = apiInstance.PostAuth(username, password, expires);
                 Debug.WriteLine(result);
             }

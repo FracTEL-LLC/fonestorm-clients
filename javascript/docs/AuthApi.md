@@ -1,25 +1,25 @@
-# FracTelApi212.AuthApi
+# FoneStormApi220.AuthApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postAuth**](AuthApi.md#postAuth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**postAuth**](AuthApi.md#postAuth) | **POST** /auth | Create a FoneStorm authentication token.
 
 
 <a name="postAuth"></a>
 # **postAuth**
 > &#39;String&#39; postAuth(username, password, opts)
 
-Obtain a FracTEL Auth token.
+Create a FoneStorm authentication token.
 
 Returns a token that can be used to make authenticated requests
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.AuthApi();
+var apiInstance = new FoneStormApi220.AuthApi();
 
 var username = "username_example"; // String | FracTEL username
 

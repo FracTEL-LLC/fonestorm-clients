@@ -1,16 +1,16 @@
 # SwaggerClient::AuthApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Create a FoneStorm authentication token.
 
 
 # **post_auth**
 > String post_auth(username, password, opts)
 
-Obtain a FracTEL Auth token.
+Create a FoneStorm authentication token.
 
 Returns a token that can be used to make authenticated requests
 
@@ -30,7 +30,7 @@ opts = {
 }
 
 begin
-  #Obtain a FracTEL Auth token.
+  #Create a FoneStorm authentication token.
   result = api_instance.post_auth(username, password, opts)
   p result
 rescue SwaggerClient::ApiError => e

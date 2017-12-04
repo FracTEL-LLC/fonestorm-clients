@@ -5,21 +5,21 @@
 use WWW::SwaggerClient::Object::FonenumbersApi;
 ```
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_fonenumbers_fonenumber**](FonenumbersApi.md#delete_fonenumbers_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Remove fonenumber from the account.
-[**get_fonenumbers**](FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get all active fonenumbers listed under the account.
-[**get_fonenumbers_fonenumber**](FonenumbersApi.md#get_fonenumbers_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get a single fonenumber listed under the account.
-[**post_fonenumbers**](FonenumbersApi.md#post_fonenumbers) | **POST** /fonenumbers | Order quick fonenumber for the account.
-[**put_fonenumbers_fonenumber**](FonenumbersApi.md#put_fonenumbers_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Configure the service type for an account fonenumber.
+[**delete_fonenumbers_fonenumber**](FonenumbersApi.md#delete_fonenumbers_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete a fonenumber identified by fonenumber.
+[**get_fonenumbers**](FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get a list of all active fonenumbers under the account.
+[**get_fonenumbers_fonenumber**](FonenumbersApi.md#get_fonenumbers_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get a fonenumber identified by fonenumber.
+[**post_fonenumbers**](FonenumbersApi.md#post_fonenumbers) | **POST** /fonenumbers | Create a fonenumber under the account.
+[**put_fonenumbers_fonenumber**](FonenumbersApi.md#put_fonenumbers_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Update a fonenumber identified by fonenumber.
 
 
 # **delete_fonenumbers_fonenumber**
 > string delete_fonenumbers_fonenumber(fonenumber => $fonenumber)
 
-Remove fonenumber from the account.
+Delete a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -65,7 +65,7 @@ No authorization required
 # **get_fonenumbers**
 > string get_fonenumbers(filter => $filter)
 
-Get all active fonenumbers listed under the account.
+Get a list of all active fonenumbers under the account.
 
 Returns a JSON response
 
@@ -111,7 +111,7 @@ No authorization required
 # **get_fonenumbers_fonenumber**
 > string get_fonenumbers_fonenumber(fonenumber => $fonenumber)
 
-Get a single fonenumber listed under the account.
+Get a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
@@ -157,7 +157,7 @@ No authorization required
 # **post_fonenumbers**
 > string post_fonenumbers(area_code => $area_code)
 
-Order quick fonenumber for the account.
+Create a fonenumber under the account.
 
 Returns a JSON response
 
@@ -203,7 +203,7 @@ No authorization required
 # **put_fonenumbers_fonenumber**
 > string put_fonenumbers_fonenumber(fonenumber => $fonenumber, type => $type, value => $value, url_method => $url_method, url_username => $url_username, url_password => $url_password)
 
-Configure the service type for an account fonenumber.
+Update a fonenumber identified by fonenumber.
 
 Returns a JSON response
 

@@ -1,17 +1,17 @@
 # AuthApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postAuth**](AuthApi.md#postAuth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**postAuth**](AuthApi.md#postAuth) | **POST** /auth | Create a FoneStorm authentication token.
 
 
 <a name="postAuth"></a>
 # **postAuth**
 > String postAuth(username, password, expires)
 
-Obtain a FracTEL Auth token.
+Create a FoneStorm authentication token.
 
 Returns a token that can be used to make authenticated requests
 

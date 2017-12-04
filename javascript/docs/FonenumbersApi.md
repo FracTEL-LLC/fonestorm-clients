@@ -1,29 +1,29 @@
-# FracTelApi212.FonenumbersApi
+# FoneStormApi220.FonenumbersApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteFonenumbersFonenumber**](FonenumbersApi.md#deleteFonenumbersFonenumber) | **DELETE** /fonenumbers/{fonenumber} | Remove fonenumber from the account.
-[**getFonenumbers**](FonenumbersApi.md#getFonenumbers) | **GET** /fonenumbers | Get all active fonenumbers listed under the account.
-[**getFonenumbersFonenumber**](FonenumbersApi.md#getFonenumbersFonenumber) | **GET** /fonenumbers/{fonenumber} | Get a single fonenumber listed under the account.
-[**postFonenumbers**](FonenumbersApi.md#postFonenumbers) | **POST** /fonenumbers | Order quick fonenumber for the account.
-[**putFonenumbersFonenumber**](FonenumbersApi.md#putFonenumbersFonenumber) | **PUT** /fonenumbers/{fonenumber} | Configure the service type for an account fonenumber.
+[**deleteFonenumbersFonenumber**](FonenumbersApi.md#deleteFonenumbersFonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete a fonenumber identified by fonenumber.
+[**getFonenumbers**](FonenumbersApi.md#getFonenumbers) | **GET** /fonenumbers | Get a list of all active fonenumbers under the account.
+[**getFonenumbersFonenumber**](FonenumbersApi.md#getFonenumbersFonenumber) | **GET** /fonenumbers/{fonenumber} | Get a fonenumber identified by fonenumber.
+[**postFonenumbers**](FonenumbersApi.md#postFonenumbers) | **POST** /fonenumbers | Create a fonenumber under the account.
+[**putFonenumbersFonenumber**](FonenumbersApi.md#putFonenumbersFonenumber) | **PUT** /fonenumbers/{fonenumber} | Update a fonenumber identified by fonenumber.
 
 
 <a name="deleteFonenumbersFonenumber"></a>
 # **deleteFonenumbersFonenumber**
 > &#39;String&#39; deleteFonenumbersFonenumber(fonenumber)
 
-Remove fonenumber from the account.
+Delete a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.FonenumbersApi();
+var apiInstance = new FoneStormApi220.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 
@@ -61,15 +61,15 @@ No authorization required
 # **getFonenumbers**
 > &#39;String&#39; getFonenumbers(opts)
 
-Get all active fonenumbers listed under the account.
+Get a list of all active fonenumbers under the account.
 
 Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.FonenumbersApi();
+var apiInstance = new FoneStormApi220.FonenumbersApi();
 
 var opts = { 
   'filter': "filter_example" // String | Filters for the response.
@@ -108,15 +108,15 @@ No authorization required
 # **getFonenumbersFonenumber**
 > &#39;String&#39; getFonenumbersFonenumber(fonenumber)
 
-Get a single fonenumber listed under the account.
+Get a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.FonenumbersApi();
+var apiInstance = new FoneStormApi220.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 
@@ -154,15 +154,15 @@ No authorization required
 # **postFonenumbers**
 > &#39;String&#39; postFonenumbers(areaCode)
 
-Order quick fonenumber for the account.
+Create a fonenumber under the account.
 
 Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.FonenumbersApi();
+var apiInstance = new FoneStormApi220.FonenumbersApi();
 
 var areaCode = "areaCode_example"; // String | A valid 3-digit Area Code.
 
@@ -200,15 +200,15 @@ No authorization required
 # **putFonenumbersFonenumber**
 > &#39;String&#39; putFonenumbersFonenumber(fonenumber, type, opts)
 
-Configure the service type for an account fonenumber.
+Update a fonenumber identified by fonenumber.
 
 Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.FonenumbersApi();
+var apiInstance = new FoneStormApi220.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
 

@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-08-08T09:24:05.092-06:00
+# ! Generated on: 2017-12-04T14:58:35.677-07:00
 # !
 # !
 # ! Installation:
@@ -297,11 +297,15 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "postAuth[Obtain a FracTEL Auth token.]"             "deleteFonenumbersFonenumber[Remove fonenumber from the account.]" \
-            "getFonenumbers[Get all active fonenumbers listed under the account.]" \
-            "getFonenumbersFonenumber[Get a single fonenumber listed under the account.]" \
-            "postFonenumbers[Order quick fonenumber for the account.]" \
-            "putFonenumbersFonenumber[Configure the service type for an account fonenumber.]"             "postMessagesReceive[Configure the delivery service type used as the destination for received messages.]" \
+            "postAuth[Create a FoneStorm authentication token.]"             "postCalls[Create a new call under the account.]" \
+            "postCallsReceiveNotify[Configure the callback URL to notify when a call is received.]" \
+            "postCallsSendNotify[Configure the callback URL to notify when a call is made.]"             "postFaxes[Create a new fax under the account.]" \
+            "postFaxesReceiveNotify[Configure the callback URL to notify when a fax is received.]" \
+            "postFaxesSendNotify[Configure the callback URL to notify when a fax is made.]"             "deleteFonenumbersFonenumber[Delete a fonenumber identified by fonenumber.]" \
+            "getFonenumbers[Get a list of all active fonenumbers under the account.]" \
+            "getFonenumbersFonenumber[Get a fonenumber identified by fonenumber.]" \
+            "postFonenumbers[Create a fonenumber under the account.]" \
+            "putFonenumbersFonenumber[Update a fonenumber identified by fonenumber.]"             "postMessagesReceive[Configure the delivery service type used as the destination for received messages.]" \
             "postMessagesReceiveNotify[Configure the callback URL to notify when a message is received.]" \
             "postMessagesSend[Send an SMS or MMS message to a recipient.]" \
             "postMessagesSendNotify[Configure the callback URL to notify when a message is sent.]" 
@@ -312,6 +316,42 @@ case $state in
   args)
     case $line[1] in
       postAuth)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      postCalls)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      postCallsReceiveNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      postCallsSendNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      postFaxes)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      postFaxesReceiveNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      postFaxesSendNotify)
         local -a _op_arguments
         _op_arguments=(
                               )

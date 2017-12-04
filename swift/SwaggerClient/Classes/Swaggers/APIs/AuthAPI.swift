@@ -11,7 +11,7 @@ import Alamofire
 
 public class AuthAPI: APIBase {
     /**
-     Obtain a FracTEL Auth token.
+     Create a FoneStorm authentication token.
      
      - parameter username: (form) FracTEL username 
      - parameter password: (form) FracTEL password 
@@ -26,7 +26,7 @@ public class AuthAPI: APIBase {
 
 
     /**
-     Obtain a FracTEL Auth token.
+     Create a FoneStorm authentication token.
      - POST /auth
      - Returns a token that can be used to make authenticated requests
      - examples: [{contentType=application/json, example="aeiou"}]

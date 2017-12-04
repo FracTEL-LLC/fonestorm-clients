@@ -8,12 +8,12 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-08-08T09:24:05.092-06:00
+# ! Generated on: 2017-12-04T14:58:35.677-07:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for FracTEL API 2.1.2.
+# This is a Bash client for FoneStorm API 2.2.0.
 #
 # LICENSE:
 # 
@@ -70,6 +70,33 @@ declare -A operation_parameters_minimum_occurences
 operation_parameters_minimum_occurences["postAuth:::username"]=1
 operation_parameters_minimum_occurences["postAuth:::password"]=1
 operation_parameters_minimum_occurences["postAuth:::expires"]=0
+operation_parameters_minimum_occurences["postCalls:::fonenumber"]=1
+operation_parameters_minimum_occurences["postCalls:::to"]=1
+operation_parameters_minimum_occurences["postCalls:::tts"]=0
+operation_parameters_minimum_occurences["postCallsReceiveNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["postCallsReceiveNotify:::method"]=1
+operation_parameters_minimum_occurences["postCallsReceiveNotify:::url"]=1
+operation_parameters_minimum_occurences["postCallsReceiveNotify:::url_username"]=0
+operation_parameters_minimum_occurences["postCallsReceiveNotify:::url_password"]=0
+operation_parameters_minimum_occurences["postCallsSendNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["postCallsSendNotify:::method"]=1
+operation_parameters_minimum_occurences["postCallsSendNotify:::url"]=1
+operation_parameters_minimum_occurences["postCallsSendNotify:::url_username"]=0
+operation_parameters_minimum_occurences["postCallsSendNotify:::url_password"]=0
+operation_parameters_minimum_occurences["postFaxes:::fonenumber"]=1
+operation_parameters_minimum_occurences["postFaxes:::to"]=1
+operation_parameters_minimum_occurences["postFaxes:::message"]=0
+operation_parameters_minimum_occurences["postFaxes:::pdf"]=0
+operation_parameters_minimum_occurences["postFaxesReceiveNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["postFaxesReceiveNotify:::method"]=1
+operation_parameters_minimum_occurences["postFaxesReceiveNotify:::url"]=1
+operation_parameters_minimum_occurences["postFaxesReceiveNotify:::url_username"]=0
+operation_parameters_minimum_occurences["postFaxesReceiveNotify:::url_password"]=0
+operation_parameters_minimum_occurences["postFaxesSendNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["postFaxesSendNotify:::method"]=1
+operation_parameters_minimum_occurences["postFaxesSendNotify:::url"]=1
+operation_parameters_minimum_occurences["postFaxesSendNotify:::url_username"]=0
+operation_parameters_minimum_occurences["postFaxesSendNotify:::url_password"]=0
 operation_parameters_minimum_occurences["deleteFonenumbersFonenumber:::fonenumber"]=1
 operation_parameters_minimum_occurences["getFonenumbers:::filter"]=0
 operation_parameters_minimum_occurences["getFonenumbersFonenumber:::fonenumber"]=1
@@ -115,6 +142,33 @@ declare -A operation_parameters_maximum_occurences
 operation_parameters_maximum_occurences["postAuth:::username"]=0
 operation_parameters_maximum_occurences["postAuth:::password"]=0
 operation_parameters_maximum_occurences["postAuth:::expires"]=0
+operation_parameters_maximum_occurences["postCalls:::fonenumber"]=0
+operation_parameters_maximum_occurences["postCalls:::to"]=0
+operation_parameters_maximum_occurences["postCalls:::tts"]=0
+operation_parameters_maximum_occurences["postCallsReceiveNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["postCallsReceiveNotify:::method"]=0
+operation_parameters_maximum_occurences["postCallsReceiveNotify:::url"]=0
+operation_parameters_maximum_occurences["postCallsReceiveNotify:::url_username"]=0
+operation_parameters_maximum_occurences["postCallsReceiveNotify:::url_password"]=0
+operation_parameters_maximum_occurences["postCallsSendNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["postCallsSendNotify:::method"]=0
+operation_parameters_maximum_occurences["postCallsSendNotify:::url"]=0
+operation_parameters_maximum_occurences["postCallsSendNotify:::url_username"]=0
+operation_parameters_maximum_occurences["postCallsSendNotify:::url_password"]=0
+operation_parameters_maximum_occurences["postFaxes:::fonenumber"]=0
+operation_parameters_maximum_occurences["postFaxes:::to"]=0
+operation_parameters_maximum_occurences["postFaxes:::message"]=0
+operation_parameters_maximum_occurences["postFaxes:::pdf"]=0
+operation_parameters_maximum_occurences["postFaxesReceiveNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["postFaxesReceiveNotify:::method"]=0
+operation_parameters_maximum_occurences["postFaxesReceiveNotify:::url"]=0
+operation_parameters_maximum_occurences["postFaxesReceiveNotify:::url_username"]=0
+operation_parameters_maximum_occurences["postFaxesReceiveNotify:::url_password"]=0
+operation_parameters_maximum_occurences["postFaxesSendNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["postFaxesSendNotify:::method"]=0
+operation_parameters_maximum_occurences["postFaxesSendNotify:::url"]=0
+operation_parameters_maximum_occurences["postFaxesSendNotify:::url_username"]=0
+operation_parameters_maximum_occurences["postFaxesSendNotify:::url_password"]=0
 operation_parameters_maximum_occurences["deleteFonenumbersFonenumber:::fonenumber"]=0
 operation_parameters_maximum_occurences["getFonenumbers:::filter"]=0
 operation_parameters_maximum_occurences["getFonenumbersFonenumber:::fonenumber"]=0
@@ -157,6 +211,33 @@ declare -A operation_parameters_collection_type
 operation_parameters_collection_type["postAuth:::username"]=""
 operation_parameters_collection_type["postAuth:::password"]=""
 operation_parameters_collection_type["postAuth:::expires"]=""
+operation_parameters_collection_type["postCalls:::fonenumber"]=""
+operation_parameters_collection_type["postCalls:::to"]=""
+operation_parameters_collection_type["postCalls:::tts"]=""
+operation_parameters_collection_type["postCallsReceiveNotify:::fonenumber"]=""
+operation_parameters_collection_type["postCallsReceiveNotify:::method"]=""
+operation_parameters_collection_type["postCallsReceiveNotify:::url"]=""
+operation_parameters_collection_type["postCallsReceiveNotify:::url_username"]=""
+operation_parameters_collection_type["postCallsReceiveNotify:::url_password"]=""
+operation_parameters_collection_type["postCallsSendNotify:::fonenumber"]=""
+operation_parameters_collection_type["postCallsSendNotify:::method"]=""
+operation_parameters_collection_type["postCallsSendNotify:::url"]=""
+operation_parameters_collection_type["postCallsSendNotify:::url_username"]=""
+operation_parameters_collection_type["postCallsSendNotify:::url_password"]=""
+operation_parameters_collection_type["postFaxes:::fonenumber"]=""
+operation_parameters_collection_type["postFaxes:::to"]=""
+operation_parameters_collection_type["postFaxes:::message"]=""
+operation_parameters_collection_type["postFaxes:::pdf"]=""
+operation_parameters_collection_type["postFaxesReceiveNotify:::fonenumber"]=""
+operation_parameters_collection_type["postFaxesReceiveNotify:::method"]=""
+operation_parameters_collection_type["postFaxesReceiveNotify:::url"]=""
+operation_parameters_collection_type["postFaxesReceiveNotify:::url_username"]=""
+operation_parameters_collection_type["postFaxesReceiveNotify:::url_password"]=""
+operation_parameters_collection_type["postFaxesSendNotify:::fonenumber"]=""
+operation_parameters_collection_type["postFaxesSendNotify:::method"]=""
+operation_parameters_collection_type["postFaxesSendNotify:::url"]=""
+operation_parameters_collection_type["postFaxesSendNotify:::url_username"]=""
+operation_parameters_collection_type["postFaxesSendNotify:::url_password"]=""
 operation_parameters_collection_type["deleteFonenumbersFonenumber:::fonenumber"]=""
 operation_parameters_collection_type["getFonenumbers:::filter"]=""
 operation_parameters_collection_type["getFonenumbersFonenumber:::fonenumber"]=""
@@ -635,7 +716,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-$(tput bold)$(tput setaf 7)FracTEL API 2.1.2 command line client (API version 2.1.2)$(tput sgr0)
+$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 command line client (API version 2.2.0)$(tput sgr0)
 
 $(tput bold)$(tput setaf 7)Usage$(tput sgr0)
 
@@ -671,17 +752,33 @@ EOF
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)[auth]$(tput sgr0)"
 read -d '' ops <<EOF
-  $(tput setaf 6)postAuth$(tput sgr0);Obtain a FracTEL Auth token.
+  $(tput setaf 6)postAuth$(tput sgr0);Create a FoneStorm authentication token.
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[calls]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)postCalls$(tput sgr0);Create a new call under the account.
+  $(tput setaf 6)postCallsReceiveNotify$(tput sgr0);Configure the callback URL to notify when a call is received.
+  $(tput setaf 6)postCallsSendNotify$(tput sgr0);Configure the callback URL to notify when a call is made.
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[faxes]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)postFaxes$(tput sgr0);Create a new fax under the account.
+  $(tput setaf 6)postFaxesReceiveNotify$(tput sgr0);Configure the callback URL to notify when a fax is received.
+  $(tput setaf 6)postFaxesSendNotify$(tput sgr0);Configure the callback URL to notify when a fax is made.
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)[fonenumbers]$(tput sgr0)"
 read -d '' ops <<EOF
-  $(tput setaf 6)deleteFonenumbersFonenumber$(tput sgr0);Remove fonenumber from the account.
-  $(tput setaf 6)getFonenumbers$(tput sgr0);Get all active fonenumbers listed under the account.
-  $(tput setaf 6)getFonenumbersFonenumber$(tput sgr0);Get a single fonenumber listed under the account.
-  $(tput setaf 6)postFonenumbers$(tput sgr0);Order quick fonenumber for the account.
-  $(tput setaf 6)putFonenumbersFonenumber$(tput sgr0);Configure the service type for an account fonenumber.
+  $(tput setaf 6)deleteFonenumbersFonenumber$(tput sgr0);Delete a fonenumber identified by fonenumber.
+  $(tput setaf 6)getFonenumbers$(tput sgr0);Get a list of all active fonenumbers under the account.
+  $(tput setaf 6)getFonenumbersFonenumber$(tput sgr0);Get a fonenumber identified by fonenumber.
+  $(tput setaf 6)postFonenumbers$(tput sgr0);Create a fonenumber under the account.
+  $(tput setaf 6)putFonenumbersFonenumber$(tput sgr0);Update a fonenumber identified by fonenumber.
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -699,7 +796,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "  -V,--version\t\t\t\tPrint API version"
     echo -e "  --about\t\t\t\tPrint the information about service"
     echo -e "  --host $(tput setaf 6)<url>$(tput sgr0)\t\t\t\tSpecify the host URL "
-echo -e "              \t\t\t\t(e.g. 'https://api.fonestorm.com')"
+echo -e "              \t\t\t\t(e.g. 'https://dev-api.fractel.net')"
 
     echo -e "  --force\t\t\t\tForce command invocation in spite of missing"
     echo -e "         \t\t\t\trequired parameters or wrong content type"
@@ -719,14 +816,14 @@ echo -e "              \t\t\t\t(e.g. 'https://api.fonestorm.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)FracTEL API 2.1.2 command line client (API version 2.1.2)$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 command line client (API version 2.2.0)$(tput sgr0)"
     echo ""
     echo -e "License: "
     echo -e "Contact: "
     echo ""
 read -d '' appdescription <<EOF
 
-No description provided (generated by Swagger Codegen https://github.com/swagger-api/swagger-codegen)
+Extended API Documentation: https://developer.fonestorm.com
 EOF
 echo "$appdescription" | fold -sw 80
 }
@@ -739,7 +836,7 @@ echo "$appdescription" | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "$(tput bold)FracTEL API 2.1.2 command line client (API version 2.1.2)$(tput sgr0)"
+    echo -e "$(tput bold)FoneStorm API 2.2.0 command line client (API version 2.2.0)$(tput sgr0)"
     echo ""
 }
 
@@ -750,9 +847,219 @@ print_version() {
 ##############################################################################
 print_postAuth_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postAuth - Obtain a FracTEL Auth token.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)postAuth - Create a FoneStorm authentication token.$(tput sgr0)"
     echo -e ""
     echo -e "Returns a token that can be used to make authenticated requests" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for postCalls operation
+#
+##############################################################################
+print_postCalls_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)postCalls - Create a new call under the account.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for postCallsReceiveNotify operation
+#
+##############################################################################
+print_postCallsReceiveNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)postCallsReceiveNotify - Configure the callback URL to notify when a call is received.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for postCallsSendNotify operation
+#
+##############################################################################
+print_postCallsSendNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)postCallsSendNotify - Configure the callback URL to notify when a call is made.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for postFaxes operation
+#
+##############################################################################
+print_postFaxes_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)postFaxes - Create a new fax under the account.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for postFaxesReceiveNotify operation
+#
+##############################################################################
+print_postFaxesReceiveNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)postFaxesReceiveNotify - Configure the callback URL to notify when a fax is received.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for postFaxesSendNotify operation
+#
+##############################################################################
+print_postFaxesSendNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)postFaxesSendNotify - Configure the callback URL to notify when a fax is made.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a JSON response" | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
@@ -785,7 +1092,7 @@ print_postAuth_help() {
 ##############################################################################
 print_deleteFonenumbersFonenumber_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)deleteFonenumbersFonenumber - Remove fonenumber from the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)deleteFonenumbersFonenumber - Delete a fonenumber identified by fonenumber.$(tput sgr0)"
     echo -e ""
     echo -e "Returns a JSON response" | fold -sw 80
     echo -e ""
@@ -821,7 +1128,7 @@ print_deleteFonenumbersFonenumber_help() {
 ##############################################################################
 print_getFonenumbers_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)getFonenumbers - Get all active fonenumbers listed under the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)getFonenumbers - Get a list of all active fonenumbers under the account.$(tput sgr0)"
     echo -e ""
     echo -e "Returns a JSON response" | fold -sw 80
     echo -e ""
@@ -858,7 +1165,7 @@ print_getFonenumbers_help() {
 ##############################################################################
 print_getFonenumbersFonenumber_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)getFonenumbersFonenumber - Get a single fonenumber listed under the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)getFonenumbersFonenumber - Get a fonenumber identified by fonenumber.$(tput sgr0)"
     echo -e ""
     echo -e "Returns a JSON response" | fold -sw 80
     echo -e ""
@@ -894,7 +1201,7 @@ print_getFonenumbersFonenumber_help() {
 ##############################################################################
 print_postFonenumbers_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postFonenumbers - Order quick fonenumber for the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)postFonenumbers - Create a fonenumber under the account.$(tput sgr0)"
     echo -e ""
     echo -e "Returns a JSON response" | fold -sw 80
     echo -e ""
@@ -929,7 +1236,7 @@ print_postFonenumbers_help() {
 ##############################################################################
 print_putFonenumbersFonenumber_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)putFonenumbersFonenumber - Configure the service type for an account fonenumber.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)putFonenumbersFonenumber - Update a fonenumber identified by fonenumber.$(tput sgr0)"
     echo -e ""
     echo -e "Returns a JSON response" | fold -sw 80
     echo -e ""
@@ -1110,10 +1417,196 @@ call_postAuth() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/auth" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/auth" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/auth" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/auth" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call postCalls operation
+#
+##############################################################################
+call_postCalls() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/edge/calls" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/edge/calls" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call postCallsReceiveNotify operation
+#
+##############################################################################
+call_postCallsReceiveNotify() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/edge/calls/receive_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/edge/calls/receive_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call postCallsSendNotify operation
+#
+##############################################################################
+call_postCallsSendNotify() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/edge/calls/send_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/edge/calls/send_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call postFaxes operation
+#
+##############################################################################
+call_postFaxes() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/edge/faxes" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/edge/faxes" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call postFaxesReceiveNotify operation
+#
+##############################################################################
+call_postFaxesReceiveNotify() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/edge/faxes/receive_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/edge/faxes/receive_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call postFaxesSendNotify operation
+#
+##############################################################################
+call_postFaxesSendNotify() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/edge/faxes/send_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/edge/faxes/send_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1141,10 +1634,10 @@ call_deleteFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="DELETE"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1172,10 +1665,10 @@ call_getFonenumbers() {
     local query_parameter_names=(filter)
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/fonenumbers" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/fonenumbers" path_parameter_names query_parameter_names)
     local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1203,10 +1696,10 @@ call_getFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1234,10 +1727,10 @@ call_postFonenumbers() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/fonenumbers" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/fonenumbers" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1265,10 +1758,10 @@ call_putFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="PUT"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1296,10 +1789,10 @@ call_postMessagesReceive() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/messages/receive" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/messages/receive" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/messages/receive" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/messages/receive" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1327,10 +1820,10 @@ call_postMessagesReceiveNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/messages/receive_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/messages/receive_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/messages/receive_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/messages/receive_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1358,10 +1851,10 @@ call_postMessagesSend() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/messages/send" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/messages/send" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/messages/send" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/messages/send" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1389,10 +1882,10 @@ call_postMessagesSendNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/messages/send_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/edge/messages/send_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/messages/send_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/edge/messages/send_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1497,6 +1990,24 @@ case $key in
     ;;
     postAuth)
     operation="postAuth"
+    ;;
+    postCalls)
+    operation="postCalls"
+    ;;
+    postCallsReceiveNotify)
+    operation="postCallsReceiveNotify"
+    ;;
+    postCallsSendNotify)
+    operation="postCallsSendNotify"
+    ;;
+    postFaxes)
+    operation="postFaxes"
+    ;;
+    postFaxesReceiveNotify)
+    operation="postFaxesReceiveNotify"
+    ;;
+    postFaxesSendNotify)
+    operation="postFaxesSendNotify"
     ;;
     deleteFonenumbersFonenumber)
     operation="deleteFonenumbersFonenumber"
@@ -1611,6 +2122,24 @@ fi
 case $operation in
     postAuth)
     call_postAuth
+    ;;
+    postCalls)
+    call_postCalls
+    ;;
+    postCallsReceiveNotify)
+    call_postCallsReceiveNotify
+    ;;
+    postCallsSendNotify)
+    call_postCallsSendNotify
+    ;;
+    postFaxes)
+    call_postFaxes
+    ;;
+    postFaxesReceiveNotify)
+    call_postFaxesReceiveNotify
+    ;;
+    postFaxesSendNotify)
+    call_postFaxesSendNotify
     ;;
     deleteFonenumbersFonenumber)
     call_deleteFonenumbersFonenumber

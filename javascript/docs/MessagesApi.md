@@ -1,6 +1,6 @@
-# FracTelApi212.MessagesApi
+# FoneStormApi220.MessagesApi
 
-All URIs are relative to *http://api.fonestorm.com/v2*
+All URIs are relative to *http://dev-api.fractel.net/edge*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,9 +20,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.MessagesApi();
+var apiInstance = new FoneStormApi220.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number.
 
@@ -79,9 +79,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.MessagesApi();
+var apiInstance = new FoneStormApi220.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number.
 
@@ -137,9 +137,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.MessagesApi();
+var apiInstance = new FoneStormApi220.MessagesApi();
 
 var to = "to_example"; // String | The recipient's 10 digits phone number.
 
@@ -201,9 +201,9 @@ Returns a JSON response
 
 ### Example
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
+var FoneStormApi220 = require('fone_storm_api_220');
 
-var apiInstance = new FracTelApi212.MessagesApi();
+var apiInstance = new FoneStormApi220.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number
 
