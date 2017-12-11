@@ -15,7 +15,7 @@ public class AuthAPI: APIBase {
      
      - parameter username: (form) FracTEL username 
      - parameter password: (form) FracTEL password 
-     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func postAuth(username username: String, password: String, expires: Int32? = nil, completion: ((data: String?, error: ErrorType?) -> Void)) {
@@ -33,7 +33,7 @@ public class AuthAPI: APIBase {
      
      - parameter username: (form) FracTEL username 
      - parameter password: (form) FracTEL password 
-     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
 
      - returns: RequestBuilder<String> 
      */

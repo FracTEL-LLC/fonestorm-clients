@@ -1,6 +1,6 @@
 /*
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -112,7 +112,7 @@ public class ApiClient {
      */
     public static final String LENIENT_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
-    private String basePath = "http://dev-api.fractel.net/edge";
+    private String basePath = "http://api.fonestorm.com/v2";
     private boolean lenientOnJson = false;
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -180,7 +180,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://dev-api.fractel.net/edge
+     * @param basePath Base path of the URL (e.g http://api.fonestorm.com/v2
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

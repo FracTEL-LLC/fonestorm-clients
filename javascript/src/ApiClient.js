@@ -1,6 +1,6 @@
 /**
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  *
@@ -46,9 +46,9 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default http://dev-api.fractel.net/edge
+     * @default http://api.fonestorm.com/v2
      */
-    this.basePath = 'http://dev-api.fractel.net/edge'.replace(/\/+$/, '');
+    this.basePath = 'http://api.fonestorm.com/v2'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.

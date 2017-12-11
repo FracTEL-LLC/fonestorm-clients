@@ -2,7 +2,7 @@
 
 FoneStorm API 2.2.0
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -58,7 +58,7 @@ sub new {
 # 
 # @param string $username FracTEL username (required)
 # @param string $password FracTEL password (required)
-# @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+# @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
 {
     my $params = {
     'username' => {
@@ -73,7 +73,7 @@ sub new {
     },
     'expires' => {
         data_type => 'int',
-        description => 'FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours',
+        description => 'FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)',
         required => '0',
     },
     };
@@ -107,7 +107,7 @@ sub post_auth {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }

@@ -1,6 +1,6 @@
 /**
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  *
@@ -61,7 +61,7 @@
      * @param {String} username FracTEL username
      * @param {String} password FracTEL password
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+     * @param {Number} opts.expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
      * @param {module:api/AuthApi~postAuthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'String'}
      */
@@ -94,7 +94,7 @@
 
       var authNames = [];
       var contentTypes = ['application/x-www-form-urlencoded'];
-      var accepts = [];
+      var accepts = ['application/json'];
       var returnType = 'String';
 
       return this.apiClient.callApi(

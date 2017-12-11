@@ -3,7 +3,7 @@
 """
     FoneStorm API 2.2.0
 
-    Extended API Documentation: https://developer.fonestorm.com
+    FracTEL's Middleware API
 
     OpenAPI spec version: 2.2.0
     
@@ -131,6 +131,10 @@ class CallsApi(object):
             form_params.append(('tts', params['tts']))
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
             select_header_content_type(['application/x-www-form-urlencoded'])
@@ -255,6 +259,10 @@ class CallsApi(object):
             form_params.append(('url_password', params['url_password']))
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
             select_header_content_type(['application/x-www-form-urlencoded'])
@@ -379,6 +387,10 @@ class CallsApi(object):
             form_params.append(('url_password', params['url_password']))
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
             select_header_content_type(['application/x-www-form-urlencoded'])

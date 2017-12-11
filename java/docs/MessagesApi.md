@@ -1,6 +1,6 @@
 # MessagesApi
 
-All URIs are relative to *http://dev-api.fractel.net/edge*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -63,7 +63,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="postMessagesReceiveNotify"></a>
 # **postMessagesReceiveNotify**
@@ -116,7 +116,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="postMessagesSend"></a>
 # **postMessagesSend**
@@ -175,7 +175,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="postMessagesSendNotify"></a>
 # **postMessagesSendNotify**
@@ -228,5 +228,5 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 

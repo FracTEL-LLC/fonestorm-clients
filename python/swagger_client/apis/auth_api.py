@@ -3,7 +3,7 @@
 """
     FoneStorm API 2.2.0
 
-    Extended API Documentation: https://developer.fonestorm.com
+    FracTEL's Middleware API
 
     OpenAPI spec version: 2.2.0
     
@@ -56,7 +56,7 @@ class AuthApi(object):
             for asynchronous request. (optional)
         :param str username: FracTEL username (required)
         :param str password: FracTEL password (required)
-        :param int expires: FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+        :param int expires: FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -84,7 +84,7 @@ class AuthApi(object):
             for asynchronous request. (optional)
         :param str username: FracTEL username (required)
         :param str password: FracTEL password (required)
-        :param int expires: FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+        :param int expires: FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -112,8 +112,6 @@ class AuthApi(object):
         if ('password' not in params) or (params['password'] is None):
             raise ValueError("Missing the required parameter `password` when calling `post_auth`")
 
-        if 'expires' in params and params['expires'] > 86400:
-            raise ValueError("Invalid value for parameter `expires` when calling `post_auth`, must be a value less than or equal to `86400`")
 
         collection_formats = {}
 
@@ -133,6 +131,10 @@ class AuthApi(object):
             form_params.append(('expires', params['expires']))
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
             select_header_content_type(['application/x-www-form-urlencoded'])

@@ -2,7 +2,7 @@
 <!--
 FoneStorm API 2.2.0
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -12,7 +12,7 @@ OpenAPI spec version: 2.2.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5349B38B-7449-4BA9-B59C-848E5CC3D513}</ProjectGuid>
+    <ProjectGuid>{DB783678-0A5C-49A4-92A8-5D23CB765CF1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IO.Swagger</RootNamespace>

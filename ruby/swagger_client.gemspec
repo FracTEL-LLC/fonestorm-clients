@@ -3,7 +3,7 @@
 =begin
 #FoneStorm API 2.2.0
 
-#Extended API Documentation: https://developer.fonestorm.com
+#FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.email       = [""]
   s.homepage    = "https://github.com/swagger-api/swagger-codegen"
   s.summary     = "FoneStorm API 2.2.0 Ruby Gem"
-  s.description = "Extended API Documentation: https://developer.fonestorm.com"
+  s.description = "FracTEL's Middleware API"
   # TODO uncommnet and update below with a proper license 
   #s.license     = "Apache 2.0"
   s.required_ruby_version = ">= 1.9"

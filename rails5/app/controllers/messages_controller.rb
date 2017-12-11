@@ -1,7 +1,7 @@
 =begin
 FoneStorm API 2.2.0
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 

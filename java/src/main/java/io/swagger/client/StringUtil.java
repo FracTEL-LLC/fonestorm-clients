@@ -1,6 +1,6 @@
 /*
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -13,7 +13,7 @@
 
 package io.swagger.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T14:58:37.727-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-11T11:43:57.729-07:00")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

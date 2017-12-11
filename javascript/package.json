@@ -1,7 +1,7 @@
 {
   "name": "fone_storm_api_220",
   "version": "2.2.0",
-  "description": "Extended_API_Documentation_httpsdeveloper_fonestorm_com",
+  "description": "FracTELs_Middleware_API",
   "license": "Unlicense",
   "main": "src/index.js",
   "scripts": {

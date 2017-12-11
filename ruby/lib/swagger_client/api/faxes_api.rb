@@ -1,7 +1,7 @@
 =begin
 #FoneStorm API 2.2.0
 
-#Extended API Documentation: https://developer.fonestorm.com
+#FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -61,6 +61,8 @@ module SwaggerClient
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
 
@@ -138,6 +140,8 @@ module SwaggerClient
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
 
@@ -216,6 +220,8 @@ module SwaggerClient
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
 

@@ -1,6 +1,6 @@
 # swagger_client.AuthApi
 
-All URIs are relative to *http://dev-api.fractel.net/edge*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ from pprint import pprint
 api_instance = swagger_client.AuthApi()
 username = 'username_example' # str | FracTEL username
 password = 'password_example' # str | FracTEL password
-expires = 56 # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+expires = 56 # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
 
 try: 
     # Create a FoneStorm authentication token.
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| FracTEL username | 
  **password** | **str**| FracTEL password | 
- **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
@@ -55,7 +55,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

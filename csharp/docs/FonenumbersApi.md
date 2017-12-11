@@ -1,6 +1,6 @@
 # IO.Swagger.Api.FonenumbersApi
 
-All URIs are relative to *http://dev-api.fractel.net/edge*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -129,7 +129,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -190,7 +190,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -251,7 +251,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -322,7 +322,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

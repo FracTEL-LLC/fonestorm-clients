@@ -1,7 +1,7 @@
 =begin
 #FoneStorm API 2.2.0
 
-#Extended API Documentation: https://developer.fonestorm.com
+#FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -25,7 +25,7 @@ module SwaggerClient
     # @param username FracTEL username
     # @param password FracTEL password
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+    # @option opts [Integer] :expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
     # @return [String]
     def post_auth(username, password, opts = {})
       data, _status_code, _headers = post_auth_with_http_info(username, password, opts)
@@ -37,7 +37,7 @@ module SwaggerClient
     # @param username FracTEL username
     # @param password FracTEL password
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+    # @option opts [Integer] :expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def post_auth_with_http_info(username, password, opts = {})
       if @api_client.config.debugging
@@ -51,10 +51,6 @@ module SwaggerClient
       if @api_client.config.client_side_validation && password.nil?
         fail ArgumentError, "Missing the required parameter 'password' when calling AuthApi.post_auth"
       end
-      if @api_client.config.client_side_validation && !opts[:'expires'].nil? && opts[:'expires'] > 86400
-        fail ArgumentError, 'invalid value for "opts[:"expires"]" when calling AuthApi.post_auth, must be smaller than or equal to 86400.'
-      end
-
       # resource path
       local_var_path = "/auth"
 
@@ -63,6 +59,8 @@ module SwaggerClient
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
 

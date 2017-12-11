@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-12-04T14:58:35.677-07:00
+# ! Generated on: 2017-12-11T11:43:55.642-07:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -16,7 +16,7 @@
 # This is a Bash client for FoneStorm API 2.2.0.
 #
 # LICENSE:
-# 
+# http://www.apache.org/licenses/LICENSE-2.0.html
 #
 # CONTACT:
 # 
@@ -796,7 +796,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "  -V,--version\t\t\t\tPrint API version"
     echo -e "  --about\t\t\t\tPrint the information about service"
     echo -e "  --host $(tput setaf 6)<url>$(tput sgr0)\t\t\t\tSpecify the host URL "
-echo -e "              \t\t\t\t(e.g. 'https://dev-api.fractel.net')"
+echo -e "              \t\t\t\t(e.g. 'https://api.fonestorm.com')"
 
     echo -e "  --force\t\t\t\tForce command invocation in spite of missing"
     echo -e "         \t\t\t\trequired parameters or wrong content type"
@@ -818,12 +818,12 @@ print_about() {
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 command line client (API version 2.2.0)$(tput sgr0)"
     echo ""
-    echo -e "License: "
+    echo -e "License: ISC"
     echo -e "Contact: "
     echo ""
 read -d '' appdescription <<EOF
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 EOF
 echo "$appdescription" | fold -sw 80
 }
@@ -1417,10 +1417,10 @@ call_postAuth() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/auth" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/auth" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/auth" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/auth" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1448,10 +1448,10 @@ call_postCalls() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/calls" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/calls" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/calls" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/calls" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1479,10 +1479,10 @@ call_postCallsReceiveNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/calls/receive_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/calls/receive_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/calls/receive_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/calls/receive_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1510,10 +1510,10 @@ call_postCallsSendNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/calls/send_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/calls/send_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/calls/send_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/calls/send_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1541,10 +1541,10 @@ call_postFaxes() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/faxes" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/faxes" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/faxes" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/faxes" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1572,10 +1572,10 @@ call_postFaxesReceiveNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/faxes/receive_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/faxes/receive_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/faxes/receive_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/faxes/receive_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1603,10 +1603,10 @@ call_postFaxesSendNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/faxes/send_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/faxes/send_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/faxes/send_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/faxes/send_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1634,10 +1634,10 @@ call_deleteFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="DELETE"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1665,10 +1665,10 @@ call_getFonenumbers() {
     local query_parameter_names=(filter)
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/fonenumbers" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/fonenumbers" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
     local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1696,10 +1696,10 @@ call_getFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1727,10 +1727,10 @@ call_postFonenumbers() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/fonenumbers" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/fonenumbers" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1758,10 +1758,10 @@ call_putFonenumbersFonenumber() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="PUT"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1789,10 +1789,10 @@ call_postMessagesReceive() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/messages/receive" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/receive" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/messages/receive" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/receive" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1820,10 +1820,10 @@ call_postMessagesReceiveNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/messages/receive_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/receive_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/messages/receive_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/receive_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1851,10 +1851,10 @@ call_postMessagesSend() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/messages/send" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/send" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/messages/send" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/send" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1882,10 +1882,10 @@ call_postMessagesSendNotify() {
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/edge/messages/send_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/send_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/edge/messages/send_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/send_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then

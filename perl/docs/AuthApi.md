@@ -5,7 +5,7 @@
 use WWW::SwaggerClient::Object::AuthApi;
 ```
 
-All URIs are relative to *http://dev-api.fractel.net/edge*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,7 +28,7 @@ use WWW::SwaggerClient::AuthApi;
 my $api_instance = WWW::SwaggerClient::AuthApi->new();
 my $username = 'username_example'; # string | FracTEL username
 my $password = 'password_example'; # string | FracTEL password
-my $expires = 56; # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+my $expires = 56; # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
 
 eval { 
     my $result = $api_instance->post_auth(username => $username, password => $password, expires => $expires);
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| FracTEL username | 
  **password** | **string**| FracTEL password | 
- **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
@@ -58,7 +58,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

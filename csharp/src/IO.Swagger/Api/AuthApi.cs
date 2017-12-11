@@ -1,7 +1,7 @@
 /* 
  * FoneStorm API 2.2.0
  *
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -32,7 +32,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>string</returns>
         string PostAuth (string username, string password, int? expires = null);
 
@@ -45,7 +45,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PostAuthWithHttpInfo (string username, string password, int? expires = null);
         #endregion Synchronous Operations
@@ -59,7 +59,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>Task of string</returns>
         System.Threading.Tasks.Task<string> PostAuthAsync (string username, string password, int? expires = null);
 
@@ -72,7 +72,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PostAuthAsyncWithHttpInfo (string username, string password, int? expires = null);
         #endregion Asynchronous Operations
@@ -193,7 +193,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>string</returns>
         public string PostAuth (string username, string password, int? expires = null)
         {
@@ -207,7 +207,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>ApiResponse of string</returns>
         public ApiResponse< string > PostAuthWithHttpInfo (string username, string password, int? expires = null)
         {
@@ -234,6 +234,7 @@ namespace IO.Swagger.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -268,7 +269,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>Task of string</returns>
         public async System.Threading.Tasks.Task<string> PostAuthAsync (string username, string password, int? expires = null)
         {
@@ -283,7 +284,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
-        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)</param>
+        /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<string>> PostAuthAsyncWithHttpInfo (string username, string password, int? expires = null)
         {
@@ -310,6 +311,7 @@ namespace IO.Swagger.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)

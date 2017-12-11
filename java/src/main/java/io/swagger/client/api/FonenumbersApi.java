@@ -1,6 +1,6 @@
 /*
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -75,7 +75,7 @@ public class FonenumbersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -202,7 +202,7 @@ public class FonenumbersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -323,7 +323,7 @@ public class FonenumbersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -450,7 +450,7 @@ public class FonenumbersApi {
         localVarFormParams.put("area_code", areaCode);
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -591,7 +591,7 @@ public class FonenumbersApi {
         localVarFormParams.put("url_password", urlPassword);
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);

@@ -1,7 +1,7 @@
 =begin
 FoneStorm API 2.2.0
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -15,20 +15,20 @@ Rails.application.routes.draw do
     match full_path, to: "#{opts.fetch(:controller_name)}##{opts[:action_name]}", via: http_method
   end
 
-  add_swagger_route 'POST', '/edge/auth', controller_name: 'auth', action_name: 'create'
-  add_swagger_route 'POST', '/edge/calls', controller_name: 'calls', action_name: 'create'
-  add_swagger_route 'POST', '/edge/calls/receive_notify', controller_name: 'calls', action_name: 'post_calls_receive_notify'
-  add_swagger_route 'POST', '/edge/calls/send_notify', controller_name: 'calls', action_name: 'post_calls_send_notify'
-  add_swagger_route 'POST', '/edge/faxes', controller_name: 'faxes', action_name: 'create'
-  add_swagger_route 'POST', '/edge/faxes/receive_notify', controller_name: 'faxes', action_name: 'post_faxes_receive_notify'
-  add_swagger_route 'POST', '/edge/faxes/send_notify', controller_name: 'faxes', action_name: 'post_faxes_send_notify'
-  add_swagger_route 'DELETE', '/edge/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'destroy'
-  add_swagger_route 'GET', '/edge/fonenumbers', controller_name: 'fonenumbers', action_name: 'index'
-  add_swagger_route 'GET', '/edge/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'show'
-  add_swagger_route 'POST', '/edge/fonenumbers', controller_name: 'fonenumbers', action_name: 'create'
-  add_swagger_route 'PUT', '/edge/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'update'
-  add_swagger_route 'POST', '/edge/messages/receive', controller_name: 'messages', action_name: 'post_messages_receive'
-  add_swagger_route 'POST', '/edge/messages/receive_notify', controller_name: 'messages', action_name: 'post_messages_receive_notify'
-  add_swagger_route 'POST', '/edge/messages/send', controller_name: 'messages', action_name: 'post_messages_send'
-  add_swagger_route 'POST', '/edge/messages/send_notify', controller_name: 'messages', action_name: 'post_messages_send_notify'
+  add_swagger_route 'POST', '/v2/auth', controller_name: 'auth', action_name: 'create'
+  add_swagger_route 'POST', '/v2/calls', controller_name: 'calls', action_name: 'create'
+  add_swagger_route 'POST', '/v2/calls/receive_notify', controller_name: 'calls', action_name: 'post_calls_receive_notify'
+  add_swagger_route 'POST', '/v2/calls/send_notify', controller_name: 'calls', action_name: 'post_calls_send_notify'
+  add_swagger_route 'POST', '/v2/faxes', controller_name: 'faxes', action_name: 'create'
+  add_swagger_route 'POST', '/v2/faxes/receive_notify', controller_name: 'faxes', action_name: 'post_faxes_receive_notify'
+  add_swagger_route 'POST', '/v2/faxes/send_notify', controller_name: 'faxes', action_name: 'post_faxes_send_notify'
+  add_swagger_route 'DELETE', '/v2/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'destroy'
+  add_swagger_route 'GET', '/v2/fonenumbers', controller_name: 'fonenumbers', action_name: 'index'
+  add_swagger_route 'GET', '/v2/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'show'
+  add_swagger_route 'POST', '/v2/fonenumbers', controller_name: 'fonenumbers', action_name: 'create'
+  add_swagger_route 'PUT', '/v2/fonenumbers/{fonenumber}', controller_name: 'fonenumbers', action_name: 'update'
+  add_swagger_route 'POST', '/v2/messages/receive', controller_name: 'messages', action_name: 'post_messages_receive'
+  add_swagger_route 'POST', '/v2/messages/receive_notify', controller_name: 'messages', action_name: 'post_messages_receive_notify'
+  add_swagger_route 'POST', '/v2/messages/send', controller_name: 'messages', action_name: 'post_messages_send'
+  add_swagger_route 'POST', '/v2/messages/send_notify', controller_name: 'messages', action_name: 'post_messages_send_notify'
 end

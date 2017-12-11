@@ -1,6 +1,6 @@
 # FoneStormApi220.AuthApi
 
-All URIs are relative to *http://dev-api.fractel.net/edge*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ var username = "username_example"; // String | FracTEL username
 var password = "password_example"; // String | FracTEL password
 
 var opts = { 
-  'expires': 56 // Number | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+  'expires': 56 // Number | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
 };
 
 var callback = function(error, data, response) {
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| FracTEL username | 
  **password** | **String**| FracTEL password | 
- **expires** | **Number**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **Number**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
@@ -58,5 +58,5 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 

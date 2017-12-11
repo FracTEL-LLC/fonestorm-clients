@@ -2,7 +2,7 @@
 
 FoneStorm API 2.2.0
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -46,7 +46,7 @@ sub _new_instance
     my $class = shift;
     my (%args) = (
         'ua' => LWP::UserAgent->new,
-        'base_url' => 'http://dev-api.fractel.net/edge',
+        'base_url' => 'http://api.fonestorm.com/v2',
         @_
     );
   

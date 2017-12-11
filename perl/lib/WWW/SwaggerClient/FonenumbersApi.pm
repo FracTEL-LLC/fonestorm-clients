@@ -2,7 +2,7 @@
 
 FoneStorm API 2.2.0
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -90,7 +90,7 @@ sub delete_fonenumbers_fonenumber {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
@@ -152,7 +152,7 @@ sub get_fonenumbers {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
@@ -217,7 +217,7 @@ sub get_fonenumbers_fonenumber {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
@@ -284,7 +284,7 @@ sub post_fonenumbers {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
@@ -384,7 +384,7 @@ sub put_fonenumbers_fonenumber {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }

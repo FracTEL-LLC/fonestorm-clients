@@ -12,7 +12,7 @@
 /**
  * FoneStorm API 2.2.0
  *
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -133,7 +133,7 @@ class FaxesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -239,7 +239,7 @@ class FaxesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -349,7 +349,7 @@ class FaxesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }

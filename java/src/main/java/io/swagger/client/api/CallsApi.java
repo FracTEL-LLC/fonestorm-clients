@@ -1,6 +1,6 @@
 /*
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -82,7 +82,7 @@ public class CallsApi {
         localVarFormParams.put("tts", tts);
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -232,7 +232,7 @@ public class CallsApi {
         localVarFormParams.put("url_password", urlPassword);
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -393,7 +393,7 @@ public class CallsApi {
         localVarFormParams.put("url_password", urlPassword);
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);

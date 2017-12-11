@@ -1,6 +1,6 @@
 /*
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -57,7 +57,7 @@ public class AuthApi {
      * Build call for postAuth
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
-     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -82,7 +82,7 @@ public class AuthApi {
         localVarFormParams.put("expires", expires);
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -137,7 +137,7 @@ public class AuthApi {
      * Returns a token that can be used to make authenticated requests
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
-     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -151,7 +151,7 @@ public class AuthApi {
      * Returns a token that can be used to make authenticated requests
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
-     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -166,7 +166,7 @@ public class AuthApi {
      * Returns a token that can be used to make authenticated requests
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
-     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

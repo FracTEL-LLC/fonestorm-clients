@@ -198,7 +198,6 @@ request_param_info('PostAuth', 'expires') ->
         source =>   ,
         rules => [
             {type, 'integer'},
-            {max, 86400 }, 
             not_required
         ]
     };

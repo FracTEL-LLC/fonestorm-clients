@@ -2,7 +2,7 @@
 
 FoneStorm API 2.2.0
 
-Extended API Documentation: https://developer.fonestorm.com
+FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -107,7 +107,7 @@ sub post_calls {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
@@ -216,7 +216,7 @@ sub post_calls_receive_notify {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
@@ -335,7 +335,7 @@ sub post_calls_send_notify {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }

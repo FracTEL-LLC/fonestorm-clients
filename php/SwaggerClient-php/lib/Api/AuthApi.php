@@ -12,7 +12,7 @@
 /**
  * FoneStorm API 2.2.0
  *
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -94,7 +94,7 @@ class AuthApi
      *
      * @param string $username FracTEL username (required)
      * @param string $password FracTEL password (required)
-     * @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     * @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return string
      */
@@ -111,7 +111,7 @@ class AuthApi
      *
      * @param string $username FracTEL username (required)
      * @param string $password FracTEL password (required)
-     * @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     * @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
@@ -125,17 +125,13 @@ class AuthApi
         if ($password === null) {
             throw new \InvalidArgumentException('Missing the required parameter $password when calling postAuth');
         }
-        if (!is_null($expires) && ($expires > 86400)) {
-            throw new \InvalidArgumentException('invalid value for "$expires" when calling AuthApi.postAuth, must be smaller than or equal to 86400.');
-        }
-
         // parse inputs
         $resourcePath = "/auth";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }

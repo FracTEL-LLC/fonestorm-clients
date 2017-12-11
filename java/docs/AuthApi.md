@@ -1,6 +1,6 @@
 # AuthApi
 
-All URIs are relative to *http://dev-api.fractel.net/edge*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ Returns a token that can be used to make authenticated requests
 AuthApi apiInstance = new AuthApi();
 String username = "username_example"; // String | FracTEL username
 String password = "password_example"; // String | FracTEL password
-Integer expires = 56; // Integer | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+Integer expires = 56; // Integer | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
 try {
     String result = apiInstance.postAuth(username, password, expires);
     System.out.println(result);
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| FracTEL username |
  **password** | **String**| FracTEL password |
- **expires** | **Integer**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional]
+ **expires** | **Integer**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional]
 
 ### Return type
 
@@ -54,5 +54,5 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 

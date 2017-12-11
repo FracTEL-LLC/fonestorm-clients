@@ -12,7 +12,7 @@
 /**
  * FoneStorm API 2.2.0
  *
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  * 
@@ -88,7 +88,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://dev-api.fractel.net/edge';
+    protected $host = 'http://api.fonestorm.com/v2';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout

@@ -1,12 +1,20 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Extended API Documentation: https://developer.fonestorm.com",
+    "description" : "FracTEL's Middleware API",
     "version" : "2.2.0",
-    "title" : "FoneStorm API 2.2.0"
+    "title" : "FoneStorm API 2.2.0",
+    "termsOfService" : "https://www.fonestorm.com/terms",
+    "contact" : {
+      "name" : "FracTEL, LLC"
+    },
+    "license" : {
+      "name" : "ISC",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
   },
-  "host" : "dev-api.fractel.net",
-  "basePath" : "/edge",
+  "host" : "api.fonestorm.com",
+  "basePath" : "/v2",
   "tags" : [ {
     "name" : "api",
     "description" : "API Functions"
@@ -15,34 +23,162 @@
     "description" : "Authentication Functions"
   }, {
     "name" : "calls",
-    "description" : "Calling Functions"
-  }, {
-    "name" : "conferences",
-    "description" : "Conference Functions"
-  }, {
-    "name" : "contacts",
-    "description" : "Contact Functions"
-  }, {
-    "name" : "emails",
-    "description" : "Emailing Functions"
-  }, {
-    "name" : "events",
-    "description" : "Event Functions"
+    "description" : "Calling"
   }, {
     "name" : "faxes",
     "description" : "Fax Functions"
   }, {
-    "name" : "messages",
-    "description" : "Messaging Functions"
-  }, {
     "name" : "fonenumbers",
     "description" : "Fonenumber Functions"
   }, {
-    "name" : "surveys",
-    "description" : "Survey Functions"
+    "name" : "messages",
+    "description" : "Messaging Functions"
   } ],
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
+  "consumes" : [ "application/x-www-form-urlencoded", "application/offset+octet-stream", "multipart/form-data" ],
+  "produces" : [ "application/json" ],
   "paths" : {
+    "/auth" : {
+      "post" : {
+        "tags" : [ "auth" ],
+        "summary" : "Create a FoneStorm authentication token.",
+        "description" : "Returns a token that can be used to make authenticated requests",
+        "operationId" : "postAuth",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "formData",
+          "description" : "FracTEL username",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "formData",
+          "description" : "FracTEL password",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "expires",
+          "in" : "formData",
+          "description" : "FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)",
+          "required" : false,
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/faxes" : {
+      "post" : {
+        "tags" : [ "faxes" ],
+        "summary" : "Create a new fax under the account.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postFaxes",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FracTEL phone number to use for fax.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "to",
+          "in" : "formData",
+          "description" : "Phone number to fax.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "message",
+          "in" : "formData",
+          "description" : "Message to fax.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "pdf",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          },
+          "x-alternatives" : [ {
+            "type" : "string",
+            "x-format" : {
+              "uri" : {
+                "scheme" : [ "http", "https" ]
+              }
+            }
+          }, {
+            "type" : "string",
+            "format" : "binary"
+          } ]
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/calls" : {
+      "post" : {
+        "tags" : [ "calls" ],
+        "summary" : "Create a new call under the account.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postCalls",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FracTEL phone number to use as caller.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "to",
+          "in" : "formData",
+          "description" : "Phone number to call.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "tts",
+          "in" : "formData",
+          "description" : "Text to speech message.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
     "/fonenumbers" : {
       "get" : {
         "tags" : [ "fonenumbers" ],
@@ -82,6 +218,469 @@
           "x-constraint" : {
             "length" : 3
           }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/messages/send" : {
+      "post" : {
+        "tags" : [ "messages" ],
+        "summary" : "Send an SMS or MMS message to a recipient.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postMessagesSend",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "to",
+          "in" : "formData",
+          "description" : "The recipient's 10 digits phone number.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number to use as from",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "message",
+          "in" : "formData",
+          "description" : "Content of SMS",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "media_url",
+          "in" : "formData",
+          "description" : "URL for media for send via SMS (up to 10)",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "x-format" : {
+              "uri" : {
+                "scheme" : [ "http", "https" ]
+              }
+            }
+          },
+          "collectionFormat" : "multi",
+          "maxItems" : 10
+        }, {
+          "name" : "confirmation_url",
+          "in" : "formData",
+          "description" : "Callback URL for confirmation",
+          "required" : false,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "confirmation_url_username",
+          "in" : "formData",
+          "description" : "Callback URL username for confirmation",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "confirmation_url_password",
+          "in" : "formData",
+          "description" : "Callback URL password for confirmation",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "require_confirmation",
+          "in" : "formData",
+          "description" : "Only send message if confirmation is available",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/messages/receive" : {
+      "post" : {
+        "tags" : [ "messages" ],
+        "summary" : "Configure the delivery service type used as the destination for received messages.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postMessagesReceive",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "type",
+          "in" : "formData",
+          "description" : "Message routing type.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "None", "Device", "Email", "URL", "Forward" ]
+        }, {
+          "name" : "value",
+          "in" : "formData",
+          "description" : "Message routing type value.",
+          "required" : false,
+          "type" : "string",
+          "x-alternatives" : [ {
+            "type" : "string",
+            "description" : "Message routing type value."
+          }, {
+            "type" : "string",
+            "description" : "Message routing type value."
+          }, {
+            "type" : "string",
+            "description" : "Message routing type value.",
+            "x-format" : {
+              "email" : true
+            }
+          }, {
+            "type" : "string",
+            "description" : "Message routing type value.",
+            "x-format" : {
+              "uri" : {
+                "scheme" : [ "http", "https" ]
+              }
+            }
+          }, {
+            "type" : "string",
+            "description" : "Message routing type value.",
+            "x-constraint" : {
+              "length" : 10
+            }
+          } ]
+        }, {
+          "name" : "url_method",
+          "in" : "formData",
+          "description" : "URL method when type is URL.",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ],
+          "x-alternatives" : [ {
+            "type" : "string",
+            "description" : "URL method when type is URL.",
+            "enum" : [ "GET", "POST", "JSON" ]
+          } ]
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Optional URL username when type is URL.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Optional URL password when type is URL.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/faxes/send_notify" : {
+      "post" : {
+        "tags" : [ "faxes" ],
+        "summary" : "Configure the callback URL to notify when a fax is made.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postFaxesSend_notify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL.",
+          "required" : true,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Callback URL username.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Callback URL password.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/calls/send_notify" : {
+      "post" : {
+        "tags" : [ "calls" ],
+        "summary" : "Configure the callback URL to notify when a call is made.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postCallsSend_notify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL.",
+          "required" : true,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Callback URL username.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Callback URL password.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/messages/send_notify" : {
+      "post" : {
+        "tags" : [ "messages" ],
+        "summary" : "Configure the callback URL to notify when a message is sent.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postMessagesSend_notify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL.",
+          "required" : true,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Callback URL username.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Callback URL password.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/calls/receive_notify" : {
+      "post" : {
+        "tags" : [ "calls" ],
+        "summary" : "Configure the callback URL to notify when a call is received.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postCallsReceive_notify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL.",
+          "required" : true,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Callback URL username.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Callback URL password.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Successful",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/faxes/receive_notify" : {
+      "post" : {
+        "tags" : [ "faxes" ],
+        "summary" : "Configure the callback URL to notify when a fax is received.",
+        "description" : "Returns a JSON response",
+        "operationId" : "postFaxesReceive_notify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL phone number.",
+          "required" : true,
+          "type" : "string",
+          "x-constraint" : {
+            "length" : 10
+          }
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL.",
+          "required" : true,
+          "type" : "string",
+          "x-format" : {
+            "uri" : {
+              "scheme" : [ "http", "https" ]
+            }
+          }
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Callback URL username.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Callback URL password.",
+          "required" : false,
+          "type" : "string"
         } ],
         "responses" : {
           "default" : {
@@ -237,467 +836,6 @@
         }
       }
     },
-    "/auth" : {
-      "post" : {
-        "tags" : [ "auth" ],
-        "summary" : "Create a FoneStorm authentication token.",
-        "description" : "Returns a token that can be used to make authenticated requests",
-        "operationId" : "postAuth",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "username",
-          "in" : "formData",
-          "description" : "FracTEL username",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "password",
-          "in" : "formData",
-          "description" : "FracTEL password",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "expires",
-          "in" : "formData",
-          "description" : "FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours",
-          "required" : false,
-          "type" : "integer",
-          "maximum" : 86400
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/calls" : {
-      "post" : {
-        "tags" : [ "calls" ],
-        "summary" : "Create a new call under the account.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postCalls",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "FracTEL phone number to use as caller.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "to",
-          "in" : "formData",
-          "description" : "Phone number to call.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "tts",
-          "in" : "formData",
-          "description" : "Text to speech message.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/faxes" : {
-      "post" : {
-        "tags" : [ "faxes" ],
-        "summary" : "Create a new fax under the account.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postFaxes",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "FracTEL phone number to use for fax.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "to",
-          "in" : "formData",
-          "description" : "Phone number to fax.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "message",
-          "in" : "formData",
-          "description" : "Message to fax.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "pdf",
-          "in" : "formData",
-          "required" : false,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          },
-          "x-alternatives" : [ {
-            "type" : "string",
-            "x-format" : {
-              "uri" : {
-                "scheme" : [ "http", "https" ]
-              }
-            }
-          }, {
-            "type" : "string",
-            "format" : "binary"
-          } ]
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/calls/receive_notify" : {
-      "post" : {
-        "tags" : [ "calls" ],
-        "summary" : "Configure the callback URL to notify when a call is received.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postCallsReceive_notify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/calls/send_notify" : {
-      "post" : {
-        "tags" : [ "calls" ],
-        "summary" : "Configure the callback URL to notify when a call is made.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postCallsSend_notify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/faxes/receive_notify" : {
-      "post" : {
-        "tags" : [ "faxes" ],
-        "summary" : "Configure the callback URL to notify when a fax is received.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postFaxesReceive_notify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/faxes/send_notify" : {
-      "post" : {
-        "tags" : [ "faxes" ],
-        "summary" : "Configure the callback URL to notify when a fax is made.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postFaxesSend_notify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/messages/receive" : {
-      "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Configure the delivery service type used as the destination for received messages.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postMessagesReceive",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "type",
-          "in" : "formData",
-          "description" : "Message routing type.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "None", "Device", "Email", "URL", "Forward" ]
-        }, {
-          "name" : "value",
-          "in" : "formData",
-          "description" : "Message routing type value.",
-          "required" : false,
-          "type" : "string",
-          "x-alternatives" : [ {
-            "type" : "string",
-            "description" : "Message routing type value."
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value."
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-format" : {
-              "email" : true
-            }
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-format" : {
-              "uri" : {
-                "scheme" : [ "http", "https" ]
-              }
-            }
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-constraint" : {
-              "length" : 10
-            }
-          } ]
-        }, {
-          "name" : "url_method",
-          "in" : "formData",
-          "description" : "URL method when type is URL.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ],
-          "x-alternatives" : [ {
-            "type" : "string",
-            "description" : "URL method when type is URL.",
-            "enum" : [ "GET", "POST", "JSON" ]
-          } ]
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Optional URL username when type is URL.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Optional URL password when type is URL.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
     "/messages/receive_notify" : {
       "post" : {
         "tags" : [ "messages" ],
@@ -754,150 +892,6 @@
           }
         }
       }
-    },
-    "/messages/send" : {
-      "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Send an SMS or MMS message to a recipient.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postMessagesSend",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "to",
-          "in" : "formData",
-          "description" : "The recipient's 10 digits phone number.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number to use as from",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "message",
-          "in" : "formData",
-          "description" : "Content of SMS",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "media_url",
-          "in" : "formData",
-          "description" : "URL for media for send via SMS (up to 10)",
-          "required" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "x-format" : {
-              "uri" : {
-                "scheme" : [ "http", "https" ]
-              }
-            }
-          },
-          "collectionFormat" : "multi",
-          "maxItems" : 10
-        }, {
-          "name" : "confirmation_url",
-          "in" : "formData",
-          "description" : "Callback URL for confirmation",
-          "required" : false,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "confirmation_url_username",
-          "in" : "formData",
-          "description" : "Callback URL username for confirmation",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "confirmation_url_password",
-          "in" : "formData",
-          "description" : "Callback URL password for confirmation",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "require_confirmation",
-          "in" : "formData",
-          "description" : "Only send message if confirmation is available",
-          "required" : false,
-          "type" : "boolean"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/messages/send_notify" : {
-      "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Configure the callback URL to notify when a message is sent.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postMessagesSend_notify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
     }
   },
   "securityDefinitions" : {
@@ -907,5 +901,6 @@
       "in" : "header"
     }
   },
-  "definitions" : { }
+  "definitions" : { },
+  "x-api-id" : "fonestorm-api-220"
 }

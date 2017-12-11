@@ -1,6 +1,6 @@
 # IO.Swagger.Api.AuthApi
 
-All URIs are relative to *http://dev-api.fractel.net/edge*
+All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ namespace Example
             var apiInstance = new AuthApi();
             var username = username_example;  // string | FracTEL username
             var password = password_example;  // string | FracTEL password
-            var expires = 56;  // int? | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional) 
+            var expires = 56;  // int? | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional) 
 
             try
             {
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| FracTEL username | 
  **password** | **string**| FracTEL password | 
- **expires** | **int?**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **int?**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

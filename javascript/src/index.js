@@ -1,6 +1,6 @@
 /**
  * FoneStorm API 2.2.0
- * Extended API Documentation: https://developer.fonestorm.com
+ * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
  *
@@ -25,7 +25,7 @@
   'use strict';
 
   /**
-   * Extended_API_Documentation_httpsdeveloper_fonestorm_com.<br>
+   * FracTELs_Middleware_API.<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:

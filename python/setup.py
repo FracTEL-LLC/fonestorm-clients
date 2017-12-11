@@ -3,7 +3,7 @@
 """
     FoneStorm API 2.2.0
 
-    Extended API Documentation: https://developer.fonestorm.com
+    FracTEL's Middleware API
 
     OpenAPI spec version: 2.2.0
     
@@ -36,6 +36,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    Extended API Documentation: https://developer.fonestorm.com
+    FracTEL&#39;s Middleware API
     """
 )

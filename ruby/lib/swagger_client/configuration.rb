@@ -1,7 +1,7 @@
 =begin
 #FoneStorm API 2.2.0
 
-#Extended API Documentation: https://developer.fonestorm.com
+#FracTEL's Middleware API
 
 OpenAPI spec version: 2.2.0
 
@@ -129,8 +129,8 @@ module SwaggerClient
 
     def initialize
       @scheme = 'http'
-      @host = 'dev-api.fractel.net'
-      @base_path = '/edge'
+      @host = 'api.fonestorm.com'
+      @base_path = '/v2'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
