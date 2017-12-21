@@ -1,7 +1,7 @@
 {
-  "name": "frac_tel_api_212",
-  "version": "2.1.2",
-  "description": "ERROR_UNKNOWN",
+  "name": "fone_storm_api_220__breeze",
+  "version": "2.2.0",
+  "description": "FracTELs_Middleware_API",
   "license": "Unlicense",
   "main": "src/index.js",
   "scripts": {

@@ -4,15 +4,15 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**create_token**](AuthApi.md#create_token) | **POST** /auth | Create Auth Token
 
 
-# **post_auth**
-> str post_auth(username, password, expires=expires)
+# **create_token**
+> InlineResponse201 create_token(username, password, expires=expires)
 
-Obtain a FracTEL Auth token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example 
 ```python
@@ -26,14 +26,14 @@ from pprint import pprint
 api_instance = swagger_client.AuthApi()
 username = 'username_example' # str | FracTEL username
 password = 'password_example' # str | FracTEL password
-expires = 56 # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+expires = 56 # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
 
 try: 
-    # Obtain a FracTEL Auth token.
-    api_response = api_instance.post_auth(username, password, expires=expires)
+    # Create Auth Token
+    api_response = api_instance.create_token(username, password, expires=expires)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthApi->post_auth: %s\n" % e)
+    print("Exception when calling AuthApi->create_token: %s\n" % e)
 ```
 
 ### Parameters
@@ -42,11 +42,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| FracTEL username | 
  **password** | **str**| FracTEL password | 
- **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
-**str**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
@@ -55,7 +55,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
