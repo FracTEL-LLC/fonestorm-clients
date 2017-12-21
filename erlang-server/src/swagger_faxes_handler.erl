@@ -56,7 +56,7 @@ rest_init(Req0, {Operations, LogicHandler, ValidatorState}) ->
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostFaxes'
+        operation_id = 'ConfigureFaxReceiveNotify'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -64,7 +64,7 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostFaxesReceiveNotify'
+        operation_id = 'ConfigureFaxReceiveNotify_0'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -72,7 +72,31 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostFaxesSendNotify'
+        operation_id = 'ConfigureFaxSendNotify'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'ConfigureFaxSendNotify_0'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'CreateFax'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'CreateFax_0'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -87,14 +111,125 @@ allowed_methods(Req, State) ->
         State :: state()
     }.
 
-is_authorized(Req, State) ->
-    {true, Req, State};
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureFaxReceiveNotify' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
 
-is_authorized(Req, State) ->
-    {true, Req, State};
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureFaxReceiveNotify_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
 
-is_authorized(Req, State) ->
-    {true, Req, State};
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureFaxSendNotify' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureFaxSendNotify_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'CreateFax' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'CreateFax_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
 
 is_authorized(Req, State) ->
     {{false, <<"">>}, Req, State}.
@@ -117,7 +252,7 @@ content_types_accepted(Req, State) ->
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostFaxes'
+        operation_id = 'ConfigureFaxReceiveNotify'
     }
 ) ->
     Headers = [],
@@ -127,7 +262,7 @@ valid_content_headers(
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostFaxesReceiveNotify'
+        operation_id = 'ConfigureFaxReceiveNotify_0'
     }
 ) ->
     Headers = [],
@@ -137,7 +272,37 @@ valid_content_headers(
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostFaxesSendNotify'
+        operation_id = 'ConfigureFaxSendNotify'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureFaxSendNotify_0'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'CreateFax'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'CreateFax_0'
     }
 ) ->
     Headers = [],

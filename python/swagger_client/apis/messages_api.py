@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FoneStorm API 2.2.0
+    FoneStorm API 2.2.0 (Breeze)
 
     FracTEL's Middleware API
 
@@ -40,58 +40,58 @@ class MessagesApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def post_messages_receive(self, fonenumber, type, **kwargs):
+    def configure_message_receive(self, fonenumber, type, value, url_method, **kwargs):
         """
-        Configure the delivery service type used as the destination for received messages.
-        Returns a JSON response
+        Set Delivery Service
+        Configure the delivery service type used as the destination for messages received at a FoneNumber.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_receive(fonenumber, type, callback=callback_function)
+        >>> thread = api.configure_message_receive(fonenumber, type, value, url_method, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str fonenumber: Your FracTEL phone number. (required)
-        :param str type: Message routing type. (required)
-        :param str value: Message routing type value.
-        :param str url_method: URL method when type is URL.
-        :param str url_username: Optional URL username when type is URL.
-        :param str url_password: Optional URL password when type is URL.
-        :return: str
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str type: Message routing type (required)
+        :param str value: Message routing type value (required)
+        :param str url_method: URL method (when `type` is URL) (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.post_messages_receive_with_http_info(fonenumber, type, **kwargs)
+            return self.configure_message_receive_with_http_info(fonenumber, type, value, url_method, **kwargs)
         else:
-            (data) = self.post_messages_receive_with_http_info(fonenumber, type, **kwargs)
+            (data) = self.configure_message_receive_with_http_info(fonenumber, type, value, url_method, **kwargs)
             return data
 
-    def post_messages_receive_with_http_info(self, fonenumber, type, **kwargs):
+    def configure_message_receive_with_http_info(self, fonenumber, type, value, url_method, **kwargs):
         """
-        Configure the delivery service type used as the destination for received messages.
-        Returns a JSON response
+        Set Delivery Service
+        Configure the delivery service type used as the destination for messages received at a FoneNumber.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_receive_with_http_info(fonenumber, type, callback=callback_function)
+        >>> thread = api.configure_message_receive_with_http_info(fonenumber, type, value, url_method, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str fonenumber: Your FracTEL phone number. (required)
-        :param str type: Message routing type. (required)
-        :param str value: Message routing type value.
-        :param str url_method: URL method when type is URL.
-        :param str url_username: Optional URL username when type is URL.
-        :param str url_password: Optional URL password when type is URL.
-        :return: str
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str type: Message routing type (required)
+        :param str value: Message routing type value (required)
+        :param str url_method: URL method (when `type` is URL) (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -107,16 +107,22 @@ class MessagesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method post_messages_receive" % key
+                    " to method configure_message_receive" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'fonenumber' is set
         if ('fonenumber' not in params) or (params['fonenumber'] is None):
-            raise ValueError("Missing the required parameter `fonenumber` when calling `post_messages_receive`")
+            raise ValueError("Missing the required parameter `fonenumber` when calling `configure_message_receive`")
         # verify the required parameter 'type' is set
         if ('type' not in params) or (params['type'] is None):
-            raise ValueError("Missing the required parameter `type` when calling `post_messages_receive`")
+            raise ValueError("Missing the required parameter `type` when calling `configure_message_receive`")
+        # verify the required parameter 'value' is set
+        if ('value' not in params) or (params['value'] is None):
+            raise ValueError("Missing the required parameter `value` when calling `configure_message_receive`")
+        # verify the required parameter 'url_method' is set
+        if ('url_method' not in params) or (params['url_method'] is None):
+            raise ValueError("Missing the required parameter `url_method` when calling `configure_message_receive`")
 
 
         collection_formats = {}
@@ -152,7 +158,7 @@ class MessagesApi(object):
             select_header_content_type(['application/x-www-form-urlencoded'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['jwt']
 
         return self.api_client.call_api('/messages/receive', 'POST',
                                         path_params,
@@ -161,7 +167,7 @@ class MessagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='str',
+                                        response_type='InlineResponse2013',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -169,56 +175,191 @@ class MessagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def post_messages_receive_notify(self, fonenumber, method, url, **kwargs):
+    def configure_message_receive_0(self, fonenumber, type, value, url_method, **kwargs):
         """
-        Configure the callback URL to notify when a message is received.
-        Returns a JSON response
+        Set Delivery Service
+        Configure the delivery service type used as the destination for messages received at a FoneNumber.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_receive_notify(fonenumber, method, url, callback=callback_function)
+        >>> thread = api.configure_message_receive_0(fonenumber, type, value, url_method, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str fonenumber: Your FracTEL phone number. (required)
-        :param str method: Callback URL method. (required)
-        :param str url: Callback URL. (required)
-        :param str url_username: Callback URL username.
-        :param str url_password: Callback URL password.
-        :return: str
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str type: Message routing type (required)
+        :param str value: Message routing type value (required)
+        :param str url_method: URL method (when `type` is URL) (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.post_messages_receive_notify_with_http_info(fonenumber, method, url, **kwargs)
+            return self.configure_message_receive_0_with_http_info(fonenumber, type, value, url_method, **kwargs)
         else:
-            (data) = self.post_messages_receive_notify_with_http_info(fonenumber, method, url, **kwargs)
+            (data) = self.configure_message_receive_0_with_http_info(fonenumber, type, value, url_method, **kwargs)
             return data
 
-    def post_messages_receive_notify_with_http_info(self, fonenumber, method, url, **kwargs):
+    def configure_message_receive_0_with_http_info(self, fonenumber, type, value, url_method, **kwargs):
         """
-        Configure the callback URL to notify when a message is received.
-        Returns a JSON response
+        Set Delivery Service
+        Configure the delivery service type used as the destination for messages received at a FoneNumber.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_receive_notify_with_http_info(fonenumber, method, url, callback=callback_function)
+        >>> thread = api.configure_message_receive_0_with_http_info(fonenumber, type, value, url_method, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str fonenumber: Your FracTEL phone number. (required)
-        :param str method: Callback URL method. (required)
-        :param str url: Callback URL. (required)
-        :param str url_username: Callback URL username.
-        :param str url_password: Callback URL password.
-        :return: str
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str type: Message routing type (required)
+        :param str value: Message routing type value (required)
+        :param str url_method: URL method (when `type` is URL) (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['fonenumber', 'type', 'value', 'url_method', 'url_username', 'url_password']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method configure_message_receive_0" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'fonenumber' is set
+        if ('fonenumber' not in params) or (params['fonenumber'] is None):
+            raise ValueError("Missing the required parameter `fonenumber` when calling `configure_message_receive_0`")
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `configure_message_receive_0`")
+        # verify the required parameter 'value' is set
+        if ('value' not in params) or (params['value'] is None):
+            raise ValueError("Missing the required parameter `value` when calling `configure_message_receive_0`")
+        # verify the required parameter 'url_method' is set
+        if ('url_method' not in params) or (params['url_method'] is None):
+            raise ValueError("Missing the required parameter `url_method` when calling `configure_message_receive_0`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'fonenumber' in params:
+            form_params.append(('fonenumber', params['fonenumber']))
+        if 'type' in params:
+            form_params.append(('type', params['type']))
+        if 'value' in params:
+            form_params.append(('value', params['value']))
+        if 'url_method' in params:
+            form_params.append(('url_method', params['url_method']))
+        if 'url_username' in params:
+            form_params.append(('url_username', params['url_username']))
+        if 'url_password' in params:
+            form_params.append(('url_password', params['url_password']))
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/x-www-form-urlencoded'])
+
+        # Authentication setting
+        auth_settings = ['jwt']
+
+        return self.api_client.call_api('/messages/receive', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='InlineResponse2013',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def configure_message_receive_notify(self, fonenumber, method, url, **kwargs):
+        """
+        Set Receive Callback
+        Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.configure_message_receive_notify(fonenumber, method, url, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.configure_message_receive_notify_with_http_info(fonenumber, method, url, **kwargs)
+        else:
+            (data) = self.configure_message_receive_notify_with_http_info(fonenumber, method, url, **kwargs)
+            return data
+
+    def configure_message_receive_notify_with_http_info(self, fonenumber, method, url, **kwargs):
+        """
+        Set Receive Callback
+        Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.configure_message_receive_notify_with_http_info(fonenumber, method, url, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -234,19 +375,19 @@ class MessagesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method post_messages_receive_notify" % key
+                    " to method configure_message_receive_notify" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'fonenumber' is set
         if ('fonenumber' not in params) or (params['fonenumber'] is None):
-            raise ValueError("Missing the required parameter `fonenumber` when calling `post_messages_receive_notify`")
+            raise ValueError("Missing the required parameter `fonenumber` when calling `configure_message_receive_notify`")
         # verify the required parameter 'method' is set
         if ('method' not in params) or (params['method'] is None):
-            raise ValueError("Missing the required parameter `method` when calling `post_messages_receive_notify`")
+            raise ValueError("Missing the required parameter `method` when calling `configure_message_receive_notify`")
         # verify the required parameter 'url' is set
         if ('url' not in params) or (params['url'] is None):
-            raise ValueError("Missing the required parameter `url` when calling `post_messages_receive_notify`")
+            raise ValueError("Missing the required parameter `url` when calling `configure_message_receive_notify`")
 
 
         collection_formats = {}
@@ -280,7 +421,7 @@ class MessagesApi(object):
             select_header_content_type(['application/x-www-form-urlencoded'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['jwt']
 
         return self.api_client.call_api('/messages/receive_notify', 'POST',
                                         path_params,
@@ -289,7 +430,7 @@ class MessagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='str',
+                                        response_type='InlineResponse2013',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -297,62 +438,446 @@ class MessagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def post_messages_send(self, to, fonenumber, message, **kwargs):
+    def configure_message_receive_notify_0(self, fonenumber, method, url, **kwargs):
         """
-        Send an SMS or MMS message to a recipient.
-        Returns a JSON response
+        Set Receive Callback
+        Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_send(to, fonenumber, message, callback=callback_function)
+        >>> thread = api.configure_message_receive_notify_0(fonenumber, method, url, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str to: The recipient's 10 digits phone number. (required)
-        :param str fonenumber: Your FracTEL phone number to use as from (required)
-        :param str message: Content of SMS (required)
-        :param list[str] media_url: URL for media for send via SMS (up to 10)
-        :param str confirmation_url: Callback URL for confirmation
-        :param str confirmation_url_username: Callback URL username for confirmation
-        :param str confirmation_url_password: Callback URL password for confirmation
-        :param bool require_confirmation: Only send message if confirmation is available
-        :return: str
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.post_messages_send_with_http_info(to, fonenumber, message, **kwargs)
+            return self.configure_message_receive_notify_0_with_http_info(fonenumber, method, url, **kwargs)
         else:
-            (data) = self.post_messages_send_with_http_info(to, fonenumber, message, **kwargs)
+            (data) = self.configure_message_receive_notify_0_with_http_info(fonenumber, method, url, **kwargs)
             return data
 
-    def post_messages_send_with_http_info(self, to, fonenumber, message, **kwargs):
+    def configure_message_receive_notify_0_with_http_info(self, fonenumber, method, url, **kwargs):
         """
-        Send an SMS or MMS message to a recipient.
-        Returns a JSON response
+        Set Receive Callback
+        Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_send_with_http_info(to, fonenumber, message, callback=callback_function)
+        >>> thread = api.configure_message_receive_notify_0_with_http_info(fonenumber, method, url, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str to: The recipient's 10 digits phone number. (required)
-        :param str fonenumber: Your FracTEL phone number to use as from (required)
-        :param str message: Content of SMS (required)
-        :param list[str] media_url: URL for media for send via SMS (up to 10)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['fonenumber', 'method', 'url', 'url_username', 'url_password']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method configure_message_receive_notify_0" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'fonenumber' is set
+        if ('fonenumber' not in params) or (params['fonenumber'] is None):
+            raise ValueError("Missing the required parameter `fonenumber` when calling `configure_message_receive_notify_0`")
+        # verify the required parameter 'method' is set
+        if ('method' not in params) or (params['method'] is None):
+            raise ValueError("Missing the required parameter `method` when calling `configure_message_receive_notify_0`")
+        # verify the required parameter 'url' is set
+        if ('url' not in params) or (params['url'] is None):
+            raise ValueError("Missing the required parameter `url` when calling `configure_message_receive_notify_0`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'fonenumber' in params:
+            form_params.append(('fonenumber', params['fonenumber']))
+        if 'method' in params:
+            form_params.append(('method', params['method']))
+        if 'url' in params:
+            form_params.append(('url', params['url']))
+        if 'url_username' in params:
+            form_params.append(('url_username', params['url_username']))
+        if 'url_password' in params:
+            form_params.append(('url_password', params['url_password']))
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/x-www-form-urlencoded'])
+
+        # Authentication setting
+        auth_settings = ['jwt']
+
+        return self.api_client.call_api('/messages/receive_notify', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='InlineResponse2013',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def configure_message_send_notify(self, fonenumber, method, url, **kwargs):
+        """
+        Set Send Callback
+        Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.configure_message_send_notify(fonenumber, method, url, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.configure_message_send_notify_with_http_info(fonenumber, method, url, **kwargs)
+        else:
+            (data) = self.configure_message_send_notify_with_http_info(fonenumber, method, url, **kwargs)
+            return data
+
+    def configure_message_send_notify_with_http_info(self, fonenumber, method, url, **kwargs):
+        """
+        Set Send Callback
+        Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.configure_message_send_notify_with_http_info(fonenumber, method, url, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['fonenumber', 'method', 'url', 'url_username', 'url_password']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method configure_message_send_notify" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'fonenumber' is set
+        if ('fonenumber' not in params) or (params['fonenumber'] is None):
+            raise ValueError("Missing the required parameter `fonenumber` when calling `configure_message_send_notify`")
+        # verify the required parameter 'method' is set
+        if ('method' not in params) or (params['method'] is None):
+            raise ValueError("Missing the required parameter `method` when calling `configure_message_send_notify`")
+        # verify the required parameter 'url' is set
+        if ('url' not in params) or (params['url'] is None):
+            raise ValueError("Missing the required parameter `url` when calling `configure_message_send_notify`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'fonenumber' in params:
+            form_params.append(('fonenumber', params['fonenumber']))
+        if 'method' in params:
+            form_params.append(('method', params['method']))
+        if 'url' in params:
+            form_params.append(('url', params['url']))
+        if 'url_username' in params:
+            form_params.append(('url_username', params['url_username']))
+        if 'url_password' in params:
+            form_params.append(('url_password', params['url_password']))
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/x-www-form-urlencoded'])
+
+        # Authentication setting
+        auth_settings = ['jwt']
+
+        return self.api_client.call_api('/messages/send_notify', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='InlineResponse2013',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def configure_message_send_notify_0(self, fonenumber, method, url, **kwargs):
+        """
+        Set Send Callback
+        Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.configure_message_send_notify_0(fonenumber, method, url, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.configure_message_send_notify_0_with_http_info(fonenumber, method, url, **kwargs)
+        else:
+            (data) = self.configure_message_send_notify_0_with_http_info(fonenumber, method, url, **kwargs)
+            return data
+
+    def configure_message_send_notify_0_with_http_info(self, fonenumber, method, url, **kwargs):
+        """
+        Set Send Callback
+        Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.configure_message_send_notify_0_with_http_info(fonenumber, method, url, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str method: Callback URL method (required)
+        :param str url: Callback URL. See **Notes** for additional information. (required)
+        :param str url_username: Username for HTTP **Basic** authentication scheme
+        :param str url_password: Password for HTTP **Basic** authentication scheme
+        :return: InlineResponse2013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['fonenumber', 'method', 'url', 'url_username', 'url_password']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method configure_message_send_notify_0" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'fonenumber' is set
+        if ('fonenumber' not in params) or (params['fonenumber'] is None):
+            raise ValueError("Missing the required parameter `fonenumber` when calling `configure_message_send_notify_0`")
+        # verify the required parameter 'method' is set
+        if ('method' not in params) or (params['method'] is None):
+            raise ValueError("Missing the required parameter `method` when calling `configure_message_send_notify_0`")
+        # verify the required parameter 'url' is set
+        if ('url' not in params) or (params['url'] is None):
+            raise ValueError("Missing the required parameter `url` when calling `configure_message_send_notify_0`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'fonenumber' in params:
+            form_params.append(('fonenumber', params['fonenumber']))
+        if 'method' in params:
+            form_params.append(('method', params['method']))
+        if 'url' in params:
+            form_params.append(('url', params['url']))
+        if 'url_username' in params:
+            form_params.append(('url_username', params['url_username']))
+        if 'url_password' in params:
+            form_params.append(('url_password', params['url_password']))
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/x-www-form-urlencoded'])
+
+        # Authentication setting
+        auth_settings = ['jwt']
+
+        return self.api_client.call_api('/messages/send_notify', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='InlineResponse2013',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def create_message(self, to, fonenumber, message, **kwargs):
+        """
+        Create Message
+        Send an SMS or MMS message.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_message(to, fonenumber, message, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str to: Receiving 10 digit phone number (required)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str message: Message body (required)
+        :param list[str] media_url: URL for MMS media (up to 10)
         :param str confirmation_url: Callback URL for confirmation
-        :param str confirmation_url_username: Callback URL username for confirmation
-        :param str confirmation_url_password: Callback URL password for confirmation
-        :param bool require_confirmation: Only send message if confirmation is available
-        :return: str
+        :param str confirmation_url_username: Username for HTTP **Basic** authentication scheme
+        :param str confirmation_url_password: Password for HTTP **Basic** authentication scheme
+        :param bool require_confirmation: Only send this message if confirmation is available
+        :return: InlineResponse2014
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.create_message_with_http_info(to, fonenumber, message, **kwargs)
+        else:
+            (data) = self.create_message_with_http_info(to, fonenumber, message, **kwargs)
+            return data
+
+    def create_message_with_http_info(self, to, fonenumber, message, **kwargs):
+        """
+        Create Message
+        Send an SMS or MMS message.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_message_with_http_info(to, fonenumber, message, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str to: Receiving 10 digit phone number (required)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str message: Message body (required)
+        :param list[str] media_url: URL for MMS media (up to 10)
+        :param str confirmation_url: Callback URL for confirmation
+        :param str confirmation_url_username: Username for HTTP **Basic** authentication scheme
+        :param str confirmation_url_password: Password for HTTP **Basic** authentication scheme
+        :param bool require_confirmation: Only send this message if confirmation is available
+        :return: InlineResponse2014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -368,22 +893,22 @@ class MessagesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method post_messages_send" % key
+                    " to method create_message" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'to' is set
         if ('to' not in params) or (params['to'] is None):
-            raise ValueError("Missing the required parameter `to` when calling `post_messages_send`")
+            raise ValueError("Missing the required parameter `to` when calling `create_message`")
         # verify the required parameter 'fonenumber' is set
         if ('fonenumber' not in params) or (params['fonenumber'] is None):
-            raise ValueError("Missing the required parameter `fonenumber` when calling `post_messages_send`")
+            raise ValueError("Missing the required parameter `fonenumber` when calling `create_message`")
         # verify the required parameter 'message' is set
         if ('message' not in params) or (params['message'] is None):
-            raise ValueError("Missing the required parameter `message` when calling `post_messages_send`")
+            raise ValueError("Missing the required parameter `message` when calling `create_message`")
 
         if 'media_url' in params and len(params['media_url']) > 10:
-            raise ValueError("Invalid value for parameter `media_url` when calling `post_messages_send`, number of items must be less than or equal to `10`")
+            raise ValueError("Invalid value for parameter `media_url` when calling `create_message`, number of items must be less than or equal to `10`")
 
         collection_formats = {}
 
@@ -423,7 +948,7 @@ class MessagesApi(object):
             select_header_content_type(['application/x-www-form-urlencoded'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['jwt']
 
         return self.api_client.call_api('/messages/send', 'POST',
                                         path_params,
@@ -432,7 +957,7 @@ class MessagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='str',
+                                        response_type='InlineResponse2014',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -440,61 +965,67 @@ class MessagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def post_messages_send_notify(self, fonenumber, method, url, **kwargs):
+    def create_message_0(self, to, fonenumber, message, **kwargs):
         """
-        Configure the callback URL to notify when a message is sent.
-        Returns a JSON response
+        Create Message
+        Send an SMS or MMS message.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_send_notify(fonenumber, method, url, callback=callback_function)
+        >>> thread = api.create_message_0(to, fonenumber, message, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str fonenumber: Your FracTEL phone number (required)
-        :param str method: Callback URL method. (required)
-        :param str url: Callback URL. (required)
-        :param str url_username: Callback URL username.
-        :param str url_password: Callback URL password.
-        :return: str
+        :param str to: Receiving 10 digit phone number (required)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str message: Message body (required)
+        :param list[str] media_url: URL for MMS media (up to 10)
+        :param str confirmation_url: Callback URL for confirmation
+        :param str confirmation_url_username: Username for HTTP **Basic** authentication scheme
+        :param str confirmation_url_password: Password for HTTP **Basic** authentication scheme
+        :param bool require_confirmation: Only send this message if confirmation is available
+        :return: InlineResponse2014
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.post_messages_send_notify_with_http_info(fonenumber, method, url, **kwargs)
+            return self.create_message_0_with_http_info(to, fonenumber, message, **kwargs)
         else:
-            (data) = self.post_messages_send_notify_with_http_info(fonenumber, method, url, **kwargs)
+            (data) = self.create_message_0_with_http_info(to, fonenumber, message, **kwargs)
             return data
 
-    def post_messages_send_notify_with_http_info(self, fonenumber, method, url, **kwargs):
+    def create_message_0_with_http_info(self, to, fonenumber, message, **kwargs):
         """
-        Configure the callback URL to notify when a message is sent.
-        Returns a JSON response
+        Create Message
+        Send an SMS or MMS message.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_messages_send_notify_with_http_info(fonenumber, method, url, callback=callback_function)
+        >>> thread = api.create_message_0_with_http_info(to, fonenumber, message, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str fonenumber: Your FracTEL phone number (required)
-        :param str method: Callback URL method. (required)
-        :param str url: Callback URL. (required)
-        :param str url_username: Callback URL username.
-        :param str url_password: Callback URL password.
-        :return: str
+        :param str to: Receiving 10 digit phone number (required)
+        :param str fonenumber: Your FracTEL FoneNumber (required)
+        :param str message: Message body (required)
+        :param list[str] media_url: URL for MMS media (up to 10)
+        :param str confirmation_url: Callback URL for confirmation
+        :param str confirmation_url_username: Username for HTTP **Basic** authentication scheme
+        :param str confirmation_url_password: Password for HTTP **Basic** authentication scheme
+        :param bool require_confirmation: Only send this message if confirmation is available
+        :return: InlineResponse2014
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['fonenumber', 'method', 'url', 'url_username', 'url_password']
+        all_params = ['to', 'fonenumber', 'message', 'media_url', 'confirmation_url', 'confirmation_url_username', 'confirmation_url_password', 'require_confirmation']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -505,20 +1036,22 @@ class MessagesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method post_messages_send_notify" % key
+                    " to method create_message_0" % key
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'to' is set
+        if ('to' not in params) or (params['to'] is None):
+            raise ValueError("Missing the required parameter `to` when calling `create_message_0`")
         # verify the required parameter 'fonenumber' is set
         if ('fonenumber' not in params) or (params['fonenumber'] is None):
-            raise ValueError("Missing the required parameter `fonenumber` when calling `post_messages_send_notify`")
-        # verify the required parameter 'method' is set
-        if ('method' not in params) or (params['method'] is None):
-            raise ValueError("Missing the required parameter `method` when calling `post_messages_send_notify`")
-        # verify the required parameter 'url' is set
-        if ('url' not in params) or (params['url'] is None):
-            raise ValueError("Missing the required parameter `url` when calling `post_messages_send_notify`")
+            raise ValueError("Missing the required parameter `fonenumber` when calling `create_message_0`")
+        # verify the required parameter 'message' is set
+        if ('message' not in params) or (params['message'] is None):
+            raise ValueError("Missing the required parameter `message` when calling `create_message_0`")
 
+        if 'media_url' in params and len(params['media_url']) > 10:
+            raise ValueError("Invalid value for parameter `media_url` when calling `create_message_0`, number of items must be less than or equal to `10`")
 
         collection_formats = {}
 
@@ -530,16 +1063,23 @@ class MessagesApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'to' in params:
+            form_params.append(('to', params['to']))
         if 'fonenumber' in params:
             form_params.append(('fonenumber', params['fonenumber']))
-        if 'method' in params:
-            form_params.append(('method', params['method']))
-        if 'url' in params:
-            form_params.append(('url', params['url']))
-        if 'url_username' in params:
-            form_params.append(('url_username', params['url_username']))
-        if 'url_password' in params:
-            form_params.append(('url_password', params['url_password']))
+        if 'message' in params:
+            form_params.append(('message', params['message']))
+        if 'media_url' in params:
+            form_params.append(('media_url', params['media_url']))
+            collection_formats['media_url'] = 'multi'
+        if 'confirmation_url' in params:
+            form_params.append(('confirmation_url', params['confirmation_url']))
+        if 'confirmation_url_username' in params:
+            form_params.append(('confirmation_url_username', params['confirmation_url_username']))
+        if 'confirmation_url_password' in params:
+            form_params.append(('confirmation_url_password', params['confirmation_url_password']))
+        if 'require_confirmation' in params:
+            form_params.append(('require_confirmation', params['require_confirmation']))
 
         body_params = None
         # HTTP header `Accept`
@@ -551,16 +1091,16 @@ class MessagesApi(object):
             select_header_content_type(['application/x-www-form-urlencoded'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['jwt']
 
-        return self.api_client.call_api('/messages/send_notify', 'POST',
+        return self.api_client.call_api('/messages/send', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='str',
+                                        response_type='InlineResponse2014',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

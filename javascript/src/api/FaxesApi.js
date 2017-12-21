@@ -1,5 +1,5 @@
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Error', 'model/InlineResponse2011', 'model/InlineResponse2013'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/InlineResponse2011'), require('../model/InlineResponse2013'));
   } else {
     // Browser globals (root is window)
-    if (!root.FoneStormApi220) {
-      root.FoneStormApi220 = {};
+    if (!root.FoneStormApi220Breeze) {
+      root.FoneStormApi220Breeze = {};
     }
-    root.FoneStormApi220.FaxesApi = factory(root.FoneStormApi220.ApiClient);
+    root.FoneStormApi220Breeze.FaxesApi = factory(root.FoneStormApi220Breeze.ApiClient, root.FoneStormApi220Breeze.Error, root.FoneStormApi220Breeze.InlineResponse2011, root.FoneStormApi220Breeze.InlineResponse2013);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Error, InlineResponse2011, InlineResponse2013) {
   'use strict';
 
   /**
@@ -48,36 +48,300 @@
 
 
     /**
-     * Callback function to receive the result of the postFaxes operation.
-     * @callback module:api/FaxesApi~postFaxesCallback
+     * Callback function to receive the result of the configureFaxReceiveNotify operation.
+     * @callback module:api/FaxesApi~configureFaxReceiveNotifyCallback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Create a new fax under the account.
-     * Returns a JSON response
-     * @param {String} fonenumber FracTEL phone number to use for fax.
-     * @param {String} to Phone number to fax.
+     * Set Receive Callback
+     * Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.message Message to fax.
-     * @param {String} opts.pdf 
-     * @param {module:api/FaxesApi~postFaxesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/FaxesApi~configureFaxReceiveNotifyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
      */
-    this.postFaxes = function(fonenumber, to, opts, callback) {
+    this.configureFaxReceiveNotify = function(fonenumber, method, url, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'fonenumber' is set
       if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling postFaxes");
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureFaxReceiveNotify");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureFaxReceiveNotify");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureFaxReceiveNotify");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/faxes/receive_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the configureFaxReceiveNotify_0 operation.
+     * @callback module:api/FaxesApi~configureFaxReceiveNotify_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set Receive Callback
+     * Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/FaxesApi~configureFaxReceiveNotify_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.configureFaxReceiveNotify_0 = function(fonenumber, method, url, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureFaxReceiveNotify_0");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureFaxReceiveNotify_0");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureFaxReceiveNotify_0");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/faxes/receive_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the configureFaxSendNotify operation.
+     * @callback module:api/FaxesApi~configureFaxSendNotifyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/FaxesApi~configureFaxSendNotifyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.configureFaxSendNotify = function(fonenumber, method, url, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureFaxSendNotify");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureFaxSendNotify");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureFaxSendNotify");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/faxes/send_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the configureFaxSendNotify_0 operation.
+     * @callback module:api/FaxesApi~configureFaxSendNotify_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/FaxesApi~configureFaxSendNotify_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.configureFaxSendNotify_0 = function(fonenumber, method, url, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureFaxSendNotify_0");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureFaxSendNotify_0");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureFaxSendNotify_0");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/faxes/send_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createFax operation.
+     * @callback module:api/FaxesApi~createFaxCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2011} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create Fax
+     * Send a fax to a recipient phone number.
+     * @param {String} fonenumber FoneNumber to use for fax
+     * @param {String} to Receiving 10 digit phone number
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.message Message to fax
+     * @param {String} opts.pdf URL of a PDF file to send with fax
+     * @param {module:api/FaxesApi~createFaxCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2011}
+     */
+    this.createFax = function(fonenumber, to, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling createFax");
       }
 
       // verify the required parameter 'to' is set
       if (to === undefined || to === null) {
-        throw new Error("Missing the required parameter 'to' when calling postFaxes");
+        throw new Error("Missing the required parameter 'to' when calling createFax");
       }
 
 
@@ -94,10 +358,10 @@
         'pdf': opts['pdf']
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse2011;
 
       return this.apiClient.callApi(
         '/faxes', 'POST',
@@ -107,42 +371,36 @@
     }
 
     /**
-     * Callback function to receive the result of the postFaxesReceiveNotify operation.
-     * @callback module:api/FaxesApi~postFaxesReceiveNotifyCallback
+     * Callback function to receive the result of the createFax_0 operation.
+     * @callback module:api/FaxesApi~createFax_0Callback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse2011} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Configure the callback URL to notify when a fax is received.
-     * Returns a JSON response
-     * @param {String} fonenumber Your FracTEL phone number.
-     * @param {module:model/String} method Callback URL method.
-     * @param {String} url Callback URL.
+     * Create Fax
+     * Send a fax to a recipient phone number.
+     * @param {String} fonenumber FoneNumber to use for fax
+     * @param {String} to Receiving 10 digit phone number
      * @param {Object} opts Optional parameters
-     * @param {String} opts.urlUsername Callback URL username.
-     * @param {String} opts.urlPassword Callback URL password.
-     * @param {module:api/FaxesApi~postFaxesReceiveNotifyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @param {String} opts.message Message to fax
+     * @param {String} opts.pdf URL of a PDF file to send with fax
+     * @param {module:api/FaxesApi~createFax_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2011}
      */
-    this.postFaxesReceiveNotify = function(fonenumber, method, url, opts, callback) {
+    this.createFax_0 = function(fonenumber, to, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'fonenumber' is set
       if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling postFaxesReceiveNotify");
+        throw new Error("Missing the required parameter 'fonenumber' when calling createFax_0");
       }
 
-      // verify the required parameter 'method' is set
-      if (method === undefined || method === null) {
-        throw new Error("Missing the required parameter 'method' when calling postFaxesReceiveNotify");
-      }
-
-      // verify the required parameter 'url' is set
-      if (url === undefined || url === null) {
-        throw new Error("Missing the required parameter 'url' when calling postFaxesReceiveNotify");
+      // verify the required parameter 'to' is set
+      if (to === undefined || to === null) {
+        throw new Error("Missing the required parameter 'to' when calling createFax_0");
       }
 
 
@@ -154,85 +412,18 @@
       };
       var formParams = {
         'fonenumber': fonenumber,
-        'method': method,
-        'url': url,
-        'url_username': opts['urlUsername'],
-        'url_password': opts['urlPassword']
+        'to': to,
+        'message': opts['message'],
+        'pdf': opts['pdf']
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse2011;
 
       return this.apiClient.callApi(
-        '/faxes/receive_notify', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postFaxesSendNotify operation.
-     * @callback module:api/FaxesApi~postFaxesSendNotifyCallback
-     * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Configure the callback URL to notify when a fax is made.
-     * Returns a JSON response
-     * @param {String} fonenumber Your FracTEL phone number
-     * @param {module:model/String} method Callback URL method.
-     * @param {String} url Callback URL.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.urlUsername Callback URL username.
-     * @param {String} opts.urlPassword Callback URL password.
-     * @param {module:api/FaxesApi~postFaxesSendNotifyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
-     */
-    this.postFaxesSendNotify = function(fonenumber, method, url, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'fonenumber' is set
-      if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling postFaxesSendNotify");
-      }
-
-      // verify the required parameter 'method' is set
-      if (method === undefined || method === null) {
-        throw new Error("Missing the required parameter 'method' when calling postFaxesSendNotify");
-      }
-
-      // verify the required parameter 'url' is set
-      if (url === undefined || url === null) {
-        throw new Error("Missing the required parameter 'url' when calling postFaxesSendNotify");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-        'fonenumber': fonenumber,
-        'method': method,
-        'url': url,
-        'url_username': opts['urlUsername'],
-        'url_password': opts['urlPassword']
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/x-www-form-urlencoded'];
-      var accepts = ['application/json'];
-      var returnType = 'String';
-
-      return this.apiClient.callApi(
-        '/faxes/send_notify', 'POST',
+        '/faxes', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

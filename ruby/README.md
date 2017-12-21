@@ -1,6 +1,6 @@
 # swagger_client
 
-SwaggerClient - the Ruby gem for the FoneStorm API 2.2.0
+SwaggerClient - the Ruby gem for the FoneStorm API 2.2.0 (Breeze)
 
 FracTEL's Middleware API
 
@@ -54,22 +54,33 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'swagger_client'
 
-api_instance = SwaggerClient::AuthApi.new
+# Setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: jwt
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
 
-username = "username_example" # String | FracTEL username
+api_instance = SwaggerClient::AccountsApi.new
 
-password = "password_example" # String | FracTEL password
+account_id = "account_id_example" # String | FoneStorm account id
+
+method = "method_example" # String | Callback URL method
+
+url = "url_example" # String | Callback URL. See **Notes** for additional information.
 
 opts = { 
-  expires: 56 # Integer | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
+  username: "username_example", # String | Callback URL username
+  password: "password_example" # String | Callback URL password
 }
 
 begin
-  #Create a FoneStorm authentication token.
-  result = api_instance.post_auth(username, password, opts)
+  #Set CDR Callback
+  result = api_instance.configure_account_cdr_notify(account_id, method, url, opts)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling AuthApi->post_auth: #{e}"
+  puts "Exception when calling AccountsApi->configure_account_cdr_notify: #{e}"
 end
 
 ```
@@ -80,26 +91,72 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SwaggerClient::AuthApi* | [**post_auth**](docs/AuthApi.md#post_auth) | **POST** /auth | Create a FoneStorm authentication token.
-*SwaggerClient::CallsApi* | [**post_calls**](docs/CallsApi.md#post_calls) | **POST** /calls | Create a new call under the account.
-*SwaggerClient::CallsApi* | [**post_calls_receive_notify**](docs/CallsApi.md#post_calls_receive_notify) | **POST** /calls/receive_notify | Configure the callback URL to notify when a call is received.
-*SwaggerClient::CallsApi* | [**post_calls_send_notify**](docs/CallsApi.md#post_calls_send_notify) | **POST** /calls/send_notify | Configure the callback URL to notify when a call is made.
-*SwaggerClient::FaxesApi* | [**post_faxes**](docs/FaxesApi.md#post_faxes) | **POST** /faxes | Create a new fax under the account.
-*SwaggerClient::FaxesApi* | [**post_faxes_receive_notify**](docs/FaxesApi.md#post_faxes_receive_notify) | **POST** /faxes/receive_notify | Configure the callback URL to notify when a fax is received.
-*SwaggerClient::FaxesApi* | [**post_faxes_send_notify**](docs/FaxesApi.md#post_faxes_send_notify) | **POST** /faxes/send_notify | Configure the callback URL to notify when a fax is made.
-*SwaggerClient::FonenumbersApi* | [**delete_fonenumbers_fonenumber**](docs/FonenumbersApi.md#delete_fonenumbers_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete a fonenumber identified by fonenumber.
-*SwaggerClient::FonenumbersApi* | [**get_fonenumbers**](docs/FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get a list of all active fonenumbers under the account.
-*SwaggerClient::FonenumbersApi* | [**get_fonenumbers_fonenumber**](docs/FonenumbersApi.md#get_fonenumbers_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get a fonenumber identified by fonenumber.
-*SwaggerClient::FonenumbersApi* | [**post_fonenumbers**](docs/FonenumbersApi.md#post_fonenumbers) | **POST** /fonenumbers | Create a fonenumber under the account.
-*SwaggerClient::FonenumbersApi* | [**put_fonenumbers_fonenumber**](docs/FonenumbersApi.md#put_fonenumbers_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Update a fonenumber identified by fonenumber.
-*SwaggerClient::MessagesApi* | [**post_messages_receive**](docs/MessagesApi.md#post_messages_receive) | **POST** /messages/receive | Configure the delivery service type used as the destination for received messages.
-*SwaggerClient::MessagesApi* | [**post_messages_receive_notify**](docs/MessagesApi.md#post_messages_receive_notify) | **POST** /messages/receive_notify | Configure the callback URL to notify when a message is received.
-*SwaggerClient::MessagesApi* | [**post_messages_send**](docs/MessagesApi.md#post_messages_send) | **POST** /messages/send | Send an SMS or MMS message to a recipient.
-*SwaggerClient::MessagesApi* | [**post_messages_send_notify**](docs/MessagesApi.md#post_messages_send_notify) | **POST** /messages/send_notify | Configure the callback URL to notify when a message is sent.
+*SwaggerClient::AccountsApi* | [**configure_account_cdr_notify**](docs/AccountsApi.md#configure_account_cdr_notify) | **POST** /accounts/cdr_notify | Set CDR Callback
+*SwaggerClient::AccountsApi* | [**configure_account_cdr_notify_0**](docs/AccountsApi.md#configure_account_cdr_notify_0) | **POST** /accounts/cdr_notify | Set CDR Callback
+*SwaggerClient::AccountsApi* | [**get_account**](docs/AccountsApi.md#get_account) | **GET** /accounts/{id} | Get Account
+*SwaggerClient::AccountsApi* | [**get_account_0**](docs/AccountsApi.md#get_account_0) | **GET** /accounts/{id} | Get Account
+*SwaggerClient::AccountsApi* | [**update_account**](docs/AccountsApi.md#update_account) | **PUT** /accounts/{id} | Update Account
+*SwaggerClient::AccountsApi* | [**update_account_0**](docs/AccountsApi.md#update_account_0) | **PUT** /accounts/{id} | Update Account
+*SwaggerClient::AuthApi* | [**create_token**](docs/AuthApi.md#create_token) | **POST** /auth | Create Auth Token
+*SwaggerClient::AuthorizationApi* | [**create_token**](docs/AuthorizationApi.md#create_token) | **POST** /auth | Create Auth Token
+*SwaggerClient::CallsApi* | [**configure_call_receive_notify**](docs/CallsApi.md#configure_call_receive_notify) | **POST** /calls/receive_notify | Set Receive Callback
+*SwaggerClient::CallsApi* | [**configure_call_receive_notify_0**](docs/CallsApi.md#configure_call_receive_notify_0) | **POST** /calls/receive_notify | Set Receive Callback
+*SwaggerClient::CallsApi* | [**configure_call_send_notify**](docs/CallsApi.md#configure_call_send_notify) | **POST** /calls/send_notify | Set Send Callback
+*SwaggerClient::CallsApi* | [**configure_call_send_notify_0**](docs/CallsApi.md#configure_call_send_notify_0) | **POST** /calls/send_notify | Set Send Callback
+*SwaggerClient::CallsApi* | [**create_call**](docs/CallsApi.md#create_call) | **POST** /calls | Create Call
+*SwaggerClient::CallsApi* | [**create_call_0**](docs/CallsApi.md#create_call_0) | **POST** /calls | Create Call
+*SwaggerClient::FaxesApi* | [**configure_fax_receive_notify**](docs/FaxesApi.md#configure_fax_receive_notify) | **POST** /faxes/receive_notify | Set Receive Callback
+*SwaggerClient::FaxesApi* | [**configure_fax_receive_notify_0**](docs/FaxesApi.md#configure_fax_receive_notify_0) | **POST** /faxes/receive_notify | Set Receive Callback
+*SwaggerClient::FaxesApi* | [**configure_fax_send_notify**](docs/FaxesApi.md#configure_fax_send_notify) | **POST** /faxes/send_notify | Set Send Callback
+*SwaggerClient::FaxesApi* | [**configure_fax_send_notify_0**](docs/FaxesApi.md#configure_fax_send_notify_0) | **POST** /faxes/send_notify | Set Send Callback
+*SwaggerClient::FaxesApi* | [**create_fax**](docs/FaxesApi.md#create_fax) | **POST** /faxes | Create Fax
+*SwaggerClient::FaxesApi* | [**create_fax_0**](docs/FaxesApi.md#create_fax_0) | **POST** /faxes | Create Fax
+*SwaggerClient::FonenumbersApi* | [**create_fonenumber**](docs/FonenumbersApi.md#create_fonenumber) | **POST** /fonenumbers | Create FoneNumber
+*SwaggerClient::FonenumbersApi* | [**create_fonenumber_0**](docs/FonenumbersApi.md#create_fonenumber_0) | **POST** /fonenumbers | Create FoneNumber
+*SwaggerClient::FonenumbersApi* | [**delete_fonenumber**](docs/FonenumbersApi.md#delete_fonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete FoneNumber
+*SwaggerClient::FonenumbersApi* | [**delete_fonenumber_0**](docs/FonenumbersApi.md#delete_fonenumber_0) | **DELETE** /fonenumbers/{fonenumber} | Delete FoneNumber
+*SwaggerClient::FonenumbersApi* | [**get_fonenumber**](docs/FonenumbersApi.md#get_fonenumber) | **GET** /fonenumbers/{fonenumber} | Get FoneNumber
+*SwaggerClient::FonenumbersApi* | [**get_fonenumber_0**](docs/FonenumbersApi.md#get_fonenumber_0) | **GET** /fonenumbers/{fonenumber} | Get FoneNumber
+*SwaggerClient::FonenumbersApi* | [**get_fonenumbers**](docs/FonenumbersApi.md#get_fonenumbers) | **GET** /fonenumbers | Get FoneNumbers
+*SwaggerClient::FonenumbersApi* | [**get_fonenumbers_0**](docs/FonenumbersApi.md#get_fonenumbers_0) | **GET** /fonenumbers | Get FoneNumbers
+*SwaggerClient::FonenumbersApi* | [**update_fonenumber**](docs/FonenumbersApi.md#update_fonenumber) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
+*SwaggerClient::FonenumbersApi* | [**update_fonenumber_0**](docs/FonenumbersApi.md#update_fonenumber_0) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
+*SwaggerClient::MessagesApi* | [**configure_message_receive**](docs/MessagesApi.md#configure_message_receive) | **POST** /messages/receive | Set Delivery Service
+*SwaggerClient::MessagesApi* | [**configure_message_receive_0**](docs/MessagesApi.md#configure_message_receive_0) | **POST** /messages/receive | Set Delivery Service
+*SwaggerClient::MessagesApi* | [**configure_message_receive_notify**](docs/MessagesApi.md#configure_message_receive_notify) | **POST** /messages/receive_notify | Set Receive Callback
+*SwaggerClient::MessagesApi* | [**configure_message_receive_notify_0**](docs/MessagesApi.md#configure_message_receive_notify_0) | **POST** /messages/receive_notify | Set Receive Callback
+*SwaggerClient::MessagesApi* | [**configure_message_send_notify**](docs/MessagesApi.md#configure_message_send_notify) | **POST** /messages/send_notify | Set Send Callback
+*SwaggerClient::MessagesApi* | [**configure_message_send_notify_0**](docs/MessagesApi.md#configure_message_send_notify_0) | **POST** /messages/send_notify | Set Send Callback
+*SwaggerClient::MessagesApi* | [**create_message**](docs/MessagesApi.md#create_message) | **POST** /messages/send | Create Message
+*SwaggerClient::MessagesApi* | [**create_message_0**](docs/MessagesApi.md#create_message_0) | **POST** /messages/send | Create Message
 
 
 ## Documentation for Models
 
+ - [SwaggerClient::Account](docs/Account.md)
+ - [SwaggerClient::Authorization](docs/Authorization.md)
+ - [SwaggerClient::Call](docs/Call.md)
+ - [SwaggerClient::Error](docs/Error.md)
+ - [SwaggerClient::Fax](docs/Fax.md)
+ - [SwaggerClient::FoneNumber](docs/FoneNumber.md)
+ - [SwaggerClient::FoneNumberFaxOptions](docs/FoneNumberFaxOptions.md)
+ - [SwaggerClient::FoneNumberFaxOptionsReceiveNotify](docs/FoneNumberFaxOptionsReceiveNotify.md)
+ - [SwaggerClient::FoneNumberFaxOptionsSendNotify](docs/FoneNumberFaxOptionsSendNotify.md)
+ - [SwaggerClient::FoneNumberSmsOptions](docs/FoneNumberSmsOptions.md)
+ - [SwaggerClient::FoneNumberSmsOptionsReceive](docs/FoneNumberSmsOptionsReceive.md)
+ - [SwaggerClient::FoneNumberSmsOptionsReceiveNotify](docs/FoneNumberSmsOptionsReceiveNotify.md)
+ - [SwaggerClient::FoneNumberSmsOptionsSendNotify](docs/FoneNumberSmsOptionsSendNotify.md)
+ - [SwaggerClient::FoneNumberVoiceOptions](docs/FoneNumberVoiceOptions.md)
+ - [SwaggerClient::FoneNumberVoiceOptionsReceiveNotify](docs/FoneNumberVoiceOptionsReceiveNotify.md)
+ - [SwaggerClient::FoneNumberVoiceOptionsSendNotify](docs/FoneNumberVoiceOptionsSendNotify.md)
+ - [SwaggerClient::InlineResponse200](docs/InlineResponse200.md)
+ - [SwaggerClient::InlineResponse2001](docs/InlineResponse2001.md)
+ - [SwaggerClient::InlineResponse201](docs/InlineResponse201.md)
+ - [SwaggerClient::InlineResponse2011](docs/InlineResponse2011.md)
+ - [SwaggerClient::InlineResponse2012](docs/InlineResponse2012.md)
+ - [SwaggerClient::InlineResponse2013](docs/InlineResponse2013.md)
+ - [SwaggerClient::InlineResponse2014](docs/InlineResponse2014.md)
+ - [SwaggerClient::Message](docs/Message.md)
 
 
 ## Documentation for Authorization

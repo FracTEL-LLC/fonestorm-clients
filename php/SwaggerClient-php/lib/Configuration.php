@@ -10,7 +10,7 @@
  */
 
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *

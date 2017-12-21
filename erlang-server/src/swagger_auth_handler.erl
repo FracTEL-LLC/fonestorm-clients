@@ -56,7 +56,7 @@ rest_init(Req0, {Operations, LogicHandler, ValidatorState}) ->
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostAuth'
+        operation_id = 'CreateToken'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -95,7 +95,7 @@ content_types_accepted(Req, State) ->
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostAuth'
+        operation_id = 'CreateToken'
     }
 ) ->
     Headers = [],

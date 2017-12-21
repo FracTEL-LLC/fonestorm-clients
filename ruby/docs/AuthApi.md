@@ -4,15 +4,15 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Create a FoneStorm authentication token.
+[**create_token**](AuthApi.md#create_token) | **POST** /auth | Create Auth Token
 
 
-# **post_auth**
-> String post_auth(username, password, opts)
+# **create_token**
+> InlineResponse201 create_token(username, password, opts)
 
-Create a FoneStorm authentication token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example
 ```ruby
@@ -30,11 +30,11 @@ opts = {
 }
 
 begin
-  #Create a FoneStorm authentication token.
-  result = api_instance.post_auth(username, password, opts)
+  #Create Auth Token
+  result = api_instance.create_token(username, password, opts)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling AuthApi->post_auth: #{e}"
+  puts "Exception when calling AuthApi->create_token: #{e}"
 end
 ```
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 

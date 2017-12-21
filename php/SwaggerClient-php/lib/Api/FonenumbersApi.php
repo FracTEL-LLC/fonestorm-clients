@@ -10,7 +10,7 @@
  */
 
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *
@@ -88,34 +88,208 @@ class FonenumbersApi
     }
 
     /**
-     * Operation deleteFonenumbersFonenumber
+     * Operation createFonenumber
      *
-     * Delete a fonenumber identified by fonenumber.
+     * Create FoneNumber
      *
-     * @param string $fonenumber Your FracTEL fonenumber. (required)
+     * @param string $area_code Valid 3-digit area code (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse2013
      */
-    public function deleteFonenumbersFonenumber($fonenumber)
+    public function createFonenumber($area_code)
     {
-        list($response) = $this->deleteFonenumbersFonenumberWithHttpInfo($fonenumber);
+        list($response) = $this->createFonenumberWithHttpInfo($area_code);
         return $response;
     }
 
     /**
-     * Operation deleteFonenumbersFonenumberWithHttpInfo
+     * Operation createFonenumberWithHttpInfo
      *
-     * Delete a fonenumber identified by fonenumber.
+     * Create FoneNumber
      *
-     * @param string $fonenumber Your FracTEL fonenumber. (required)
+     * @param string $area_code Valid 3-digit area code (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFonenumbersFonenumberWithHttpInfo($fonenumber)
+    public function createFonenumberWithHttpInfo($area_code)
+    {
+        // verify the required parameter 'area_code' is set
+        if ($area_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $area_code when calling createFonenumber');
+        }
+        // parse inputs
+        $resourcePath = "/fonenumbers";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($area_code !== null) {
+            $formParams['area_code'] = $this->apiClient->getSerializer()->toFormValue($area_code);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/fonenumbers'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createFonenumber_0
+     *
+     * Create FoneNumber
+     *
+     * @param string $area_code Valid 3-digit area code (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function createFonenumber_0($area_code)
+    {
+        list($response) = $this->createFonenumber_0WithHttpInfo($area_code);
+        return $response;
+    }
+
+    /**
+     * Operation createFonenumber_0WithHttpInfo
+     *
+     * Create FoneNumber
+     *
+     * @param string $area_code Valid 3-digit area code (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createFonenumber_0WithHttpInfo($area_code)
+    {
+        // verify the required parameter 'area_code' is set
+        if ($area_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $area_code when calling createFonenumber_0');
+        }
+        // parse inputs
+        $resourcePath = "/fonenumbers";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($area_code !== null) {
+            $formParams['area_code'] = $this->apiClient->getSerializer()->toFormValue($area_code);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/fonenumbers'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteFonenumber
+     *
+     * Delete FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function deleteFonenumber($fonenumber)
+    {
+        list($response) = $this->deleteFonenumberWithHttpInfo($fonenumber);
+        return $response;
+    }
+
+    /**
+     * Operation deleteFonenumberWithHttpInfo
+     *
+     * Delete FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteFonenumberWithHttpInfo($fonenumber)
     {
         // verify the required parameter 'fonenumber' is set
         if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling deleteFonenumbersFonenumber');
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling deleteFonenumber');
         }
         // parse inputs
         $resourcePath = "/fonenumbers/{fonenumber}";
@@ -144,6 +318,11 @@ class FonenumbersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -152,15 +331,292 @@ class FonenumbersApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse2013',
                 '/fonenumbers/{fonenumber}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteFonenumber_0
+     *
+     * Delete FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function deleteFonenumber_0($fonenumber)
+    {
+        list($response) = $this->deleteFonenumber_0WithHttpInfo($fonenumber);
+        return $response;
+    }
+
+    /**
+     * Operation deleteFonenumber_0WithHttpInfo
+     *
+     * Delete FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteFonenumber_0WithHttpInfo($fonenumber)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling deleteFonenumber_0');
+        }
+        // parse inputs
+        $resourcePath = "/fonenumbers/{fonenumber}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // path params
+        if ($fonenumber !== null) {
+            $resourcePath = str_replace(
+                "{" . "fonenumber" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fonenumber),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/fonenumbers/{fonenumber}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getFonenumber
+     *
+     * Get FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function getFonenumber($fonenumber)
+    {
+        list($response) = $this->getFonenumberWithHttpInfo($fonenumber);
+        return $response;
+    }
+
+    /**
+     * Operation getFonenumberWithHttpInfo
+     *
+     * Get FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getFonenumberWithHttpInfo($fonenumber)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling getFonenumber');
+        }
+        // parse inputs
+        $resourcePath = "/fonenumbers/{fonenumber}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // path params
+        if ($fonenumber !== null) {
+            $resourcePath = str_replace(
+                "{" . "fonenumber" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fonenumber),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/fonenumbers/{fonenumber}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getFonenumber_0
+     *
+     * Get FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function getFonenumber_0($fonenumber)
+    {
+        list($response) = $this->getFonenumber_0WithHttpInfo($fonenumber);
+        return $response;
+    }
+
+    /**
+     * Operation getFonenumber_0WithHttpInfo
+     *
+     * Get FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getFonenumber_0WithHttpInfo($fonenumber)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling getFonenumber_0');
+        }
+        // parse inputs
+        $resourcePath = "/fonenumbers/{fonenumber}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // path params
+        if ($fonenumber !== null) {
+            $resourcePath = str_replace(
+                "{" . "fonenumber" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fonenumber),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/fonenumbers/{fonenumber}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -172,11 +628,11 @@ class FonenumbersApi
     /**
      * Operation getFonenumbers
      *
-     * Get a list of all active fonenumbers under the account.
+     * Get FoneNumbers
      *
-     * @param string $filter Filters for the response. (optional)
+     * @param string $filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse200
      */
     public function getFonenumbers($filter = null)
     {
@@ -187,11 +643,11 @@ class FonenumbersApi
     /**
      * Operation getFonenumbersWithHttpInfo
      *
-     * Get a list of all active fonenumbers under the account.
+     * Get FoneNumbers
      *
-     * @param string $filter Filters for the response. (optional)
+     * @param string $filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFonenumbersWithHttpInfo($filter = null)
     {
@@ -218,6 +674,11 @@ class FonenumbersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -226,15 +687,19 @@ class FonenumbersApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse200',
                 '/fonenumbers'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -244,117 +709,31 @@ class FonenumbersApi
     }
 
     /**
-     * Operation getFonenumbersFonenumber
+     * Operation getFonenumbers_0
      *
-     * Get a fonenumber identified by fonenumber.
+     * Get FoneNumbers
      *
-     * @param string $fonenumber Your FracTEL fonenumber. (required)
+     * @param string $filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse200
      */
-    public function getFonenumbersFonenumber($fonenumber)
+    public function getFonenumbers_0($filter = null)
     {
-        list($response) = $this->getFonenumbersFonenumberWithHttpInfo($fonenumber);
+        list($response) = $this->getFonenumbers_0WithHttpInfo($filter);
         return $response;
     }
 
     /**
-     * Operation getFonenumbersFonenumberWithHttpInfo
+     * Operation getFonenumbers_0WithHttpInfo
      *
-     * Get a fonenumber identified by fonenumber.
+     * Get FoneNumbers
      *
-     * @param string $fonenumber Your FracTEL fonenumber. (required)
+     * @param string $filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFonenumbersFonenumberWithHttpInfo($fonenumber)
+    public function getFonenumbers_0WithHttpInfo($filter = null)
     {
-        // verify the required parameter 'fonenumber' is set
-        if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling getFonenumbersFonenumber');
-        }
-        // parse inputs
-        $resourcePath = "/fonenumbers/{fonenumber}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
-
-        // path params
-        if ($fonenumber !== null) {
-            $resourcePath = str_replace(
-                "{" . "fonenumber" . "}",
-                $this->apiClient->getSerializer()->toPathValue($fonenumber),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'string',
-                '/fonenumbers/{fonenumber}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation postFonenumbers
-     *
-     * Create a fonenumber under the account.
-     *
-     * @param string $area_code A valid 3-digit Area Code. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
-     */
-    public function postFonenumbers($area_code)
-    {
-        list($response) = $this->postFonenumbersWithHttpInfo($area_code);
-        return $response;
-    }
-
-    /**
-     * Operation postFonenumbersWithHttpInfo
-     *
-     * Create a fonenumber under the account.
-     *
-     * @param string $area_code A valid 3-digit Area Code. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function postFonenumbersWithHttpInfo($area_code)
-    {
-        // verify the required parameter 'area_code' is set
-        if ($area_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $area_code when calling postFonenumbers');
-        }
         // parse inputs
         $resourcePath = "/fonenumbers";
         $httpBody = '';
@@ -367,9 +746,9 @@ class FonenumbersApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
 
-        // form params
-        if ($area_code !== null) {
-            $formParams['area_code'] = $this->apiClient->getSerializer()->toFormValue($area_code);
+        // query params
+        if ($filter !== null) {
+            $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($filter);
         }
 
         // for model (json/xml)
@@ -378,23 +757,32 @@ class FonenumbersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath,
-                'POST',
+                'GET',
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse200',
                 '/fonenumbers'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -404,48 +792,56 @@ class FonenumbersApi
     }
 
     /**
-     * Operation putFonenumbersFonenumber
+     * Operation updateFonenumber
      *
-     * Update a fonenumber identified by fonenumber.
+     * Update FoneNumber
      *
-     * @param string $fonenumber Your FracTEL fonenumber. (required)
-     * @param string $type Message routing type. (required)
-     * @param string $value Message routing type value. (optional)
-     * @param string $url_method URL method. (optional)
-     * @param string $url_username URL auth username. (optional)
-     * @param string $url_password URL auth password. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param string $value Message routing type value (required)
+     * @param string $url_method URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse2013
      */
-    public function putFonenumbersFonenumber($fonenumber, $type, $value = null, $url_method = null, $url_username = null, $url_password = null)
+    public function updateFonenumber($fonenumber, $type, $value, $url_method, $url_username = null, $url_password = null)
     {
-        list($response) = $this->putFonenumbersFonenumberWithHttpInfo($fonenumber, $type, $value, $url_method, $url_username, $url_password);
+        list($response) = $this->updateFonenumberWithHttpInfo($fonenumber, $type, $value, $url_method, $url_username, $url_password);
         return $response;
     }
 
     /**
-     * Operation putFonenumbersFonenumberWithHttpInfo
+     * Operation updateFonenumberWithHttpInfo
      *
-     * Update a fonenumber identified by fonenumber.
+     * Update FoneNumber
      *
-     * @param string $fonenumber Your FracTEL fonenumber. (required)
-     * @param string $type Message routing type. (required)
-     * @param string $value Message routing type value. (optional)
-     * @param string $url_method URL method. (optional)
-     * @param string $url_username URL auth username. (optional)
-     * @param string $url_password URL auth password. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param string $value Message routing type value (required)
+     * @param string $url_method URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putFonenumbersFonenumberWithHttpInfo($fonenumber, $type, $value = null, $url_method = null, $url_username = null, $url_password = null)
+    public function updateFonenumberWithHttpInfo($fonenumber, $type, $value, $url_method, $url_username = null, $url_password = null)
     {
         // verify the required parameter 'fonenumber' is set
         if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling putFonenumbersFonenumber');
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling updateFonenumber');
         }
         // verify the required parameter 'type' is set
         if ($type === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $type when calling putFonenumbersFonenumber');
+            throw new \InvalidArgumentException('Missing the required parameter $type when calling updateFonenumber');
+        }
+        // verify the required parameter 'value' is set
+        if ($value === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $value when calling updateFonenumber');
+        }
+        // verify the required parameter 'url_method' is set
+        if ($url_method === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $url_method when calling updateFonenumber');
         }
         // parse inputs
         $resourcePath = "/fonenumbers/{fonenumber}";
@@ -494,6 +890,11 @@ class FonenumbersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -502,15 +903,152 @@ class FonenumbersApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse2013',
                 '/fonenumbers/{fonenumber}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateFonenumber_0
+     *
+     * Update FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param string $value Message routing type value (required)
+     * @param string $url_method URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function updateFonenumber_0($fonenumber, $type, $value, $url_method, $url_username = null, $url_password = null)
+    {
+        list($response) = $this->updateFonenumber_0WithHttpInfo($fonenumber, $type, $value, $url_method, $url_username, $url_password);
+        return $response;
+    }
+
+    /**
+     * Operation updateFonenumber_0WithHttpInfo
+     *
+     * Update FoneNumber
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param string $value Message routing type value (required)
+     * @param string $url_method URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateFonenumber_0WithHttpInfo($fonenumber, $type, $value, $url_method, $url_username = null, $url_password = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling updateFonenumber_0');
+        }
+        // verify the required parameter 'type' is set
+        if ($type === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $type when calling updateFonenumber_0');
+        }
+        // verify the required parameter 'value' is set
+        if ($value === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $value when calling updateFonenumber_0');
+        }
+        // verify the required parameter 'url_method' is set
+        if ($url_method === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $url_method when calling updateFonenumber_0');
+        }
+        // parse inputs
+        $resourcePath = "/fonenumbers/{fonenumber}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // path params
+        if ($fonenumber !== null) {
+            $resourcePath = str_replace(
+                "{" . "fonenumber" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fonenumber),
+                $resourcePath
+            );
+        }
+        // form params
+        if ($type !== null) {
+            $formParams['type'] = $this->apiClient->getSerializer()->toFormValue($type);
+        }
+        // form params
+        if ($value !== null) {
+            $formParams['value'] = $this->apiClient->getSerializer()->toFormValue($value);
+        }
+        // form params
+        if ($url_method !== null) {
+            $formParams['url_method'] = $this->apiClient->getSerializer()->toFormValue($url_method);
+        }
+        // form params
+        if ($url_username !== null) {
+            $formParams['url_username'] = $this->apiClient->getSerializer()->toFormValue($url_username);
+        }
+        // form params
+        if ($url_password !== null) {
+            $formParams['url_password'] = $this->apiClient->getSerializer()->toFormValue($url_password);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/fonenumbers/{fonenumber}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

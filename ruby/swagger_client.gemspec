@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 #
 =begin
-#FoneStorm API 2.2.0
+#FoneStorm API 2.2.0 (Breeze)
 
 #FracTEL's Middleware API
 
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Swagger-Codegen"]
   s.email       = [""]
   s.homepage    = "https://github.com/swagger-api/swagger-codegen"
-  s.summary     = "FoneStorm API 2.2.0 Ruby Gem"
+  s.summary     = "FoneStorm API 2.2.0 (Breeze) Ruby Gem"
   s.description = "FracTEL's Middleware API"
   # TODO uncommnet and update below with a proper license 
   #s.license     = "Apache 2.0"

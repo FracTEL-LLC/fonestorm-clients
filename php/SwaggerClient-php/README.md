@@ -56,16 +56,23 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\AuthApi();
-$username = "username_example"; // string | FracTEL username
-$password = "password_example"; // string | FracTEL password
-$expires = 56; // int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
+// Configure API key authorization: jwt
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AccountsApi();
+$account_id = "account_id_example"; // string | FoneStorm account id
+$method = "method_example"; // string | Callback URL method
+$url = "url_example"; // string | Callback URL. See **Notes** for additional information.
+$username = "username_example"; // string | Callback URL username
+$password = "password_example"; // string | Callback URL password
 
 try {
-    $result = $api_instance->postAuth($username, $password, $expires);
+    $result = $api_instance->configureAccountCdrNotify($account_id, $method, $url, $username, $password);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthApi->postAuth: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountsApi->configureAccountCdrNotify: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -77,26 +84,72 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthApi* | [**postAuth**](docs/Api/AuthApi.md#postauth) | **POST** /auth | Create a FoneStorm authentication token.
-*CallsApi* | [**postCalls**](docs/Api/CallsApi.md#postcalls) | **POST** /calls | Create a new call under the account.
-*CallsApi* | [**postCallsReceiveNotify**](docs/Api/CallsApi.md#postcallsreceivenotify) | **POST** /calls/receive_notify | Configure the callback URL to notify when a call is received.
-*CallsApi* | [**postCallsSendNotify**](docs/Api/CallsApi.md#postcallssendnotify) | **POST** /calls/send_notify | Configure the callback URL to notify when a call is made.
-*FaxesApi* | [**postFaxes**](docs/Api/FaxesApi.md#postfaxes) | **POST** /faxes | Create a new fax under the account.
-*FaxesApi* | [**postFaxesReceiveNotify**](docs/Api/FaxesApi.md#postfaxesreceivenotify) | **POST** /faxes/receive_notify | Configure the callback URL to notify when a fax is received.
-*FaxesApi* | [**postFaxesSendNotify**](docs/Api/FaxesApi.md#postfaxessendnotify) | **POST** /faxes/send_notify | Configure the callback URL to notify when a fax is made.
-*FonenumbersApi* | [**deleteFonenumbersFonenumber**](docs/Api/FonenumbersApi.md#deletefonenumbersfonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete a fonenumber identified by fonenumber.
-*FonenumbersApi* | [**getFonenumbers**](docs/Api/FonenumbersApi.md#getfonenumbers) | **GET** /fonenumbers | Get a list of all active fonenumbers under the account.
-*FonenumbersApi* | [**getFonenumbersFonenumber**](docs/Api/FonenumbersApi.md#getfonenumbersfonenumber) | **GET** /fonenumbers/{fonenumber} | Get a fonenumber identified by fonenumber.
-*FonenumbersApi* | [**postFonenumbers**](docs/Api/FonenumbersApi.md#postfonenumbers) | **POST** /fonenumbers | Create a fonenumber under the account.
-*FonenumbersApi* | [**putFonenumbersFonenumber**](docs/Api/FonenumbersApi.md#putfonenumbersfonenumber) | **PUT** /fonenumbers/{fonenumber} | Update a fonenumber identified by fonenumber.
-*MessagesApi* | [**postMessagesReceive**](docs/Api/MessagesApi.md#postmessagesreceive) | **POST** /messages/receive | Configure the delivery service type used as the destination for received messages.
-*MessagesApi* | [**postMessagesReceiveNotify**](docs/Api/MessagesApi.md#postmessagesreceivenotify) | **POST** /messages/receive_notify | Configure the callback URL to notify when a message is received.
-*MessagesApi* | [**postMessagesSend**](docs/Api/MessagesApi.md#postmessagessend) | **POST** /messages/send | Send an SMS or MMS message to a recipient.
-*MessagesApi* | [**postMessagesSendNotify**](docs/Api/MessagesApi.md#postmessagessendnotify) | **POST** /messages/send_notify | Configure the callback URL to notify when a message is sent.
+*AccountsApi* | [**configureAccountCdrNotify**](docs/Api/AccountsApi.md#configureaccountcdrnotify) | **POST** /accounts/cdr_notify | Set CDR Callback
+*AccountsApi* | [**configureAccountCdrNotify_0**](docs/Api/AccountsApi.md#configureaccountcdrnotify_0) | **POST** /accounts/cdr_notify | Set CDR Callback
+*AccountsApi* | [**getAccount**](docs/Api/AccountsApi.md#getaccount) | **GET** /accounts/{id} | Get Account
+*AccountsApi* | [**getAccount_0**](docs/Api/AccountsApi.md#getaccount_0) | **GET** /accounts/{id} | Get Account
+*AccountsApi* | [**updateAccount**](docs/Api/AccountsApi.md#updateaccount) | **PUT** /accounts/{id} | Update Account
+*AccountsApi* | [**updateAccount_0**](docs/Api/AccountsApi.md#updateaccount_0) | **PUT** /accounts/{id} | Update Account
+*AuthApi* | [**createToken**](docs/Api/AuthApi.md#createtoken) | **POST** /auth | Create Auth Token
+*AuthorizationApi* | [**createToken**](docs/Api/AuthorizationApi.md#createtoken) | **POST** /auth | Create Auth Token
+*CallsApi* | [**configureCallReceiveNotify**](docs/Api/CallsApi.md#configurecallreceivenotify) | **POST** /calls/receive_notify | Set Receive Callback
+*CallsApi* | [**configureCallReceiveNotify_0**](docs/Api/CallsApi.md#configurecallreceivenotify_0) | **POST** /calls/receive_notify | Set Receive Callback
+*CallsApi* | [**configureCallSendNotify**](docs/Api/CallsApi.md#configurecallsendnotify) | **POST** /calls/send_notify | Set Send Callback
+*CallsApi* | [**configureCallSendNotify_0**](docs/Api/CallsApi.md#configurecallsendnotify_0) | **POST** /calls/send_notify | Set Send Callback
+*CallsApi* | [**createCall**](docs/Api/CallsApi.md#createcall) | **POST** /calls | Create Call
+*CallsApi* | [**createCall_0**](docs/Api/CallsApi.md#createcall_0) | **POST** /calls | Create Call
+*FaxesApi* | [**configureFaxReceiveNotify**](docs/Api/FaxesApi.md#configurefaxreceivenotify) | **POST** /faxes/receive_notify | Set Receive Callback
+*FaxesApi* | [**configureFaxReceiveNotify_0**](docs/Api/FaxesApi.md#configurefaxreceivenotify_0) | **POST** /faxes/receive_notify | Set Receive Callback
+*FaxesApi* | [**configureFaxSendNotify**](docs/Api/FaxesApi.md#configurefaxsendnotify) | **POST** /faxes/send_notify | Set Send Callback
+*FaxesApi* | [**configureFaxSendNotify_0**](docs/Api/FaxesApi.md#configurefaxsendnotify_0) | **POST** /faxes/send_notify | Set Send Callback
+*FaxesApi* | [**createFax**](docs/Api/FaxesApi.md#createfax) | **POST** /faxes | Create Fax
+*FaxesApi* | [**createFax_0**](docs/Api/FaxesApi.md#createfax_0) | **POST** /faxes | Create Fax
+*FonenumbersApi* | [**createFonenumber**](docs/Api/FonenumbersApi.md#createfonenumber) | **POST** /fonenumbers | Create FoneNumber
+*FonenumbersApi* | [**createFonenumber_0**](docs/Api/FonenumbersApi.md#createfonenumber_0) | **POST** /fonenumbers | Create FoneNumber
+*FonenumbersApi* | [**deleteFonenumber**](docs/Api/FonenumbersApi.md#deletefonenumber) | **DELETE** /fonenumbers/{fonenumber} | Delete FoneNumber
+*FonenumbersApi* | [**deleteFonenumber_0**](docs/Api/FonenumbersApi.md#deletefonenumber_0) | **DELETE** /fonenumbers/{fonenumber} | Delete FoneNumber
+*FonenumbersApi* | [**getFonenumber**](docs/Api/FonenumbersApi.md#getfonenumber) | **GET** /fonenumbers/{fonenumber} | Get FoneNumber
+*FonenumbersApi* | [**getFonenumber_0**](docs/Api/FonenumbersApi.md#getfonenumber_0) | **GET** /fonenumbers/{fonenumber} | Get FoneNumber
+*FonenumbersApi* | [**getFonenumbers**](docs/Api/FonenumbersApi.md#getfonenumbers) | **GET** /fonenumbers | Get FoneNumbers
+*FonenumbersApi* | [**getFonenumbers_0**](docs/Api/FonenumbersApi.md#getfonenumbers_0) | **GET** /fonenumbers | Get FoneNumbers
+*FonenumbersApi* | [**updateFonenumber**](docs/Api/FonenumbersApi.md#updatefonenumber) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
+*FonenumbersApi* | [**updateFonenumber_0**](docs/Api/FonenumbersApi.md#updatefonenumber_0) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
+*MessagesApi* | [**configureMessageReceive**](docs/Api/MessagesApi.md#configuremessagereceive) | **POST** /messages/receive | Set Delivery Service
+*MessagesApi* | [**configureMessageReceiveNotify**](docs/Api/MessagesApi.md#configuremessagereceivenotify) | **POST** /messages/receive_notify | Set Receive Callback
+*MessagesApi* | [**configureMessageReceiveNotify_0**](docs/Api/MessagesApi.md#configuremessagereceivenotify_0) | **POST** /messages/receive_notify | Set Receive Callback
+*MessagesApi* | [**configureMessageReceive_0**](docs/Api/MessagesApi.md#configuremessagereceive_0) | **POST** /messages/receive | Set Delivery Service
+*MessagesApi* | [**configureMessageSendNotify**](docs/Api/MessagesApi.md#configuremessagesendnotify) | **POST** /messages/send_notify | Set Send Callback
+*MessagesApi* | [**configureMessageSendNotify_0**](docs/Api/MessagesApi.md#configuremessagesendnotify_0) | **POST** /messages/send_notify | Set Send Callback
+*MessagesApi* | [**createMessage**](docs/Api/MessagesApi.md#createmessage) | **POST** /messages/send | Create Message
+*MessagesApi* | [**createMessage_0**](docs/Api/MessagesApi.md#createmessage_0) | **POST** /messages/send | Create Message
 
 
 ## Documentation For Models
 
+ - [Account](docs/Model/Account.md)
+ - [Authorization](docs/Model/Authorization.md)
+ - [Call](docs/Model/Call.md)
+ - [Error](docs/Model/Error.md)
+ - [Fax](docs/Model/Fax.md)
+ - [FoneNumber](docs/Model/FoneNumber.md)
+ - [FoneNumberFaxOptions](docs/Model/FoneNumberFaxOptions.md)
+ - [FoneNumberFaxOptionsReceiveNotify](docs/Model/FoneNumberFaxOptionsReceiveNotify.md)
+ - [FoneNumberFaxOptionsSendNotify](docs/Model/FoneNumberFaxOptionsSendNotify.md)
+ - [FoneNumberSmsOptions](docs/Model/FoneNumberSmsOptions.md)
+ - [FoneNumberSmsOptionsReceive](docs/Model/FoneNumberSmsOptionsReceive.md)
+ - [FoneNumberSmsOptionsReceiveNotify](docs/Model/FoneNumberSmsOptionsReceiveNotify.md)
+ - [FoneNumberSmsOptionsSendNotify](docs/Model/FoneNumberSmsOptionsSendNotify.md)
+ - [FoneNumberVoiceOptions](docs/Model/FoneNumberVoiceOptions.md)
+ - [FoneNumberVoiceOptionsReceiveNotify](docs/Model/FoneNumberVoiceOptionsReceiveNotify.md)
+ - [FoneNumberVoiceOptionsSendNotify](docs/Model/FoneNumberVoiceOptionsSendNotify.md)
+ - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [InlineResponse2001](docs/Model/InlineResponse2001.md)
+ - [InlineResponse201](docs/Model/InlineResponse201.md)
+ - [InlineResponse2011](docs/Model/InlineResponse2011.md)
+ - [InlineResponse2012](docs/Model/InlineResponse2012.md)
+ - [InlineResponse2013](docs/Model/InlineResponse2013.md)
+ - [InlineResponse2014](docs/Model/InlineResponse2014.md)
+ - [Message](docs/Model/Message.md)
 
 
 ## Documentation For Authorization

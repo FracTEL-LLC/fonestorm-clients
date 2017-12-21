@@ -1,5 +1,5 @@
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -22,10 +22,10 @@
     module.exports = factory(require('superagent'), require('querystring'));
   } else {
     // Browser globals (root is window)
-    if (!root.FoneStormApi220) {
-      root.FoneStormApi220 = {};
+    if (!root.FoneStormApi220Breeze) {
+      root.FoneStormApi220Breeze = {};
     }
-    root.FoneStormApi220.ApiClient = factory(root.superagent, root.querystring);
+    root.FoneStormApi220Breeze.ApiClient = factory(root.superagent, root.querystring);
   }
 }(this, function(superagent, querystring) {
   'use strict';

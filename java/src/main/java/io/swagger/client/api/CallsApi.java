@@ -1,5 +1,5 @@
 /*
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -27,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Error;
+import io.swagger.client.model.InlineResponse2012;
+import io.swagger.client.model.InlineResponse2013;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -54,162 +57,18 @@ public class CallsApi {
     }
 
     /**
-     * Build call for postCalls
-     * @param fonenumber FracTEL phone number to use as caller. (required)
-     * @param to Phone number to call. (required)
-     * @param tts Text to speech message. (optional)
+     * Build call for configureCallReceiveNotify
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call postCallsCall(String fonenumber, String to, String tts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/calls";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (fonenumber != null)
-        localVarFormParams.put("fonenumber", fonenumber);
-        if (to != null)
-        localVarFormParams.put("to", to);
-        if (tts != null)
-        localVarFormParams.put("tts", tts);
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postCallsValidateBeforeCall(String fonenumber, String to, String tts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'fonenumber' is set
-        if (fonenumber == null) {
-            throw new ApiException("Missing the required parameter 'fonenumber' when calling postCalls(Async)");
-        }
-        
-        // verify the required parameter 'to' is set
-        if (to == null) {
-            throw new ApiException("Missing the required parameter 'to' when calling postCalls(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = postCallsCall(fonenumber, to, tts, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Create a new call under the account.
-     * Returns a JSON response
-     * @param fonenumber FracTEL phone number to use as caller. (required)
-     * @param to Phone number to call. (required)
-     * @param tts Text to speech message. (optional)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String postCalls(String fonenumber, String to, String tts) throws ApiException {
-        ApiResponse<String> resp = postCallsWithHttpInfo(fonenumber, to, tts);
-        return resp.getData();
-    }
-
-    /**
-     * Create a new call under the account.
-     * Returns a JSON response
-     * @param fonenumber FracTEL phone number to use as caller. (required)
-     * @param to Phone number to call. (required)
-     * @param tts Text to speech message. (optional)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> postCallsWithHttpInfo(String fonenumber, String to, String tts) throws ApiException {
-        com.squareup.okhttp.Call call = postCallsValidateBeforeCall(fonenumber, to, tts, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create a new call under the account. (asynchronously)
-     * Returns a JSON response
-     * @param fonenumber FracTEL phone number to use as caller. (required)
-     * @param to Phone number to call. (required)
-     * @param tts Text to speech message. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postCallsAsync(String fonenumber, String to, String tts, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postCallsValidateBeforeCall(fonenumber, to, tts, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postCallsReceiveNotify
-     * @param fonenumber Your FracTEL phone number. (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call postCallsReceiveNotifyCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call configureCallReceiveNotifyCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -255,30 +114,30 @@ public class CallsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "jwt" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postCallsReceiveNotifyValidateBeforeCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call configureCallReceiveNotifyValidateBeforeCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'fonenumber' is set
         if (fonenumber == null) {
-            throw new ApiException("Missing the required parameter 'fonenumber' when calling postCallsReceiveNotify(Async)");
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling configureCallReceiveNotify(Async)");
         }
         
         // verify the required parameter 'method' is set
         if (method == null) {
-            throw new ApiException("Missing the required parameter 'method' when calling postCallsReceiveNotify(Async)");
+            throw new ApiException("Missing the required parameter 'method' when calling configureCallReceiveNotify(Async)");
         }
         
         // verify the required parameter 'url' is set
         if (url == null) {
-            throw new ApiException("Missing the required parameter 'url' when calling postCallsReceiveNotify(Async)");
+            throw new ApiException("Missing the required parameter 'url' when calling configureCallReceiveNotify(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = postCallsReceiveNotifyCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = configureCallReceiveNotifyCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
         return call;
 
         
@@ -288,51 +147,51 @@ public class CallsApi {
     }
 
     /**
-     * Configure the callback URL to notify when a call is received.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL phone number. (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
-     * @return String
+     * Set Receive Callback
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return InlineResponse2013
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String postCallsReceiveNotify(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
-        ApiResponse<String> resp = postCallsReceiveNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+    public InlineResponse2013 configureCallReceiveNotify(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = configureCallReceiveNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
         return resp.getData();
     }
 
     /**
-     * Configure the callback URL to notify when a call is received.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL phone number. (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
-     * @return ApiResponse&lt;String&gt;
+     * Set Receive Callback
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> postCallsReceiveNotifyWithHttpInfo(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
-        com.squareup.okhttp.Call call = postCallsReceiveNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<InlineResponse2013> configureCallReceiveNotifyWithHttpInfo(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        com.squareup.okhttp.Call call = configureCallReceiveNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Configure the callback URL to notify when a call is received. (asynchronously)
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL phone number. (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
+     * Set Receive Callback (asynchronously)
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postCallsReceiveNotifyAsync(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call configureCallReceiveNotifyAsync(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ApiCallback<InlineResponse2013> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -353,24 +212,185 @@ public class CallsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postCallsReceiveNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        com.squareup.okhttp.Call call = configureCallReceiveNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for postCallsSendNotify
-     * @param fonenumber Your FracTEL phone number (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
+     * Build call for configureCallReceiveNotify_0
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call postCallsSendNotifyCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call configureCallReceiveNotify_0Call(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/calls/receive_notify";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (fonenumber != null)
+        localVarFormParams.put("fonenumber", fonenumber);
+        if (method != null)
+        localVarFormParams.put("method", method);
+        if (url != null)
+        localVarFormParams.put("url", url);
+        if (urlUsername != null)
+        localVarFormParams.put("url_username", urlUsername);
+        if (urlPassword != null)
+        localVarFormParams.put("url_password", urlPassword);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call configureCallReceiveNotify_0ValidateBeforeCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling configureCallReceiveNotify_0(Async)");
+        }
+        
+        // verify the required parameter 'method' is set
+        if (method == null) {
+            throw new ApiException("Missing the required parameter 'method' when calling configureCallReceiveNotify_0(Async)");
+        }
+        
+        // verify the required parameter 'url' is set
+        if (url == null) {
+            throw new ApiException("Missing the required parameter 'url' when calling configureCallReceiveNotify_0(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = configureCallReceiveNotify_0Call(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Set Receive Callback
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 configureCallReceiveNotify_0(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = configureCallReceiveNotify_0WithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+        return resp.getData();
+    }
+
+    /**
+     * Set Receive Callback
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> configureCallReceiveNotify_0WithHttpInfo(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        com.squareup.okhttp.Call call = configureCallReceiveNotify_0ValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set Receive Callback (asynchronously)
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call configureCallReceiveNotify_0Async(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = configureCallReceiveNotify_0ValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for configureCallSendNotify
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call configureCallSendNotifyCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -416,30 +436,30 @@ public class CallsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "jwt" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postCallsSendNotifyValidateBeforeCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call configureCallSendNotifyValidateBeforeCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'fonenumber' is set
         if (fonenumber == null) {
-            throw new ApiException("Missing the required parameter 'fonenumber' when calling postCallsSendNotify(Async)");
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling configureCallSendNotify(Async)");
         }
         
         // verify the required parameter 'method' is set
         if (method == null) {
-            throw new ApiException("Missing the required parameter 'method' when calling postCallsSendNotify(Async)");
+            throw new ApiException("Missing the required parameter 'method' when calling configureCallSendNotify(Async)");
         }
         
         // verify the required parameter 'url' is set
         if (url == null) {
-            throw new ApiException("Missing the required parameter 'url' when calling postCallsSendNotify(Async)");
+            throw new ApiException("Missing the required parameter 'url' when calling configureCallSendNotify(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = postCallsSendNotifyCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = configureCallSendNotifyCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
         return call;
 
         
@@ -449,51 +469,51 @@ public class CallsApi {
     }
 
     /**
-     * Configure the callback URL to notify when a call is made.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL phone number (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
-     * @return String
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return InlineResponse2013
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String postCallsSendNotify(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
-        ApiResponse<String> resp = postCallsSendNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+    public InlineResponse2013 configureCallSendNotify(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = configureCallSendNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
         return resp.getData();
     }
 
     /**
-     * Configure the callback URL to notify when a call is made.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL phone number (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
-     * @return ApiResponse&lt;String&gt;
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> postCallsSendNotifyWithHttpInfo(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
-        com.squareup.okhttp.Call call = postCallsSendNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<InlineResponse2013> configureCallSendNotifyWithHttpInfo(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        com.squareup.okhttp.Call call = configureCallSendNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Configure the callback URL to notify when a call is made. (asynchronously)
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL phone number (required)
-     * @param method Callback URL method. (required)
-     * @param url Callback URL. (required)
-     * @param urlUsername Callback URL username. (optional)
-     * @param urlPassword Callback URL password. (optional)
+     * Set Send Callback (asynchronously)
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postCallsSendNotifyAsync(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call configureCallSendNotifyAsync(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ApiCallback<InlineResponse2013> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -514,8 +534,457 @@ public class CallsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postCallsSendNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        com.squareup.okhttp.Call call = configureCallSendNotifyValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for configureCallSendNotify_0
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call configureCallSendNotify_0Call(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/calls/send_notify";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (fonenumber != null)
+        localVarFormParams.put("fonenumber", fonenumber);
+        if (method != null)
+        localVarFormParams.put("method", method);
+        if (url != null)
+        localVarFormParams.put("url", url);
+        if (urlUsername != null)
+        localVarFormParams.put("url_username", urlUsername);
+        if (urlPassword != null)
+        localVarFormParams.put("url_password", urlPassword);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call configureCallSendNotify_0ValidateBeforeCall(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling configureCallSendNotify_0(Async)");
+        }
+        
+        // verify the required parameter 'method' is set
+        if (method == null) {
+            throw new ApiException("Missing the required parameter 'method' when calling configureCallSendNotify_0(Async)");
+        }
+        
+        // verify the required parameter 'url' is set
+        if (url == null) {
+            throw new ApiException("Missing the required parameter 'url' when calling configureCallSendNotify_0(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = configureCallSendNotify_0Call(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 configureCallSendNotify_0(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = configureCallSendNotify_0WithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+        return resp.getData();
+    }
+
+    /**
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> configureCallSendNotify_0WithHttpInfo(String fonenumber, String method, String url, String urlUsername, String urlPassword) throws ApiException {
+        com.squareup.okhttp.Call call = configureCallSendNotify_0ValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set Send Callback (asynchronously)
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param url Callback URL. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call configureCallSendNotify_0Async(String fonenumber, String method, String url, String urlUsername, String urlPassword, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = configureCallSendNotify_0ValidateBeforeCall(fonenumber, method, url, urlUsername, urlPassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createCall
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createCallCall(String fonenumber, String to, String tts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/calls";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (fonenumber != null)
+        localVarFormParams.put("fonenumber", fonenumber);
+        if (to != null)
+        localVarFormParams.put("to", to);
+        if (tts != null)
+        localVarFormParams.put("tts", tts);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createCallValidateBeforeCall(String fonenumber, String to, String tts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling createCall(Async)");
+        }
+        
+        // verify the required parameter 'to' is set
+        if (to == null) {
+            throw new ApiException("Missing the required parameter 'to' when calling createCall(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = createCallCall(fonenumber, to, tts, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create Call
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @return InlineResponse2012
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2012 createCall(String fonenumber, String to, String tts) throws ApiException {
+        ApiResponse<InlineResponse2012> resp = createCallWithHttpInfo(fonenumber, to, tts);
+        return resp.getData();
+    }
+
+    /**
+     * Create Call
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @return ApiResponse&lt;InlineResponse2012&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2012> createCallWithHttpInfo(String fonenumber, String to, String tts) throws ApiException {
+        com.squareup.okhttp.Call call = createCallValidateBeforeCall(fonenumber, to, tts, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2012>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create Call (asynchronously)
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createCallAsync(String fonenumber, String to, String tts, final ApiCallback<InlineResponse2012> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createCallValidateBeforeCall(fonenumber, to, tts, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2012>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createCall_0
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createCall_0Call(String fonenumber, String to, String tts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/calls";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (fonenumber != null)
+        localVarFormParams.put("fonenumber", fonenumber);
+        if (to != null)
+        localVarFormParams.put("to", to);
+        if (tts != null)
+        localVarFormParams.put("tts", tts);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createCall_0ValidateBeforeCall(String fonenumber, String to, String tts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling createCall_0(Async)");
+        }
+        
+        // verify the required parameter 'to' is set
+        if (to == null) {
+            throw new ApiException("Missing the required parameter 'to' when calling createCall_0(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = createCall_0Call(fonenumber, to, tts, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create Call
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @return InlineResponse2012
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2012 createCall_0(String fonenumber, String to, String tts) throws ApiException {
+        ApiResponse<InlineResponse2012> resp = createCall_0WithHttpInfo(fonenumber, to, tts);
+        return resp.getData();
+    }
+
+    /**
+     * Create Call
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @return ApiResponse&lt;InlineResponse2012&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2012> createCall_0WithHttpInfo(String fonenumber, String to, String tts) throws ApiException {
+        com.squareup.okhttp.Call call = createCall_0ValidateBeforeCall(fonenumber, to, tts, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2012>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create Call (asynchronously)
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param fonenumber FoneNumber to use as caller (required)
+     * @param to Receiving 10 digit phone number (required)
+     * @param tts Text to speech message (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createCall_0Async(String fonenumber, String to, String tts, final ApiCallback<InlineResponse2012> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createCall_0ValidateBeforeCall(fonenumber, to, tts, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2012>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

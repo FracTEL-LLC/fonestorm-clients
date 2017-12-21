@@ -10,7 +10,7 @@
  */
 
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *
@@ -88,150 +88,50 @@ class FaxesApi
     }
 
     /**
-     * Operation postFaxes
+     * Operation configureFaxReceiveNotify
      *
-     * Create a new fax under the account.
+     * Set Receive Callback
      *
-     * @param string $fonenumber FracTEL phone number to use for fax. (required)
-     * @param string $to Phone number to fax. (required)
-     * @param string $message Message to fax. (optional)
-     * @param string $pdf  (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse2013
      */
-    public function postFaxes($fonenumber, $to, $message = null, $pdf = null)
+    public function configureFaxReceiveNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
-        list($response) = $this->postFaxesWithHttpInfo($fonenumber, $to, $message, $pdf);
+        list($response) = $this->configureFaxReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
         return $response;
     }
 
     /**
-     * Operation postFaxesWithHttpInfo
+     * Operation configureFaxReceiveNotifyWithHttpInfo
      *
-     * Create a new fax under the account.
+     * Set Receive Callback
      *
-     * @param string $fonenumber FracTEL phone number to use for fax. (required)
-     * @param string $to Phone number to fax. (required)
-     * @param string $message Message to fax. (optional)
-     * @param string $pdf  (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postFaxesWithHttpInfo($fonenumber, $to, $message = null, $pdf = null)
+    public function configureFaxReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
         // verify the required parameter 'fonenumber' is set
         if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling postFaxes');
-        }
-        // verify the required parameter 'to' is set
-        if ($to === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $to when calling postFaxes');
-        }
-        // parse inputs
-        $resourcePath = "/faxes";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
-
-        // form params
-        if ($fonenumber !== null) {
-            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
-        }
-        // form params
-        if ($to !== null) {
-            $formParams['to'] = $this->apiClient->getSerializer()->toFormValue($to);
-        }
-        // form params
-        if ($message !== null) {
-            $formParams['message'] = $this->apiClient->getSerializer()->toFormValue($message);
-        }
-        // form params
-        if ($pdf !== null) {
-            $formParams['pdf'] = $this->apiClient->getSerializer()->toFormValue($pdf);
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'string',
-                '/faxes'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation postFaxesReceiveNotify
-     *
-     * Configure the callback URL to notify when a fax is received.
-     *
-     * @param string $fonenumber Your FracTEL phone number. (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
-     */
-    public function postFaxesReceiveNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
-    {
-        list($response) = $this->postFaxesReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
-        return $response;
-    }
-
-    /**
-     * Operation postFaxesReceiveNotifyWithHttpInfo
-     *
-     * Configure the callback URL to notify when a fax is received.
-     *
-     * @param string $fonenumber Your FracTEL phone number. (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function postFaxesReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
-    {
-        // verify the required parameter 'fonenumber' is set
-        if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling postFaxesReceiveNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureFaxReceiveNotify');
         }
         // verify the required parameter 'method' is set
         if ($method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $method when calling postFaxesReceiveNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureFaxReceiveNotify');
         }
         // verify the required parameter 'url' is set
         if ($url === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $url when calling postFaxesReceiveNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureFaxReceiveNotify');
         }
         // parse inputs
         $resourcePath = "/faxes/receive_notify";
@@ -272,6 +172,11 @@ class FaxesApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -280,15 +185,19 @@ class FaxesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse2013',
                 '/faxes/receive_notify'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -298,50 +207,169 @@ class FaxesApi
     }
 
     /**
-     * Operation postFaxesSendNotify
+     * Operation configureFaxReceiveNotify_0
      *
-     * Configure the callback URL to notify when a fax is made.
+     * Set Receive Callback
      *
-     * @param string $fonenumber Your FracTEL phone number (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse2013
      */
-    public function postFaxesSendNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    public function configureFaxReceiveNotify_0($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
-        list($response) = $this->postFaxesSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
+        list($response) = $this->configureFaxReceiveNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
         return $response;
     }
 
     /**
-     * Operation postFaxesSendNotifyWithHttpInfo
+     * Operation configureFaxReceiveNotify_0WithHttpInfo
      *
-     * Configure the callback URL to notify when a fax is made.
+     * Set Receive Callback
      *
-     * @param string $fonenumber Your FracTEL phone number (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postFaxesSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    public function configureFaxReceiveNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
         // verify the required parameter 'fonenumber' is set
         if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling postFaxesSendNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureFaxReceiveNotify_0');
         }
         // verify the required parameter 'method' is set
         if ($method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $method when calling postFaxesSendNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureFaxReceiveNotify_0');
         }
         // verify the required parameter 'url' is set
         if ($url === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $url when calling postFaxesSendNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureFaxReceiveNotify_0');
+        }
+        // parse inputs
+        $resourcePath = "/faxes/receive_notify";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($method !== null) {
+            $formParams['method'] = $this->apiClient->getSerializer()->toFormValue($method);
+        }
+        // form params
+        if ($url !== null) {
+            $formParams['url'] = $this->apiClient->getSerializer()->toFormValue($url);
+        }
+        // form params
+        if ($url_username !== null) {
+            $formParams['url_username'] = $this->apiClient->getSerializer()->toFormValue($url_username);
+        }
+        // form params
+        if ($url_password !== null) {
+            $formParams['url_password'] = $this->apiClient->getSerializer()->toFormValue($url_password);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/faxes/receive_notify'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation configureFaxSendNotify
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function configureFaxSendNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        list($response) = $this->configureFaxSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
+        return $response;
+    }
+
+    /**
+     * Operation configureFaxSendNotifyWithHttpInfo
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function configureFaxSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureFaxSendNotify');
+        }
+        // verify the required parameter 'method' is set
+        if ($method === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureFaxSendNotify');
+        }
+        // verify the required parameter 'url' is set
+        if ($url === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureFaxSendNotify');
         }
         // parse inputs
         $resourcePath = "/faxes/send_notify";
@@ -382,6 +410,11 @@ class FaxesApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -390,15 +423,356 @@ class FaxesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse2013',
                 '/faxes/send_notify'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation configureFaxSendNotify_0
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function configureFaxSendNotify_0($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        list($response) = $this->configureFaxSendNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
+        return $response;
+    }
+
+    /**
+     * Operation configureFaxSendNotify_0WithHttpInfo
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function configureFaxSendNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureFaxSendNotify_0');
+        }
+        // verify the required parameter 'method' is set
+        if ($method === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureFaxSendNotify_0');
+        }
+        // verify the required parameter 'url' is set
+        if ($url === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureFaxSendNotify_0');
+        }
+        // parse inputs
+        $resourcePath = "/faxes/send_notify";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($method !== null) {
+            $formParams['method'] = $this->apiClient->getSerializer()->toFormValue($method);
+        }
+        // form params
+        if ($url !== null) {
+            $formParams['url'] = $this->apiClient->getSerializer()->toFormValue($url);
+        }
+        // form params
+        if ($url_username !== null) {
+            $formParams['url_username'] = $this->apiClient->getSerializer()->toFormValue($url_username);
+        }
+        // form params
+        if ($url_password !== null) {
+            $formParams['url_password'] = $this->apiClient->getSerializer()->toFormValue($url_password);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/faxes/send_notify'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createFax
+     *
+     * Create Fax
+     *
+     * @param string $fonenumber FoneNumber to use for fax (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $message Message to fax (optional)
+     * @param string $pdf URL of a PDF file to send with fax (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2011
+     */
+    public function createFax($fonenumber, $to, $message = null, $pdf = null)
+    {
+        list($response) = $this->createFaxWithHttpInfo($fonenumber, $to, $message, $pdf);
+        return $response;
+    }
+
+    /**
+     * Operation createFaxWithHttpInfo
+     *
+     * Create Fax
+     *
+     * @param string $fonenumber FoneNumber to use for fax (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $message Message to fax (optional)
+     * @param string $pdf URL of a PDF file to send with fax (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2011, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createFaxWithHttpInfo($fonenumber, $to, $message = null, $pdf = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling createFax');
+        }
+        // verify the required parameter 'to' is set
+        if ($to === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $to when calling createFax');
+        }
+        // parse inputs
+        $resourcePath = "/faxes";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($to !== null) {
+            $formParams['to'] = $this->apiClient->getSerializer()->toFormValue($to);
+        }
+        // form params
+        if ($message !== null) {
+            $formParams['message'] = $this->apiClient->getSerializer()->toFormValue($message);
+        }
+        // form params
+        if ($pdf !== null) {
+            $formParams['pdf'] = $this->apiClient->getSerializer()->toFormValue($pdf);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2011',
+                '/faxes'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2011', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2011', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createFax_0
+     *
+     * Create Fax
+     *
+     * @param string $fonenumber FoneNumber to use for fax (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $message Message to fax (optional)
+     * @param string $pdf URL of a PDF file to send with fax (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2011
+     */
+    public function createFax_0($fonenumber, $to, $message = null, $pdf = null)
+    {
+        list($response) = $this->createFax_0WithHttpInfo($fonenumber, $to, $message, $pdf);
+        return $response;
+    }
+
+    /**
+     * Operation createFax_0WithHttpInfo
+     *
+     * Create Fax
+     *
+     * @param string $fonenumber FoneNumber to use for fax (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $message Message to fax (optional)
+     * @param string $pdf URL of a PDF file to send with fax (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2011, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createFax_0WithHttpInfo($fonenumber, $to, $message = null, $pdf = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling createFax_0');
+        }
+        // verify the required parameter 'to' is set
+        if ($to === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $to when calling createFax_0');
+        }
+        // parse inputs
+        $resourcePath = "/faxes";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($to !== null) {
+            $formParams['to'] = $this->apiClient->getSerializer()->toFormValue($to);
+        }
+        // form params
+        if ($message !== null) {
+            $formParams['message'] = $this->apiClient->getSerializer()->toFormValue($message);
+        }
+        // form params
+        if ($pdf !== null) {
+            $formParams['pdf'] = $this->apiClient->getSerializer()->toFormValue($pdf);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2011',
+                '/faxes'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2011', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2011', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

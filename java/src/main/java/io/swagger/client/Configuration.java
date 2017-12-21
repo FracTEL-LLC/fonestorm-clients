@@ -1,5 +1,5 @@
 /*
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -13,7 +13,7 @@
 
 package io.swagger.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-11T11:43:57.729-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-20T17:25:02.886-07:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

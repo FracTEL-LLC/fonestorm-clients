@@ -1,25 +1,25 @@
-# FoneStormApi220.AuthApi
+# FoneStormApi220Breeze.AuthApi
 
 All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postAuth**](AuthApi.md#postAuth) | **POST** /auth | Create a FoneStorm authentication token.
+[**createToken**](AuthApi.md#createToken) | **POST** /auth | Create Auth Token
 
 
-<a name="postAuth"></a>
-# **postAuth**
-> &#39;String&#39; postAuth(username, password, opts)
+<a name="createToken"></a>
+# **createToken**
+> InlineResponse201 createToken(username, password, opts)
 
-Create a FoneStorm authentication token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example
 ```javascript
-var FoneStormApi220 = require('fone_storm_api_220');
+var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
 
-var apiInstance = new FoneStormApi220.AuthApi();
+var apiInstance = new FoneStormApi220Breeze.AuthApi();
 
 var username = "username_example"; // String | FracTEL username
 
@@ -36,7 +36,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.postAuth(username, password, opts, callback);
+apiInstance.createToken(username, password, opts, callback);
 ```
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**&#39;String&#39;**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 

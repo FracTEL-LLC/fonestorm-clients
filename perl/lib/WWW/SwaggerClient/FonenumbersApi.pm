@@ -1,6 +1,6 @@
 =begin comment
 
-FoneStorm API 2.2.0
+FoneStorm API 2.2.0 (Breeze)
 
 FracTEL's Middleware API
 
@@ -52,33 +52,163 @@ sub new {
 
 
 #
-# delete_fonenumbers_fonenumber
+# create_fonenumber
 #
-# Delete a fonenumber identified by fonenumber.
+# Create FoneNumber
 # 
-# @param string $fonenumber Your FracTEL fonenumber. (required)
+# @param string $area_code Valid 3-digit area code (required)
+{
+    my $params = {
+    'area_code' => {
+        data_type => 'string',
+        description => 'Valid 3-digit area code',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'create_fonenumber' } = { 
+    	summary => 'Create FoneNumber',
+        params => $params,
+        returns => 'InlineResponse2013',
+        };
+}
+# @return InlineResponse2013
+#
+sub create_fonenumber {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'area_code' is set
+    unless (exists $args{'area_code'}) {
+      croak("Missing the required parameter 'area_code' when calling create_fonenumber");
+    }
+
+    # parse inputs
+    my $_resource_path = '/fonenumbers';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
+
+    # form params
+    if ( exists $args{'area_code'} ) {
+                $form_params->{'area_code'} = $self->{api_client}->to_form_value($args{'area_code'});
+    }
+    
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(jwt )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
+    return $_response_object;
+}
+
+#
+# create_fonenumber_0
+#
+# Create FoneNumber
+# 
+# @param string $area_code Valid 3-digit area code (required)
+{
+    my $params = {
+    'area_code' => {
+        data_type => 'string',
+        description => 'Valid 3-digit area code',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'create_fonenumber_0' } = { 
+    	summary => 'Create FoneNumber',
+        params => $params,
+        returns => 'InlineResponse2013',
+        };
+}
+# @return InlineResponse2013
+#
+sub create_fonenumber_0 {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'area_code' is set
+    unless (exists $args{'area_code'}) {
+      croak("Missing the required parameter 'area_code' when calling create_fonenumber_0");
+    }
+
+    # parse inputs
+    my $_resource_path = '/fonenumbers';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
+
+    # form params
+    if ( exists $args{'area_code'} ) {
+                $form_params->{'area_code'} = $self->{api_client}->to_form_value($args{'area_code'});
+    }
+    
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(jwt )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
+    return $_response_object;
+}
+
+#
+# delete_fonenumber
+#
+# Delete FoneNumber
+# 
+# @param string $fonenumber FoneNumber associated with the account (required)
 {
     my $params = {
     'fonenumber' => {
         data_type => 'string',
-        description => 'Your FracTEL fonenumber.',
+        description => 'FoneNumber associated with the account',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'delete_fonenumbers_fonenumber' } = { 
-    	summary => 'Delete a fonenumber identified by fonenumber.',
+    __PACKAGE__->method_documentation->{ 'delete_fonenumber' } = { 
+    	summary => 'Delete FoneNumber',
         params => $params,
-        returns => 'string',
+        returns => 'InlineResponse2013',
         };
 }
-# @return string
+# @return InlineResponse2013
 #
-sub delete_fonenumbers_fonenumber {
+sub delete_fonenumber {
     my ($self, %args) = @_;
 
     # verify the required parameter 'fonenumber' is set
     unless (exists $args{'fonenumber'}) {
-      croak("Missing the required parameter 'fonenumber' when calling delete_fonenumbers_fonenumber");
+      croak("Missing the required parameter 'fonenumber' when calling delete_fonenumber");
     }
 
     # parse inputs
@@ -105,7 +235,7 @@ sub delete_fonenumbers_fonenumber {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(jwt )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -114,39 +244,44 @@ sub delete_fonenumbers_fonenumber {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
     return $_response_object;
 }
 
 #
-# get_fonenumbers
+# delete_fonenumber_0
 #
-# Get a list of all active fonenumbers under the account.
+# Delete FoneNumber
 # 
-# @param string $filter Filters for the response. (optional)
+# @param string $fonenumber FoneNumber associated with the account (required)
 {
     my $params = {
-    'filter' => {
+    'fonenumber' => {
         data_type => 'string',
-        description => 'Filters for the response.',
-        required => '0',
+        description => 'FoneNumber associated with the account',
+        required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_fonenumbers' } = { 
-    	summary => 'Get a list of all active fonenumbers under the account.',
+    __PACKAGE__->method_documentation->{ 'delete_fonenumber_0' } = { 
+    	summary => 'Delete FoneNumber',
         params => $params,
-        returns => 'string',
+        returns => 'InlineResponse2013',
         };
 }
-# @return string
+# @return InlineResponse2013
 #
-sub get_fonenumbers {
+sub delete_fonenumber_0 {
     my ($self, %args) = @_;
 
-    # parse inputs
-    my $_resource_path = '/fonenumbers';
+    # verify the required parameter 'fonenumber' is set
+    unless (exists $args{'fonenumber'}) {
+      croak("Missing the required parameter 'fonenumber' when calling delete_fonenumber_0");
+    }
 
-    my $_method = 'GET';
+    # parse inputs
+    my $_resource_path = '/fonenumbers/{fonenumber}';
+
+    my $_method = 'DELETE';
     my $query_params = {};
     my $header_params = {};
     my $form_params = {};
@@ -158,14 +293,16 @@ sub get_fonenumbers {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
 
-    # query params
-    if ( exists $args{'filter'}) {
-        $query_params->{'filter'} = $self->{api_client}->to_query_value($args{'filter'});
+    # path params
+    if ( exists $args{'fonenumber'}) {
+        my $_base_variable = "{" . "fonenumber" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'fonenumber'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(jwt )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -174,38 +311,38 @@ sub get_fonenumbers {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
     return $_response_object;
 }
 
 #
-# get_fonenumbers_fonenumber
+# get_fonenumber
 #
-# Get a fonenumber identified by fonenumber.
+# Get FoneNumber
 # 
-# @param string $fonenumber Your FracTEL fonenumber. (required)
+# @param string $fonenumber FoneNumber associated with the account (required)
 {
     my $params = {
     'fonenumber' => {
         data_type => 'string',
-        description => 'Your FracTEL fonenumber.',
+        description => 'FoneNumber associated with the account',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_fonenumbers_fonenumber' } = { 
-    	summary => 'Get a fonenumber identified by fonenumber.',
+    __PACKAGE__->method_documentation->{ 'get_fonenumber' } = { 
+    	summary => 'Get FoneNumber',
         params => $params,
-        returns => 'string',
+        returns => 'InlineResponse2013',
         };
 }
-# @return string
+# @return InlineResponse2013
 #
-sub get_fonenumbers_fonenumber {
+sub get_fonenumber {
     my ($self, %args) = @_;
 
     # verify the required parameter 'fonenumber' is set
     unless (exists $args{'fonenumber'}) {
-      croak("Missing the required parameter 'fonenumber' when calling get_fonenumbers_fonenumber");
+      croak("Missing the required parameter 'fonenumber' when calling get_fonenumber");
     }
 
     # parse inputs
@@ -232,7 +369,7 @@ sub get_fonenumbers_fonenumber {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(jwt )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -241,44 +378,44 @@ sub get_fonenumbers_fonenumber {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
     return $_response_object;
 }
 
 #
-# post_fonenumbers
+# get_fonenumber_0
 #
-# Create a fonenumber under the account.
+# Get FoneNumber
 # 
-# @param string $area_code A valid 3-digit Area Code. (required)
+# @param string $fonenumber FoneNumber associated with the account (required)
 {
     my $params = {
-    'area_code' => {
+    'fonenumber' => {
         data_type => 'string',
-        description => 'A valid 3-digit Area Code.',
+        description => 'FoneNumber associated with the account',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'post_fonenumbers' } = { 
-    	summary => 'Create a fonenumber under the account.',
+    __PACKAGE__->method_documentation->{ 'get_fonenumber_0' } = { 
+    	summary => 'Get FoneNumber',
         params => $params,
-        returns => 'string',
+        returns => 'InlineResponse2013',
         };
 }
-# @return string
+# @return InlineResponse2013
 #
-sub post_fonenumbers {
+sub get_fonenumber_0 {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'area_code' is set
-    unless (exists $args{'area_code'}) {
-      croak("Missing the required parameter 'area_code' when calling post_fonenumbers");
+    # verify the required parameter 'fonenumber' is set
+    unless (exists $args{'fonenumber'}) {
+      croak("Missing the required parameter 'fonenumber' when calling get_fonenumber_0");
     }
 
     # parse inputs
-    my $_resource_path = '/fonenumbers';
+    my $_resource_path = '/fonenumbers/{fonenumber}';
 
-    my $_method = 'POST';
+    my $_method = 'GET';
     my $query_params = {};
     my $header_params = {};
     my $form_params = {};
@@ -290,14 +427,16 @@ sub post_fonenumbers {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
 
-    # form params
-    if ( exists $args{'area_code'} ) {
-                $form_params->{'area_code'} = $self->{api_client}->to_form_value($args{'area_code'});
+    # path params
+    if ( exists $args{'fonenumber'}) {
+        my $_base_variable = "{" . "fonenumber" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'fonenumber'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
-    
+
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(jwt )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -306,73 +445,203 @@ sub post_fonenumbers {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
     return $_response_object;
 }
 
 #
-# put_fonenumbers_fonenumber
+# get_fonenumbers
 #
-# Update a fonenumber identified by fonenumber.
+# Get FoneNumbers
 # 
-# @param string $fonenumber Your FracTEL fonenumber. (required)
-# @param string $type Message routing type. (required)
-# @param string $value Message routing type value. (optional)
-# @param string $url_method URL method. (optional)
-# @param string $url_username URL auth username. (optional)
-# @param string $url_password URL auth password. (optional)
+# @param string $filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+{
+    my $params = {
+    'filter' => {
+        data_type => 'string',
+        description => 'Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information.',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_fonenumbers' } = { 
+    	summary => 'Get FoneNumbers',
+        params => $params,
+        returns => 'InlineResponse200',
+        };
+}
+# @return InlineResponse200
+#
+sub get_fonenumbers {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/fonenumbers';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
+
+    # query params
+    if ( exists $args{'filter'}) {
+        $query_params->{'filter'} = $self->{api_client}->to_query_value($args{'filter'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(jwt )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse200', $response);
+    return $_response_object;
+}
+
+#
+# get_fonenumbers_0
+#
+# Get FoneNumbers
+# 
+# @param string $filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+{
+    my $params = {
+    'filter' => {
+        data_type => 'string',
+        description => 'Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information.',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_fonenumbers_0' } = { 
+    	summary => 'Get FoneNumbers',
+        params => $params,
+        returns => 'InlineResponse200',
+        };
+}
+# @return InlineResponse200
+#
+sub get_fonenumbers_0 {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/fonenumbers';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
+
+    # query params
+    if ( exists $args{'filter'}) {
+        $query_params->{'filter'} = $self->{api_client}->to_query_value($args{'filter'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(jwt )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse200', $response);
+    return $_response_object;
+}
+
+#
+# update_fonenumber
+#
+# Update FoneNumber
+# 
+# @param string $fonenumber FoneNumber associated with the account (required)
+# @param string $type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+# @param string $value Message routing type value (required)
+# @param string $url_method URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+# @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+# @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
 {
     my $params = {
     'fonenumber' => {
         data_type => 'string',
-        description => 'Your FracTEL fonenumber.',
+        description => 'FoneNumber associated with the account',
         required => '1',
     },
     'type' => {
         data_type => 'string',
-        description => 'Message routing type.',
+        description => 'Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;.',
         required => '1',
     },
     'value' => {
         data_type => 'string',
-        description => 'Message routing type value.',
-        required => '0',
+        description => 'Message routing type value',
+        required => '1',
     },
     'url_method' => {
         data_type => 'string',
-        description => 'URL method.',
-        required => '0',
+        description => 'URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.',
+        required => '1',
     },
     'url_username' => {
         data_type => 'string',
-        description => 'URL auth username.',
+        description => 'Username for HTTP **Basic** authentication scheme',
         required => '0',
     },
     'url_password' => {
         data_type => 'string',
-        description => 'URL auth password.',
+        description => 'Password for HTTP **Basic** authentication scheme',
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'put_fonenumbers_fonenumber' } = { 
-    	summary => 'Update a fonenumber identified by fonenumber.',
+    __PACKAGE__->method_documentation->{ 'update_fonenumber' } = { 
+    	summary => 'Update FoneNumber',
         params => $params,
-        returns => 'string',
+        returns => 'InlineResponse2013',
         };
 }
-# @return string
+# @return InlineResponse2013
 #
-sub put_fonenumbers_fonenumber {
+sub update_fonenumber {
     my ($self, %args) = @_;
 
     # verify the required parameter 'fonenumber' is set
     unless (exists $args{'fonenumber'}) {
-      croak("Missing the required parameter 'fonenumber' when calling put_fonenumbers_fonenumber");
+      croak("Missing the required parameter 'fonenumber' when calling update_fonenumber");
     }
 
     # verify the required parameter 'type' is set
     unless (exists $args{'type'}) {
-      croak("Missing the required parameter 'type' when calling put_fonenumbers_fonenumber");
+      croak("Missing the required parameter 'type' when calling update_fonenumber");
+    }
+
+    # verify the required parameter 'value' is set
+    unless (exists $args{'value'}) {
+      croak("Missing the required parameter 'value' when calling update_fonenumber");
+    }
+
+    # verify the required parameter 'url_method' is set
+    unless (exists $args{'url_method'}) {
+      croak("Missing the required parameter 'url_method' when calling update_fonenumber");
     }
 
     # parse inputs
@@ -424,7 +693,7 @@ sub put_fonenumbers_fonenumber {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(jwt )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -433,7 +702,144 @@ sub put_fonenumbers_fonenumber {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
+    return $_response_object;
+}
+
+#
+# update_fonenumber_0
+#
+# Update FoneNumber
+# 
+# @param string $fonenumber FoneNumber associated with the account (required)
+# @param string $type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+# @param string $value Message routing type value (required)
+# @param string $url_method URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+# @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+# @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+{
+    my $params = {
+    'fonenumber' => {
+        data_type => 'string',
+        description => 'FoneNumber associated with the account',
+        required => '1',
+    },
+    'type' => {
+        data_type => 'string',
+        description => 'Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;.',
+        required => '1',
+    },
+    'value' => {
+        data_type => 'string',
+        description => 'Message routing type value',
+        required => '1',
+    },
+    'url_method' => {
+        data_type => 'string',
+        description => 'URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.',
+        required => '1',
+    },
+    'url_username' => {
+        data_type => 'string',
+        description => 'Username for HTTP **Basic** authentication scheme',
+        required => '0',
+    },
+    'url_password' => {
+        data_type => 'string',
+        description => 'Password for HTTP **Basic** authentication scheme',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'update_fonenumber_0' } = { 
+    	summary => 'Update FoneNumber',
+        params => $params,
+        returns => 'InlineResponse2013',
+        };
+}
+# @return InlineResponse2013
+#
+sub update_fonenumber_0 {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'fonenumber' is set
+    unless (exists $args{'fonenumber'}) {
+      croak("Missing the required parameter 'fonenumber' when calling update_fonenumber_0");
+    }
+
+    # verify the required parameter 'type' is set
+    unless (exists $args{'type'}) {
+      croak("Missing the required parameter 'type' when calling update_fonenumber_0");
+    }
+
+    # verify the required parameter 'value' is set
+    unless (exists $args{'value'}) {
+      croak("Missing the required parameter 'value' when calling update_fonenumber_0");
+    }
+
+    # verify the required parameter 'url_method' is set
+    unless (exists $args{'url_method'}) {
+      croak("Missing the required parameter 'url_method' when calling update_fonenumber_0");
+    }
+
+    # parse inputs
+    my $_resource_path = '/fonenumbers/{fonenumber}';
+
+    my $_method = 'PUT';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
+
+    # path params
+    if ( exists $args{'fonenumber'}) {
+        my $_base_variable = "{" . "fonenumber" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'fonenumber'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # form params
+    if ( exists $args{'type'} ) {
+                $form_params->{'type'} = $self->{api_client}->to_form_value($args{'type'});
+    }
+    
+    # form params
+    if ( exists $args{'value'} ) {
+                $form_params->{'value'} = $self->{api_client}->to_form_value($args{'value'});
+    }
+    
+    # form params
+    if ( exists $args{'url_method'} ) {
+                $form_params->{'url_method'} = $self->{api_client}->to_form_value($args{'url_method'});
+    }
+    
+    # form params
+    if ( exists $args{'url_username'} ) {
+                $form_params->{'url_username'} = $self->{api_client}->to_form_value($args{'url_username'});
+    }
+    
+    # form params
+    if ( exists $args{'url_password'} ) {
+                $form_params->{'url_password'} = $self->{api_client}->to_form_value($args{'url_password'});
+    }
+    
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(jwt )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2013', $response);
     return $_response_object;
 }
 

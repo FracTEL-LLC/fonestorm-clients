@@ -4,18 +4,21 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PostFaxes**](FaxesApi.md#postfaxes) | **POST** /faxes | Create a new fax under the account.
-[**PostFaxesReceiveNotify**](FaxesApi.md#postfaxesreceivenotify) | **POST** /faxes/receive_notify | Configure the callback URL to notify when a fax is received.
-[**PostFaxesSendNotify**](FaxesApi.md#postfaxessendnotify) | **POST** /faxes/send_notify | Configure the callback URL to notify when a fax is made.
+[**ConfigureFaxReceiveNotify**](FaxesApi.md#configurefaxreceivenotify) | **POST** /faxes/receive_notify | Set Receive Callback
+[**ConfigureFaxReceiveNotify_0**](FaxesApi.md#configurefaxreceivenotify_0) | **POST** /faxes/receive_notify | Set Receive Callback
+[**ConfigureFaxSendNotify**](FaxesApi.md#configurefaxsendnotify) | **POST** /faxes/send_notify | Set Send Callback
+[**ConfigureFaxSendNotify_0**](FaxesApi.md#configurefaxsendnotify_0) | **POST** /faxes/send_notify | Set Send Callback
+[**CreateFax**](FaxesApi.md#createfax) | **POST** /faxes | Create Fax
+[**CreateFax_0**](FaxesApi.md#createfax_0) | **POST** /faxes | Create Fax
 
 
-<a name="postfaxes"></a>
-# **PostFaxes**
-> string PostFaxes (string fonenumber, string to, string message = null, string pdf = null)
+<a name="configurefaxreceivenotify"></a>
+# **ConfigureFaxReceiveNotify**
+> InlineResponse2013 ConfigureFaxReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
-Create a new fax under the account.
+Set Receive Callback
 
-Returns a JSON response
+Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
 
 ### Example
 ```csharp
@@ -27,25 +30,31 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostFaxesExample
+    public class ConfigureFaxReceiveNotifyExample
     {
         public void main()
         {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new FaxesApi();
-            var fonenumber = fonenumber_example;  // string | FracTEL phone number to use for fax.
-            var to = to_example;  // string | Phone number to fax.
-            var message = message_example;  // string | Message to fax. (optional) 
-            var pdf = pdf_example;  // string |  (optional) 
+            var fonenumber = fonenumber_example;  // string | FoneNumber associated with the account
+            var method = method_example;  // string | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
 
             try
             {
-                // Create a new fax under the account.
-                string result = apiInstance.PostFaxes(fonenumber, to, message, pdf);
+                // Set Receive Callback
+                InlineResponse2013 result = apiInstance.ConfigureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling FaxesApi.PostFaxes: " + e.Message );
+                Debug.Print("Exception when calling FaxesApi.ConfigureFaxReceiveNotify: " + e.Message );
             }
         }
     }
@@ -56,18 +65,19 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **string**| FracTEL phone number to use for fax. | 
- **to** | **string**| Phone number to fax. | 
- **message** | **string**| Message to fax. | [optional] 
- **pdf** | **string**|  | [optional] 
+ **fonenumber** | **string**| FoneNumber associated with the account | 
+ **method** | **string**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -76,13 +86,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="postfaxesreceivenotify"></a>
-# **PostFaxesReceiveNotify**
-> string PostFaxesReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+<a name="configurefaxreceivenotify_0"></a>
+# **ConfigureFaxReceiveNotify_0**
+> InlineResponse2013 ConfigureFaxReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
-Configure the callback URL to notify when a fax is received.
+Set Receive Callback
 
-Returns a JSON response
+Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
 
 ### Example
 ```csharp
@@ -94,26 +104,31 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostFaxesReceiveNotifyExample
+    public class ConfigureFaxReceiveNotify_0Example
     {
         public void main()
         {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new FaxesApi();
-            var fonenumber = fonenumber_example;  // string | Your FracTEL phone number.
-            var method = method_example;  // string | Callback URL method.
-            var url = url_example;  // string | Callback URL.
-            var urlUsername = urlUsername_example;  // string | Callback URL username. (optional) 
-            var urlPassword = urlPassword_example;  // string | Callback URL password. (optional) 
+            var fonenumber = fonenumber_example;  // string | FoneNumber associated with the account
+            var method = method_example;  // string | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
 
             try
             {
-                // Configure the callback URL to notify when a fax is received.
-                string result = apiInstance.PostFaxesReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+                // Set Receive Callback
+                InlineResponse2013 result = apiInstance.ConfigureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling FaxesApi.PostFaxesReceiveNotify: " + e.Message );
+                Debug.Print("Exception when calling FaxesApi.ConfigureFaxReceiveNotify_0: " + e.Message );
             }
         }
     }
@@ -124,19 +139,19 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **string**| Your FracTEL phone number. | 
- **method** | **string**| Callback URL method. | 
- **url** | **string**| Callback URL. | 
- **urlUsername** | **string**| Callback URL username. | [optional] 
- **urlPassword** | **string**| Callback URL password. | [optional] 
+ **fonenumber** | **string**| FoneNumber associated with the account | 
+ **method** | **string**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -145,13 +160,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="postfaxessendnotify"></a>
-# **PostFaxesSendNotify**
-> string PostFaxesSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+<a name="configurefaxsendnotify"></a>
+# **ConfigureFaxSendNotify**
+> InlineResponse2013 ConfigureFaxSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
-Configure the callback URL to notify when a fax is made.
+Set Send Callback
 
-Returns a JSON response
+Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
 
 ### Example
 ```csharp
@@ -163,26 +178,31 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostFaxesSendNotifyExample
+    public class ConfigureFaxSendNotifyExample
     {
         public void main()
         {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new FaxesApi();
-            var fonenumber = fonenumber_example;  // string | Your FracTEL phone number
-            var method = method_example;  // string | Callback URL method.
-            var url = url_example;  // string | Callback URL.
-            var urlUsername = urlUsername_example;  // string | Callback URL username. (optional) 
-            var urlPassword = urlPassword_example;  // string | Callback URL password. (optional) 
+            var fonenumber = fonenumber_example;  // string | FoneNumber associated with the account
+            var method = method_example;  // string | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
 
             try
             {
-                // Configure the callback URL to notify when a fax is made.
-                string result = apiInstance.PostFaxesSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+                // Set Send Callback
+                InlineResponse2013 result = apiInstance.ConfigureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling FaxesApi.PostFaxesSendNotify: " + e.Message );
+                Debug.Print("Exception when calling FaxesApi.ConfigureFaxSendNotify: " + e.Message );
             }
         }
     }
@@ -193,19 +213,237 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **string**| Your FracTEL phone number | 
- **method** | **string**| Callback URL method. | 
- **url** | **string**| Callback URL. | 
- **urlUsername** | **string**| Callback URL username. | [optional] 
- **urlPassword** | **string**| Callback URL password. | [optional] 
+ **fonenumber** | **string**| FoneNumber associated with the account | 
+ **method** | **string**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="configurefaxsendnotify_0"></a>
+# **ConfigureFaxSendNotify_0**
+> InlineResponse2013 ConfigureFaxSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+
+Set Send Callback
+
+Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class ConfigureFaxSendNotify_0Example
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new FaxesApi();
+            var fonenumber = fonenumber_example;  // string | FoneNumber associated with the account
+            var method = method_example;  // string | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
+
+            try
+            {
+                // Set Send Callback
+                InlineResponse2013 result = apiInstance.ConfigureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FaxesApi.ConfigureFaxSendNotify_0: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| FoneNumber associated with the account | 
+ **method** | **string**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
+
+### Return type
+
+[**InlineResponse2013**](InlineResponse2013.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createfax"></a>
+# **CreateFax**
+> InlineResponse2011 CreateFax (string fonenumber, string to, string message = null, string pdf = null)
+
+Create Fax
+
+Send a fax to a recipient phone number.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class CreateFaxExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new FaxesApi();
+            var fonenumber = fonenumber_example;  // string | FoneNumber to use for fax
+            var to = to_example;  // string | Receiving 10 digit phone number
+            var message = message_example;  // string | Message to fax (optional) 
+            var pdf = pdf_example;  // string | URL of a PDF file to send with fax (optional) 
+
+            try
+            {
+                // Create Fax
+                InlineResponse2011 result = apiInstance.CreateFax(fonenumber, to, message, pdf);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FaxesApi.CreateFax: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| FoneNumber to use for fax | 
+ **to** | **string**| Receiving 10 digit phone number | 
+ **message** | **string**| Message to fax | [optional] 
+ **pdf** | **string**| URL of a PDF file to send with fax | [optional] 
+
+### Return type
+
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createfax_0"></a>
+# **CreateFax_0**
+> InlineResponse2011 CreateFax_0 (string fonenumber, string to, string message = null, string pdf = null)
+
+Create Fax
+
+Send a fax to a recipient phone number.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class CreateFax_0Example
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new FaxesApi();
+            var fonenumber = fonenumber_example;  // string | FoneNumber to use for fax
+            var to = to_example;  // string | Receiving 10 digit phone number
+            var message = message_example;  // string | Message to fax (optional) 
+            var pdf = pdf_example;  // string | URL of a PDF file to send with fax (optional) 
+
+            try
+            {
+                // Create Fax
+                InlineResponse2011 result = apiInstance.CreateFax_0(fonenumber, to, message, pdf);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FaxesApi.CreateFax_0: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| FoneNumber to use for fax | 
+ **to** | **string**| Receiving 10 digit phone number | 
+ **message** | **string**| Message to fax | [optional] 
+ **pdf** | **string**| URL of a PDF file to send with fax | [optional] 
+
+### Return type
+
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 

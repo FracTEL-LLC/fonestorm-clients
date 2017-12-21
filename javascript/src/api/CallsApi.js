@@ -1,5 +1,5 @@
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Error', 'model/InlineResponse2012', 'model/InlineResponse2013'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/InlineResponse2012'), require('../model/InlineResponse2013'));
   } else {
     // Browser globals (root is window)
-    if (!root.FoneStormApi220) {
-      root.FoneStormApi220 = {};
+    if (!root.FoneStormApi220Breeze) {
+      root.FoneStormApi220Breeze = {};
     }
-    root.FoneStormApi220.CallsApi = factory(root.FoneStormApi220.ApiClient);
+    root.FoneStormApi220Breeze.CallsApi = factory(root.FoneStormApi220Breeze.ApiClient, root.FoneStormApi220Breeze.Error, root.FoneStormApi220Breeze.InlineResponse2012, root.FoneStormApi220Breeze.InlineResponse2013);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Error, InlineResponse2012, InlineResponse2013) {
   'use strict';
 
   /**
@@ -48,35 +48,299 @@
 
 
     /**
-     * Callback function to receive the result of the postCalls operation.
-     * @callback module:api/CallsApi~postCallsCallback
+     * Callback function to receive the result of the configureCallReceiveNotify operation.
+     * @callback module:api/CallsApi~configureCallReceiveNotifyCallback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Create a new call under the account.
-     * Returns a JSON response
-     * @param {String} fonenumber FracTEL phone number to use as caller.
-     * @param {String} to Phone number to call.
+     * Set Receive Callback
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.tts Text to speech message.
-     * @param {module:api/CallsApi~postCallsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/CallsApi~configureCallReceiveNotifyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
      */
-    this.postCalls = function(fonenumber, to, opts, callback) {
+    this.configureCallReceiveNotify = function(fonenumber, method, url, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'fonenumber' is set
       if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling postCalls");
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureCallReceiveNotify");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureCallReceiveNotify");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureCallReceiveNotify");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/calls/receive_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the configureCallReceiveNotify_0 operation.
+     * @callback module:api/CallsApi~configureCallReceiveNotify_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set Receive Callback
+     * Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/CallsApi~configureCallReceiveNotify_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.configureCallReceiveNotify_0 = function(fonenumber, method, url, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureCallReceiveNotify_0");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureCallReceiveNotify_0");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureCallReceiveNotify_0");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/calls/receive_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the configureCallSendNotify operation.
+     * @callback module:api/CallsApi~configureCallSendNotifyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/CallsApi~configureCallSendNotifyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.configureCallSendNotify = function(fonenumber, method, url, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureCallSendNotify");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureCallSendNotify");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureCallSendNotify");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/calls/send_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the configureCallSendNotify_0 operation.
+     * @callback module:api/CallsApi~configureCallSendNotify_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set Send Callback
+     * Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {String} url Callback URL. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/CallsApi~configureCallSendNotify_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.configureCallSendNotify_0 = function(fonenumber, method, url, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling configureCallSendNotify_0");
+      }
+
+      // verify the required parameter 'method' is set
+      if (method === undefined || method === null) {
+        throw new Error("Missing the required parameter 'method' when calling configureCallSendNotify_0");
+      }
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling configureCallSendNotify_0");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'fonenumber': fonenumber,
+        'method': method,
+        'url': url,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/calls/send_notify', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createCall operation.
+     * @callback module:api/CallsApi~createCallCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2012} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create Call
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param {String} fonenumber FoneNumber to use as caller
+     * @param {String} to Receiving 10 digit phone number
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.tts Text to speech message
+     * @param {module:api/CallsApi~createCallCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2012}
+     */
+    this.createCall = function(fonenumber, to, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling createCall");
       }
 
       // verify the required parameter 'to' is set
       if (to === undefined || to === null) {
-        throw new Error("Missing the required parameter 'to' when calling postCalls");
+        throw new Error("Missing the required parameter 'to' when calling createCall");
       }
 
 
@@ -92,10 +356,10 @@
         'tts': opts['tts']
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse2012;
 
       return this.apiClient.callApi(
         '/calls', 'POST',
@@ -105,42 +369,35 @@
     }
 
     /**
-     * Callback function to receive the result of the postCallsReceiveNotify operation.
-     * @callback module:api/CallsApi~postCallsReceiveNotifyCallback
+     * Callback function to receive the result of the createCall_0 operation.
+     * @callback module:api/CallsApi~createCall_0Callback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse2012} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Configure the callback URL to notify when a call is received.
-     * Returns a JSON response
-     * @param {String} fonenumber Your FracTEL phone number.
-     * @param {module:model/String} method Callback URL method.
-     * @param {String} url Callback URL.
+     * Create Call
+     * Create a new voice call from a FoneNumber to a recipient phone number.
+     * @param {String} fonenumber FoneNumber to use as caller
+     * @param {String} to Receiving 10 digit phone number
      * @param {Object} opts Optional parameters
-     * @param {String} opts.urlUsername Callback URL username.
-     * @param {String} opts.urlPassword Callback URL password.
-     * @param {module:api/CallsApi~postCallsReceiveNotifyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @param {String} opts.tts Text to speech message
+     * @param {module:api/CallsApi~createCall_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2012}
      */
-    this.postCallsReceiveNotify = function(fonenumber, method, url, opts, callback) {
+    this.createCall_0 = function(fonenumber, to, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'fonenumber' is set
       if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling postCallsReceiveNotify");
+        throw new Error("Missing the required parameter 'fonenumber' when calling createCall_0");
       }
 
-      // verify the required parameter 'method' is set
-      if (method === undefined || method === null) {
-        throw new Error("Missing the required parameter 'method' when calling postCallsReceiveNotify");
-      }
-
-      // verify the required parameter 'url' is set
-      if (url === undefined || url === null) {
-        throw new Error("Missing the required parameter 'url' when calling postCallsReceiveNotify");
+      // verify the required parameter 'to' is set
+      if (to === undefined || to === null) {
+        throw new Error("Missing the required parameter 'to' when calling createCall_0");
       }
 
 
@@ -152,85 +409,17 @@
       };
       var formParams = {
         'fonenumber': fonenumber,
-        'method': method,
-        'url': url,
-        'url_username': opts['urlUsername'],
-        'url_password': opts['urlPassword']
+        'to': to,
+        'tts': opts['tts']
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse2012;
 
       return this.apiClient.callApi(
-        '/calls/receive_notify', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postCallsSendNotify operation.
-     * @callback module:api/CallsApi~postCallsSendNotifyCallback
-     * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Configure the callback URL to notify when a call is made.
-     * Returns a JSON response
-     * @param {String} fonenumber Your FracTEL phone number
-     * @param {module:model/String} method Callback URL method.
-     * @param {String} url Callback URL.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.urlUsername Callback URL username.
-     * @param {String} opts.urlPassword Callback URL password.
-     * @param {module:api/CallsApi~postCallsSendNotifyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
-     */
-    this.postCallsSendNotify = function(fonenumber, method, url, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'fonenumber' is set
-      if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling postCallsSendNotify");
-      }
-
-      // verify the required parameter 'method' is set
-      if (method === undefined || method === null) {
-        throw new Error("Missing the required parameter 'method' when calling postCallsSendNotify");
-      }
-
-      // verify the required parameter 'url' is set
-      if (url === undefined || url === null) {
-        throw new Error("Missing the required parameter 'url' when calling postCallsSendNotify");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-        'fonenumber': fonenumber,
-        'method': method,
-        'url': url,
-        'url_username': opts['urlUsername'],
-        'url_password': opts['urlPassword']
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/x-www-form-urlencoded'];
-      var accepts = ['application/json'];
-      var returnType = 'String';
-
-      return this.apiClient.callApi(
-        '/calls/send_notify', 'POST',
+        '/calls', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

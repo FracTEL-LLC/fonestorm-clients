@@ -1,5 +1,5 @@
 /* 
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *
@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace IO.Swagger.Api
 {
@@ -24,173 +25,339 @@ namespace IO.Swagger.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a new call under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>string</returns>
-        string PostCalls (string fonenumber, string to, string tts = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureCallReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Create a new call under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostCallsWithHttpInfo (string fonenumber, string to, string tts = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureCallReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a call is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        string PostCallsReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureCallReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostCallsReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureCallReceiveNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a call is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        string PostCallsSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureCallSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostCallsSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureCallSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureCallSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureCallSendNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>InlineResponse2012</returns>
+        InlineResponse2012 CreateCall (string fonenumber, string to, string tts = null);
+
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2012</returns>
+        ApiResponse<InlineResponse2012> CreateCallWithHttpInfo (string fonenumber, string to, string tts = null);
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>InlineResponse2012</returns>
+        InlineResponse2012 CreateCall_0 (string fonenumber, string to, string tts = null);
+
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2012</returns>
+        ApiResponse<InlineResponse2012> CreateCall_0WithHttpInfo (string fonenumber, string to, string tts = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create a new call under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostCallsAsync (string fonenumber, string to, string tts = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Create a new call under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostCallsAsyncWithHttpInfo (string fonenumber, string to, string tts = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a call is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostCallsReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallReceiveNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostCallsReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallReceiveNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a call is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostCallsSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostCallsSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallSendNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallSendNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of InlineResponse2012</returns>
+        System.Threading.Tasks.Task<InlineResponse2012> CreateCallAsync (string fonenumber, string to, string tts = null);
+
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CreateCallAsyncWithHttpInfo (string fonenumber, string to, string tts = null);
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of InlineResponse2012</returns>
+        System.Threading.Tasks.Task<InlineResponse2012> CreateCall_0Async (string fonenumber, string to, string tts = null);
+
+        /// <summary>
+        /// Create Call
+        /// </summary>
+        /// <remarks>
+        /// Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CreateCall_0AsyncWithHttpInfo (string fonenumber, string to, string tts = null);
         #endregion Asynchronous Operations
     }
 
@@ -304,195 +471,42 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Create a new call under the account. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>string</returns>
-        public string PostCalls (string fonenumber, string to, string tts = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureCallReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = PostCallsWithHttpInfo(fonenumber, to, tts);
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureCallReceiveNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a new call under the account. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostCallsWithHttpInfo (string fonenumber, string to, string tts = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureCallReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->PostCalls");
-            // verify the required parameter 'to' is set
-            if (to == null)
-                throw new ApiException(400, "Missing required parameter 'to' when calling CallsApi->PostCalls");
-
-            var localVarPath = "/calls";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/x-www-form-urlencoded"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
-            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
-            if (tts != null) localVarFormParams.Add("tts", Configuration.ApiClient.ParameterToString(tts)); // form parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PostCalls", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
-        }
-
-        /// <summary>
-        /// Create a new call under the account. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostCallsAsync (string fonenumber, string to, string tts = null)
-        {
-             ApiResponse<string> localVarResponse = await PostCallsAsyncWithHttpInfo(fonenumber, to, tts);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Create a new call under the account. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use as caller.</param>
-        /// <param name="to">Phone number to call.</param>
-        /// <param name="tts">Text to speech message. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostCallsAsyncWithHttpInfo (string fonenumber, string to, string tts = null)
-        {
-            // verify the required parameter 'fonenumber' is set
-            if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->PostCalls");
-            // verify the required parameter 'to' is set
-            if (to == null)
-                throw new ApiException(400, "Missing required parameter 'to' when calling CallsApi->PostCalls");
-
-            var localVarPath = "/calls";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/x-www-form-urlencoded"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
-            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
-            if (tts != null) localVarFormParams.Add("tts", Configuration.ApiClient.ParameterToString(tts)); // form parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PostCalls", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
-        }
-
-        /// <summary>
-        /// Configure the callback URL to notify when a call is received. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        public string PostCallsReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
-        {
-             ApiResponse<string> localVarResponse = PostCallsReceiveNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Configure the callback URL to notify when a call is received. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostCallsReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
-        {
-            // verify the required parameter 'fonenumber' is set
-            if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->PostCallsReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallReceiveNotify");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->PostCallsReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallReceiveNotify");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->PostCallsReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallReceiveNotify");
 
             var localVarPath = "/calls/receive_notify";
             var localVarPathParams = new Dictionary<String, String>();
@@ -522,6 +536,12 @@ namespace IO.Swagger.Api
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
 
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -532,53 +552,53 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostCallsReceiveNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureCallReceiveNotify", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is received. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostCallsReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = await PostCallsReceiveNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureCallReceiveNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is received. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostCallsReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->PostCallsReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallReceiveNotify");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->PostCallsReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallReceiveNotify");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->PostCallsReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallReceiveNotify");
 
             var localVarPath = "/calls/receive_notify";
             var localVarPathParams = new Dictionary<String, String>();
@@ -608,6 +628,11 @@ namespace IO.Swagger.Api
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
 
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -618,54 +643,54 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostCallsReceiveNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureCallReceiveNotify", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        public string PostCallsSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureCallReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = PostCallsSendNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureCallReceiveNotify_0WithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostCallsSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureCallReceiveNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->PostCallsSendNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallReceiveNotify_0");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->PostCallsSendNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallReceiveNotify_0");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->PostCallsSendNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallReceiveNotify_0");
 
-            var localVarPath = "/calls/send_notify";
+            var localVarPath = "/calls/receive_notify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -692,6 +717,12 @@ namespace IO.Swagger.Api
             if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
 
 
             // make the HTTP request
@@ -703,53 +734,143 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostCallsSendNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureCallReceiveNotify_0", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostCallsSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallReceiveNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = await PostCallsSendNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureCallReceiveNotify_0AsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a call is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostCallsSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallReceiveNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->PostCallsSendNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallReceiveNotify_0");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->PostCallsSendNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallReceiveNotify_0");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->PostCallsSendNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallReceiveNotify_0");
+
+            var localVarPath = "/calls/receive_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureCallReceiveNotify_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureCallSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureCallSendNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureCallSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallSendNotify");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallSendNotify");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallSendNotify");
 
             var localVarPath = "/calls/send_notify";
             var localVarPathParams = new Dictionary<String, String>();
@@ -779,6 +900,103 @@ namespace IO.Swagger.Api
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
 
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureCallSendNotify", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureCallSendNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallSendNotify");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallSendNotify");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallSendNotify");
+
+            var localVarPath = "/calls/send_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -789,13 +1007,523 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostCallsSendNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureCallSendNotify", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureCallSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureCallSendNotify_0WithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureCallSendNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallSendNotify_0");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallSendNotify_0");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallSendNotify_0");
+
+            var localVarPath = "/calls/send_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureCallSendNotify_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureCallSendNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureCallSendNotify_0AsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureCallSendNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->ConfigureCallSendNotify_0");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling CallsApi->ConfigureCallSendNotify_0");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling CallsApi->ConfigureCallSendNotify_0");
+
+            var localVarPath = "/calls/send_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureCallSendNotify_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>InlineResponse2012</returns>
+        public InlineResponse2012 CreateCall (string fonenumber, string to, string tts = null)
+        {
+             ApiResponse<InlineResponse2012> localVarResponse = CreateCallWithHttpInfo(fonenumber, to, tts);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2012</returns>
+        public ApiResponse< InlineResponse2012 > CreateCallWithHttpInfo (string fonenumber, string to, string tts = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->CreateCall");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling CallsApi->CreateCall");
+
+            var localVarPath = "/calls";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (tts != null) localVarFormParams.Add("tts", Configuration.ApiClient.ParameterToString(tts)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCall", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2012>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012)));
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of InlineResponse2012</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2012> CreateCallAsync (string fonenumber, string to, string tts = null)
+        {
+             ApiResponse<InlineResponse2012> localVarResponse = await CreateCallAsyncWithHttpInfo(fonenumber, to, tts);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CreateCallAsyncWithHttpInfo (string fonenumber, string to, string tts = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->CreateCall");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling CallsApi->CreateCall");
+
+            var localVarPath = "/calls";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (tts != null) localVarFormParams.Add("tts", Configuration.ApiClient.ParameterToString(tts)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCall", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2012>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012)));
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>InlineResponse2012</returns>
+        public InlineResponse2012 CreateCall_0 (string fonenumber, string to, string tts = null)
+        {
+             ApiResponse<InlineResponse2012> localVarResponse = CreateCall_0WithHttpInfo(fonenumber, to, tts);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2012</returns>
+        public ApiResponse< InlineResponse2012 > CreateCall_0WithHttpInfo (string fonenumber, string to, string tts = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->CreateCall_0");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling CallsApi->CreateCall_0");
+
+            var localVarPath = "/calls";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (tts != null) localVarFormParams.Add("tts", Configuration.ApiClient.ParameterToString(tts)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCall_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2012>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012)));
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of InlineResponse2012</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2012> CreateCall_0Async (string fonenumber, string to, string tts = null)
+        {
+             ApiResponse<InlineResponse2012> localVarResponse = await CreateCall_0AsyncWithHttpInfo(fonenumber, to, tts);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Call Create a new voice call from a FoneNumber to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use as caller</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="tts">Text to speech message (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CreateCall_0AsyncWithHttpInfo (string fonenumber, string to, string tts = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling CallsApi->CreateCall_0");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling CallsApi->CreateCall_0");
+
+            var localVarPath = "/calls";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (tts != null) localVarFormParams.Add("tts", Configuration.ApiClient.ParameterToString(tts)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCall_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2012>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012)));
         }
 
     }

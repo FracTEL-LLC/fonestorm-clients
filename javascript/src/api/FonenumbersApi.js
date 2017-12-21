@@ -1,5 +1,5 @@
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Error', 'model/InlineResponse200', 'model/InlineResponse2013'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/InlineResponse200'), require('../model/InlineResponse2013'));
   } else {
     // Browser globals (root is window)
-    if (!root.FoneStormApi220) {
-      root.FoneStormApi220 = {};
+    if (!root.FoneStormApi220Breeze) {
+      root.FoneStormApi220Breeze = {};
     }
-    root.FoneStormApi220.FonenumbersApi = factory(root.FoneStormApi220.ApiClient);
+    root.FoneStormApi220Breeze.FonenumbersApi = factory(root.FoneStormApi220Breeze.ApiClient, root.FoneStormApi220Breeze.Error, root.FoneStormApi220Breeze.InlineResponse200, root.FoneStormApi220Breeze.InlineResponse2013);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Error, InlineResponse200, InlineResponse2013) {
   'use strict';
 
   /**
@@ -48,26 +48,118 @@
 
 
     /**
-     * Callback function to receive the result of the deleteFonenumbersFonenumber operation.
-     * @callback module:api/FonenumbersApi~deleteFonenumbersFonenumberCallback
+     * Callback function to receive the result of the createFonenumber operation.
+     * @callback module:api/FonenumbersApi~createFonenumberCallback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Delete a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param {String} fonenumber Your FracTEL fonenumber.
-     * @param {module:api/FonenumbersApi~deleteFonenumbersFonenumberCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * Create FoneNumber
+     * Order a new FoneNumber for a given area code.
+     * @param {String} areaCode Valid 3-digit area code
+     * @param {module:api/FonenumbersApi~createFonenumberCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
      */
-    this.deleteFonenumbersFonenumber = function(fonenumber, callback) {
+    this.createFonenumber = function(areaCode, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'areaCode' is set
+      if (areaCode === undefined || areaCode === null) {
+        throw new Error("Missing the required parameter 'areaCode' when calling createFonenumber");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'area_code': areaCode
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/fonenumbers', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createFonenumber_0 operation.
+     * @callback module:api/FonenumbersApi~createFonenumber_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create FoneNumber
+     * Order a new FoneNumber for a given area code.
+     * @param {String} areaCode Valid 3-digit area code
+     * @param {module:api/FonenumbersApi~createFonenumber_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.createFonenumber_0 = function(areaCode, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'areaCode' is set
+      if (areaCode === undefined || areaCode === null) {
+        throw new Error("Missing the required parameter 'areaCode' when calling createFonenumber_0");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'area_code': areaCode
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/fonenumbers', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteFonenumber operation.
+     * @callback module:api/FonenumbersApi~deleteFonenumberCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete FoneNumber
+     * Remove a FoneNumber from an account.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:api/FonenumbersApi~deleteFonenumberCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.deleteFonenumber = function(fonenumber, callback) {
       var postBody = null;
 
       // verify the required parameter 'fonenumber' is set
       if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling deleteFonenumbersFonenumber");
+        throw new Error("Missing the required parameter 'fonenumber' when calling deleteFonenumber");
       }
 
 
@@ -81,10 +173,10 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse2013;
 
       return this.apiClient.callApi(
         '/fonenumbers/{fonenumber}', 'DELETE',
@@ -94,20 +186,158 @@
     }
 
     /**
-     * Callback function to receive the result of the getFonenumbers operation.
-     * @callback module:api/FonenumbersApi~getFonenumbersCallback
+     * Callback function to receive the result of the deleteFonenumber_0 operation.
+     * @callback module:api/FonenumbersApi~deleteFonenumber_0Callback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get a list of all active fonenumbers under the account.
-     * Returns a JSON response
+     * Delete FoneNumber
+     * Remove a FoneNumber from an account.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:api/FonenumbersApi~deleteFonenumber_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.deleteFonenumber_0 = function(fonenumber, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling deleteFonenumber_0");
+      }
+
+
+      var pathParams = {
+        'fonenumber': fonenumber
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/fonenumbers/{fonenumber}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getFonenumber operation.
+     * @callback module:api/FonenumbersApi~getFonenumberCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get FoneNumber
+     * Get information for a single FoneNumber.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:api/FonenumbersApi~getFonenumberCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.getFonenumber = function(fonenumber, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling getFonenumber");
+      }
+
+
+      var pathParams = {
+        'fonenumber': fonenumber
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/fonenumbers/{fonenumber}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getFonenumber_0 operation.
+     * @callback module:api/FonenumbersApi~getFonenumber_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get FoneNumber
+     * Get information for a single FoneNumber.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:api/FonenumbersApi~getFonenumber_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.getFonenumber_0 = function(fonenumber, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling getFonenumber_0");
+      }
+
+
+      var pathParams = {
+        'fonenumber': fonenumber
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/fonenumbers/{fonenumber}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getFonenumbers operation.
+     * @callback module:api/FonenumbersApi~getFonenumbersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse200} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get FoneNumbers
+     * Get a list of all FoneNumbers, or a selection based on a filter.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.filter Filters for the response.
+     * @param {module:model/String} opts.filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information.
      * @param {module:api/FonenumbersApi~getFonenumbersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * data is of type: {@link module:model/InlineResponse200}
      */
     this.getFonenumbers = function(opts, callback) {
       opts = opts || {};
@@ -124,10 +354,10 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse200;
 
       return this.apiClient.callApi(
         '/fonenumbers', 'GET',
@@ -137,130 +367,91 @@
     }
 
     /**
-     * Callback function to receive the result of the getFonenumbersFonenumber operation.
-     * @callback module:api/FonenumbersApi~getFonenumbersFonenumberCallback
+     * Callback function to receive the result of the getFonenumbers_0 operation.
+     * @callback module:api/FonenumbersApi~getFonenumbers_0Callback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse200} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param {String} fonenumber Your FracTEL fonenumber.
-     * @param {module:api/FonenumbersApi~getFonenumbersFonenumberCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
-     */
-    this.getFonenumbersFonenumber = function(fonenumber, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'fonenumber' is set
-      if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling getFonenumbersFonenumber");
-      }
-
-
-      var pathParams = {
-        'fonenumber': fonenumber
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/x-www-form-urlencoded'];
-      var accepts = ['application/json'];
-      var returnType = 'String';
-
-      return this.apiClient.callApi(
-        '/fonenumbers/{fonenumber}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postFonenumbers operation.
-     * @callback module:api/FonenumbersApi~postFonenumbersCallback
-     * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Create a fonenumber under the account.
-     * Returns a JSON response
-     * @param {String} areaCode A valid 3-digit Area Code.
-     * @param {module:api/FonenumbersApi~postFonenumbersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
-     */
-    this.postFonenumbers = function(areaCode, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'areaCode' is set
-      if (areaCode === undefined || areaCode === null) {
-        throw new Error("Missing the required parameter 'areaCode' when calling postFonenumbers");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-        'area_code': areaCode
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/x-www-form-urlencoded'];
-      var accepts = ['application/json'];
-      var returnType = 'String';
-
-      return this.apiClient.callApi(
-        '/fonenumbers', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the putFonenumbersFonenumber operation.
-     * @callback module:api/FonenumbersApi~putFonenumbersFonenumberCallback
-     * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Update a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param {String} fonenumber Your FracTEL fonenumber.
-     * @param {module:model/String} type Message routing type.
+     * Get FoneNumbers
+     * Get a list of all FoneNumbers, or a selection based on a filter.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.value Message routing type value.
-     * @param {module:model/String} opts.urlMethod URL method.
-     * @param {String} opts.urlUsername URL auth username.
-     * @param {String} opts.urlPassword URL auth password.
-     * @param {module:api/FonenumbersApi~putFonenumbersFonenumberCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @param {module:model/String} opts.filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information.
+     * @param {module:api/FonenumbersApi~getFonenumbers_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse200}
      */
-    this.putFonenumbersFonenumber = function(fonenumber, type, opts, callback) {
+    this.getFonenumbers_0 = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'filter': opts['filter']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse200;
+
+      return this.apiClient.callApi(
+        '/fonenumbers', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateFonenumber operation.
+     * @callback module:api/FonenumbersApi~updateFonenumberCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update FoneNumber
+     * Update a FoneNumber.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;.
+     * @param {String} value Message routing type value
+     * @param {module:model/String} urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/FonenumbersApi~updateFonenumberCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.updateFonenumber = function(fonenumber, type, value, urlMethod, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'fonenumber' is set
       if (fonenumber === undefined || fonenumber === null) {
-        throw new Error("Missing the required parameter 'fonenumber' when calling putFonenumbersFonenumber");
+        throw new Error("Missing the required parameter 'fonenumber' when calling updateFonenumber");
       }
 
       // verify the required parameter 'type' is set
       if (type === undefined || type === null) {
-        throw new Error("Missing the required parameter 'type' when calling putFonenumbersFonenumber");
+        throw new Error("Missing the required parameter 'type' when calling updateFonenumber");
+      }
+
+      // verify the required parameter 'value' is set
+      if (value === undefined || value === null) {
+        throw new Error("Missing the required parameter 'value' when calling updateFonenumber");
+      }
+
+      // verify the required parameter 'urlMethod' is set
+      if (urlMethod === undefined || urlMethod === null) {
+        throw new Error("Missing the required parameter 'urlMethod' when calling updateFonenumber");
       }
 
 
@@ -273,16 +464,89 @@
       };
       var formParams = {
         'type': type,
-        'value': opts['value'],
-        'url_method': opts['urlMethod'],
+        'value': value,
+        'url_method': urlMethod,
         'url_username': opts['urlUsername'],
         'url_password': opts['urlPassword']
       };
 
-      var authNames = [];
+      var authNames = ['jwt'];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse2013;
+
+      return this.apiClient.callApi(
+        '/fonenumbers/{fonenumber}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateFonenumber_0 operation.
+     * @callback module:api/FonenumbersApi~updateFonenumber_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/InlineResponse2013} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update FoneNumber
+     * Update a FoneNumber.
+     * @param {String} fonenumber FoneNumber associated with the account
+     * @param {module:model/String} type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;.
+     * @param {String} value Message routing type value
+     * @param {module:model/String} urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.urlUsername Username for HTTP **Basic** authentication scheme
+     * @param {String} opts.urlPassword Password for HTTP **Basic** authentication scheme
+     * @param {module:api/FonenumbersApi~updateFonenumber_0Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse2013}
+     */
+    this.updateFonenumber_0 = function(fonenumber, type, value, urlMethod, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'fonenumber' is set
+      if (fonenumber === undefined || fonenumber === null) {
+        throw new Error("Missing the required parameter 'fonenumber' when calling updateFonenumber_0");
+      }
+
+      // verify the required parameter 'type' is set
+      if (type === undefined || type === null) {
+        throw new Error("Missing the required parameter 'type' when calling updateFonenumber_0");
+      }
+
+      // verify the required parameter 'value' is set
+      if (value === undefined || value === null) {
+        throw new Error("Missing the required parameter 'value' when calling updateFonenumber_0");
+      }
+
+      // verify the required parameter 'urlMethod' is set
+      if (urlMethod === undefined || urlMethod === null) {
+        throw new Error("Missing the required parameter 'urlMethod' when calling updateFonenumber_0");
+      }
+
+
+      var pathParams = {
+        'fonenumber': fonenumber
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'type': type,
+        'value': value,
+        'url_method': urlMethod,
+        'url_username': opts['urlUsername'],
+        'url_password': opts['urlPassword']
+      };
+
+      var authNames = ['jwt'];
+      var contentTypes = ['application/x-www-form-urlencoded'];
+      var accepts = ['application/json'];
+      var returnType = InlineResponse2013;
 
       return this.apiClient.callApi(
         '/fonenumbers/{fonenumber}', 'PUT',

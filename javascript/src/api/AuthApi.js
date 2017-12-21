@@ -1,5 +1,5 @@
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Error', 'model/InlineResponse201'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/InlineResponse201'));
   } else {
     // Browser globals (root is window)
-    if (!root.FoneStormApi220) {
-      root.FoneStormApi220 = {};
+    if (!root.FoneStormApi220Breeze) {
+      root.FoneStormApi220Breeze = {};
     }
-    root.FoneStormApi220.AuthApi = factory(root.FoneStormApi220.ApiClient);
+    root.FoneStormApi220Breeze.AuthApi = factory(root.FoneStormApi220Breeze.ApiClient, root.FoneStormApi220Breeze.Error, root.FoneStormApi220Breeze.InlineResponse201);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Error, InlineResponse201) {
   'use strict';
 
   /**
@@ -48,35 +48,35 @@
 
 
     /**
-     * Callback function to receive the result of the postAuth operation.
-     * @callback module:api/AuthApi~postAuthCallback
+     * Callback function to receive the result of the createToken operation.
+     * @callback module:api/AuthApi~createTokenCallback
      * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
+     * @param {module:model/InlineResponse201} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Create a FoneStorm authentication token.
-     * Returns a token that can be used to make authenticated requests
+     * Create Auth Token
+     * Create an authentication token to use for API requests.
      * @param {String} username FracTEL username
      * @param {String} password FracTEL password
      * @param {Object} opts Optional parameters
      * @param {Number} opts.expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
-     * @param {module:api/AuthApi~postAuthCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @param {module:api/AuthApi~createTokenCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/InlineResponse201}
      */
-    this.postAuth = function(username, password, opts, callback) {
+    this.createToken = function(username, password, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling postAuth");
+        throw new Error("Missing the required parameter 'username' when calling createToken");
       }
 
       // verify the required parameter 'password' is set
       if (password === undefined || password === null) {
-        throw new Error("Missing the required parameter 'password' when calling postAuth");
+        throw new Error("Missing the required parameter 'password' when calling createToken");
       }
 
 
@@ -95,7 +95,7 @@
       var authNames = [];
       var contentTypes = ['application/x-www-form-urlencoded'];
       var accepts = ['application/json'];
-      var returnType = 'String';
+      var returnType = InlineResponse201;
 
       return this.apiClient.callApi(
         '/auth', 'POST',

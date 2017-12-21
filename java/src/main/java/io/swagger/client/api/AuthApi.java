@@ -1,5 +1,5 @@
 /*
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -27,6 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Error;
+import io.swagger.client.model.InlineResponse201;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -54,7 +56,7 @@ public class AuthApi {
     }
 
     /**
-     * Build call for postAuth
+     * Build call for createToken
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
      * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
@@ -63,7 +65,7 @@ public class AuthApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call postAuthCall(String username, String password, Integer expires, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createTokenCall(String username, String password, Integer expires, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -110,20 +112,20 @@ public class AuthApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postAuthValidateBeforeCall(String username, String password, Integer expires, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createTokenValidateBeforeCall(String username, String password, Integer expires, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling postAuth(Async)");
+            throw new ApiException("Missing the required parameter 'username' when calling createToken(Async)");
         }
         
         // verify the required parameter 'password' is set
         if (password == null) {
-            throw new ApiException("Missing the required parameter 'password' when calling postAuth(Async)");
+            throw new ApiException("Missing the required parameter 'password' when calling createToken(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = postAuthCall(username, password, expires, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createTokenCall(username, password, expires, progressListener, progressRequestListener);
         return call;
 
         
@@ -133,37 +135,37 @@ public class AuthApi {
     }
 
     /**
-     * Create a FoneStorm authentication token.
-     * Returns a token that can be used to make authenticated requests
+     * Create Auth Token
+     * Create an authentication token to use for API requests.
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
      * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
-     * @return String
+     * @return InlineResponse201
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String postAuth(String username, String password, Integer expires) throws ApiException {
-        ApiResponse<String> resp = postAuthWithHttpInfo(username, password, expires);
+    public InlineResponse201 createToken(String username, String password, Integer expires) throws ApiException {
+        ApiResponse<InlineResponse201> resp = createTokenWithHttpInfo(username, password, expires);
         return resp.getData();
     }
 
     /**
-     * Create a FoneStorm authentication token.
-     * Returns a token that can be used to make authenticated requests
+     * Create Auth Token
+     * Create an authentication token to use for API requests.
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
      * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
-     * @return ApiResponse&lt;String&gt;
+     * @return ApiResponse&lt;InlineResponse201&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> postAuthWithHttpInfo(String username, String password, Integer expires) throws ApiException {
-        com.squareup.okhttp.Call call = postAuthValidateBeforeCall(username, password, expires, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<InlineResponse201> createTokenWithHttpInfo(String username, String password, Integer expires) throws ApiException {
+        com.squareup.okhttp.Call call = createTokenValidateBeforeCall(username, password, expires, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Create a FoneStorm authentication token. (asynchronously)
-     * Returns a token that can be used to make authenticated requests
+     * Create Auth Token (asynchronously)
+     * Create an authentication token to use for API requests.
      * @param username FracTEL username (required)
      * @param password FracTEL password (required)
      * @param expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
@@ -171,7 +173,7 @@ public class AuthApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postAuthAsync(String username, String password, Integer expires, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call createTokenAsync(String username, String password, Integer expires, final ApiCallback<InlineResponse201> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,8 +194,8 @@ public class AuthApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postAuthValidateBeforeCall(username, password, expires, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        com.squareup.okhttp.Call call = createTokenValidateBeforeCall(username, password, expires, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -8,12 +8,12 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-12-11T11:43:55.642-07:00
+# ! Generated on: 2017-12-20T17:25:00.503-07:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for FoneStorm API 2.2.0.
+# This is a Bash client for FoneStorm API 2.2.0 (Breeze).
 #
 # LICENSE:
 # http://www.apache.org/licenses/LICENSE-2.0.html
@@ -67,70 +67,158 @@ declare -A operation_parameters
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurences
-operation_parameters_minimum_occurences["postAuth:::username"]=1
-operation_parameters_minimum_occurences["postAuth:::password"]=1
-operation_parameters_minimum_occurences["postAuth:::expires"]=0
-operation_parameters_minimum_occurences["postCalls:::fonenumber"]=1
-operation_parameters_minimum_occurences["postCalls:::to"]=1
-operation_parameters_minimum_occurences["postCalls:::tts"]=0
-operation_parameters_minimum_occurences["postCallsReceiveNotify:::fonenumber"]=1
-operation_parameters_minimum_occurences["postCallsReceiveNotify:::method"]=1
-operation_parameters_minimum_occurences["postCallsReceiveNotify:::url"]=1
-operation_parameters_minimum_occurences["postCallsReceiveNotify:::url_username"]=0
-operation_parameters_minimum_occurences["postCallsReceiveNotify:::url_password"]=0
-operation_parameters_minimum_occurences["postCallsSendNotify:::fonenumber"]=1
-operation_parameters_minimum_occurences["postCallsSendNotify:::method"]=1
-operation_parameters_minimum_occurences["postCallsSendNotify:::url"]=1
-operation_parameters_minimum_occurences["postCallsSendNotify:::url_username"]=0
-operation_parameters_minimum_occurences["postCallsSendNotify:::url_password"]=0
-operation_parameters_minimum_occurences["postFaxes:::fonenumber"]=1
-operation_parameters_minimum_occurences["postFaxes:::to"]=1
-operation_parameters_minimum_occurences["postFaxes:::message"]=0
-operation_parameters_minimum_occurences["postFaxes:::pdf"]=0
-operation_parameters_minimum_occurences["postFaxesReceiveNotify:::fonenumber"]=1
-operation_parameters_minimum_occurences["postFaxesReceiveNotify:::method"]=1
-operation_parameters_minimum_occurences["postFaxesReceiveNotify:::url"]=1
-operation_parameters_minimum_occurences["postFaxesReceiveNotify:::url_username"]=0
-operation_parameters_minimum_occurences["postFaxesReceiveNotify:::url_password"]=0
-operation_parameters_minimum_occurences["postFaxesSendNotify:::fonenumber"]=1
-operation_parameters_minimum_occurences["postFaxesSendNotify:::method"]=1
-operation_parameters_minimum_occurences["postFaxesSendNotify:::url"]=1
-operation_parameters_minimum_occurences["postFaxesSendNotify:::url_username"]=0
-operation_parameters_minimum_occurences["postFaxesSendNotify:::url_password"]=0
-operation_parameters_minimum_occurences["deleteFonenumbersFonenumber:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureAccountCdrNotify:::account_id"]=1
+operation_parameters_minimum_occurences["configureAccountCdrNotify:::method"]=1
+operation_parameters_minimum_occurences["configureAccountCdrNotify:::url"]=1
+operation_parameters_minimum_occurences["configureAccountCdrNotify:::username"]=0
+operation_parameters_minimum_occurences["configureAccountCdrNotify:::password"]=0
+operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::account_id"]=1
+operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::method"]=1
+operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::url"]=1
+operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::username"]=0
+operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::password"]=0
+operation_parameters_minimum_occurences["getAccount:::id"]=1
+operation_parameters_minimum_occurences["getAccount_0:::id"]=1
+operation_parameters_minimum_occurences["updateAccount:::id"]=1
+operation_parameters_minimum_occurences["updateAccount:::primary_color"]=0
+operation_parameters_minimum_occurences["updateAccount:::secondary_color"]=0
+operation_parameters_minimum_occurences["updateAccount:::background_color"]=0
+operation_parameters_minimum_occurences["updateAccount:::font_family"]=0
+operation_parameters_minimum_occurences["updateAccount:::logo"]=0
+operation_parameters_minimum_occurences["updateAccount_0:::id"]=1
+operation_parameters_minimum_occurences["updateAccount_0:::primary_color"]=0
+operation_parameters_minimum_occurences["updateAccount_0:::secondary_color"]=0
+operation_parameters_minimum_occurences["updateAccount_0:::background_color"]=0
+operation_parameters_minimum_occurences["updateAccount_0:::font_family"]=0
+operation_parameters_minimum_occurences["updateAccount_0:::logo"]=0
+operation_parameters_minimum_occurences["createToken:::username"]=1
+operation_parameters_minimum_occurences["createToken:::password"]=1
+operation_parameters_minimum_occurences["createToken:::expires"]=0
+operation_parameters_minimum_occurences["createToken:::username"]=1
+operation_parameters_minimum_occurences["createToken:::password"]=1
+operation_parameters_minimum_occurences["createToken:::expires"]=0
+operation_parameters_minimum_occurences["configureCallReceiveNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureCallReceiveNotify:::method"]=1
+operation_parameters_minimum_occurences["configureCallReceiveNotify:::url"]=1
+operation_parameters_minimum_occurences["configureCallReceiveNotify:::url_username"]=0
+operation_parameters_minimum_occurences["configureCallReceiveNotify:::url_password"]=0
+operation_parameters_minimum_occurences["configureCallReceiveNotify_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureCallReceiveNotify_0:::method"]=1
+operation_parameters_minimum_occurences["configureCallReceiveNotify_0:::url"]=1
+operation_parameters_minimum_occurences["configureCallReceiveNotify_0:::url_username"]=0
+operation_parameters_minimum_occurences["configureCallReceiveNotify_0:::url_password"]=0
+operation_parameters_minimum_occurences["configureCallSendNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureCallSendNotify:::method"]=1
+operation_parameters_minimum_occurences["configureCallSendNotify:::url"]=1
+operation_parameters_minimum_occurences["configureCallSendNotify:::url_username"]=0
+operation_parameters_minimum_occurences["configureCallSendNotify:::url_password"]=0
+operation_parameters_minimum_occurences["configureCallSendNotify_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureCallSendNotify_0:::method"]=1
+operation_parameters_minimum_occurences["configureCallSendNotify_0:::url"]=1
+operation_parameters_minimum_occurences["configureCallSendNotify_0:::url_username"]=0
+operation_parameters_minimum_occurences["configureCallSendNotify_0:::url_password"]=0
+operation_parameters_minimum_occurences["createCall:::fonenumber"]=1
+operation_parameters_minimum_occurences["createCall:::to"]=1
+operation_parameters_minimum_occurences["createCall:::tts"]=0
+operation_parameters_minimum_occurences["createCall_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["createCall_0:::to"]=1
+operation_parameters_minimum_occurences["createCall_0:::tts"]=0
+operation_parameters_minimum_occurences["configureFaxReceiveNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureFaxReceiveNotify:::method"]=1
+operation_parameters_minimum_occurences["configureFaxReceiveNotify:::url"]=1
+operation_parameters_minimum_occurences["configureFaxReceiveNotify:::url_username"]=0
+operation_parameters_minimum_occurences["configureFaxReceiveNotify:::url_password"]=0
+operation_parameters_minimum_occurences["configureFaxReceiveNotify_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureFaxReceiveNotify_0:::method"]=1
+operation_parameters_minimum_occurences["configureFaxReceiveNotify_0:::url"]=1
+operation_parameters_minimum_occurences["configureFaxReceiveNotify_0:::url_username"]=0
+operation_parameters_minimum_occurences["configureFaxReceiveNotify_0:::url_password"]=0
+operation_parameters_minimum_occurences["configureFaxSendNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureFaxSendNotify:::method"]=1
+operation_parameters_minimum_occurences["configureFaxSendNotify:::url"]=1
+operation_parameters_minimum_occurences["configureFaxSendNotify:::url_username"]=0
+operation_parameters_minimum_occurences["configureFaxSendNotify:::url_password"]=0
+operation_parameters_minimum_occurences["configureFaxSendNotify_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureFaxSendNotify_0:::method"]=1
+operation_parameters_minimum_occurences["configureFaxSendNotify_0:::url"]=1
+operation_parameters_minimum_occurences["configureFaxSendNotify_0:::url_username"]=0
+operation_parameters_minimum_occurences["configureFaxSendNotify_0:::url_password"]=0
+operation_parameters_minimum_occurences["createFax:::fonenumber"]=1
+operation_parameters_minimum_occurences["createFax:::to"]=1
+operation_parameters_minimum_occurences["createFax:::message"]=0
+operation_parameters_minimum_occurences["createFax:::pdf"]=0
+operation_parameters_minimum_occurences["createFax_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["createFax_0:::to"]=1
+operation_parameters_minimum_occurences["createFax_0:::message"]=0
+operation_parameters_minimum_occurences["createFax_0:::pdf"]=0
+operation_parameters_minimum_occurences["createFonenumber:::area_code"]=1
+operation_parameters_minimum_occurences["createFonenumber_0:::area_code"]=1
+operation_parameters_minimum_occurences["deleteFonenumber:::fonenumber"]=1
+operation_parameters_minimum_occurences["deleteFonenumber_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["getFonenumber:::fonenumber"]=1
+operation_parameters_minimum_occurences["getFonenumber_0:::fonenumber"]=1
 operation_parameters_minimum_occurences["getFonenumbers:::filter"]=0
-operation_parameters_minimum_occurences["getFonenumbersFonenumber:::fonenumber"]=1
-operation_parameters_minimum_occurences["postFonenumbers:::area_code"]=1
-operation_parameters_minimum_occurences["putFonenumbersFonenumber:::fonenumber"]=1
-operation_parameters_minimum_occurences["putFonenumbersFonenumber:::type"]=1
-operation_parameters_minimum_occurences["putFonenumbersFonenumber:::value"]=0
-operation_parameters_minimum_occurences["putFonenumbersFonenumber:::url_method"]=0
-operation_parameters_minimum_occurences["putFonenumbersFonenumber:::url_username"]=0
-operation_parameters_minimum_occurences["putFonenumbersFonenumber:::url_password"]=0
-operation_parameters_minimum_occurences["postMessagesReceive:::fonenumber"]=1
-operation_parameters_minimum_occurences["postMessagesReceive:::type"]=1
-operation_parameters_minimum_occurences["postMessagesReceive:::value"]=0
-operation_parameters_minimum_occurences["postMessagesReceive:::url_method"]=0
-operation_parameters_minimum_occurences["postMessagesReceive:::url_username"]=0
-operation_parameters_minimum_occurences["postMessagesReceive:::url_password"]=0
-operation_parameters_minimum_occurences["postMessagesReceiveNotify:::fonenumber"]=1
-operation_parameters_minimum_occurences["postMessagesReceiveNotify:::method"]=1
-operation_parameters_minimum_occurences["postMessagesReceiveNotify:::url"]=1
-operation_parameters_minimum_occurences["postMessagesReceiveNotify:::url_username"]=0
-operation_parameters_minimum_occurences["postMessagesReceiveNotify:::url_password"]=0
-operation_parameters_minimum_occurences["postMessagesSend:::to"]=1
-operation_parameters_minimum_occurences["postMessagesSend:::fonenumber"]=1
-operation_parameters_minimum_occurences["postMessagesSend:::message"]=1
-operation_parameters_minimum_occurences["postMessagesSend:::media_url"]=0
-operation_parameters_minimum_occurences["postMessagesSend:::confirmation_url"]=0
-operation_parameters_minimum_occurences["postMessagesSend:::confirmation_url_username"]=0
-operation_parameters_minimum_occurences["postMessagesSend:::confirmation_url_password"]=0
-operation_parameters_minimum_occurences["postMessagesSend:::require_confirmation"]=0
-operation_parameters_minimum_occurences["postMessagesSendNotify:::fonenumber"]=1
-operation_parameters_minimum_occurences["postMessagesSendNotify:::method"]=1
-operation_parameters_minimum_occurences["postMessagesSendNotify:::url"]=1
-operation_parameters_minimum_occurences["postMessagesSendNotify:::url_username"]=0
-operation_parameters_minimum_occurences["postMessagesSendNotify:::url_password"]=0
+operation_parameters_minimum_occurences["getFonenumbers_0:::filter"]=0
+operation_parameters_minimum_occurences["updateFonenumber:::fonenumber"]=1
+operation_parameters_minimum_occurences["updateFonenumber:::type"]=1
+operation_parameters_minimum_occurences["updateFonenumber:::value"]=1
+operation_parameters_minimum_occurences["updateFonenumber:::url_method"]=1
+operation_parameters_minimum_occurences["updateFonenumber:::url_username"]=0
+operation_parameters_minimum_occurences["updateFonenumber:::url_password"]=0
+operation_parameters_minimum_occurences["updateFonenumber_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["updateFonenumber_0:::type"]=1
+operation_parameters_minimum_occurences["updateFonenumber_0:::value"]=1
+operation_parameters_minimum_occurences["updateFonenumber_0:::url_method"]=1
+operation_parameters_minimum_occurences["updateFonenumber_0:::url_username"]=0
+operation_parameters_minimum_occurences["updateFonenumber_0:::url_password"]=0
+operation_parameters_minimum_occurences["configureMessageReceive:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureMessageReceive:::type"]=1
+operation_parameters_minimum_occurences["configureMessageReceive:::value"]=1
+operation_parameters_minimum_occurences["configureMessageReceive:::url_method"]=1
+operation_parameters_minimum_occurences["configureMessageReceive:::url_username"]=0
+operation_parameters_minimum_occurences["configureMessageReceive:::url_password"]=0
+operation_parameters_minimum_occurences["configureMessageReceiveNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureMessageReceiveNotify:::method"]=1
+operation_parameters_minimum_occurences["configureMessageReceiveNotify:::url"]=1
+operation_parameters_minimum_occurences["configureMessageReceiveNotify:::url_username"]=0
+operation_parameters_minimum_occurences["configureMessageReceiveNotify:::url_password"]=0
+operation_parameters_minimum_occurences["configureMessageReceiveNotify_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureMessageReceiveNotify_0:::method"]=1
+operation_parameters_minimum_occurences["configureMessageReceiveNotify_0:::url"]=1
+operation_parameters_minimum_occurences["configureMessageReceiveNotify_0:::url_username"]=0
+operation_parameters_minimum_occurences["configureMessageReceiveNotify_0:::url_password"]=0
+operation_parameters_minimum_occurences["configureMessageReceive_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureMessageReceive_0:::type"]=1
+operation_parameters_minimum_occurences["configureMessageReceive_0:::value"]=1
+operation_parameters_minimum_occurences["configureMessageReceive_0:::url_method"]=1
+operation_parameters_minimum_occurences["configureMessageReceive_0:::url_username"]=0
+operation_parameters_minimum_occurences["configureMessageReceive_0:::url_password"]=0
+operation_parameters_minimum_occurences["configureMessageSendNotify:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureMessageSendNotify:::method"]=1
+operation_parameters_minimum_occurences["configureMessageSendNotify:::url"]=1
+operation_parameters_minimum_occurences["configureMessageSendNotify:::url_username"]=0
+operation_parameters_minimum_occurences["configureMessageSendNotify:::url_password"]=0
+operation_parameters_minimum_occurences["configureMessageSendNotify_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["configureMessageSendNotify_0:::method"]=1
+operation_parameters_minimum_occurences["configureMessageSendNotify_0:::url"]=1
+operation_parameters_minimum_occurences["configureMessageSendNotify_0:::url_username"]=0
+operation_parameters_minimum_occurences["configureMessageSendNotify_0:::url_password"]=0
+operation_parameters_minimum_occurences["createMessage:::to"]=1
+operation_parameters_minimum_occurences["createMessage:::fonenumber"]=1
+operation_parameters_minimum_occurences["createMessage:::message"]=1
+operation_parameters_minimum_occurences["createMessage:::media_url"]=0
+operation_parameters_minimum_occurences["createMessage:::confirmation_url"]=0
+operation_parameters_minimum_occurences["createMessage:::confirmation_url_username"]=0
+operation_parameters_minimum_occurences["createMessage:::confirmation_url_password"]=0
+operation_parameters_minimum_occurences["createMessage:::require_confirmation"]=0
+operation_parameters_minimum_occurences["createMessage_0:::to"]=1
+operation_parameters_minimum_occurences["createMessage_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["createMessage_0:::message"]=1
+operation_parameters_minimum_occurences["createMessage_0:::media_url"]=0
+operation_parameters_minimum_occurences["createMessage_0:::confirmation_url"]=0
+operation_parameters_minimum_occurences["createMessage_0:::confirmation_url_username"]=0
+operation_parameters_minimum_occurences["createMessage_0:::confirmation_url_password"]=0
+operation_parameters_minimum_occurences["createMessage_0:::require_confirmation"]=0
 
 ##
 # This array stores the maximum number of allowed occurences for parameter
@@ -139,139 +227,315 @@ operation_parameters_minimum_occurences["postMessagesSendNotify:::url_password"]
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurences
-operation_parameters_maximum_occurences["postAuth:::username"]=0
-operation_parameters_maximum_occurences["postAuth:::password"]=0
-operation_parameters_maximum_occurences["postAuth:::expires"]=0
-operation_parameters_maximum_occurences["postCalls:::fonenumber"]=0
-operation_parameters_maximum_occurences["postCalls:::to"]=0
-operation_parameters_maximum_occurences["postCalls:::tts"]=0
-operation_parameters_maximum_occurences["postCallsReceiveNotify:::fonenumber"]=0
-operation_parameters_maximum_occurences["postCallsReceiveNotify:::method"]=0
-operation_parameters_maximum_occurences["postCallsReceiveNotify:::url"]=0
-operation_parameters_maximum_occurences["postCallsReceiveNotify:::url_username"]=0
-operation_parameters_maximum_occurences["postCallsReceiveNotify:::url_password"]=0
-operation_parameters_maximum_occurences["postCallsSendNotify:::fonenumber"]=0
-operation_parameters_maximum_occurences["postCallsSendNotify:::method"]=0
-operation_parameters_maximum_occurences["postCallsSendNotify:::url"]=0
-operation_parameters_maximum_occurences["postCallsSendNotify:::url_username"]=0
-operation_parameters_maximum_occurences["postCallsSendNotify:::url_password"]=0
-operation_parameters_maximum_occurences["postFaxes:::fonenumber"]=0
-operation_parameters_maximum_occurences["postFaxes:::to"]=0
-operation_parameters_maximum_occurences["postFaxes:::message"]=0
-operation_parameters_maximum_occurences["postFaxes:::pdf"]=0
-operation_parameters_maximum_occurences["postFaxesReceiveNotify:::fonenumber"]=0
-operation_parameters_maximum_occurences["postFaxesReceiveNotify:::method"]=0
-operation_parameters_maximum_occurences["postFaxesReceiveNotify:::url"]=0
-operation_parameters_maximum_occurences["postFaxesReceiveNotify:::url_username"]=0
-operation_parameters_maximum_occurences["postFaxesReceiveNotify:::url_password"]=0
-operation_parameters_maximum_occurences["postFaxesSendNotify:::fonenumber"]=0
-operation_parameters_maximum_occurences["postFaxesSendNotify:::method"]=0
-operation_parameters_maximum_occurences["postFaxesSendNotify:::url"]=0
-operation_parameters_maximum_occurences["postFaxesSendNotify:::url_username"]=0
-operation_parameters_maximum_occurences["postFaxesSendNotify:::url_password"]=0
-operation_parameters_maximum_occurences["deleteFonenumbersFonenumber:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify:::account_id"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify:::method"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify:::url"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify:::username"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify:::password"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::account_id"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::method"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::url"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::username"]=0
+operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::password"]=0
+operation_parameters_maximum_occurences["getAccount:::id"]=0
+operation_parameters_maximum_occurences["getAccount_0:::id"]=0
+operation_parameters_maximum_occurences["updateAccount:::id"]=0
+operation_parameters_maximum_occurences["updateAccount:::primary_color"]=0
+operation_parameters_maximum_occurences["updateAccount:::secondary_color"]=0
+operation_parameters_maximum_occurences["updateAccount:::background_color"]=0
+operation_parameters_maximum_occurences["updateAccount:::font_family"]=0
+operation_parameters_maximum_occurences["updateAccount:::logo"]=0
+operation_parameters_maximum_occurences["updateAccount_0:::id"]=0
+operation_parameters_maximum_occurences["updateAccount_0:::primary_color"]=0
+operation_parameters_maximum_occurences["updateAccount_0:::secondary_color"]=0
+operation_parameters_maximum_occurences["updateAccount_0:::background_color"]=0
+operation_parameters_maximum_occurences["updateAccount_0:::font_family"]=0
+operation_parameters_maximum_occurences["updateAccount_0:::logo"]=0
+operation_parameters_maximum_occurences["createToken:::username"]=0
+operation_parameters_maximum_occurences["createToken:::password"]=0
+operation_parameters_maximum_occurences["createToken:::expires"]=0
+operation_parameters_maximum_occurences["createToken:::username"]=0
+operation_parameters_maximum_occurences["createToken:::password"]=0
+operation_parameters_maximum_occurences["createToken:::expires"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify:::method"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify:::url"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify:::url_username"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify:::url_password"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify_0:::method"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify_0:::url"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify_0:::url_username"]=0
+operation_parameters_maximum_occurences["configureCallReceiveNotify_0:::url_password"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify:::method"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify:::url"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify:::url_username"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify:::url_password"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify_0:::method"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify_0:::url"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify_0:::url_username"]=0
+operation_parameters_maximum_occurences["configureCallSendNotify_0:::url_password"]=0
+operation_parameters_maximum_occurences["createCall:::fonenumber"]=0
+operation_parameters_maximum_occurences["createCall:::to"]=0
+operation_parameters_maximum_occurences["createCall:::tts"]=0
+operation_parameters_maximum_occurences["createCall_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["createCall_0:::to"]=0
+operation_parameters_maximum_occurences["createCall_0:::tts"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify:::method"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify:::url"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify:::url_username"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify:::url_password"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify_0:::method"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify_0:::url"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify_0:::url_username"]=0
+operation_parameters_maximum_occurences["configureFaxReceiveNotify_0:::url_password"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify:::method"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify:::url"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify:::url_username"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify:::url_password"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify_0:::method"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify_0:::url"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify_0:::url_username"]=0
+operation_parameters_maximum_occurences["configureFaxSendNotify_0:::url_password"]=0
+operation_parameters_maximum_occurences["createFax:::fonenumber"]=0
+operation_parameters_maximum_occurences["createFax:::to"]=0
+operation_parameters_maximum_occurences["createFax:::message"]=0
+operation_parameters_maximum_occurences["createFax:::pdf"]=0
+operation_parameters_maximum_occurences["createFax_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["createFax_0:::to"]=0
+operation_parameters_maximum_occurences["createFax_0:::message"]=0
+operation_parameters_maximum_occurences["createFax_0:::pdf"]=0
+operation_parameters_maximum_occurences["createFonenumber:::area_code"]=0
+operation_parameters_maximum_occurences["createFonenumber_0:::area_code"]=0
+operation_parameters_maximum_occurences["deleteFonenumber:::fonenumber"]=0
+operation_parameters_maximum_occurences["deleteFonenumber_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["getFonenumber:::fonenumber"]=0
+operation_parameters_maximum_occurences["getFonenumber_0:::fonenumber"]=0
 operation_parameters_maximum_occurences["getFonenumbers:::filter"]=0
-operation_parameters_maximum_occurences["getFonenumbersFonenumber:::fonenumber"]=0
-operation_parameters_maximum_occurences["postFonenumbers:::area_code"]=0
-operation_parameters_maximum_occurences["putFonenumbersFonenumber:::fonenumber"]=0
-operation_parameters_maximum_occurences["putFonenumbersFonenumber:::type"]=0
-operation_parameters_maximum_occurences["putFonenumbersFonenumber:::value"]=0
-operation_parameters_maximum_occurences["putFonenumbersFonenumber:::url_method"]=0
-operation_parameters_maximum_occurences["putFonenumbersFonenumber:::url_username"]=0
-operation_parameters_maximum_occurences["putFonenumbersFonenumber:::url_password"]=0
-operation_parameters_maximum_occurences["postMessagesReceive:::fonenumber"]=0
-operation_parameters_maximum_occurences["postMessagesReceive:::type"]=0
-operation_parameters_maximum_occurences["postMessagesReceive:::value"]=0
-operation_parameters_maximum_occurences["postMessagesReceive:::url_method"]=0
-operation_parameters_maximum_occurences["postMessagesReceive:::url_username"]=0
-operation_parameters_maximum_occurences["postMessagesReceive:::url_password"]=0
-operation_parameters_maximum_occurences["postMessagesReceiveNotify:::fonenumber"]=0
-operation_parameters_maximum_occurences["postMessagesReceiveNotify:::method"]=0
-operation_parameters_maximum_occurences["postMessagesReceiveNotify:::url"]=0
-operation_parameters_maximum_occurences["postMessagesReceiveNotify:::url_username"]=0
-operation_parameters_maximum_occurences["postMessagesReceiveNotify:::url_password"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::to"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::fonenumber"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::message"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::media_url"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::confirmation_url"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::confirmation_url_username"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::confirmation_url_password"]=0
-operation_parameters_maximum_occurences["postMessagesSend:::require_confirmation"]=0
-operation_parameters_maximum_occurences["postMessagesSendNotify:::fonenumber"]=0
-operation_parameters_maximum_occurences["postMessagesSendNotify:::method"]=0
-operation_parameters_maximum_occurences["postMessagesSendNotify:::url"]=0
-operation_parameters_maximum_occurences["postMessagesSendNotify:::url_username"]=0
-operation_parameters_maximum_occurences["postMessagesSendNotify:::url_password"]=0
+operation_parameters_maximum_occurences["getFonenumbers_0:::filter"]=0
+operation_parameters_maximum_occurences["updateFonenumber:::fonenumber"]=0
+operation_parameters_maximum_occurences["updateFonenumber:::type"]=0
+operation_parameters_maximum_occurences["updateFonenumber:::value"]=0
+operation_parameters_maximum_occurences["updateFonenumber:::url_method"]=0
+operation_parameters_maximum_occurences["updateFonenumber:::url_username"]=0
+operation_parameters_maximum_occurences["updateFonenumber:::url_password"]=0
+operation_parameters_maximum_occurences["updateFonenumber_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["updateFonenumber_0:::type"]=0
+operation_parameters_maximum_occurences["updateFonenumber_0:::value"]=0
+operation_parameters_maximum_occurences["updateFonenumber_0:::url_method"]=0
+operation_parameters_maximum_occurences["updateFonenumber_0:::url_username"]=0
+operation_parameters_maximum_occurences["updateFonenumber_0:::url_password"]=0
+operation_parameters_maximum_occurences["configureMessageReceive:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureMessageReceive:::type"]=0
+operation_parameters_maximum_occurences["configureMessageReceive:::value"]=0
+operation_parameters_maximum_occurences["configureMessageReceive:::url_method"]=0
+operation_parameters_maximum_occurences["configureMessageReceive:::url_username"]=0
+operation_parameters_maximum_occurences["configureMessageReceive:::url_password"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify:::method"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify:::url"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify:::url_username"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify:::url_password"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify_0:::method"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify_0:::url"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify_0:::url_username"]=0
+operation_parameters_maximum_occurences["configureMessageReceiveNotify_0:::url_password"]=0
+operation_parameters_maximum_occurences["configureMessageReceive_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureMessageReceive_0:::type"]=0
+operation_parameters_maximum_occurences["configureMessageReceive_0:::value"]=0
+operation_parameters_maximum_occurences["configureMessageReceive_0:::url_method"]=0
+operation_parameters_maximum_occurences["configureMessageReceive_0:::url_username"]=0
+operation_parameters_maximum_occurences["configureMessageReceive_0:::url_password"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify:::method"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify:::url"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify:::url_username"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify:::url_password"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify_0:::method"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify_0:::url"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify_0:::url_username"]=0
+operation_parameters_maximum_occurences["configureMessageSendNotify_0:::url_password"]=0
+operation_parameters_maximum_occurences["createMessage:::to"]=0
+operation_parameters_maximum_occurences["createMessage:::fonenumber"]=0
+operation_parameters_maximum_occurences["createMessage:::message"]=0
+operation_parameters_maximum_occurences["createMessage:::media_url"]=0
+operation_parameters_maximum_occurences["createMessage:::confirmation_url"]=0
+operation_parameters_maximum_occurences["createMessage:::confirmation_url_username"]=0
+operation_parameters_maximum_occurences["createMessage:::confirmation_url_password"]=0
+operation_parameters_maximum_occurences["createMessage:::require_confirmation"]=0
+operation_parameters_maximum_occurences["createMessage_0:::to"]=0
+operation_parameters_maximum_occurences["createMessage_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["createMessage_0:::message"]=0
+operation_parameters_maximum_occurences["createMessage_0:::media_url"]=0
+operation_parameters_maximum_occurences["createMessage_0:::confirmation_url"]=0
+operation_parameters_maximum_occurences["createMessage_0:::confirmation_url_username"]=0
+operation_parameters_maximum_occurences["createMessage_0:::confirmation_url_password"]=0
+operation_parameters_maximum_occurences["createMessage_0:::require_confirmation"]=0
 
 ##
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
-operation_parameters_collection_type["postAuth:::username"]=""
-operation_parameters_collection_type["postAuth:::password"]=""
-operation_parameters_collection_type["postAuth:::expires"]=""
-operation_parameters_collection_type["postCalls:::fonenumber"]=""
-operation_parameters_collection_type["postCalls:::to"]=""
-operation_parameters_collection_type["postCalls:::tts"]=""
-operation_parameters_collection_type["postCallsReceiveNotify:::fonenumber"]=""
-operation_parameters_collection_type["postCallsReceiveNotify:::method"]=""
-operation_parameters_collection_type["postCallsReceiveNotify:::url"]=""
-operation_parameters_collection_type["postCallsReceiveNotify:::url_username"]=""
-operation_parameters_collection_type["postCallsReceiveNotify:::url_password"]=""
-operation_parameters_collection_type["postCallsSendNotify:::fonenumber"]=""
-operation_parameters_collection_type["postCallsSendNotify:::method"]=""
-operation_parameters_collection_type["postCallsSendNotify:::url"]=""
-operation_parameters_collection_type["postCallsSendNotify:::url_username"]=""
-operation_parameters_collection_type["postCallsSendNotify:::url_password"]=""
-operation_parameters_collection_type["postFaxes:::fonenumber"]=""
-operation_parameters_collection_type["postFaxes:::to"]=""
-operation_parameters_collection_type["postFaxes:::message"]=""
-operation_parameters_collection_type["postFaxes:::pdf"]=""
-operation_parameters_collection_type["postFaxesReceiveNotify:::fonenumber"]=""
-operation_parameters_collection_type["postFaxesReceiveNotify:::method"]=""
-operation_parameters_collection_type["postFaxesReceiveNotify:::url"]=""
-operation_parameters_collection_type["postFaxesReceiveNotify:::url_username"]=""
-operation_parameters_collection_type["postFaxesReceiveNotify:::url_password"]=""
-operation_parameters_collection_type["postFaxesSendNotify:::fonenumber"]=""
-operation_parameters_collection_type["postFaxesSendNotify:::method"]=""
-operation_parameters_collection_type["postFaxesSendNotify:::url"]=""
-operation_parameters_collection_type["postFaxesSendNotify:::url_username"]=""
-operation_parameters_collection_type["postFaxesSendNotify:::url_password"]=""
-operation_parameters_collection_type["deleteFonenumbersFonenumber:::fonenumber"]=""
+operation_parameters_collection_type["configureAccountCdrNotify:::account_id"]=""
+operation_parameters_collection_type["configureAccountCdrNotify:::method"]=""
+operation_parameters_collection_type["configureAccountCdrNotify:::url"]=""
+operation_parameters_collection_type["configureAccountCdrNotify:::username"]=""
+operation_parameters_collection_type["configureAccountCdrNotify:::password"]=""
+operation_parameters_collection_type["configureAccountCdrNotify_0:::account_id"]=""
+operation_parameters_collection_type["configureAccountCdrNotify_0:::method"]=""
+operation_parameters_collection_type["configureAccountCdrNotify_0:::url"]=""
+operation_parameters_collection_type["configureAccountCdrNotify_0:::username"]=""
+operation_parameters_collection_type["configureAccountCdrNotify_0:::password"]=""
+operation_parameters_collection_type["getAccount:::id"]=""
+operation_parameters_collection_type["getAccount_0:::id"]=""
+operation_parameters_collection_type["updateAccount:::id"]=""
+operation_parameters_collection_type["updateAccount:::primary_color"]=""
+operation_parameters_collection_type["updateAccount:::secondary_color"]=""
+operation_parameters_collection_type["updateAccount:::background_color"]=""
+operation_parameters_collection_type["updateAccount:::font_family"]=""
+operation_parameters_collection_type["updateAccount:::logo"]=""
+operation_parameters_collection_type["updateAccount_0:::id"]=""
+operation_parameters_collection_type["updateAccount_0:::primary_color"]=""
+operation_parameters_collection_type["updateAccount_0:::secondary_color"]=""
+operation_parameters_collection_type["updateAccount_0:::background_color"]=""
+operation_parameters_collection_type["updateAccount_0:::font_family"]=""
+operation_parameters_collection_type["updateAccount_0:::logo"]=""
+operation_parameters_collection_type["createToken:::username"]=""
+operation_parameters_collection_type["createToken:::password"]=""
+operation_parameters_collection_type["createToken:::expires"]=""
+operation_parameters_collection_type["createToken:::username"]=""
+operation_parameters_collection_type["createToken:::password"]=""
+operation_parameters_collection_type["createToken:::expires"]=""
+operation_parameters_collection_type["configureCallReceiveNotify:::fonenumber"]=""
+operation_parameters_collection_type["configureCallReceiveNotify:::method"]=""
+operation_parameters_collection_type["configureCallReceiveNotify:::url"]=""
+operation_parameters_collection_type["configureCallReceiveNotify:::url_username"]=""
+operation_parameters_collection_type["configureCallReceiveNotify:::url_password"]=""
+operation_parameters_collection_type["configureCallReceiveNotify_0:::fonenumber"]=""
+operation_parameters_collection_type["configureCallReceiveNotify_0:::method"]=""
+operation_parameters_collection_type["configureCallReceiveNotify_0:::url"]=""
+operation_parameters_collection_type["configureCallReceiveNotify_0:::url_username"]=""
+operation_parameters_collection_type["configureCallReceiveNotify_0:::url_password"]=""
+operation_parameters_collection_type["configureCallSendNotify:::fonenumber"]=""
+operation_parameters_collection_type["configureCallSendNotify:::method"]=""
+operation_parameters_collection_type["configureCallSendNotify:::url"]=""
+operation_parameters_collection_type["configureCallSendNotify:::url_username"]=""
+operation_parameters_collection_type["configureCallSendNotify:::url_password"]=""
+operation_parameters_collection_type["configureCallSendNotify_0:::fonenumber"]=""
+operation_parameters_collection_type["configureCallSendNotify_0:::method"]=""
+operation_parameters_collection_type["configureCallSendNotify_0:::url"]=""
+operation_parameters_collection_type["configureCallSendNotify_0:::url_username"]=""
+operation_parameters_collection_type["configureCallSendNotify_0:::url_password"]=""
+operation_parameters_collection_type["createCall:::fonenumber"]=""
+operation_parameters_collection_type["createCall:::to"]=""
+operation_parameters_collection_type["createCall:::tts"]=""
+operation_parameters_collection_type["createCall_0:::fonenumber"]=""
+operation_parameters_collection_type["createCall_0:::to"]=""
+operation_parameters_collection_type["createCall_0:::tts"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify:::fonenumber"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify:::method"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify:::url"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify:::url_username"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify:::url_password"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify_0:::fonenumber"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify_0:::method"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify_0:::url"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify_0:::url_username"]=""
+operation_parameters_collection_type["configureFaxReceiveNotify_0:::url_password"]=""
+operation_parameters_collection_type["configureFaxSendNotify:::fonenumber"]=""
+operation_parameters_collection_type["configureFaxSendNotify:::method"]=""
+operation_parameters_collection_type["configureFaxSendNotify:::url"]=""
+operation_parameters_collection_type["configureFaxSendNotify:::url_username"]=""
+operation_parameters_collection_type["configureFaxSendNotify:::url_password"]=""
+operation_parameters_collection_type["configureFaxSendNotify_0:::fonenumber"]=""
+operation_parameters_collection_type["configureFaxSendNotify_0:::method"]=""
+operation_parameters_collection_type["configureFaxSendNotify_0:::url"]=""
+operation_parameters_collection_type["configureFaxSendNotify_0:::url_username"]=""
+operation_parameters_collection_type["configureFaxSendNotify_0:::url_password"]=""
+operation_parameters_collection_type["createFax:::fonenumber"]=""
+operation_parameters_collection_type["createFax:::to"]=""
+operation_parameters_collection_type["createFax:::message"]=""
+operation_parameters_collection_type["createFax:::pdf"]=""
+operation_parameters_collection_type["createFax_0:::fonenumber"]=""
+operation_parameters_collection_type["createFax_0:::to"]=""
+operation_parameters_collection_type["createFax_0:::message"]=""
+operation_parameters_collection_type["createFax_0:::pdf"]=""
+operation_parameters_collection_type["createFonenumber:::area_code"]=""
+operation_parameters_collection_type["createFonenumber_0:::area_code"]=""
+operation_parameters_collection_type["deleteFonenumber:::fonenumber"]=""
+operation_parameters_collection_type["deleteFonenumber_0:::fonenumber"]=""
+operation_parameters_collection_type["getFonenumber:::fonenumber"]=""
+operation_parameters_collection_type["getFonenumber_0:::fonenumber"]=""
 operation_parameters_collection_type["getFonenumbers:::filter"]=""
-operation_parameters_collection_type["getFonenumbersFonenumber:::fonenumber"]=""
-operation_parameters_collection_type["postFonenumbers:::area_code"]=""
-operation_parameters_collection_type["putFonenumbersFonenumber:::fonenumber"]=""
-operation_parameters_collection_type["putFonenumbersFonenumber:::type"]=""
-operation_parameters_collection_type["putFonenumbersFonenumber:::value"]=""
-operation_parameters_collection_type["putFonenumbersFonenumber:::url_method"]=""
-operation_parameters_collection_type["putFonenumbersFonenumber:::url_username"]=""
-operation_parameters_collection_type["putFonenumbersFonenumber:::url_password"]=""
-operation_parameters_collection_type["postMessagesReceive:::fonenumber"]=""
-operation_parameters_collection_type["postMessagesReceive:::type"]=""
-operation_parameters_collection_type["postMessagesReceive:::value"]=""
-operation_parameters_collection_type["postMessagesReceive:::url_method"]=""
-operation_parameters_collection_type["postMessagesReceive:::url_username"]=""
-operation_parameters_collection_type["postMessagesReceive:::url_password"]=""
-operation_parameters_collection_type["postMessagesReceiveNotify:::fonenumber"]=""
-operation_parameters_collection_type["postMessagesReceiveNotify:::method"]=""
-operation_parameters_collection_type["postMessagesReceiveNotify:::url"]=""
-operation_parameters_collection_type["postMessagesReceiveNotify:::url_username"]=""
-operation_parameters_collection_type["postMessagesReceiveNotify:::url_password"]=""
-operation_parameters_collection_type["postMessagesSend:::to"]=""
-operation_parameters_collection_type["postMessagesSend:::fonenumber"]=""
-operation_parameters_collection_type["postMessagesSend:::message"]=""
-operation_parameters_collection_type["postMessagesSend:::media_url"]=
-operation_parameters_collection_type["postMessagesSend:::confirmation_url"]=""
-operation_parameters_collection_type["postMessagesSend:::confirmation_url_username"]=""
-operation_parameters_collection_type["postMessagesSend:::confirmation_url_password"]=""
-operation_parameters_collection_type["postMessagesSend:::require_confirmation"]=""
-operation_parameters_collection_type["postMessagesSendNotify:::fonenumber"]=""
-operation_parameters_collection_type["postMessagesSendNotify:::method"]=""
-operation_parameters_collection_type["postMessagesSendNotify:::url"]=""
-operation_parameters_collection_type["postMessagesSendNotify:::url_username"]=""
-operation_parameters_collection_type["postMessagesSendNotify:::url_password"]=""
+operation_parameters_collection_type["getFonenumbers_0:::filter"]=""
+operation_parameters_collection_type["updateFonenumber:::fonenumber"]=""
+operation_parameters_collection_type["updateFonenumber:::type"]=""
+operation_parameters_collection_type["updateFonenumber:::value"]=""
+operation_parameters_collection_type["updateFonenumber:::url_method"]=""
+operation_parameters_collection_type["updateFonenumber:::url_username"]=""
+operation_parameters_collection_type["updateFonenumber:::url_password"]=""
+operation_parameters_collection_type["updateFonenumber_0:::fonenumber"]=""
+operation_parameters_collection_type["updateFonenumber_0:::type"]=""
+operation_parameters_collection_type["updateFonenumber_0:::value"]=""
+operation_parameters_collection_type["updateFonenumber_0:::url_method"]=""
+operation_parameters_collection_type["updateFonenumber_0:::url_username"]=""
+operation_parameters_collection_type["updateFonenumber_0:::url_password"]=""
+operation_parameters_collection_type["configureMessageReceive:::fonenumber"]=""
+operation_parameters_collection_type["configureMessageReceive:::type"]=""
+operation_parameters_collection_type["configureMessageReceive:::value"]=""
+operation_parameters_collection_type["configureMessageReceive:::url_method"]=""
+operation_parameters_collection_type["configureMessageReceive:::url_username"]=""
+operation_parameters_collection_type["configureMessageReceive:::url_password"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify:::fonenumber"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify:::method"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify:::url"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify:::url_username"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify:::url_password"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify_0:::fonenumber"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify_0:::method"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify_0:::url"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify_0:::url_username"]=""
+operation_parameters_collection_type["configureMessageReceiveNotify_0:::url_password"]=""
+operation_parameters_collection_type["configureMessageReceive_0:::fonenumber"]=""
+operation_parameters_collection_type["configureMessageReceive_0:::type"]=""
+operation_parameters_collection_type["configureMessageReceive_0:::value"]=""
+operation_parameters_collection_type["configureMessageReceive_0:::url_method"]=""
+operation_parameters_collection_type["configureMessageReceive_0:::url_username"]=""
+operation_parameters_collection_type["configureMessageReceive_0:::url_password"]=""
+operation_parameters_collection_type["configureMessageSendNotify:::fonenumber"]=""
+operation_parameters_collection_type["configureMessageSendNotify:::method"]=""
+operation_parameters_collection_type["configureMessageSendNotify:::url"]=""
+operation_parameters_collection_type["configureMessageSendNotify:::url_username"]=""
+operation_parameters_collection_type["configureMessageSendNotify:::url_password"]=""
+operation_parameters_collection_type["configureMessageSendNotify_0:::fonenumber"]=""
+operation_parameters_collection_type["configureMessageSendNotify_0:::method"]=""
+operation_parameters_collection_type["configureMessageSendNotify_0:::url"]=""
+operation_parameters_collection_type["configureMessageSendNotify_0:::url_username"]=""
+operation_parameters_collection_type["configureMessageSendNotify_0:::url_password"]=""
+operation_parameters_collection_type["createMessage:::to"]=""
+operation_parameters_collection_type["createMessage:::fonenumber"]=""
+operation_parameters_collection_type["createMessage:::message"]=""
+operation_parameters_collection_type["createMessage:::media_url"]=
+operation_parameters_collection_type["createMessage:::confirmation_url"]=""
+operation_parameters_collection_type["createMessage:::confirmation_url_username"]=""
+operation_parameters_collection_type["createMessage:::confirmation_url_password"]=""
+operation_parameters_collection_type["createMessage:::require_confirmation"]=""
+operation_parameters_collection_type["createMessage_0:::to"]=""
+operation_parameters_collection_type["createMessage_0:::fonenumber"]=""
+operation_parameters_collection_type["createMessage_0:::message"]=""
+operation_parameters_collection_type["createMessage_0:::media_url"]=
+operation_parameters_collection_type["createMessage_0:::confirmation_url"]=""
+operation_parameters_collection_type["createMessage_0:::confirmation_url_username"]=""
+operation_parameters_collection_type["createMessage_0:::confirmation_url_password"]=""
+operation_parameters_collection_type["createMessage_0:::require_confirmation"]=""
 
 
 ##
@@ -716,7 +980,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 command line client (API version 2.2.0)$(tput sgr0)
+$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 (Breeze) command line client (API version 2.2.0)$(tput sgr0)
 
 $(tput bold)$(tput setaf 7)Usage$(tput sgr0)
 
@@ -750,44 +1014,76 @@ EOF
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Operations (grouped by tags)$(tput sgr0)"
     echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[accounts]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)configureAccountCdrNotify$(tput sgr0);Set CDR Callback
+  $(tput setaf 6)configureAccountCdrNotify_0$(tput sgr0);Set CDR Callback
+  $(tput setaf 6)getAccount$(tput sgr0);Get Account
+  $(tput setaf 6)getAccount_0$(tput sgr0);Get Account
+  $(tput setaf 6)updateAccount$(tput sgr0);Update Account
+  $(tput setaf 6)updateAccount_0$(tput sgr0);Update Account
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
     echo -e "$(tput bold)$(tput setaf 7)[auth]$(tput sgr0)"
 read -d '' ops <<EOF
-  $(tput setaf 6)postAuth$(tput sgr0);Create a FoneStorm authentication token.
+  $(tput setaf 6)createToken$(tput sgr0);Create Auth Token
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[authorization]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)createToken$(tput sgr0);Create Auth Token
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)[calls]$(tput sgr0)"
 read -d '' ops <<EOF
-  $(tput setaf 6)postCalls$(tput sgr0);Create a new call under the account.
-  $(tput setaf 6)postCallsReceiveNotify$(tput sgr0);Configure the callback URL to notify when a call is received.
-  $(tput setaf 6)postCallsSendNotify$(tput sgr0);Configure the callback URL to notify when a call is made.
+  $(tput setaf 6)configureCallReceiveNotify$(tput sgr0);Set Receive Callback
+  $(tput setaf 6)configureCallReceiveNotify_0$(tput sgr0);Set Receive Callback
+  $(tput setaf 6)configureCallSendNotify$(tput sgr0);Set Send Callback
+  $(tput setaf 6)configureCallSendNotify_0$(tput sgr0);Set Send Callback
+  $(tput setaf 6)createCall$(tput sgr0);Create Call
+  $(tput setaf 6)createCall_0$(tput sgr0);Create Call
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)[faxes]$(tput sgr0)"
 read -d '' ops <<EOF
-  $(tput setaf 6)postFaxes$(tput sgr0);Create a new fax under the account.
-  $(tput setaf 6)postFaxesReceiveNotify$(tput sgr0);Configure the callback URL to notify when a fax is received.
-  $(tput setaf 6)postFaxesSendNotify$(tput sgr0);Configure the callback URL to notify when a fax is made.
+  $(tput setaf 6)configureFaxReceiveNotify$(tput sgr0);Set Receive Callback
+  $(tput setaf 6)configureFaxReceiveNotify_0$(tput sgr0);Set Receive Callback
+  $(tput setaf 6)configureFaxSendNotify$(tput sgr0);Set Send Callback
+  $(tput setaf 6)configureFaxSendNotify_0$(tput sgr0);Set Send Callback
+  $(tput setaf 6)createFax$(tput sgr0);Create Fax
+  $(tput setaf 6)createFax_0$(tput sgr0);Create Fax
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)[fonenumbers]$(tput sgr0)"
 read -d '' ops <<EOF
-  $(tput setaf 6)deleteFonenumbersFonenumber$(tput sgr0);Delete a fonenumber identified by fonenumber.
-  $(tput setaf 6)getFonenumbers$(tput sgr0);Get a list of all active fonenumbers under the account.
-  $(tput setaf 6)getFonenumbersFonenumber$(tput sgr0);Get a fonenumber identified by fonenumber.
-  $(tput setaf 6)postFonenumbers$(tput sgr0);Create a fonenumber under the account.
-  $(tput setaf 6)putFonenumbersFonenumber$(tput sgr0);Update a fonenumber identified by fonenumber.
+  $(tput setaf 6)createFonenumber$(tput sgr0);Create FoneNumber
+  $(tput setaf 6)createFonenumber_0$(tput sgr0);Create FoneNumber
+  $(tput setaf 6)deleteFonenumber$(tput sgr0);Delete FoneNumber
+  $(tput setaf 6)deleteFonenumber_0$(tput sgr0);Delete FoneNumber
+  $(tput setaf 6)getFonenumber$(tput sgr0);Get FoneNumber
+  $(tput setaf 6)getFonenumber_0$(tput sgr0);Get FoneNumber
+  $(tput setaf 6)getFonenumbers$(tput sgr0);Get FoneNumbers
+  $(tput setaf 6)getFonenumbers_0$(tput sgr0);Get FoneNumbers
+  $(tput setaf 6)updateFonenumber$(tput sgr0);Update FoneNumber
+  $(tput setaf 6)updateFonenumber_0$(tput sgr0);Update FoneNumber
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)[messages]$(tput sgr0)"
 read -d '' ops <<EOF
-  $(tput setaf 6)postMessagesReceive$(tput sgr0);Configure the delivery service type used as the destination for received messages.
-  $(tput setaf 6)postMessagesReceiveNotify$(tput sgr0);Configure the callback URL to notify when a message is received.
-  $(tput setaf 6)postMessagesSend$(tput sgr0);Send an SMS or MMS message to a recipient.
-  $(tput setaf 6)postMessagesSendNotify$(tput sgr0);Configure the callback URL to notify when a message is sent.
+  $(tput setaf 6)configureMessageReceive$(tput sgr0);Set Delivery Service
+  $(tput setaf 6)configureMessageReceiveNotify$(tput sgr0);Set Receive Callback
+  $(tput setaf 6)configureMessageReceiveNotify_0$(tput sgr0);Set Receive Callback
+  $(tput setaf 6)configureMessageReceive_0$(tput sgr0);Set Delivery Service
+  $(tput setaf 6)configureMessageSendNotify$(tput sgr0);Set Send Callback
+  $(tput setaf 6)configureMessageSendNotify_0$(tput sgr0);Set Send Callback
+  $(tput setaf 6)createMessage$(tput sgr0);Create Message
+  $(tput setaf 6)createMessage_0$(tput sgr0);Create Message
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -816,7 +1112,7 @@ echo -e "              \t\t\t\t(e.g. 'https://api.fonestorm.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 command line client (API version 2.2.0)$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 (Breeze) command line client (API version 2.2.0)$(tput sgr0)"
     echo ""
     echo -e "License: ISC"
     echo -e "Contact: "
@@ -836,288 +1132,1445 @@ echo "$appdescription" | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "$(tput bold)FoneStorm API 2.2.0 command line client (API version 2.2.0)$(tput sgr0)"
+    echo -e "$(tput bold)FoneStorm API 2.2.0 (Breeze) command line client (API version 2.2.0)$(tput sgr0)"
     echo ""
 }
 
 ##############################################################################
 #
-# Print help for postAuth operation
+# Print help for configureAccountCdrNotify operation
 #
 ##############################################################################
-print_postAuth_help() {
+print_configureAccountCdrNotify_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postAuth - Create a FoneStorm authentication token.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)configureAccountCdrNotify - Set CDR Callback$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a token that can be used to make authenticated requests" | fold -sw 80
+    echo -e "Configure the callback URL to notify when a call dialing record is available." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postCalls operation
+# Print help for configureAccountCdrNotify_0 operation
 #
 ##############################################################################
-print_postCalls_help() {
+print_configureAccountCdrNotify_0_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postCalls - Create a new call under the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)configureAccountCdrNotify_0 - Set CDR Callback$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Configure the callback URL to notify when a call dialing record is available." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postCallsReceiveNotify operation
+# Print help for getAccount operation
 #
 ##############################################################################
-print_postCallsReceiveNotify_help() {
+print_getAccount_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postCallsReceiveNotify - Configure the callback URL to notify when a call is received.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)getAccount - Get Account$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Get information about an account." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postCallsSendNotify operation
+# Print help for getAccount_0 operation
 #
 ##############################################################################
-print_postCallsSendNotify_help() {
+print_getAccount_0_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postCallsSendNotify - Configure the callback URL to notify when a call is made.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)getAccount_0 - Get Account$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Get information about an account." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postFaxes operation
+# Print help for updateAccount operation
 #
 ##############################################################################
-print_postFaxes_help() {
+print_updateAccount_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postFaxes - Create a new fax under the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)updateAccount - Update Account$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Update an account." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postFaxesReceiveNotify operation
+# Print help for updateAccount_0 operation
 #
 ##############################################################################
-print_postFaxesReceiveNotify_help() {
+print_updateAccount_0_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postFaxesReceiveNotify - Configure the callback URL to notify when a fax is received.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)updateAccount_0 - Update Account$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Update an account." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postFaxesSendNotify operation
+# Print help for createToken operation
 #
 ##############################################################################
-print_postFaxesSendNotify_help() {
+print_createToken_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postFaxesSendNotify - Configure the callback URL to notify when a fax is made.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)createToken - Create Auth Token$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Create an authentication token to use for API requests." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 201 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for deleteFonenumbersFonenumber operation
+# Print help for createToken operation
 #
 ##############################################################################
-print_deleteFonenumbersFonenumber_help() {
+print_createToken_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)deleteFonenumbersFonenumber - Delete a fonenumber identified by fonenumber.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)createToken - Create Auth Token$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Create an authentication token to use for API requests." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Your FracTEL fonenumber. $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 201 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureCallReceiveNotify operation
+#
+##############################################################################
+print_configureCallReceiveNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureCallReceiveNotify - Set Receive Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureCallReceiveNotify_0 operation
+#
+##############################################################################
+print_configureCallReceiveNotify_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureCallReceiveNotify_0 - Set Receive Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureCallSendNotify operation
+#
+##############################################################################
+print_configureCallSendNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureCallSendNotify - Set Send Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureCallSendNotify_0 operation
+#
+##############################################################################
+print_configureCallSendNotify_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureCallSendNotify_0 - Set Send Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createCall operation
+#
+##############################################################################
+print_createCall_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createCall - Create Call$(tput sgr0)"
+    echo -e ""
+    echo -e "Create a new voice call from a FoneNumber to a recipient phone number." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createCall_0 operation
+#
+##############################################################################
+print_createCall_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createCall_0 - Create Call$(tput sgr0)"
+    echo -e ""
+    echo -e "Create a new voice call from a FoneNumber to a recipient phone number." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureFaxReceiveNotify operation
+#
+##############################################################################
+print_configureFaxReceiveNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureFaxReceiveNotify - Set Receive Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureFaxReceiveNotify_0 operation
+#
+##############################################################################
+print_configureFaxReceiveNotify_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureFaxReceiveNotify_0 - Set Receive Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureFaxSendNotify operation
+#
+##############################################################################
+print_configureFaxSendNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureFaxSendNotify - Set Send Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureFaxSendNotify_0 operation
+#
+##############################################################################
+print_configureFaxSendNotify_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureFaxSendNotify_0 - Set Send Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createFax operation
+#
+##############################################################################
+print_createFax_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createFax - Create Fax$(tput sgr0)"
+    echo -e ""
+    echo -e "Send a fax to a recipient phone number." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createFax_0 operation
+#
+##############################################################################
+print_createFax_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createFax_0 - Create Fax$(tput sgr0)"
+    echo -e ""
+    echo -e "Send a fax to a recipient phone number." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createFonenumber operation
+#
+##############################################################################
+print_createFonenumber_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createFonenumber - Create FoneNumber$(tput sgr0)"
+    echo -e ""
+    echo -e "Order a new FoneNumber for a given area code." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createFonenumber_0 operation
+#
+##############################################################################
+print_createFonenumber_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createFonenumber_0 - Create FoneNumber$(tput sgr0)"
+    echo -e ""
+    echo -e "Order a new FoneNumber for a given area code." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for deleteFonenumber operation
+#
+##############################################################################
+print_deleteFonenumber_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)deleteFonenumber - Delete FoneNumber$(tput sgr0)"
+    echo -e ""
+    echo -e "Remove a FoneNumber from an account." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for deleteFonenumber_0 operation
+#
+##############################################################################
+print_deleteFonenumber_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)deleteFonenumber_0 - Delete FoneNumber$(tput sgr0)"
+    echo -e ""
+    echo -e "Remove a FoneNumber from an account." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getFonenumber operation
+#
+##############################################################################
+print_getFonenumber_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getFonenumber - Get FoneNumber$(tput sgr0)"
+    echo -e ""
+    echo -e "Get information for a single FoneNumber." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getFonenumber_0 operation
+#
+##############################################################################
+print_getFonenumber_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getFonenumber_0 - Get FoneNumber$(tput sgr0)"
+    echo -e ""
+    echo -e "Get information for a single FoneNumber." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
@@ -1128,280 +2581,662 @@ print_deleteFonenumbersFonenumber_help() {
 ##############################################################################
 print_getFonenumbers_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)getFonenumbers - Get a list of all active fonenumbers under the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)getFonenumbers - Get FoneNumbers$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Get a list of all FoneNumbers, or a selection based on a filter." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)filter$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Filters for the response.$(tput setaf 3) Specify as: filter=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)filter$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Filter the response attributes. Allowed values are 'fonenumbers' or 'all'. See **Notes** for additional information.$(tput setaf 3) Specify as: filter=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for getFonenumbersFonenumber operation
+# Print help for getFonenumbers_0 operation
 #
 ##############################################################################
-print_getFonenumbersFonenumber_help() {
+print_getFonenumbers_0_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)getFonenumbersFonenumber - Get a fonenumber identified by fonenumber.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)getFonenumbers_0 - Get FoneNumbers$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Get a list of all FoneNumbers, or a selection based on a filter." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Your FracTEL fonenumber. $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)filter$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Filter the response attributes. Allowed values are 'fonenumbers' or 'all'. See **Notes** for additional information.$(tput setaf 3) Specify as: filter=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postFonenumbers operation
+# Print help for updateFonenumber operation
 #
 ##############################################################################
-print_postFonenumbers_help() {
+print_updateFonenumber_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postFonenumbers - Create a fonenumber under the account.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)updateFonenumber - Update FoneNumber$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Update a FoneNumber." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for putFonenumbersFonenumber operation
+# Print help for updateFonenumber_0 operation
 #
 ##############################################################################
-print_putFonenumbersFonenumber_help() {
+print_updateFonenumber_0_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)putFonenumbersFonenumber - Update a fonenumber identified by fonenumber.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)updateFonenumber_0 - Update FoneNumber$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Update a FoneNumber." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Your FracTEL fonenumber. $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postMessagesReceive operation
+# Print help for configureMessageReceive operation
 #
 ##############################################################################
-print_postMessagesReceive_help() {
+print_configureMessageReceive_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postMessagesReceive - Configure the delivery service type used as the destination for received messages.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)configureMessageReceive - Set Delivery Service$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Configure the delivery service type used as the destination for messages received at a FoneNumber." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postMessagesReceiveNotify operation
+# Print help for configureMessageReceiveNotify operation
 #
 ##############################################################################
-print_postMessagesReceiveNotify_help() {
+print_configureMessageReceiveNotify_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postMessagesReceiveNotify - Configure the callback URL to notify when a message is received.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)configureMessageReceiveNotify - Set Receive Callback$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postMessagesSend operation
+# Print help for configureMessageReceiveNotify_0 operation
 #
 ##############################################################################
-print_postMessagesSend_help() {
+print_configureMessageReceiveNotify_0_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postMessagesSend - Send an SMS or MMS message to a recipient.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)configureMessageReceiveNotify_0 - Set Receive Callback$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
 ##############################################################################
 #
-# Print help for postMessagesSendNotify operation
+# Print help for configureMessageReceive_0 operation
 #
 ##############################################################################
-print_postMessagesSendNotify_help() {
+print_configureMessageReceive_0_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)postMessagesSendNotify - Configure the callback URL to notify when a message is sent.$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)configureMessageReceive_0 - Set Delivery Service$(tput sgr0)"
     echo -e ""
-    echo -e "Returns a JSON response" | fold -sw 80
+    echo -e "Configure the delivery service type used as the destination for messages received at a FoneNumber." | fold -sw 80
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 0 in
+    case 200 in
         1*)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  0;Successful$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureMessageSendNotify operation
+#
+##############################################################################
+print_configureMessageSendNotify_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureMessageSendNotify - Set Send Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for configureMessageSendNotify_0 operation
+#
+##############################################################################
+print_configureMessageSendNotify_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)configureMessageSendNotify_0 - Set Send Callback$(tput sgr0)"
+    echo -e ""
+    echo -e "Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createMessage operation
+#
+##############################################################################
+print_createMessage_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createMessage - Create Message$(tput sgr0)"
+    echo -e ""
+    echo -e "Send an SMS or MMS message." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createMessage_0 operation
+#
+##############################################################################
+print_createMessage_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createMessage_0 - Create Message$(tput sgr0)"
+    echo -e ""
+    echo -e "Send an SMS or MMS message." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
 }
@@ -1409,10 +3244,196 @@ print_postMessagesSendNotify_help() {
 
 ##############################################################################
 #
-# Call postAuth operation
+# Call configureAccountCdrNotify operation
 #
 ##############################################################################
-call_postAuth() {
+call_configureAccountCdrNotify() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureAccountCdrNotify_0 operation
+#
+##############################################################################
+call_configureAccountCdrNotify_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getAccount operation
+#
+##############################################################################
+call_getAccount() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getAccount_0 operation
+#
+##############################################################################
+call_getAccount_0() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call updateAccount operation
+#
+##############################################################################
+call_updateAccount() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
+    local method="PUT"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call updateAccount_0 operation
+#
+##############################################################################
+call_updateAccount_0() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
+    local method="PUT"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createToken operation
+#
+##############################################################################
+call_createToken() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1440,18 +3461,18 @@ call_postAuth() {
 
 ##############################################################################
 #
-# Call postCalls operation
+# Call createToken operation
 #
 ##############################################################################
-call_postCalls() {
+call_createToken() {
     local path_parameter_names=()
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/calls" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/auth" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/calls" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/auth" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1471,10 +3492,10 @@ call_postCalls() {
 
 ##############################################################################
 #
-# Call postCallsReceiveNotify operation
+# Call configureCallReceiveNotify operation
 #
 ##############################################################################
-call_postCallsReceiveNotify() {
+call_configureCallReceiveNotify() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1502,10 +3523,41 @@ call_postCallsReceiveNotify() {
 
 ##############################################################################
 #
-# Call postCallsSendNotify operation
+# Call configureCallReceiveNotify_0 operation
 #
 ##############################################################################
-call_postCallsSendNotify() {
+call_configureCallReceiveNotify_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/calls/receive_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/calls/receive_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureCallSendNotify operation
+#
+##############################################################################
+call_configureCallSendNotify() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1533,18 +3585,18 @@ call_postCallsSendNotify() {
 
 ##############################################################################
 #
-# Call postFaxes operation
+# Call configureCallSendNotify_0 operation
 #
 ##############################################################################
-call_postFaxes() {
+call_configureCallSendNotify_0() {
     local path_parameter_names=()
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/faxes" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/calls/send_notify" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/faxes" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/calls/send_notify" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1564,10 +3616,72 @@ call_postFaxes() {
 
 ##############################################################################
 #
-# Call postFaxesReceiveNotify operation
+# Call createCall operation
 #
 ##############################################################################
-call_postFaxesReceiveNotify() {
+call_createCall() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/calls" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/calls" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createCall_0 operation
+#
+##############################################################################
+call_createCall_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/calls" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/calls" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureFaxReceiveNotify operation
+#
+##############################################################################
+call_configureFaxReceiveNotify() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1595,10 +3709,41 @@ call_postFaxesReceiveNotify() {
 
 ##############################################################################
 #
-# Call postFaxesSendNotify operation
+# Call configureFaxReceiveNotify_0 operation
 #
 ##############################################################################
-call_postFaxesSendNotify() {
+call_configureFaxReceiveNotify_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/faxes/receive_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/faxes/receive_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureFaxSendNotify operation
+#
+##############################################################################
+call_configureFaxSendNotify() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1626,10 +3771,165 @@ call_postFaxesSendNotify() {
 
 ##############################################################################
 #
-# Call deleteFonenumbersFonenumber operation
+# Call configureFaxSendNotify_0 operation
 #
 ##############################################################################
-call_deleteFonenumbersFonenumber() {
+call_configureFaxSendNotify_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/faxes/send_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/faxes/send_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createFax operation
+#
+##############################################################################
+call_createFax() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/faxes" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/faxes" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createFax_0 operation
+#
+##############################################################################
+call_createFax_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/faxes" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/faxes" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createFonenumber operation
+#
+##############################################################################
+call_createFonenumber() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createFonenumber_0 operation
+#
+##############################################################################
+call_createFonenumber_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call deleteFonenumber operation
+#
+##############################################################################
+call_deleteFonenumber() {
     local path_parameter_names=(fonenumber)
     local query_parameter_names=()
 
@@ -1639,6 +3939,99 @@ call_deleteFonenumbersFonenumber() {
 
     local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
     local method="DELETE"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call deleteFonenumber_0 operation
+#
+##############################################################################
+call_deleteFonenumber_0() {
+    local path_parameter_names=(fonenumber)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local method="DELETE"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getFonenumber operation
+#
+##############################################################################
+call_getFonenumber() {
+    local path_parameter_names=(fonenumber)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getFonenumber_0 operation
+#
+##############################################################################
+call_getFonenumber_0() {
+    local path_parameter_names=(fonenumber)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
         headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
@@ -1688,18 +4081,18 @@ call_getFonenumbers() {
 
 ##############################################################################
 #
-# Call getFonenumbersFonenumber operation
+# Call getFonenumbers_0 operation
 #
 ##############################################################################
-call_getFonenumbersFonenumber() {
-    local path_parameter_names=(fonenumber)
-    local query_parameter_names=()
+call_getFonenumbers_0() {
+    local path_parameter_names=()
+    local query_parameter_names=(filter)
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
     local method="GET"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1719,41 +4112,10 @@ call_getFonenumbersFonenumber() {
 
 ##############################################################################
 #
-# Call postFonenumbers operation
+# Call updateFonenumber operation
 #
 ##############################################################################
-call_postFonenumbers() {
-    local path_parameter_names=()
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/v2/fonenumbers" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/v2/fonenumbers" path_parameter_names query_parameter_names)
-    local method="POST"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call putFonenumbersFonenumber operation
-#
-##############################################################################
-call_putFonenumbersFonenumber() {
+call_updateFonenumber() {
     local path_parameter_names=(fonenumber)
     local query_parameter_names=()
 
@@ -1781,10 +4143,41 @@ call_putFonenumbersFonenumber() {
 
 ##############################################################################
 #
-# Call postMessagesReceive operation
+# Call updateFonenumber_0 operation
 #
 ##############################################################################
-call_postMessagesReceive() {
+call_updateFonenumber_0() {
+    local path_parameter_names=(fonenumber)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}" path_parameter_names query_parameter_names)
+    local method="PUT"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureMessageReceive operation
+#
+##############################################################################
+call_configureMessageReceive() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1812,10 +4205,10 @@ call_postMessagesReceive() {
 
 ##############################################################################
 #
-# Call postMessagesReceiveNotify operation
+# Call configureMessageReceiveNotify operation
 #
 ##############################################################################
-call_postMessagesReceiveNotify() {
+call_configureMessageReceiveNotify() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1843,10 +4236,134 @@ call_postMessagesReceiveNotify() {
 
 ##############################################################################
 #
-# Call postMessagesSend operation
+# Call configureMessageReceiveNotify_0 operation
 #
 ##############################################################################
-call_postMessagesSend() {
+call_configureMessageReceiveNotify_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/messages/receive_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/messages/receive_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureMessageReceive_0 operation
+#
+##############################################################################
+call_configureMessageReceive_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/messages/receive" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/messages/receive" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureMessageSendNotify operation
+#
+##############################################################################
+call_configureMessageSendNotify() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/messages/send_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/messages/send_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call configureMessageSendNotify_0 operation
+#
+##############################################################################
+call_configureMessageSendNotify_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/messages/send_notify" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/messages/send_notify" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createMessage operation
+#
+##############################################################################
+call_createMessage() {
     local path_parameter_names=()
     local query_parameter_names=()
 
@@ -1874,18 +4391,18 @@ call_postMessagesSend() {
 
 ##############################################################################
 #
-# Call postMessagesSendNotify operation
+# Call createMessage_0 operation
 #
 ##############################################################################
-call_postMessagesSendNotify() {
+call_createMessage_0() {
     local path_parameter_names=()
     local query_parameter_names=()
 
     if [[ $force = false ]]; then
-        validate_request_parameters "/v2/messages/send_notify" path_parameter_names query_parameter_names
+        validate_request_parameters "/v2/messages/send" path_parameter_names query_parameter_names
     fi
 
-    local path=$(build_request_path "/v2/messages/send_notify" path_parameter_names query_parameter_names)
+    local path=$(build_request_path "/v2/messages/send" path_parameter_names query_parameter_names)
     local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
@@ -1988,53 +4505,119 @@ case $key in
     --dry-run)
     print_curl=true
     ;;
-    postAuth)
-    operation="postAuth"
+    configureAccountCdrNotify)
+    operation="configureAccountCdrNotify"
     ;;
-    postCalls)
-    operation="postCalls"
+    configureAccountCdrNotify_0)
+    operation="configureAccountCdrNotify_0"
     ;;
-    postCallsReceiveNotify)
-    operation="postCallsReceiveNotify"
+    getAccount)
+    operation="getAccount"
     ;;
-    postCallsSendNotify)
-    operation="postCallsSendNotify"
+    getAccount_0)
+    operation="getAccount_0"
     ;;
-    postFaxes)
-    operation="postFaxes"
+    updateAccount)
+    operation="updateAccount"
     ;;
-    postFaxesReceiveNotify)
-    operation="postFaxesReceiveNotify"
+    updateAccount_0)
+    operation="updateAccount_0"
     ;;
-    postFaxesSendNotify)
-    operation="postFaxesSendNotify"
+    createToken)
+    operation="createToken"
     ;;
-    deleteFonenumbersFonenumber)
-    operation="deleteFonenumbersFonenumber"
+    createToken)
+    operation="createToken"
+    ;;
+    configureCallReceiveNotify)
+    operation="configureCallReceiveNotify"
+    ;;
+    configureCallReceiveNotify_0)
+    operation="configureCallReceiveNotify_0"
+    ;;
+    configureCallSendNotify)
+    operation="configureCallSendNotify"
+    ;;
+    configureCallSendNotify_0)
+    operation="configureCallSendNotify_0"
+    ;;
+    createCall)
+    operation="createCall"
+    ;;
+    createCall_0)
+    operation="createCall_0"
+    ;;
+    configureFaxReceiveNotify)
+    operation="configureFaxReceiveNotify"
+    ;;
+    configureFaxReceiveNotify_0)
+    operation="configureFaxReceiveNotify_0"
+    ;;
+    configureFaxSendNotify)
+    operation="configureFaxSendNotify"
+    ;;
+    configureFaxSendNotify_0)
+    operation="configureFaxSendNotify_0"
+    ;;
+    createFax)
+    operation="createFax"
+    ;;
+    createFax_0)
+    operation="createFax_0"
+    ;;
+    createFonenumber)
+    operation="createFonenumber"
+    ;;
+    createFonenumber_0)
+    operation="createFonenumber_0"
+    ;;
+    deleteFonenumber)
+    operation="deleteFonenumber"
+    ;;
+    deleteFonenumber_0)
+    operation="deleteFonenumber_0"
+    ;;
+    getFonenumber)
+    operation="getFonenumber"
+    ;;
+    getFonenumber_0)
+    operation="getFonenumber_0"
     ;;
     getFonenumbers)
     operation="getFonenumbers"
     ;;
-    getFonenumbersFonenumber)
-    operation="getFonenumbersFonenumber"
+    getFonenumbers_0)
+    operation="getFonenumbers_0"
     ;;
-    postFonenumbers)
-    operation="postFonenumbers"
+    updateFonenumber)
+    operation="updateFonenumber"
     ;;
-    putFonenumbersFonenumber)
-    operation="putFonenumbersFonenumber"
+    updateFonenumber_0)
+    operation="updateFonenumber_0"
     ;;
-    postMessagesReceive)
-    operation="postMessagesReceive"
+    configureMessageReceive)
+    operation="configureMessageReceive"
     ;;
-    postMessagesReceiveNotify)
-    operation="postMessagesReceiveNotify"
+    configureMessageReceiveNotify)
+    operation="configureMessageReceiveNotify"
     ;;
-    postMessagesSend)
-    operation="postMessagesSend"
+    configureMessageReceiveNotify_0)
+    operation="configureMessageReceiveNotify_0"
     ;;
-    postMessagesSendNotify)
-    operation="postMessagesSendNotify"
+    configureMessageReceive_0)
+    operation="configureMessageReceive_0"
+    ;;
+    configureMessageSendNotify)
+    operation="configureMessageSendNotify"
+    ;;
+    configureMessageSendNotify_0)
+    operation="configureMessageSendNotify_0"
+    ;;
+    createMessage)
+    operation="createMessage"
+    ;;
+    createMessage_0)
+    operation="createMessage_0"
     ;;
     *==*)
     # Parse body arguments and convert them into top level
@@ -2120,53 +4703,119 @@ fi
 
 # Run cURL command based on the operation ID
 case $operation in
-    postAuth)
-    call_postAuth
+    configureAccountCdrNotify)
+    call_configureAccountCdrNotify
     ;;
-    postCalls)
-    call_postCalls
+    configureAccountCdrNotify_0)
+    call_configureAccountCdrNotify_0
     ;;
-    postCallsReceiveNotify)
-    call_postCallsReceiveNotify
+    getAccount)
+    call_getAccount
     ;;
-    postCallsSendNotify)
-    call_postCallsSendNotify
+    getAccount_0)
+    call_getAccount_0
     ;;
-    postFaxes)
-    call_postFaxes
+    updateAccount)
+    call_updateAccount
     ;;
-    postFaxesReceiveNotify)
-    call_postFaxesReceiveNotify
+    updateAccount_0)
+    call_updateAccount_0
     ;;
-    postFaxesSendNotify)
-    call_postFaxesSendNotify
+    createToken)
+    call_createToken
     ;;
-    deleteFonenumbersFonenumber)
-    call_deleteFonenumbersFonenumber
+    createToken)
+    call_createToken
+    ;;
+    configureCallReceiveNotify)
+    call_configureCallReceiveNotify
+    ;;
+    configureCallReceiveNotify_0)
+    call_configureCallReceiveNotify_0
+    ;;
+    configureCallSendNotify)
+    call_configureCallSendNotify
+    ;;
+    configureCallSendNotify_0)
+    call_configureCallSendNotify_0
+    ;;
+    createCall)
+    call_createCall
+    ;;
+    createCall_0)
+    call_createCall_0
+    ;;
+    configureFaxReceiveNotify)
+    call_configureFaxReceiveNotify
+    ;;
+    configureFaxReceiveNotify_0)
+    call_configureFaxReceiveNotify_0
+    ;;
+    configureFaxSendNotify)
+    call_configureFaxSendNotify
+    ;;
+    configureFaxSendNotify_0)
+    call_configureFaxSendNotify_0
+    ;;
+    createFax)
+    call_createFax
+    ;;
+    createFax_0)
+    call_createFax_0
+    ;;
+    createFonenumber)
+    call_createFonenumber
+    ;;
+    createFonenumber_0)
+    call_createFonenumber_0
+    ;;
+    deleteFonenumber)
+    call_deleteFonenumber
+    ;;
+    deleteFonenumber_0)
+    call_deleteFonenumber_0
+    ;;
+    getFonenumber)
+    call_getFonenumber
+    ;;
+    getFonenumber_0)
+    call_getFonenumber_0
     ;;
     getFonenumbers)
     call_getFonenumbers
     ;;
-    getFonenumbersFonenumber)
-    call_getFonenumbersFonenumber
+    getFonenumbers_0)
+    call_getFonenumbers_0
     ;;
-    postFonenumbers)
-    call_postFonenumbers
+    updateFonenumber)
+    call_updateFonenumber
     ;;
-    putFonenumbersFonenumber)
-    call_putFonenumbersFonenumber
+    updateFonenumber_0)
+    call_updateFonenumber_0
     ;;
-    postMessagesReceive)
-    call_postMessagesReceive
+    configureMessageReceive)
+    call_configureMessageReceive
     ;;
-    postMessagesReceiveNotify)
-    call_postMessagesReceiveNotify
+    configureMessageReceiveNotify)
+    call_configureMessageReceiveNotify
     ;;
-    postMessagesSend)
-    call_postMessagesSend
+    configureMessageReceiveNotify_0)
+    call_configureMessageReceiveNotify_0
     ;;
-    postMessagesSendNotify)
-    call_postMessagesSendNotify
+    configureMessageReceive_0)
+    call_configureMessageReceive_0
+    ;;
+    configureMessageSendNotify)
+    call_configureMessageSendNotify
+    ;;
+    configureMessageSendNotify_0)
+    call_configureMessageSendNotify_0
+    ;;
+    createMessage)
+    call_createMessage
+    ;;
+    createMessage_0)
+    call_createMessage_0
     ;;
     *)
     echo "Error: Unknown operation: $operation"

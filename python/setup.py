@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FoneStorm API 2.2.0
+    FoneStorm API 2.2.0 (Breeze)
 
     FracTEL's Middleware API
 
@@ -28,10 +28,10 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 setup(
     name=NAME,
     version=VERSION,
-    description="FoneStorm API 2.2.0",
+    description="FoneStorm API 2.2.0 (Breeze)",
     author_email="",
     url="",
-    keywords=["Swagger", "FoneStorm API 2.2.0"],
+    keywords=["Swagger", "FoneStorm API 2.2.0 (Breeze)"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,

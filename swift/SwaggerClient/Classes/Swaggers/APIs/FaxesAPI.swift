@@ -11,95 +11,96 @@ import Alamofire
 
 public class FaxesAPI: APIBase {
     /**
-     Create a new fax under the account.
-     
-     - parameter fonenumber: (form) FracTEL phone number to use for fax. 
-     - parameter to: (form) Phone number to fax. 
-     - parameter message: (form) Message to fax. (optional)
-     - parameter pdf: (form)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func postFaxes(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        postFaxesWithRequestBuilder(fonenumber: fonenumber, to: to, message: message, pdf: pdf).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     Create a new fax under the account.
-     - POST /faxes
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
-     
-     - parameter fonenumber: (form) FracTEL phone number to use for fax. 
-     - parameter to: (form) Phone number to fax. 
-     - parameter message: (form) Message to fax. (optional)
-     - parameter pdf: (form)  (optional)
-
-     - returns: RequestBuilder<String> 
-     */
-    public class func postFaxesWithRequestBuilder(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil) -> RequestBuilder<String> {
-        let path = "/faxes"
-        let URLString = SwaggerClientAPI.basePath + path
-
-        let nillableParameters: [String:AnyObject?] = [
-            "fonenumber": fonenumber,
-            "to": to,
-            "message": message,
-            "pdf": pdf
-        ]
- 
-        let parameters = APIHelper.rejectNil(nillableParameters)
- 
-        let convertedParameters = APIHelper.convertBoolToString(parameters)
- 
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
-    }
-
-    /**
      * enum for parameter method
      */
-    public enum Method_postFaxesReceiveNotify: String { 
+    public enum Method_configureFaxReceiveNotify: String { 
         case Get = "GET"
         case Post = "POST"
         case Json = "JSON"
     }
 
     /**
-     Configure the callback URL to notify when a fax is received.
+     Set Receive Callback
      
-     - parameter fonenumber: (form) Your FracTEL phone number. 
-     - parameter method: (form) Callback URL method. 
-     - parameter url: (form) Callback URL. 
-     - parameter urlUsername: (form) Callback URL username. (optional)
-     - parameter urlPassword: (form) Callback URL password. (optional)
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func postFaxesReceiveNotify(fonenumber fonenumber: String, method: Method_postFaxesReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        postFaxesReceiveNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
+    public class func configureFaxReceiveNotify(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        configureFaxReceiveNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
 
 
     /**
-     Configure the callback URL to notify when a fax is received.
+     Set Receive Callback
      - POST /faxes/receive_notify
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
+     - Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
      
-     - parameter fonenumber: (form) Your FracTEL phone number. 
-     - parameter method: (form) Callback URL method. 
-     - parameter url: (form) Callback URL. 
-     - parameter urlUsername: (form) Callback URL username. (optional)
-     - parameter urlPassword: (form) Callback URL password. (optional)
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<InlineResponse2013> 
      */
-    public class func postFaxesReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_postFaxesReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<String> {
+    public class func configureFaxReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
         let path = "/faxes/receive_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -115,7 +116,7 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -123,44 +124,205 @@ public class FaxesAPI: APIBase {
     /**
      * enum for parameter method
      */
-    public enum Method_postFaxesSendNotify: String { 
+    public enum Method_configureFaxReceiveNotify_0: String { 
         case Get = "GET"
         case Post = "POST"
         case Json = "JSON"
     }
 
     /**
-     Configure the callback URL to notify when a fax is made.
+     Set Receive Callback
      
-     - parameter fonenumber: (form) Your FracTEL phone number 
-     - parameter method: (form) Callback URL method. 
-     - parameter url: (form) Callback URL. 
-     - parameter urlUsername: (form) Callback URL username. (optional)
-     - parameter urlPassword: (form) Callback URL password. (optional)
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func postFaxesSendNotify(fonenumber fonenumber: String, method: Method_postFaxesSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        postFaxesSendNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
+    public class func configureFaxReceiveNotify_0(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        configureFaxReceiveNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
 
 
     /**
-     Configure the callback URL to notify when a fax is made.
-     - POST /faxes/send_notify
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
+     Set Receive Callback
+     - POST /faxes/receive_notify
+     - Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
      
-     - parameter fonenumber: (form) Your FracTEL phone number 
-     - parameter method: (form) Callback URL method. 
-     - parameter url: (form) Callback URL. 
-     - parameter urlUsername: (form) Callback URL username. (optional)
-     - parameter urlPassword: (form) Callback URL password. (optional)
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<InlineResponse2013> 
      */
-    public class func postFaxesSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_postFaxesSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<String> {
+    public class func configureFaxReceiveNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+        let path = "/faxes/receive_notify"
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "fonenumber": fonenumber,
+            "method": method.rawValue,
+            "url": url,
+            "url_username": urlUsername,
+            "url_password": urlPassword
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     * enum for parameter method
+     */
+    public enum Method_configureFaxSendNotify: String { 
+        case Get = "GET"
+        case Post = "POST"
+        case Json = "JSON"
+    }
+
+    /**
+     Set Send Callback
+     
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func configureFaxSendNotify(fonenumber fonenumber: String, method: Method_configureFaxSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        configureFaxSendNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Set Send Callback
+     - POST /faxes/send_notify
+     - Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func configureFaxSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
         let path = "/faxes/send_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -176,7 +338,230 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     * enum for parameter method
+     */
+    public enum Method_configureFaxSendNotify_0: String { 
+        case Get = "GET"
+        case Post = "POST"
+        case Json = "JSON"
+    }
+
+    /**
+     Set Send Callback
+     
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func configureFaxSendNotify_0(fonenumber fonenumber: String, method: Method_configureFaxSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        configureFaxSendNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Set Send Callback
+     - POST /faxes/send_notify
+     - Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (form) FoneNumber associated with the account 
+     - parameter method: (form) Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter url: (form) Callback URL. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func configureFaxSendNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+        let path = "/faxes/send_notify"
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "fonenumber": fonenumber,
+            "method": method.rawValue,
+            "url": url,
+            "url_username": urlUsername,
+            "url_password": urlPassword
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     Create Fax
+     
+     - parameter fonenumber: (form) FoneNumber to use for fax 
+     - parameter to: (form) Receiving 10 digit phone number 
+     - parameter message: (form) Message to fax (optional)
+     - parameter pdf: (form) URL of a PDF file to send with fax (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func createFax(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil, completion: ((data: InlineResponse2011?, error: ErrorType?) -> Void)) {
+        createFaxWithRequestBuilder(fonenumber: fonenumber, to: to, message: message, pdf: pdf).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Create Fax
+     - POST /faxes
+     - Send a fax to a recipient phone number.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fax" : {
+    "id" : "aeiou"
+  }
+}}]
+     
+     - parameter fonenumber: (form) FoneNumber to use for fax 
+     - parameter to: (form) Receiving 10 digit phone number 
+     - parameter message: (form) Message to fax (optional)
+     - parameter pdf: (form) URL of a PDF file to send with fax (optional)
+
+     - returns: RequestBuilder<InlineResponse2011> 
+     */
+    public class func createFaxWithRequestBuilder(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil) -> RequestBuilder<InlineResponse2011> {
+        let path = "/faxes"
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "fonenumber": fonenumber,
+            "to": to,
+            "message": message,
+            "pdf": pdf
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2011>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     Create Fax
+     
+     - parameter fonenumber: (form) FoneNumber to use for fax 
+     - parameter to: (form) Receiving 10 digit phone number 
+     - parameter message: (form) Message to fax (optional)
+     - parameter pdf: (form) URL of a PDF file to send with fax (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func createFax_0(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil, completion: ((data: InlineResponse2011?, error: ErrorType?) -> Void)) {
+        createFax_0WithRequestBuilder(fonenumber: fonenumber, to: to, message: message, pdf: pdf).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Create Fax
+     - POST /faxes
+     - Send a fax to a recipient phone number.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fax" : {
+    "id" : "aeiou"
+  }
+}}]
+     
+     - parameter fonenumber: (form) FoneNumber to use for fax 
+     - parameter to: (form) Receiving 10 digit phone number 
+     - parameter message: (form) Message to fax (optional)
+     - parameter pdf: (form) URL of a PDF file to send with fax (optional)
+
+     - returns: RequestBuilder<InlineResponse2011> 
+     */
+    public class func createFax_0WithRequestBuilder(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil) -> RequestBuilder<InlineResponse2011> {
+        let path = "/faxes"
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "fonenumber": fonenumber,
+            "to": to,
+            "message": message,
+            "pdf": pdf
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2011>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

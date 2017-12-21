@@ -4,16 +4,16 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PostAuth**](AuthApi.md#postauth) | **POST** /auth | Create a FoneStorm authentication token.
+[**CreateToken**](AuthApi.md#createtoken) | **POST** /auth | Create Auth Token
 
 
-<a name="postauth"></a>
-# **PostAuth**
-> string PostAuth (string username, string password, int? expires = null)
+<a name="createtoken"></a>
+# **CreateToken**
+> InlineResponse201 CreateToken (string username, string password, int? expires = null)
 
-Create a FoneStorm authentication token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example
 ```csharp
@@ -25,7 +25,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostAuthExample
+    public class CreateTokenExample
     {
         public void main()
         {
@@ -36,13 +36,13 @@ namespace Example
 
             try
             {
-                // Create a FoneStorm authentication token.
-                string result = apiInstance.PostAuth(username, password, expires);
+                // Create Auth Token
+                InlineResponse201 result = apiInstance.CreateToken(username, password, expires);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthApi.PostAuth: " + e.Message );
+                Debug.Print("Exception when calling AuthApi.CreateToken: " + e.Message );
             }
         }
     }
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 

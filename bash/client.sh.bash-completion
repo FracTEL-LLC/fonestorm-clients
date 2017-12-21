@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-12-11T11:43:55.642-07:00
+# ! Generated on: 2017-12-20T17:25:00.503-07:00
 # !
 # !
 # ! System wide installation:
@@ -69,42 +69,86 @@ _()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
-    operations["postAuth"]=1
-    operations["postCalls"]=1
-    operations["postCallsReceiveNotify"]=1
-    operations["postCallsSendNotify"]=1
-    operations["postFaxes"]=1
-    operations["postFaxesReceiveNotify"]=1
-    operations["postFaxesSendNotify"]=1
-    operations["deleteFonenumbersFonenumber"]=1
+    operations["configureAccountCdrNotify"]=1
+    operations["configureAccountCdrNotify_0"]=1
+    operations["getAccount"]=1
+    operations["getAccount_0"]=1
+    operations["updateAccount"]=1
+    operations["updateAccount_0"]=1
+    operations["createToken"]=1
+    operations["createToken"]=1
+    operations["configureCallReceiveNotify"]=1
+    operations["configureCallReceiveNotify_0"]=1
+    operations["configureCallSendNotify"]=1
+    operations["configureCallSendNotify_0"]=1
+    operations["createCall"]=1
+    operations["createCall_0"]=1
+    operations["configureFaxReceiveNotify"]=1
+    operations["configureFaxReceiveNotify_0"]=1
+    operations["configureFaxSendNotify"]=1
+    operations["configureFaxSendNotify_0"]=1
+    operations["createFax"]=1
+    operations["createFax_0"]=1
+    operations["createFonenumber"]=1
+    operations["createFonenumber_0"]=1
+    operations["deleteFonenumber"]=1
+    operations["deleteFonenumber_0"]=1
+    operations["getFonenumber"]=1
+    operations["getFonenumber_0"]=1
     operations["getFonenumbers"]=1
-    operations["getFonenumbersFonenumber"]=1
-    operations["postFonenumbers"]=1
-    operations["putFonenumbersFonenumber"]=1
-    operations["postMessagesReceive"]=1
-    operations["postMessagesReceiveNotify"]=1
-    operations["postMessagesSend"]=1
-    operations["postMessagesSendNotify"]=1
+    operations["getFonenumbers_0"]=1
+    operations["updateFonenumber"]=1
+    operations["updateFonenumber_0"]=1
+    operations["configureMessageReceive"]=1
+    operations["configureMessageReceiveNotify"]=1
+    operations["configureMessageReceiveNotify_0"]=1
+    operations["configureMessageReceive_0"]=1
+    operations["configureMessageSendNotify"]=1
+    operations["configureMessageSendNotify_0"]=1
+    operations["createMessage"]=1
+    operations["createMessage_0"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["postAuth"]=""
-    operation_parameters["postCalls"]=""
-    operation_parameters["postCallsReceiveNotify"]=""
-    operation_parameters["postCallsSendNotify"]=""
-    operation_parameters["postFaxes"]=""
-    operation_parameters["postFaxesReceiveNotify"]=""
-    operation_parameters["postFaxesSendNotify"]=""
-    operation_parameters["deleteFonenumbersFonenumber"]="fonenumber= "
+    operation_parameters["configureAccountCdrNotify"]=""
+    operation_parameters["configureAccountCdrNotify_0"]=""
+    operation_parameters["getAccount"]="id= "
+    operation_parameters["getAccount_0"]="id= "
+    operation_parameters["updateAccount"]="id= "
+    operation_parameters["updateAccount_0"]="id= "
+    operation_parameters["createToken"]=""
+    operation_parameters["createToken"]=""
+    operation_parameters["configureCallReceiveNotify"]=""
+    operation_parameters["configureCallReceiveNotify_0"]=""
+    operation_parameters["configureCallSendNotify"]=""
+    operation_parameters["configureCallSendNotify_0"]=""
+    operation_parameters["createCall"]=""
+    operation_parameters["createCall_0"]=""
+    operation_parameters["configureFaxReceiveNotify"]=""
+    operation_parameters["configureFaxReceiveNotify_0"]=""
+    operation_parameters["configureFaxSendNotify"]=""
+    operation_parameters["configureFaxSendNotify_0"]=""
+    operation_parameters["createFax"]=""
+    operation_parameters["createFax_0"]=""
+    operation_parameters["createFonenumber"]=""
+    operation_parameters["createFonenumber_0"]=""
+    operation_parameters["deleteFonenumber"]="fonenumber= "
+    operation_parameters["deleteFonenumber_0"]="fonenumber= "
+    operation_parameters["getFonenumber"]="fonenumber= "
+    operation_parameters["getFonenumber_0"]="fonenumber= "
     operation_parameters["getFonenumbers"]="filter= "
-    operation_parameters["getFonenumbersFonenumber"]="fonenumber= "
-    operation_parameters["postFonenumbers"]=""
-    operation_parameters["putFonenumbersFonenumber"]="fonenumber= "
-    operation_parameters["postMessagesReceive"]=""
-    operation_parameters["postMessagesReceiveNotify"]=""
-    operation_parameters["postMessagesSend"]=""
-    operation_parameters["postMessagesSendNotify"]=""
+    operation_parameters["getFonenumbers_0"]="filter= "
+    operation_parameters["updateFonenumber"]="fonenumber= "
+    operation_parameters["updateFonenumber_0"]="fonenumber= "
+    operation_parameters["configureMessageReceive"]=""
+    operation_parameters["configureMessageReceiveNotify"]=""
+    operation_parameters["configureMessageReceiveNotify_0"]=""
+    operation_parameters["configureMessageReceive_0"]=""
+    operation_parameters["configureMessageSendNotify"]=""
+    operation_parameters["configureMessageSendNotify_0"]=""
+    operation_parameters["createMessage"]=""
+    operation_parameters["createMessage_0"]=""
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values

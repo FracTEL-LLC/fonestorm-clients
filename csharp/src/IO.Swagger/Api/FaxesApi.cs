@@ -1,5 +1,5 @@
 /* 
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *
@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace IO.Swagger.Api
 {
@@ -24,177 +25,347 @@ namespace IO.Swagger.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a new fax under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>string</returns>
-        string PostFaxes (string fonenumber, string to, string message = null, string pdf = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureFaxReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Create a new fax under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostFaxesWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureFaxReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a fax is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        string PostFaxesReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureFaxReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostFaxesReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureFaxReceiveNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        string PostFaxesSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureFaxSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostFaxesSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureFaxSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 ConfigureFaxSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> ConfigureFaxSendNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>InlineResponse2011</returns>
+        InlineResponse2011 CreateFax (string fonenumber, string to, string message = null, string pdf = null);
+
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2011</returns>
+        ApiResponse<InlineResponse2011> CreateFaxWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null);
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>InlineResponse2011</returns>
+        InlineResponse2011 CreateFax_0 (string fonenumber, string to, string message = null, string pdf = null);
+
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2011</returns>
+        ApiResponse<InlineResponse2011> CreateFax_0WithHttpInfo (string fonenumber, string to, string message = null, string pdf = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create a new fax under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostFaxesAsync (string fonenumber, string to, string message = null, string pdf = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Create a new fax under the account.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostFaxesAsyncWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a fax is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostFaxesReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxReceiveNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is received.
+        /// Set Receive Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostFaxesReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxReceiveNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostFaxesSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made.
+        /// Set Send Callback
         /// </summary>
         /// <remarks>
-        /// Returns a JSON response
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostFaxesSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxSendNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+
+        /// <summary>
+        /// Set Send Callback
+        /// </summary>
+        /// <remarks>
+        /// Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxSendNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null);
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of InlineResponse2011</returns>
+        System.Threading.Tasks.Task<InlineResponse2011> CreateFaxAsync (string fonenumber, string to, string message = null, string pdf = null);
+
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateFaxAsyncWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null);
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of InlineResponse2011</returns>
+        System.Threading.Tasks.Task<InlineResponse2011> CreateFax_0Async (string fonenumber, string to, string message = null, string pdf = null);
+
+        /// <summary>
+        /// Create Fax
+        /// </summary>
+        /// <remarks>
+        /// Send a fax to a recipient phone number.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateFax_0AsyncWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null);
         #endregion Asynchronous Operations
     }
 
@@ -308,201 +479,42 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Create a new fax under the account. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>string</returns>
-        public string PostFaxes (string fonenumber, string to, string message = null, string pdf = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureFaxReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = PostFaxesWithHttpInfo(fonenumber, to, message, pdf);
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureFaxReceiveNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a new fax under the account. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostFaxesWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureFaxReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->PostFaxes");
-            // verify the required parameter 'to' is set
-            if (to == null)
-                throw new ApiException(400, "Missing required parameter 'to' when calling FaxesApi->PostFaxes");
-
-            var localVarPath = "/faxes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/x-www-form-urlencoded"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
-            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
-            if (message != null) localVarFormParams.Add("message", Configuration.ApiClient.ParameterToString(message)); // form parameter
-            if (pdf != null) localVarFormParams.Add("pdf", Configuration.ApiClient.ParameterToString(pdf)); // form parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PostFaxes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
-        }
-
-        /// <summary>
-        /// Create a new fax under the account. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostFaxesAsync (string fonenumber, string to, string message = null, string pdf = null)
-        {
-             ApiResponse<string> localVarResponse = await PostFaxesAsyncWithHttpInfo(fonenumber, to, message, pdf);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Create a new fax under the account. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">FracTEL phone number to use for fax.</param>
-        /// <param name="to">Phone number to fax.</param>
-        /// <param name="message">Message to fax. (optional)</param>
-        /// <param name="pdf"> (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostFaxesAsyncWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null)
-        {
-            // verify the required parameter 'fonenumber' is set
-            if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->PostFaxes");
-            // verify the required parameter 'to' is set
-            if (to == null)
-                throw new ApiException(400, "Missing required parameter 'to' when calling FaxesApi->PostFaxes");
-
-            var localVarPath = "/faxes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/x-www-form-urlencoded"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
-            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
-            if (message != null) localVarFormParams.Add("message", Configuration.ApiClient.ParameterToString(message)); // form parameter
-            if (pdf != null) localVarFormParams.Add("pdf", Configuration.ApiClient.ParameterToString(pdf)); // form parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PostFaxes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
-        }
-
-        /// <summary>
-        /// Configure the callback URL to notify when a fax is received. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        public string PostFaxesReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
-        {
-             ApiResponse<string> localVarResponse = PostFaxesReceiveNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Configure the callback URL to notify when a fax is received. Returns a JSON response
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostFaxesReceiveNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
-        {
-            // verify the required parameter 'fonenumber' is set
-            if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->PostFaxesReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxReceiveNotify");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->PostFaxesReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxReceiveNotify");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->PostFaxesReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxReceiveNotify");
 
             var localVarPath = "/faxes/receive_notify";
             var localVarPathParams = new Dictionary<String, String>();
@@ -532,6 +544,12 @@ namespace IO.Swagger.Api
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
 
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -542,53 +560,53 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostFaxesReceiveNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureFaxReceiveNotify", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is received. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostFaxesReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxReceiveNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = await PostFaxesReceiveNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureFaxReceiveNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is received. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number.</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostFaxesReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxReceiveNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->PostFaxesReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxReceiveNotify");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->PostFaxesReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxReceiveNotify");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->PostFaxesReceiveNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxReceiveNotify");
 
             var localVarPath = "/faxes/receive_notify";
             var localVarPathParams = new Dictionary<String, String>();
@@ -618,6 +636,11 @@ namespace IO.Swagger.Api
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
 
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -628,54 +651,54 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostFaxesReceiveNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureFaxReceiveNotify", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>string</returns>
-        public string PostFaxesSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureFaxReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = PostFaxesSendNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureFaxReceiveNotify_0WithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostFaxesSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureFaxReceiveNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->PostFaxesSendNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxReceiveNotify_0");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->PostFaxesSendNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxReceiveNotify_0");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->PostFaxesSendNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxReceiveNotify_0");
 
-            var localVarPath = "/faxes/send_notify";
+            var localVarPath = "/faxes/receive_notify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -702,6 +725,12 @@ namespace IO.Swagger.Api
             if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
 
 
             // make the HTTP request
@@ -713,53 +742,143 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostFaxesSendNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureFaxReceiveNotify_0", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostFaxesSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxReceiveNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
-             ApiResponse<string> localVarResponse = await PostFaxesSendNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureFaxReceiveNotify_0AsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Configure the callback URL to notify when a fax is made. Returns a JSON response
+        /// Set Receive Callback Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fonenumber">Your FracTEL phone number</param>
-        /// <param name="method">Callback URL method.</param>
-        /// <param name="url">Callback URL.</param>
-        /// <param name="urlUsername">Callback URL username. (optional)</param>
-        /// <param name="urlPassword">Callback URL password. (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostFaxesSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxReceiveNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
         {
             // verify the required parameter 'fonenumber' is set
             if (fonenumber == null)
-                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->PostFaxesSendNotify");
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxReceiveNotify_0");
             // verify the required parameter 'method' is set
             if (method == null)
-                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->PostFaxesSendNotify");
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxReceiveNotify_0");
             // verify the required parameter 'url' is set
             if (url == null)
-                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->PostFaxesSendNotify");
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxReceiveNotify_0");
+
+            var localVarPath = "/faxes/receive_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureFaxReceiveNotify_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureFaxSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureFaxSendNotifyWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureFaxSendNotifyWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxSendNotify");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxSendNotify");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxSendNotify");
 
             var localVarPath = "/faxes/send_notify";
             var localVarPathParams = new Dictionary<String, String>();
@@ -789,6 +908,103 @@ namespace IO.Swagger.Api
             if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
             if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
 
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureFaxSendNotify", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxSendNotifyAsync (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureFaxSendNotifyAsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxSendNotifyAsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxSendNotify");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxSendNotify");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxSendNotify");
+
+            var localVarPath = "/faxes/send_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -799,13 +1015,535 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostFaxesSendNotify", localVarResponse);
+                Exception exception = ExceptionFactory("ConfigureFaxSendNotify", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 ConfigureFaxSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = ConfigureFaxSendNotify_0WithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > ConfigureFaxSendNotify_0WithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxSendNotify_0");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxSendNotify_0");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxSendNotify_0");
+
+            var localVarPath = "/faxes/send_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureFaxSendNotify_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> ConfigureFaxSendNotify_0Async (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+             ApiResponse<InlineResponse2013> localVarResponse = await ConfigureFaxSendNotify_0AsyncWithHttpInfo(fonenumber, method, url, urlUsername, urlPassword);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set Send Callback Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber associated with the account</param>
+        /// <param name="method">Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information.</param>
+        /// <param name="url">Callback URL. See **Notes** for additional information.</param>
+        /// <param name="urlUsername">Username for HTTP **Basic** authentication scheme (optional)</param>
+        /// <param name="urlPassword">Password for HTTP **Basic** authentication scheme (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> ConfigureFaxSendNotify_0AsyncWithHttpInfo (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->ConfigureFaxSendNotify_0");
+            // verify the required parameter 'method' is set
+            if (method == null)
+                throw new ApiException(400, "Missing required parameter 'method' when calling FaxesApi->ConfigureFaxSendNotify_0");
+            // verify the required parameter 'url' is set
+            if (url == null)
+                throw new ApiException(400, "Missing required parameter 'url' when calling FaxesApi->ConfigureFaxSendNotify_0");
+
+            var localVarPath = "/faxes/send_notify";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (method != null) localVarFormParams.Add("method", Configuration.ApiClient.ParameterToString(method)); // form parameter
+            if (url != null) localVarFormParams.Add("url", Configuration.ApiClient.ParameterToString(url)); // form parameter
+            if (urlUsername != null) localVarFormParams.Add("url_username", Configuration.ApiClient.ParameterToString(urlUsername)); // form parameter
+            if (urlPassword != null) localVarFormParams.Add("url_password", Configuration.ApiClient.ParameterToString(urlPassword)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConfigureFaxSendNotify_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>InlineResponse2011</returns>
+        public InlineResponse2011 CreateFax (string fonenumber, string to, string message = null, string pdf = null)
+        {
+             ApiResponse<InlineResponse2011> localVarResponse = CreateFaxWithHttpInfo(fonenumber, to, message, pdf);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2011</returns>
+        public ApiResponse< InlineResponse2011 > CreateFaxWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->CreateFax");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling FaxesApi->CreateFax");
+
+            var localVarPath = "/faxes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (message != null) localVarFormParams.Add("message", Configuration.ApiClient.ParameterToString(message)); // form parameter
+            if (pdf != null) localVarFormParams.Add("pdf", Configuration.ApiClient.ParameterToString(pdf)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateFax", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011)));
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of InlineResponse2011</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2011> CreateFaxAsync (string fonenumber, string to, string message = null, string pdf = null)
+        {
+             ApiResponse<InlineResponse2011> localVarResponse = await CreateFaxAsyncWithHttpInfo(fonenumber, to, message, pdf);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateFaxAsyncWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->CreateFax");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling FaxesApi->CreateFax");
+
+            var localVarPath = "/faxes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (message != null) localVarFormParams.Add("message", Configuration.ApiClient.ParameterToString(message)); // form parameter
+            if (pdf != null) localVarFormParams.Add("pdf", Configuration.ApiClient.ParameterToString(pdf)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateFax", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011)));
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>InlineResponse2011</returns>
+        public InlineResponse2011 CreateFax_0 (string fonenumber, string to, string message = null, string pdf = null)
+        {
+             ApiResponse<InlineResponse2011> localVarResponse = CreateFax_0WithHttpInfo(fonenumber, to, message, pdf);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2011</returns>
+        public ApiResponse< InlineResponse2011 > CreateFax_0WithHttpInfo (string fonenumber, string to, string message = null, string pdf = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->CreateFax_0");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling FaxesApi->CreateFax_0");
+
+            var localVarPath = "/faxes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (message != null) localVarFormParams.Add("message", Configuration.ApiClient.ParameterToString(message)); // form parameter
+            if (pdf != null) localVarFormParams.Add("pdf", Configuration.ApiClient.ParameterToString(pdf)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateFax_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011)));
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of InlineResponse2011</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2011> CreateFax_0Async (string fonenumber, string to, string message = null, string pdf = null)
+        {
+             ApiResponse<InlineResponse2011> localVarResponse = await CreateFax_0AsyncWithHttpInfo(fonenumber, to, message, pdf);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Fax Send a fax to a recipient phone number.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fonenumber">FoneNumber to use for fax</param>
+        /// <param name="to">Receiving 10 digit phone number</param>
+        /// <param name="message">Message to fax (optional)</param>
+        /// <param name="pdf">URL of a PDF file to send with fax (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateFax_0AsyncWithHttpInfo (string fonenumber, string to, string message = null, string pdf = null)
+        {
+            // verify the required parameter 'fonenumber' is set
+            if (fonenumber == null)
+                throw new ApiException(400, "Missing required parameter 'fonenumber' when calling FaxesApi->CreateFax_0");
+            // verify the required parameter 'to' is set
+            if (to == null)
+                throw new ApiException(400, "Missing required parameter 'to' when calling FaxesApi->CreateFax_0");
+
+            var localVarPath = "/faxes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fonenumber != null) localVarFormParams.Add("fonenumber", Configuration.ApiClient.ParameterToString(fonenumber)); // form parameter
+            if (to != null) localVarFormParams.Add("to", Configuration.ApiClient.ParameterToString(to)); // form parameter
+            if (message != null) localVarFormParams.Add("message", Configuration.ApiClient.ParameterToString(message)); // form parameter
+            if (pdf != null) localVarFormParams.Add("pdf", Configuration.ApiClient.ParameterToString(pdf)); // form parameter
+
+            // authentication (jwt) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarHeaderParams["token"] = Configuration.GetApiKeyWithPrefix("token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateFax_0", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011)));
         }
 
     }

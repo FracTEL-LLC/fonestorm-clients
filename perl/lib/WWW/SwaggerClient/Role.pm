@@ -1,6 +1,6 @@
 =begin comment
 
-FoneStorm API 2.2.0
+FoneStorm API 2.2.0 (Breeze)
 
 FracTEL's Middleware API
 
@@ -54,7 +54,7 @@ has _cfg => ( is => 'ro',
 has version_info => ( is => 'ro',
                       isa => 'HashRef',
                       default => sub { {
-                          app_name => 'FoneStorm API 2.2.0',
+                          app_name => 'FoneStorm API 2.2.0 (Breeze)',
                           app_version => '2.2.0',
                           generator_class => 'io.swagger.codegen.languages.PerlClientCodegen',
                       } },
@@ -111,9 +111,9 @@ sub _build_af {
 
 =head1 NAME
 
-WWW::SwaggerClient::Role - a Moose role for the FoneStorm API 2.2.0
+WWW::SwaggerClient::Role - a Moose role for the FoneStorm API 2.2.0 (Breeze)
 
-=head2 FoneStorm API 2.2.0 version: 2.2.0
+=head2 FoneStorm API 2.2.0 (Breeze) version: 2.2.0
 
 =head1 VERSION
 

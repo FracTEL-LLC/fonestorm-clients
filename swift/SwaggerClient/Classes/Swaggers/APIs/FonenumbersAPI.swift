@@ -11,155 +11,79 @@ import Alamofire
 
 public class FonenumbersAPI: APIBase {
     /**
-     Delete a fonenumber identified by fonenumber.
+     Create FoneNumber
      
-     - parameter fonenumber: (path) Your FracTEL fonenumber. 
+     - parameter areaCode: (form) Valid 3-digit area code 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteFonenumbersFonenumber(fonenumber fonenumber: String, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        deleteFonenumbersFonenumberWithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
+    public class func createFonenumber(areaCode areaCode: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        createFonenumberWithRequestBuilder(areaCode: areaCode).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
 
 
     /**
-     Delete a fonenumber identified by fonenumber.
-     - DELETE /fonenumbers/{fonenumber}
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
-     
-     - parameter fonenumber: (path) Your FracTEL fonenumber. 
-
-     - returns: RequestBuilder<String> 
-     */
-    public class func deleteFonenumbersFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<String> {
-        var path = "/fonenumbers/{fonenumber}"
-        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-
-        let nillableParameters: [String:AnyObject?] = [:]
- 
-        let parameters = APIHelper.rejectNil(nillableParameters)
- 
-        let convertedParameters = APIHelper.convertBoolToString(parameters)
- 
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
-    }
-
-    /**
-     * enum for parameter filter
-     */
-    public enum Filter_getFonenumbers: String { 
-        case Fonenumbers = "fonenumbers"
-        case All = "all"
-    }
-
-    /**
-     Get a list of all active fonenumbers under the account.
-     
-     - parameter filter: (query) Filters for the response. (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getFonenumbers(filter filter: Filter_getFonenumbers? = nil, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        getFonenumbersWithRequestBuilder(filter: filter).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     Get a list of all active fonenumbers under the account.
-     - GET /fonenumbers
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
-     
-     - parameter filter: (query) Filters for the response. (optional)
-
-     - returns: RequestBuilder<String> 
-     */
-    public class func getFonenumbersWithRequestBuilder(filter filter: Filter_getFonenumbers? = nil) -> RequestBuilder<String> {
-        let path = "/fonenumbers"
-        let URLString = SwaggerClientAPI.basePath + path
-
-        let nillableParameters: [String:AnyObject?] = [
-            "filter": filter?.rawValue
-        ]
- 
-        let parameters = APIHelper.rejectNil(nillableParameters)
- 
-        let convertedParameters = APIHelper.convertBoolToString(parameters)
- 
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
-    }
-
-    /**
-     Get a fonenumber identified by fonenumber.
-     
-     - parameter fonenumber: (path) Your FracTEL fonenumber. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getFonenumbersFonenumber(fonenumber fonenumber: String, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        getFonenumbersFonenumberWithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     Get a fonenumber identified by fonenumber.
-     - GET /fonenumbers/{fonenumber}
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
-     
-     - parameter fonenumber: (path) Your FracTEL fonenumber. 
-
-     - returns: RequestBuilder<String> 
-     */
-    public class func getFonenumbersFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<String> {
-        var path = "/fonenumbers/{fonenumber}"
-        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-
-        let nillableParameters: [String:AnyObject?] = [:]
- 
-        let parameters = APIHelper.rejectNil(nillableParameters)
- 
-        let convertedParameters = APIHelper.convertBoolToString(parameters)
- 
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
-    }
-
-    /**
-     Create a fonenumber under the account.
-     
-     - parameter areaCode: (form) A valid 3-digit Area Code. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func postFonenumbers(areaCode areaCode: String, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        postFonenumbersWithRequestBuilder(areaCode: areaCode).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     Create a fonenumber under the account.
+     Create FoneNumber
      - POST /fonenumbers
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
+     - Order a new FoneNumber for a given area code.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
      
-     - parameter areaCode: (form) A valid 3-digit Area Code. 
+     - parameter areaCode: (form) Valid 3-digit area code 
 
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<InlineResponse2013> 
      */
-    public class func postFonenumbersWithRequestBuilder(areaCode areaCode: String) -> RequestBuilder<String> {
+    public class func createFonenumberWithRequestBuilder(areaCode areaCode: String) -> RequestBuilder<InlineResponse2013> {
         let path = "/fonenumbers"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -171,15 +95,657 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
+     Create FoneNumber
+     
+     - parameter areaCode: (form) Valid 3-digit area code 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func createFonenumber_0(areaCode areaCode: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        createFonenumber_0WithRequestBuilder(areaCode: areaCode).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Create FoneNumber
+     - POST /fonenumbers
+     - Order a new FoneNumber for a given area code.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter areaCode: (form) Valid 3-digit area code 
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func createFonenumber_0WithRequestBuilder(areaCode areaCode: String) -> RequestBuilder<InlineResponse2013> {
+        let path = "/fonenumbers"
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "area_code": areaCode
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     Delete FoneNumber
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteFonenumber(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        deleteFonenumberWithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Delete FoneNumber
+     - DELETE /fonenumbers/{fonenumber}
+     - Remove a FoneNumber from an account.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func deleteFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+        var path = "/fonenumbers/{fonenumber}"
+        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
+     Delete FoneNumber
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteFonenumber_0(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        deleteFonenumber_0WithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Delete FoneNumber
+     - DELETE /fonenumbers/{fonenumber}
+     - Remove a FoneNumber from an account.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func deleteFonenumber_0WithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+        var path = "/fonenumbers/{fonenumber}"
+        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
+     Get FoneNumber
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getFonenumber(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        getFonenumberWithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Get FoneNumber
+     - GET /fonenumbers/{fonenumber}
+     - Get information for a single FoneNumber.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func getFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+        var path = "/fonenumbers/{fonenumber}"
+        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
+     Get FoneNumber
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getFonenumber_0(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        getFonenumber_0WithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Get FoneNumber
+     - GET /fonenumbers/{fonenumber}
+     - Get information for a single FoneNumber.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func getFonenumber_0WithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+        var path = "/fonenumbers/{fonenumber}"
+        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
+     * enum for parameter filter
+     */
+    public enum Filter_getFonenumbers: String { 
+        case Fonenumbers = "fonenumbers"
+        case All = "all"
+    }
+
+    /**
+     Get FoneNumbers
+     
+     - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getFonenumbers(filter filter: Filter_getFonenumbers? = nil, completion: ((data: InlineResponse200?, error: ErrorType?) -> Void)) {
+        getFonenumbersWithRequestBuilder(filter: filter).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Get FoneNumbers
+     - GET /fonenumbers
+     - Get a list of all FoneNumbers, or a selection based on a filter.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumbers" : [ {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  } ]
+}}]
+     
+     - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+
+     - returns: RequestBuilder<InlineResponse200> 
+     */
+    public class func getFonenumbersWithRequestBuilder(filter filter: Filter_getFonenumbers? = nil) -> RequestBuilder<InlineResponse200> {
+        let path = "/fonenumbers"
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "filter": filter?.rawValue
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     * enum for parameter filter
+     */
+    public enum Filter_getFonenumbers_0: String { 
+        case Fonenumbers = "fonenumbers"
+        case All = "all"
+    }
+
+    /**
+     Get FoneNumbers
+     
+     - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getFonenumbers_0(filter filter: Filter_getFonenumbers_0? = nil, completion: ((data: InlineResponse200?, error: ErrorType?) -> Void)) {
+        getFonenumbers_0WithRequestBuilder(filter: filter).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Get FoneNumbers
+     - GET /fonenumbers
+     - Get a list of all FoneNumbers, or a selection based on a filter.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumbers" : [ {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  } ]
+}}]
+     
+     - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+
+     - returns: RequestBuilder<InlineResponse200> 
+     */
+    public class func getFonenumbers_0WithRequestBuilder(filter filter: Filter_getFonenumbers_0? = nil) -> RequestBuilder<InlineResponse200> {
+        let path = "/fonenumbers"
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "filter": filter?.rawValue
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
      * enum for parameter type
      */
-    public enum ModelType_putFonenumbersFonenumber: String { 
+    public enum ModelType_updateFonenumber: String { 
         case None = "None"
         case Device = "Device"
         case Email = "Email"
@@ -190,46 +756,96 @@ public class FonenumbersAPI: APIBase {
     /**
      * enum for parameter urlMethod
      */
-    public enum UrlMethod_putFonenumbersFonenumber: String { 
+    public enum UrlMethod_updateFonenumber: String { 
         case Get = "GET"
         case Post = "POST"
         case Json = "JSON"
     }
 
     /**
-     Update a fonenumber identified by fonenumber.
+     Update FoneNumber
      
-     - parameter fonenumber: (path) Your FracTEL fonenumber. 
-     - parameter type: (form) Message routing type. 
-     - parameter value: (form) Message routing type value. (optional)
-     - parameter urlMethod: (form) URL method. (optional)
-     - parameter urlUsername: (form) URL auth username. (optional)
-     - parameter urlPassword: (form) URL auth password. (optional)
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter type: (form) Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. 
+     - parameter value: (form) Message routing type value 
+     - parameter urlMethod: (form) URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func putFonenumbersFonenumber(fonenumber fonenumber: String, type: ModelType_putFonenumbersFonenumber, value: String? = nil, urlMethod: UrlMethod_putFonenumbersFonenumber? = nil, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        putFonenumbersFonenumberWithRequestBuilder(fonenumber: fonenumber, type: type, value: value, urlMethod: urlMethod, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
+    public class func updateFonenumber(fonenumber fonenumber: String, type: ModelType_updateFonenumber, value: String, urlMethod: UrlMethod_updateFonenumber, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        updateFonenumberWithRequestBuilder(fonenumber: fonenumber, type: type, value: value, urlMethod: urlMethod, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
 
 
     /**
-     Update a fonenumber identified by fonenumber.
+     Update FoneNumber
      - PUT /fonenumbers/{fonenumber}
-     - Returns a JSON response
-     - examples: [{contentType=application/json, example="aeiou"}]
+     - Update a FoneNumber.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
      
-     - parameter fonenumber: (path) Your FracTEL fonenumber. 
-     - parameter type: (form) Message routing type. 
-     - parameter value: (form) Message routing type value. (optional)
-     - parameter urlMethod: (form) URL method. (optional)
-     - parameter urlUsername: (form) URL auth username. (optional)
-     - parameter urlPassword: (form) URL auth password. (optional)
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter type: (form) Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. 
+     - parameter value: (form) Message routing type value 
+     - parameter urlMethod: (form) URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<InlineResponse2013> 
      */
-    public class func putFonenumbersFonenumberWithRequestBuilder(fonenumber fonenumber: String, type: ModelType_putFonenumbersFonenumber, value: String? = nil, urlMethod: UrlMethod_putFonenumbersFonenumber? = nil, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<String> {
+    public class func updateFonenumberWithRequestBuilder(fonenumber fonenumber: String, type: ModelType_updateFonenumber, value: String, urlMethod: UrlMethod_updateFonenumber, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
         var path = "/fonenumbers/{fonenumber}"
         path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -237,7 +853,7 @@ public class FonenumbersAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [
             "type": type.rawValue,
             "value": value,
-            "url_method": urlMethod?.rawValue,
+            "url_method": urlMethod.rawValue,
             "url_username": urlUsername,
             "url_password": urlPassword
         ]
@@ -246,7 +862,132 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     * enum for parameter type
+     */
+    public enum ModelType_updateFonenumber_0: String { 
+        case None = "None"
+        case Device = "Device"
+        case Email = "Email"
+        case Url = "URL"
+        case Forward = "Forward"
+    }
+
+    /**
+     * enum for parameter urlMethod
+     */
+    public enum UrlMethod_updateFonenumber_0: String { 
+        case Get = "GET"
+        case Post = "POST"
+        case Json = "JSON"
+    }
+
+    /**
+     Update FoneNumber
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter type: (form) Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. 
+     - parameter value: (form) Message routing type value 
+     - parameter urlMethod: (form) URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateFonenumber_0(fonenumber fonenumber: String, type: ModelType_updateFonenumber_0, value: String, urlMethod: UrlMethod_updateFonenumber_0, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+        updateFonenumber_0WithRequestBuilder(fonenumber: fonenumber, type: type, value: value, urlMethod: urlMethod, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Update FoneNumber
+     - PUT /fonenumbers/{fonenumber}
+     - Update a FoneNumber.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter type: (form) Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. 
+     - parameter value: (form) Message routing type value 
+     - parameter urlMethod: (form) URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. 
+     - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
+     - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
+
+     - returns: RequestBuilder<InlineResponse2013> 
+     */
+    public class func updateFonenumber_0WithRequestBuilder(fonenumber fonenumber: String, type: ModelType_updateFonenumber_0, value: String, urlMethod: UrlMethod_updateFonenumber_0, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+        var path = "/fonenumbers/{fonenumber}"
+        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "type": type.rawValue,
+            "value": value,
+            "url_method": urlMethod.rawValue,
+            "url_username": urlUsername,
+            "url_password": urlPassword
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FoneStorm API 2.2.0
+    FoneStorm API 2.2.0 (Breeze)
 
     FracTEL's Middleware API
 
@@ -40,52 +40,52 @@ class AuthApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def post_auth(self, username, password, **kwargs):
+    def create_token(self, username, password, **kwargs):
         """
-        Create a FoneStorm authentication token.
-        Returns a token that can be used to make authenticated requests
+        Create Auth Token
+        Create an authentication token to use for API requests.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_auth(username, password, callback=callback_function)
+        >>> thread = api.create_token(username, password, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str username: FracTEL username (required)
         :param str password: FracTEL password (required)
         :param int expires: FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
-        :return: str
+        :return: InlineResponse201
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.post_auth_with_http_info(username, password, **kwargs)
+            return self.create_token_with_http_info(username, password, **kwargs)
         else:
-            (data) = self.post_auth_with_http_info(username, password, **kwargs)
+            (data) = self.create_token_with_http_info(username, password, **kwargs)
             return data
 
-    def post_auth_with_http_info(self, username, password, **kwargs):
+    def create_token_with_http_info(self, username, password, **kwargs):
         """
-        Create a FoneStorm authentication token.
-        Returns a token that can be used to make authenticated requests
+        Create Auth Token
+        Create an authentication token to use for API requests.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.post_auth_with_http_info(username, password, callback=callback_function)
+        >>> thread = api.create_token_with_http_info(username, password, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str username: FracTEL username (required)
         :param str password: FracTEL password (required)
         :param int expires: FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
-        :return: str
+        :return: InlineResponse201
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -101,16 +101,16 @@ class AuthApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method post_auth" % key
+                    " to method create_token" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'username' is set
         if ('username' not in params) or (params['username'] is None):
-            raise ValueError("Missing the required parameter `username` when calling `post_auth`")
+            raise ValueError("Missing the required parameter `username` when calling `create_token`")
         # verify the required parameter 'password' is set
         if ('password' not in params) or (params['password'] is None):
-            raise ValueError("Missing the required parameter `password` when calling `post_auth`")
+            raise ValueError("Missing the required parameter `password` when calling `create_token`")
 
 
         collection_formats = {}
@@ -149,7 +149,7 @@ class AuthApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='str',
+                                        response_type='InlineResponse201',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

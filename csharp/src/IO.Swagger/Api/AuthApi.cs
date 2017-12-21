@@ -1,5 +1,5 @@
 /* 
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *
@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace IO.Swagger.Api
 {
@@ -24,57 +25,57 @@ namespace IO.Swagger.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a FoneStorm authentication token.
+        /// Create Auth Token
         /// </summary>
         /// <remarks>
-        /// Returns a token that can be used to make authenticated requests
+        /// Create an authentication token to use for API requests.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>string</returns>
-        string PostAuth (string username, string password, int? expires = null);
+        /// <returns>InlineResponse201</returns>
+        InlineResponse201 CreateToken (string username, string password, int? expires = null);
 
         /// <summary>
-        /// Create a FoneStorm authentication token.
+        /// Create Auth Token
         /// </summary>
         /// <remarks>
-        /// Returns a token that can be used to make authenticated requests
+        /// Create an authentication token to use for API requests.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostAuthWithHttpInfo (string username, string password, int? expires = null);
+        /// <returns>ApiResponse of InlineResponse201</returns>
+        ApiResponse<InlineResponse201> CreateTokenWithHttpInfo (string username, string password, int? expires = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create a FoneStorm authentication token.
+        /// Create Auth Token
         /// </summary>
         /// <remarks>
-        /// Returns a token that can be used to make authenticated requests
+        /// Create an authentication token to use for API requests.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostAuthAsync (string username, string password, int? expires = null);
+        /// <returns>Task of InlineResponse201</returns>
+        System.Threading.Tasks.Task<InlineResponse201> CreateTokenAsync (string username, string password, int? expires = null);
 
         /// <summary>
-        /// Create a FoneStorm authentication token.
+        /// Create Auth Token
         /// </summary>
         /// <remarks>
-        /// Returns a token that can be used to make authenticated requests
+        /// Create an authentication token to use for API requests.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostAuthAsyncWithHttpInfo (string username, string password, int? expires = null);
+        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateTokenAsyncWithHttpInfo (string username, string password, int? expires = null);
         #endregion Asynchronous Operations
     }
 
@@ -188,35 +189,35 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Create a FoneStorm authentication token. Returns a token that can be used to make authenticated requests
+        /// Create Auth Token Create an authentication token to use for API requests.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>string</returns>
-        public string PostAuth (string username, string password, int? expires = null)
+        /// <returns>InlineResponse201</returns>
+        public InlineResponse201 CreateToken (string username, string password, int? expires = null)
         {
-             ApiResponse<string> localVarResponse = PostAuthWithHttpInfo(username, password, expires);
+             ApiResponse<InlineResponse201> localVarResponse = CreateTokenWithHttpInfo(username, password, expires);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a FoneStorm authentication token. Returns a token that can be used to make authenticated requests
+        /// Create Auth Token Create an authentication token to use for API requests.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostAuthWithHttpInfo (string username, string password, int? expires = null)
+        /// <returns>ApiResponse of InlineResponse201</returns>
+        public ApiResponse< InlineResponse201 > CreateTokenWithHttpInfo (string username, string password, int? expires = null)
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling AuthApi->PostAuth");
+                throw new ApiException(400, "Missing required parameter 'username' when calling AuthApi->CreateToken");
             // verify the required parameter 'password' is set
             if (password == null)
-                throw new ApiException(400, "Missing required parameter 'password' when calling AuthApi->PostAuth");
+                throw new ApiException(400, "Missing required parameter 'password' when calling AuthApi->CreateToken");
 
             var localVarPath = "/auth";
             var localVarPathParams = new Dictionary<String, String>();
@@ -254,46 +255,46 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostAuth", localVarResponse);
+                Exception exception = ExceptionFactory("CreateToken", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse201>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201)));
         }
 
         /// <summary>
-        /// Create a FoneStorm authentication token. Returns a token that can be used to make authenticated requests
+        /// Create Auth Token Create an authentication token to use for API requests.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostAuthAsync (string username, string password, int? expires = null)
+        /// <returns>Task of InlineResponse201</returns>
+        public async System.Threading.Tasks.Task<InlineResponse201> CreateTokenAsync (string username, string password, int? expires = null)
         {
-             ApiResponse<string> localVarResponse = await PostAuthAsyncWithHttpInfo(username, password, expires);
+             ApiResponse<InlineResponse201> localVarResponse = await CreateTokenAsyncWithHttpInfo(username, password, expires);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create a FoneStorm authentication token. Returns a token that can be used to make authenticated requests
+        /// Create Auth Token Create an authentication token to use for API requests.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">FracTEL username</param>
         /// <param name="password">FracTEL password</param>
         /// <param name="expires">FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostAuthAsyncWithHttpInfo (string username, string password, int? expires = null)
+        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateTokenAsyncWithHttpInfo (string username, string password, int? expires = null)
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling AuthApi->PostAuth");
+                throw new ApiException(400, "Missing required parameter 'username' when calling AuthApi->CreateToken");
             // verify the required parameter 'password' is set
             if (password == null)
-                throw new ApiException(400, "Missing required parameter 'password' when calling AuthApi->PostAuth");
+                throw new ApiException(400, "Missing required parameter 'password' when calling AuthApi->CreateToken");
 
             var localVarPath = "/auth";
             var localVarPathParams = new Dictionary<String, String>();
@@ -331,13 +332,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostAuth", localVarResponse);
+                Exception exception = ExceptionFactory("CreateToken", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<InlineResponse201>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201)));
         }
 
     }

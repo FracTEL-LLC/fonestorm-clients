@@ -1,5 +1,5 @@
 =begin
-#FoneStorm API 2.2.0
+#FoneStorm API 2.2.0 (Breeze)
 
 #FracTEL's Middleware API
 
@@ -20,49 +20,58 @@ module SwaggerClient
       @api_client = api_client
     end
 
-    # Configure the delivery service type used as the destination for received messages.
-    # Returns a JSON response
-    # @param fonenumber Your FracTEL phone number.
-    # @param type Message routing type.
+    # Set Delivery Service
+    # Configure the delivery service type used as the destination for messages received at a FoneNumber.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param type Message routing type
+    # @param value Message routing type value
+    # @param url_method URL method (when &#x60;type&#x60; is URL)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :value Message routing type value.
-    # @option opts [String] :url_method URL method when type is URL.
-    # @option opts [String] :url_username Optional URL username when type is URL.
-    # @option opts [String] :url_password Optional URL password when type is URL.
-    # @return [String]
-    def post_messages_receive(fonenumber, type, opts = {})
-      data, _status_code, _headers = post_messages_receive_with_http_info(fonenumber, type, opts)
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [InlineResponse2013]
+    def configure_message_receive(fonenumber, type, value, url_method, opts = {})
+      data, _status_code, _headers = configure_message_receive_with_http_info(fonenumber, type, value, url_method, opts)
       return data
     end
 
-    # Configure the delivery service type used as the destination for received messages.
-    # Returns a JSON response
-    # @param fonenumber Your FracTEL phone number.
-    # @param type Message routing type.
+    # Set Delivery Service
+    # Configure the delivery service type used as the destination for messages received at a FoneNumber.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param type Message routing type
+    # @param value Message routing type value
+    # @param url_method URL method (when &#x60;type&#x60; is URL)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :value Message routing type value.
-    # @option opts [String] :url_method URL method when type is URL.
-    # @option opts [String] :url_username Optional URL username when type is URL.
-    # @option opts [String] :url_password Optional URL password when type is URL.
-    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def post_messages_receive_with_http_info(fonenumber, type, opts = {})
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [Array<(InlineResponse2013, Fixnum, Hash)>] InlineResponse2013 data, response status code and response headers
+    def configure_message_receive_with_http_info(fonenumber, type, value, url_method, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessagesApi.post_messages_receive ..."
+        @api_client.config.logger.debug "Calling API: MessagesApi.configure_message_receive ..."
       end
       # verify the required parameter 'fonenumber' is set
       if @api_client.config.client_side_validation && fonenumber.nil?
-        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.post_messages_receive"
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.configure_message_receive"
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling MessagesApi.post_messages_receive"
+        fail ArgumentError, "Missing the required parameter 'type' when calling MessagesApi.configure_message_receive"
       end
       # verify enum value
       if @api_client.config.client_side_validation && !['None', 'Device', 'Email', 'URL', 'Forward'].include?(type)
         fail ArgumentError, "invalid value for 'type', must be one of None, Device, Email, URL, Forward"
       end
-      if @api_client.config.client_side_validation && opts[:'url_method'] && !['GET', 'POST', 'JSON'].include?(opts[:'url_method'])
-        fail ArgumentError, 'invalid value for "url_method", must be one of GET, POST, JSON'
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling MessagesApi.configure_message_receive"
+      end
+      # verify the required parameter 'url_method' is set
+      if @api_client.config.client_side_validation && url_method.nil?
+        fail ArgumentError, "Missing the required parameter 'url_method' when calling MessagesApi.configure_message_receive"
+      end
+      # verify enum value
+      if @api_client.config.client_side_validation && !['GET', 'POST', 'JSON'].include?(url_method)
+        fail ArgumentError, "invalid value for 'url_method', must be one of GET, POST, JSON"
       end
       # resource path
       local_var_path = "/messages/receive"
@@ -81,61 +90,152 @@ module SwaggerClient
       form_params = {}
       form_params["fonenumber"] = fonenumber
       form_params["type"] = type
-      form_params["value"] = opts[:'value'] if !opts[:'value'].nil?
-      form_params["url_method"] = opts[:'url_method'] if !opts[:'url_method'].nil?
+      form_params["value"] = value
+      form_params["url_method"] = url_method
       form_params["url_username"] = opts[:'url_username'] if !opts[:'url_username'].nil?
       form_params["url_password"] = opts[:'url_password'] if !opts[:'url_password'].nil?
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['jwt']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'String')
+        :return_type => 'InlineResponse2013')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessagesApi#post_messages_receive\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessagesApi#configure_message_receive\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Configure the callback URL to notify when a message is received.
-    # Returns a JSON response
-    # @param fonenumber Your FracTEL phone number.
-    # @param method Callback URL method.
-    # @param url Callback URL.
+    # Set Delivery Service
+    # Configure the delivery service type used as the destination for messages received at a FoneNumber.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param type Message routing type
+    # @param value Message routing type value
+    # @param url_method URL method (when &#x60;type&#x60; is URL)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :url_username Callback URL username.
-    # @option opts [String] :url_password Callback URL password.
-    # @return [String]
-    def post_messages_receive_notify(fonenumber, method, url, opts = {})
-      data, _status_code, _headers = post_messages_receive_notify_with_http_info(fonenumber, method, url, opts)
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [InlineResponse2013]
+    def configure_message_receive_0(fonenumber, type, value, url_method, opts = {})
+      data, _status_code, _headers = configure_message_receive_0_with_http_info(fonenumber, type, value, url_method, opts)
       return data
     end
 
-    # Configure the callback URL to notify when a message is received.
-    # Returns a JSON response
-    # @param fonenumber Your FracTEL phone number.
-    # @param method Callback URL method.
-    # @param url Callback URL.
+    # Set Delivery Service
+    # Configure the delivery service type used as the destination for messages received at a FoneNumber.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param type Message routing type
+    # @param value Message routing type value
+    # @param url_method URL method (when &#x60;type&#x60; is URL)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :url_username Callback URL username.
-    # @option opts [String] :url_password Callback URL password.
-    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def post_messages_receive_notify_with_http_info(fonenumber, method, url, opts = {})
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [Array<(InlineResponse2013, Fixnum, Hash)>] InlineResponse2013 data, response status code and response headers
+    def configure_message_receive_0_with_http_info(fonenumber, type, value, url_method, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessagesApi.post_messages_receive_notify ..."
+        @api_client.config.logger.debug "Calling API: MessagesApi.configure_message_receive_0 ..."
       end
       # verify the required parameter 'fonenumber' is set
       if @api_client.config.client_side_validation && fonenumber.nil?
-        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.post_messages_receive_notify"
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.configure_message_receive_0"
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling MessagesApi.configure_message_receive_0"
+      end
+      # verify enum value
+      if @api_client.config.client_side_validation && !['None', 'Device', 'Email', 'URL', 'Forward'].include?(type)
+        fail ArgumentError, "invalid value for 'type', must be one of None, Device, Email, URL, Forward"
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling MessagesApi.configure_message_receive_0"
+      end
+      # verify the required parameter 'url_method' is set
+      if @api_client.config.client_side_validation && url_method.nil?
+        fail ArgumentError, "Missing the required parameter 'url_method' when calling MessagesApi.configure_message_receive_0"
+      end
+      # verify enum value
+      if @api_client.config.client_side_validation && !['GET', 'POST', 'JSON'].include?(url_method)
+        fail ArgumentError, "invalid value for 'url_method', must be one of GET, POST, JSON"
+      end
+      # resource path
+      local_var_path = "/messages/receive"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+      form_params["fonenumber"] = fonenumber
+      form_params["type"] = type
+      form_params["value"] = value
+      form_params["url_method"] = url_method
+      form_params["url_username"] = opts[:'url_username'] if !opts[:'url_username'].nil?
+      form_params["url_password"] = opts[:'url_password'] if !opts[:'url_password'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['jwt']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse2013')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessagesApi#configure_message_receive_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set Receive Callback
+    # Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [InlineResponse2013]
+    def configure_message_receive_notify(fonenumber, method, url, opts = {})
+      data, _status_code, _headers = configure_message_receive_notify_with_http_info(fonenumber, method, url, opts)
+      return data
+    end
+
+    # Set Receive Callback
+    # Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [Array<(InlineResponse2013, Fixnum, Hash)>] InlineResponse2013 data, response status code and response headers
+    def configure_message_receive_notify_with_http_info(fonenumber, method, url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MessagesApi.configure_message_receive_notify ..."
+      end
+      # verify the required parameter 'fonenumber' is set
+      if @api_client.config.client_side_validation && fonenumber.nil?
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.configure_message_receive_notify"
       end
       # verify the required parameter 'method' is set
       if @api_client.config.client_side_validation && method.nil?
-        fail ArgumentError, "Missing the required parameter 'method' when calling MessagesApi.post_messages_receive_notify"
+        fail ArgumentError, "Missing the required parameter 'method' when calling MessagesApi.configure_message_receive_notify"
       end
       # verify enum value
       if @api_client.config.client_side_validation && !['GET', 'POST', 'JSON'].include?(method)
@@ -143,7 +243,7 @@ module SwaggerClient
       end
       # verify the required parameter 'url' is set
       if @api_client.config.client_side_validation && url.nil?
-        fail ArgumentError, "Missing the required parameter 'url' when calling MessagesApi.post_messages_receive_notify"
+        fail ArgumentError, "Missing the required parameter 'url' when calling MessagesApi.configure_message_receive_notify"
       end
       # resource path
       local_var_path = "/messages/receive_notify"
@@ -168,67 +268,307 @@ module SwaggerClient
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['jwt']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'String')
+        :return_type => 'InlineResponse2013')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessagesApi#post_messages_receive_notify\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessagesApi#configure_message_receive_notify\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Send an SMS or MMS message to a recipient.
-    # Returns a JSON response
-    # @param to The recipient&#39;s 10 digits phone number.
-    # @param fonenumber Your FracTEL phone number to use as from
-    # @param message Content of SMS
+    # Set Receive Callback
+    # Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :media_url URL for media for send via SMS (up to 10)
-    # @option opts [String] :confirmation_url Callback URL for confirmation
-    # @option opts [String] :confirmation_url_username Callback URL username for confirmation
-    # @option opts [String] :confirmation_url_password Callback URL password for confirmation
-    # @option opts [BOOLEAN] :require_confirmation Only send message if confirmation is available
-    # @return [String]
-    def post_messages_send(to, fonenumber, message, opts = {})
-      data, _status_code, _headers = post_messages_send_with_http_info(to, fonenumber, message, opts)
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [InlineResponse2013]
+    def configure_message_receive_notify_0(fonenumber, method, url, opts = {})
+      data, _status_code, _headers = configure_message_receive_notify_0_with_http_info(fonenumber, method, url, opts)
       return data
     end
 
-    # Send an SMS or MMS message to a recipient.
-    # Returns a JSON response
-    # @param to The recipient&#39;s 10 digits phone number.
-    # @param fonenumber Your FracTEL phone number to use as from
-    # @param message Content of SMS
+    # Set Receive Callback
+    # Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :media_url URL for media for send via SMS (up to 10)
-    # @option opts [String] :confirmation_url Callback URL for confirmation
-    # @option opts [String] :confirmation_url_username Callback URL username for confirmation
-    # @option opts [String] :confirmation_url_password Callback URL password for confirmation
-    # @option opts [BOOLEAN] :require_confirmation Only send message if confirmation is available
-    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def post_messages_send_with_http_info(to, fonenumber, message, opts = {})
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [Array<(InlineResponse2013, Fixnum, Hash)>] InlineResponse2013 data, response status code and response headers
+    def configure_message_receive_notify_0_with_http_info(fonenumber, method, url, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessagesApi.post_messages_send ..."
-      end
-      # verify the required parameter 'to' is set
-      if @api_client.config.client_side_validation && to.nil?
-        fail ArgumentError, "Missing the required parameter 'to' when calling MessagesApi.post_messages_send"
+        @api_client.config.logger.debug "Calling API: MessagesApi.configure_message_receive_notify_0 ..."
       end
       # verify the required parameter 'fonenumber' is set
       if @api_client.config.client_side_validation && fonenumber.nil?
-        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.post_messages_send"
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.configure_message_receive_notify_0"
+      end
+      # verify the required parameter 'method' is set
+      if @api_client.config.client_side_validation && method.nil?
+        fail ArgumentError, "Missing the required parameter 'method' when calling MessagesApi.configure_message_receive_notify_0"
+      end
+      # verify enum value
+      if @api_client.config.client_side_validation && !['GET', 'POST', 'JSON'].include?(method)
+        fail ArgumentError, "invalid value for 'method', must be one of GET, POST, JSON"
+      end
+      # verify the required parameter 'url' is set
+      if @api_client.config.client_side_validation && url.nil?
+        fail ArgumentError, "Missing the required parameter 'url' when calling MessagesApi.configure_message_receive_notify_0"
+      end
+      # resource path
+      local_var_path = "/messages/receive_notify"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+      form_params["fonenumber"] = fonenumber
+      form_params["method"] = method
+      form_params["url"] = url
+      form_params["url_username"] = opts[:'url_username'] if !opts[:'url_username'].nil?
+      form_params["url_password"] = opts[:'url_password'] if !opts[:'url_password'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['jwt']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse2013')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessagesApi#configure_message_receive_notify_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set Send Callback
+    # Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [InlineResponse2013]
+    def configure_message_send_notify(fonenumber, method, url, opts = {})
+      data, _status_code, _headers = configure_message_send_notify_with_http_info(fonenumber, method, url, opts)
+      return data
+    end
+
+    # Set Send Callback
+    # Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [Array<(InlineResponse2013, Fixnum, Hash)>] InlineResponse2013 data, response status code and response headers
+    def configure_message_send_notify_with_http_info(fonenumber, method, url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MessagesApi.configure_message_send_notify ..."
+      end
+      # verify the required parameter 'fonenumber' is set
+      if @api_client.config.client_side_validation && fonenumber.nil?
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.configure_message_send_notify"
+      end
+      # verify the required parameter 'method' is set
+      if @api_client.config.client_side_validation && method.nil?
+        fail ArgumentError, "Missing the required parameter 'method' when calling MessagesApi.configure_message_send_notify"
+      end
+      # verify enum value
+      if @api_client.config.client_side_validation && !['GET', 'POST', 'JSON'].include?(method)
+        fail ArgumentError, "invalid value for 'method', must be one of GET, POST, JSON"
+      end
+      # verify the required parameter 'url' is set
+      if @api_client.config.client_side_validation && url.nil?
+        fail ArgumentError, "Missing the required parameter 'url' when calling MessagesApi.configure_message_send_notify"
+      end
+      # resource path
+      local_var_path = "/messages/send_notify"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+      form_params["fonenumber"] = fonenumber
+      form_params["method"] = method
+      form_params["url"] = url
+      form_params["url_username"] = opts[:'url_username'] if !opts[:'url_username'].nil?
+      form_params["url_password"] = opts[:'url_password'] if !opts[:'url_password'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['jwt']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse2013')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessagesApi#configure_message_send_notify\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set Send Callback
+    # Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [InlineResponse2013]
+    def configure_message_send_notify_0(fonenumber, method, url, opts = {})
+      data, _status_code, _headers = configure_message_send_notify_0_with_http_info(fonenumber, method, url, opts)
+      return data
+    end
+
+    # Set Send Callback
+    # Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param method Callback URL method
+    # @param url Callback URL. See **Notes** for additional information.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :url_password Password for HTTP **Basic** authentication scheme
+    # @return [Array<(InlineResponse2013, Fixnum, Hash)>] InlineResponse2013 data, response status code and response headers
+    def configure_message_send_notify_0_with_http_info(fonenumber, method, url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MessagesApi.configure_message_send_notify_0 ..."
+      end
+      # verify the required parameter 'fonenumber' is set
+      if @api_client.config.client_side_validation && fonenumber.nil?
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.configure_message_send_notify_0"
+      end
+      # verify the required parameter 'method' is set
+      if @api_client.config.client_side_validation && method.nil?
+        fail ArgumentError, "Missing the required parameter 'method' when calling MessagesApi.configure_message_send_notify_0"
+      end
+      # verify enum value
+      if @api_client.config.client_side_validation && !['GET', 'POST', 'JSON'].include?(method)
+        fail ArgumentError, "invalid value for 'method', must be one of GET, POST, JSON"
+      end
+      # verify the required parameter 'url' is set
+      if @api_client.config.client_side_validation && url.nil?
+        fail ArgumentError, "Missing the required parameter 'url' when calling MessagesApi.configure_message_send_notify_0"
+      end
+      # resource path
+      local_var_path = "/messages/send_notify"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+      form_params["fonenumber"] = fonenumber
+      form_params["method"] = method
+      form_params["url"] = url
+      form_params["url_username"] = opts[:'url_username'] if !opts[:'url_username'].nil?
+      form_params["url_password"] = opts[:'url_password'] if !opts[:'url_password'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['jwt']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse2013')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessagesApi#configure_message_send_notify_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Message
+    # Send an SMS or MMS message.
+    # @param to Receiving 10 digit phone number
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param message Message body
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :media_url URL for MMS media (up to 10)
+    # @option opts [String] :confirmation_url Callback URL for confirmation
+    # @option opts [String] :confirmation_url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :confirmation_url_password Password for HTTP **Basic** authentication scheme
+    # @option opts [BOOLEAN] :require_confirmation Only send this message if confirmation is available
+    # @return [InlineResponse2014]
+    def create_message(to, fonenumber, message, opts = {})
+      data, _status_code, _headers = create_message_with_http_info(to, fonenumber, message, opts)
+      return data
+    end
+
+    # Create Message
+    # Send an SMS or MMS message.
+    # @param to Receiving 10 digit phone number
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param message Message body
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :media_url URL for MMS media (up to 10)
+    # @option opts [String] :confirmation_url Callback URL for confirmation
+    # @option opts [String] :confirmation_url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :confirmation_url_password Password for HTTP **Basic** authentication scheme
+    # @option opts [BOOLEAN] :require_confirmation Only send this message if confirmation is available
+    # @return [Array<(InlineResponse2014, Fixnum, Hash)>] InlineResponse2014 data, response status code and response headers
+    def create_message_with_http_info(to, fonenumber, message, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MessagesApi.create_message ..."
+      end
+      # verify the required parameter 'to' is set
+      if @api_client.config.client_side_validation && to.nil?
+        fail ArgumentError, "Missing the required parameter 'to' when calling MessagesApi.create_message"
+      end
+      # verify the required parameter 'fonenumber' is set
+      if @api_client.config.client_side_validation && fonenumber.nil?
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.create_message"
       end
       # verify the required parameter 'message' is set
       if @api_client.config.client_side_validation && message.nil?
-        fail ArgumentError, "Missing the required parameter 'message' when calling MessagesApi.post_messages_send"
+        fail ArgumentError, "Missing the required parameter 'message' when calling MessagesApi.create_message"
       end
       if @api_client.config.client_side_validation && !opts[:'media_url'].nil? && opts[:'media_url'].length > 10
-        fail ArgumentError, 'invalid value for "opts[:"media_url"]" when calling MessagesApi.post_messages_send, number of items must be less than or equal to 10.'
+        fail ArgumentError, 'invalid value for "opts[:"media_url"]" when calling MessagesApi.create_message, number of items must be less than or equal to 10.'
       end
 
       # resource path
@@ -257,65 +597,71 @@ module SwaggerClient
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['jwt']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'String')
+        :return_type => 'InlineResponse2014')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessagesApi#post_messages_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessagesApi#create_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Configure the callback URL to notify when a message is sent.
-    # Returns a JSON response
-    # @param fonenumber Your FracTEL phone number
-    # @param method Callback URL method.
-    # @param url Callback URL.
+    # Create Message
+    # Send an SMS or MMS message.
+    # @param to Receiving 10 digit phone number
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param message Message body
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :url_username Callback URL username.
-    # @option opts [String] :url_password Callback URL password.
-    # @return [String]
-    def post_messages_send_notify(fonenumber, method, url, opts = {})
-      data, _status_code, _headers = post_messages_send_notify_with_http_info(fonenumber, method, url, opts)
+    # @option opts [Array<String>] :media_url URL for MMS media (up to 10)
+    # @option opts [String] :confirmation_url Callback URL for confirmation
+    # @option opts [String] :confirmation_url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :confirmation_url_password Password for HTTP **Basic** authentication scheme
+    # @option opts [BOOLEAN] :require_confirmation Only send this message if confirmation is available
+    # @return [InlineResponse2014]
+    def create_message_0(to, fonenumber, message, opts = {})
+      data, _status_code, _headers = create_message_0_with_http_info(to, fonenumber, message, opts)
       return data
     end
 
-    # Configure the callback URL to notify when a message is sent.
-    # Returns a JSON response
-    # @param fonenumber Your FracTEL phone number
-    # @param method Callback URL method.
-    # @param url Callback URL.
+    # Create Message
+    # Send an SMS or MMS message.
+    # @param to Receiving 10 digit phone number
+    # @param fonenumber Your FracTEL FoneNumber
+    # @param message Message body
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :url_username Callback URL username.
-    # @option opts [String] :url_password Callback URL password.
-    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def post_messages_send_notify_with_http_info(fonenumber, method, url, opts = {})
+    # @option opts [Array<String>] :media_url URL for MMS media (up to 10)
+    # @option opts [String] :confirmation_url Callback URL for confirmation
+    # @option opts [String] :confirmation_url_username Username for HTTP **Basic** authentication scheme
+    # @option opts [String] :confirmation_url_password Password for HTTP **Basic** authentication scheme
+    # @option opts [BOOLEAN] :require_confirmation Only send this message if confirmation is available
+    # @return [Array<(InlineResponse2014, Fixnum, Hash)>] InlineResponse2014 data, response status code and response headers
+    def create_message_0_with_http_info(to, fonenumber, message, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessagesApi.post_messages_send_notify ..."
+        @api_client.config.logger.debug "Calling API: MessagesApi.create_message_0 ..."
+      end
+      # verify the required parameter 'to' is set
+      if @api_client.config.client_side_validation && to.nil?
+        fail ArgumentError, "Missing the required parameter 'to' when calling MessagesApi.create_message_0"
       end
       # verify the required parameter 'fonenumber' is set
       if @api_client.config.client_side_validation && fonenumber.nil?
-        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.post_messages_send_notify"
+        fail ArgumentError, "Missing the required parameter 'fonenumber' when calling MessagesApi.create_message_0"
       end
-      # verify the required parameter 'method' is set
-      if @api_client.config.client_side_validation && method.nil?
-        fail ArgumentError, "Missing the required parameter 'method' when calling MessagesApi.post_messages_send_notify"
+      # verify the required parameter 'message' is set
+      if @api_client.config.client_side_validation && message.nil?
+        fail ArgumentError, "Missing the required parameter 'message' when calling MessagesApi.create_message_0"
       end
-      # verify enum value
-      if @api_client.config.client_side_validation && !['GET', 'POST', 'JSON'].include?(method)
-        fail ArgumentError, "invalid value for 'method', must be one of GET, POST, JSON"
+      if @api_client.config.client_side_validation && !opts[:'media_url'].nil? && opts[:'media_url'].length > 10
+        fail ArgumentError, 'invalid value for "opts[:"media_url"]" when calling MessagesApi.create_message_0, number of items must be less than or equal to 10.'
       end
-      # verify the required parameter 'url' is set
-      if @api_client.config.client_side_validation && url.nil?
-        fail ArgumentError, "Missing the required parameter 'url' when calling MessagesApi.post_messages_send_notify"
-      end
+
       # resource path
-      local_var_path = "/messages/send_notify"
+      local_var_path = "/messages/send"
 
       # query parameters
       query_params = {}
@@ -329,24 +675,27 @@ module SwaggerClient
 
       # form parameters
       form_params = {}
+      form_params["to"] = to
       form_params["fonenumber"] = fonenumber
-      form_params["method"] = method
-      form_params["url"] = url
-      form_params["url_username"] = opts[:'url_username'] if !opts[:'url_username'].nil?
-      form_params["url_password"] = opts[:'url_password'] if !opts[:'url_password'].nil?
+      form_params["message"] = message
+      form_params["media_url"] = @api_client.build_collection_param(opts[:'media_url'], :multi) if !opts[:'media_url'].nil?
+      form_params["confirmation_url"] = opts[:'confirmation_url'] if !opts[:'confirmation_url'].nil?
+      form_params["confirmation_url_username"] = opts[:'confirmation_url_username'] if !opts[:'confirmation_url_username'].nil?
+      form_params["confirmation_url_password"] = opts[:'confirmation_url_password'] if !opts[:'confirmation_url_password'].nil?
+      form_params["require_confirmation"] = opts[:'require_confirmation'] if !opts[:'require_confirmation'].nil?
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['jwt']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'String')
+        :return_type => 'InlineResponse2014')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessagesApi#post_messages_send_notify\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessagesApi#create_message_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

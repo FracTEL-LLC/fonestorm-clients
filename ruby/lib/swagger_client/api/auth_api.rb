@@ -1,5 +1,5 @@
 =begin
-#FoneStorm API 2.2.0
+#FoneStorm API 2.2.0 (Breeze)
 
 #FracTEL's Middleware API
 
@@ -20,36 +20,36 @@ module SwaggerClient
       @api_client = api_client
     end
 
-    # Create a FoneStorm authentication token.
-    # Returns a token that can be used to make authenticated requests
+    # Create Auth Token
+    # Create an authentication token to use for API requests.
     # @param username FracTEL username
     # @param password FracTEL password
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
-    # @return [String]
-    def post_auth(username, password, opts = {})
-      data, _status_code, _headers = post_auth_with_http_info(username, password, opts)
+    # @return [InlineResponse201]
+    def create_token(username, password, opts = {})
+      data, _status_code, _headers = create_token_with_http_info(username, password, opts)
       return data
     end
 
-    # Create a FoneStorm authentication token.
-    # Returns a token that can be used to make authenticated requests
+    # Create Auth Token
+    # Create an authentication token to use for API requests.
     # @param username FracTEL username
     # @param password FracTEL password
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
-    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def post_auth_with_http_info(username, password, opts = {})
+    # @return [Array<(InlineResponse201, Fixnum, Hash)>] InlineResponse201 data, response status code and response headers
+    def create_token_with_http_info(username, password, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: AuthApi.post_auth ..."
+        @api_client.config.logger.debug "Calling API: AuthApi.create_token ..."
       end
       # verify the required parameter 'username' is set
       if @api_client.config.client_side_validation && username.nil?
-        fail ArgumentError, "Missing the required parameter 'username' when calling AuthApi.post_auth"
+        fail ArgumentError, "Missing the required parameter 'username' when calling AuthApi.create_token"
       end
       # verify the required parameter 'password' is set
       if @api_client.config.client_side_validation && password.nil?
-        fail ArgumentError, "Missing the required parameter 'password' when calling AuthApi.post_auth"
+        fail ArgumentError, "Missing the required parameter 'password' when calling AuthApi.create_token"
       end
       # resource path
       local_var_path = "/auth"
@@ -79,9 +79,9 @@ module SwaggerClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'String')
+        :return_type => 'InlineResponse201')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#post_auth\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuthApi#create_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

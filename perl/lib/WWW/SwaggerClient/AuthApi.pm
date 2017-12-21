@@ -1,6 +1,6 @@
 =begin comment
 
-FoneStorm API 2.2.0
+FoneStorm API 2.2.0 (Breeze)
 
 FracTEL's Middleware API
 
@@ -52,9 +52,9 @@ sub new {
 
 
 #
-# post_auth
+# create_token
 #
-# Create a FoneStorm authentication token.
+# Create Auth Token
 # 
 # @param string $username FracTEL username (required)
 # @param string $password FracTEL password (required)
@@ -77,25 +77,25 @@ sub new {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'post_auth' } = { 
-    	summary => 'Create a FoneStorm authentication token.',
+    __PACKAGE__->method_documentation->{ 'create_token' } = { 
+    	summary => 'Create Auth Token',
         params => $params,
-        returns => 'string',
+        returns => 'InlineResponse201',
         };
 }
-# @return string
+# @return InlineResponse201
 #
-sub post_auth {
+sub create_token {
     my ($self, %args) = @_;
 
     # verify the required parameter 'username' is set
     unless (exists $args{'username'}) {
-      croak("Missing the required parameter 'username' when calling post_auth");
+      croak("Missing the required parameter 'username' when calling create_token");
     }
 
     # verify the required parameter 'password' is set
     unless (exists $args{'password'}) {
-      croak("Missing the required parameter 'password' when calling post_auth");
+      croak("Missing the required parameter 'password' when calling create_token");
     }
 
     # parse inputs
@@ -139,7 +139,7 @@ sub post_auth {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse201', $response);
     return $_response_object;
 }
 

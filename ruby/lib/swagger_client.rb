@@ -1,5 +1,5 @@
 =begin
-#FoneStorm API 2.2.0
+#FoneStorm API 2.2.0 (Breeze)
 
 #FracTEL's Middleware API
 
@@ -17,9 +17,35 @@ require 'swagger_client/version'
 require 'swagger_client/configuration'
 
 # Models
+require 'swagger_client/models/account'
+require 'swagger_client/models/authorization'
+require 'swagger_client/models/call'
+require 'swagger_client/models/error'
+require 'swagger_client/models/fax'
+require 'swagger_client/models/fone_number'
+require 'swagger_client/models/fone_number_fax_options'
+require 'swagger_client/models/fone_number_fax_options_receive_notify'
+require 'swagger_client/models/fone_number_fax_options_send_notify'
+require 'swagger_client/models/fone_number_sms_options'
+require 'swagger_client/models/fone_number_sms_options_receive'
+require 'swagger_client/models/fone_number_sms_options_receive_notify'
+require 'swagger_client/models/fone_number_sms_options_send_notify'
+require 'swagger_client/models/fone_number_voice_options'
+require 'swagger_client/models/fone_number_voice_options_receive_notify'
+require 'swagger_client/models/fone_number_voice_options_send_notify'
+require 'swagger_client/models/inline_response_200'
+require 'swagger_client/models/inline_response_200_1'
+require 'swagger_client/models/inline_response_201'
+require 'swagger_client/models/inline_response_201_1'
+require 'swagger_client/models/inline_response_201_2'
+require 'swagger_client/models/inline_response_201_3'
+require 'swagger_client/models/inline_response_201_4'
+require 'swagger_client/models/message'
 
 # APIs
+require 'swagger_client/api/accounts_api'
 require 'swagger_client/api/auth_api'
+require 'swagger_client/api/authorization_api'
 require 'swagger_client/api/calls_api'
 require 'swagger_client/api/faxes_api'
 require 'swagger_client/api/fonenumbers_api'

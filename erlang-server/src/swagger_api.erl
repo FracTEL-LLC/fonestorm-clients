@@ -13,7 +13,56 @@
 -spec request_params(OperationID :: operation_id()) -> [Param :: request_param()].
 
 
-request_params('PostAuth') ->
+request_params('ConfigureAccountCdrNotify') ->
+    [
+        'account_id',
+        'method',
+        'url',
+        'username',
+        'password'
+    ];
+
+request_params('ConfigureAccountCdrNotify_0') ->
+    [
+        'account_id',
+        'method',
+        'url',
+        'username',
+        'password'
+    ];
+
+request_params('GetAccount') ->
+    [
+        'id'
+    ];
+
+request_params('GetAccount_0') ->
+    [
+        'id'
+    ];
+
+request_params('UpdateAccount') ->
+    [
+        'id',
+        'primary_color',
+        'secondary_color',
+        'background_color',
+        'font_family',
+        'logo'
+    ];
+
+request_params('UpdateAccount_0') ->
+    [
+        'id',
+        'primary_color',
+        'secondary_color',
+        'background_color',
+        'font_family',
+        'logo'
+    ];
+
+
+request_params('CreateToken') ->
     [
         'username',
         'password',
@@ -21,14 +70,66 @@ request_params('PostAuth') ->
     ];
 
 
-request_params('PostCalls') ->
+request_params('CreateToken') ->
+    [
+        'username',
+        'password',
+        'expires'
+    ];
+
+
+request_params('ConfigureCallReceiveNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('ConfigureCallReceiveNotify_0') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('ConfigureCallSendNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('ConfigureCallSendNotify_0') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('CreateCall') ->
     [
         'fonenumber',
         'to',
         'tts'
     ];
 
-request_params('PostCallsReceiveNotify') ->
+request_params('CreateCall_0') ->
+    [
+        'fonenumber',
+        'to',
+        'tts'
+    ];
+
+
+request_params('ConfigureFaxReceiveNotify') ->
     [
         'fonenumber',
         'method',
@@ -37,7 +138,7 @@ request_params('PostCallsReceiveNotify') ->
         'url_password'
     ];
 
-request_params('PostCallsSendNotify') ->
+request_params('ConfigureFaxReceiveNotify_0') ->
     [
         'fonenumber',
         'method',
@@ -46,8 +147,25 @@ request_params('PostCallsSendNotify') ->
         'url_password'
     ];
 
+request_params('ConfigureFaxSendNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
 
-request_params('PostFaxes') ->
+request_params('ConfigureFaxSendNotify_0') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('CreateFax') ->
     [
         'fonenumber',
         'to',
@@ -55,26 +173,41 @@ request_params('PostFaxes') ->
         'pdf'
     ];
 
-request_params('PostFaxesReceiveNotify') ->
+request_params('CreateFax_0') ->
     [
         'fonenumber',
-        'method',
-        'url',
-        'url_username',
-        'url_password'
-    ];
-
-request_params('PostFaxesSendNotify') ->
-    [
-        'fonenumber',
-        'method',
-        'url',
-        'url_username',
-        'url_password'
+        'to',
+        'message',
+        'pdf'
     ];
 
 
-request_params('DeleteFonenumbersFonenumber') ->
+request_params('CreateFonenumber') ->
+    [
+        'area_code'
+    ];
+
+request_params('CreateFonenumber_0') ->
+    [
+        'area_code'
+    ];
+
+request_params('DeleteFonenumber') ->
+    [
+        'fonenumber'
+    ];
+
+request_params('DeleteFonenumber_0') ->
+    [
+        'fonenumber'
+    ];
+
+request_params('GetFonenumber') ->
+    [
+        'fonenumber'
+    ];
+
+request_params('GetFonenumber_0') ->
     [
         'fonenumber'
     ];
@@ -84,17 +217,22 @@ request_params('GetFonenumbers') ->
         'filter'
     ];
 
-request_params('GetFonenumbersFonenumber') ->
+request_params('GetFonenumbers_0') ->
     [
-        'fonenumber'
+        'filter'
     ];
 
-request_params('PostFonenumbers') ->
+request_params('UpdateFonenumber') ->
     [
-        'area_code'
+        'fonenumber',
+        'type',
+        'value',
+        'url_method',
+        'url_username',
+        'url_password'
     ];
 
-request_params('PutFonenumbersFonenumber') ->
+request_params('UpdateFonenumber_0') ->
     [
         'fonenumber',
         'type',
@@ -105,7 +243,7 @@ request_params('PutFonenumbersFonenumber') ->
     ];
 
 
-request_params('PostMessagesReceive') ->
+request_params('ConfigureMessageReceive') ->
     [
         'fonenumber',
         'type',
@@ -115,7 +253,7 @@ request_params('PostMessagesReceive') ->
         'url_password'
     ];
 
-request_params('PostMessagesReceiveNotify') ->
+request_params('ConfigureMessageReceiveNotify') ->
     [
         'fonenumber',
         'method',
@@ -124,7 +262,44 @@ request_params('PostMessagesReceiveNotify') ->
         'url_password'
     ];
 
-request_params('PostMessagesSend') ->
+request_params('ConfigureMessageReceiveNotify_0') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('ConfigureMessageReceive_0') ->
+    [
+        'fonenumber',
+        'type',
+        'value',
+        'url_method',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('ConfigureMessageSendNotify') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('ConfigureMessageSendNotify_0') ->
+    [
+        'fonenumber',
+        'method',
+        'url',
+        'url_username',
+        'url_password'
+    ];
+
+request_params('CreateMessage') ->
     [
         'to',
         'fonenumber',
@@ -136,13 +311,16 @@ request_params('PostMessagesSend') ->
         'require_confirmation'
     ];
 
-request_params('PostMessagesSendNotify') ->
+request_params('CreateMessage_0') ->
     [
+        'to',
         'fonenumber',
-        'method',
-        'url',
-        'url_username',
-        'url_password'
+        'message',
+        'media_url',
+        'confirmation_url',
+        'confirmation_url_username',
+        'confirmation_url_password',
+        'require_confirmation'
     ];
 
 request_params(_) ->
@@ -175,7 +353,7 @@ request_params(_) ->
 
 
 
-request_param_info('PostAuth', 'username') ->
+request_param_info('ConfigureAccountCdrNotify', 'account_id') ->
     #{
         source =>   ,
         rules => [
@@ -184,7 +362,7 @@ request_param_info('PostAuth', 'username') ->
         ]
     };
 
-request_param_info('PostAuth', 'password') ->
+request_param_info('ConfigureAccountCdrNotify', 'method') ->
     #{
         source =>   ,
         rules => [
@@ -193,7 +371,224 @@ request_param_info('PostAuth', 'password') ->
         ]
     };
 
-request_param_info('PostAuth', 'expires') ->
+request_param_info('ConfigureAccountCdrNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureAccountCdrNotify', 'username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureAccountCdrNotify', 'password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureAccountCdrNotify_0', 'account_id') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureAccountCdrNotify_0', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureAccountCdrNotify_0', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureAccountCdrNotify_0', 'username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureAccountCdrNotify_0', 'password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('GetAccount', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('GetAccount_0', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('UpdateAccount', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('UpdateAccount', 'primary_color') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount', 'secondary_color') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount', 'background_color') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount', 'font_family') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount', 'logo') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount_0', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('UpdateAccount_0', 'primary_color') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount_0', 'secondary_color') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount_0', 'background_color') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount_0', 'font_family') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateAccount_0', 'logo') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+
+request_param_info('CreateToken', 'username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateToken', 'password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateToken', 'expires') ->
     #{
         source =>   ,
         rules => [
@@ -203,7 +598,7 @@ request_param_info('PostAuth', 'expires') ->
     };
 
 
-request_param_info('PostCalls', 'fonenumber') ->
+request_param_info('CreateToken', 'username') ->
     #{
         source =>   ,
         rules => [
@@ -212,7 +607,7 @@ request_param_info('PostCalls', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostCalls', 'to') ->
+request_param_info('CreateToken', 'password') ->
     #{
         source =>   ,
         rules => [
@@ -221,16 +616,17 @@ request_param_info('PostCalls', 'to') ->
         ]
     };
 
-request_param_info('PostCalls', 'tts') ->
+request_param_info('CreateToken', 'expires') ->
     #{
         source =>   ,
         rules => [
-            {type, 'binary'},
+            {type, 'integer'},
             not_required
         ]
     };
 
-request_param_info('PostCallsReceiveNotify', 'fonenumber') ->
+
+request_param_info('ConfigureCallReceiveNotify', 'fonenumber') ->
     #{
         source =>   ,
         rules => [
@@ -239,7 +635,7 @@ request_param_info('PostCallsReceiveNotify', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostCallsReceiveNotify', 'method') ->
+request_param_info('ConfigureCallReceiveNotify', 'method') ->
     #{
         source =>   ,
         rules => [
@@ -249,7 +645,7 @@ request_param_info('PostCallsReceiveNotify', 'method') ->
         ]
     };
 
-request_param_info('PostCallsReceiveNotify', 'url') ->
+request_param_info('ConfigureCallReceiveNotify', 'url') ->
     #{
         source =>   ,
         rules => [
@@ -258,7 +654,7 @@ request_param_info('PostCallsReceiveNotify', 'url') ->
         ]
     };
 
-request_param_info('PostCallsReceiveNotify', 'url_username') ->
+request_param_info('ConfigureCallReceiveNotify', 'url_username') ->
     #{
         source =>   ,
         rules => [
@@ -267,7 +663,7 @@ request_param_info('PostCallsReceiveNotify', 'url_username') ->
         ]
     };
 
-request_param_info('PostCallsReceiveNotify', 'url_password') ->
+request_param_info('ConfigureCallReceiveNotify', 'url_password') ->
     #{
         source =>   ,
         rules => [
@@ -276,7 +672,7 @@ request_param_info('PostCallsReceiveNotify', 'url_password') ->
         ]
     };
 
-request_param_info('PostCallsSendNotify', 'fonenumber') ->
+request_param_info('ConfigureCallReceiveNotify_0', 'fonenumber') ->
     #{
         source =>   ,
         rules => [
@@ -285,7 +681,7 @@ request_param_info('PostCallsSendNotify', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostCallsSendNotify', 'method') ->
+request_param_info('ConfigureCallReceiveNotify_0', 'method') ->
     #{
         source =>   ,
         rules => [
@@ -295,7 +691,7 @@ request_param_info('PostCallsSendNotify', 'method') ->
         ]
     };
 
-request_param_info('PostCallsSendNotify', 'url') ->
+request_param_info('ConfigureCallReceiveNotify_0', 'url') ->
     #{
         source =>   ,
         rules => [
@@ -304,7 +700,7 @@ request_param_info('PostCallsSendNotify', 'url') ->
         ]
     };
 
-request_param_info('PostCallsSendNotify', 'url_username') ->
+request_param_info('ConfigureCallReceiveNotify_0', 'url_username') ->
     #{
         source =>   ,
         rules => [
@@ -313,7 +709,7 @@ request_param_info('PostCallsSendNotify', 'url_username') ->
         ]
     };
 
-request_param_info('PostCallsSendNotify', 'url_password') ->
+request_param_info('ConfigureCallReceiveNotify_0', 'url_password') ->
     #{
         source =>   ,
         rules => [
@@ -322,8 +718,7 @@ request_param_info('PostCallsSendNotify', 'url_password') ->
         ]
     };
 
-
-request_param_info('PostFaxes', 'fonenumber') ->
+request_param_info('ConfigureCallSendNotify', 'fonenumber') ->
     #{
         source =>   ,
         rules => [
@@ -332,43 +727,7 @@ request_param_info('PostFaxes', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostFaxes', 'to') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('PostFaxes', 'message') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PostFaxes', 'pdf') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PostFaxesReceiveNotify', 'fonenumber') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('PostFaxesReceiveNotify', 'method') ->
+request_param_info('ConfigureCallSendNotify', 'method') ->
     #{
         source =>   ,
         rules => [
@@ -378,7 +737,7 @@ request_param_info('PostFaxesReceiveNotify', 'method') ->
         ]
     };
 
-request_param_info('PostFaxesReceiveNotify', 'url') ->
+request_param_info('ConfigureCallSendNotify', 'url') ->
     #{
         source =>   ,
         rules => [
@@ -387,7 +746,7 @@ request_param_info('PostFaxesReceiveNotify', 'url') ->
         ]
     };
 
-request_param_info('PostFaxesReceiveNotify', 'url_username') ->
+request_param_info('ConfigureCallSendNotify', 'url_username') ->
     #{
         source =>   ,
         rules => [
@@ -396,7 +755,7 @@ request_param_info('PostFaxesReceiveNotify', 'url_username') ->
         ]
     };
 
-request_param_info('PostFaxesReceiveNotify', 'url_password') ->
+request_param_info('ConfigureCallSendNotify', 'url_password') ->
     #{
         source =>   ,
         rules => [
@@ -405,7 +764,7 @@ request_param_info('PostFaxesReceiveNotify', 'url_password') ->
         ]
     };
 
-request_param_info('PostFaxesSendNotify', 'fonenumber') ->
+request_param_info('ConfigureCallSendNotify_0', 'fonenumber') ->
     #{
         source =>   ,
         rules => [
@@ -414,7 +773,7 @@ request_param_info('PostFaxesSendNotify', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostFaxesSendNotify', 'method') ->
+request_param_info('ConfigureCallSendNotify_0', 'method') ->
     #{
         source =>   ,
         rules => [
@@ -424,7 +783,7 @@ request_param_info('PostFaxesSendNotify', 'method') ->
         ]
     };
 
-request_param_info('PostFaxesSendNotify', 'url') ->
+request_param_info('ConfigureCallSendNotify_0', 'url') ->
     #{
         source =>   ,
         rules => [
@@ -433,7 +792,7 @@ request_param_info('PostFaxesSendNotify', 'url') ->
         ]
     };
 
-request_param_info('PostFaxesSendNotify', 'url_username') ->
+request_param_info('ConfigureCallSendNotify_0', 'url_username') ->
     #{
         source =>   ,
         rules => [
@@ -442,7 +801,61 @@ request_param_info('PostFaxesSendNotify', 'url_username') ->
         ]
     };
 
-request_param_info('PostFaxesSendNotify', 'url_password') ->
+request_param_info('ConfigureCallSendNotify_0', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateCall', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateCall', 'to') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateCall', 'tts') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateCall_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateCall_0', 'to') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateCall_0', 'tts') ->
     #{
         source =>   ,
         rules => [
@@ -452,7 +865,309 @@ request_param_info('PostFaxesSendNotify', 'url_password') ->
     };
 
 
-request_param_info('DeleteFonenumbersFonenumber', 'fonenumber') ->
+request_param_info('ConfigureFaxReceiveNotify', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify_0', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify_0', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify_0', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureFaxReceiveNotify_0', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify_0', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify_0', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify_0', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureFaxSendNotify_0', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateFax', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateFax', 'to') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateFax', 'message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateFax', 'pdf') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateFax_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateFax_0', 'to') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateFax_0', 'message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateFax_0', 'pdf') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+
+request_param_info('CreateFonenumber', 'area_code') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateFonenumber_0', 'area_code') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('DeleteFonenumber', 'fonenumber') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('DeleteFonenumber_0', 'fonenumber') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('GetFonenumber', 'fonenumber') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('GetFonenumber_0', 'fonenumber') ->
     #{
         source =>  binding ,
         rules => [
@@ -471,7 +1186,17 @@ request_param_info('GetFonenumbers', 'filter') ->
         ]
     };
 
-request_param_info('GetFonenumbersFonenumber', 'fonenumber') ->
+request_param_info('GetFonenumbers_0', 'filter') ->
+    #{
+        source => qs_val  ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['fonenumbers', 'all'] },
+            not_required
+        ]
+    };
+
+request_param_info('UpdateFonenumber', 'fonenumber') ->
     #{
         source =>  binding ,
         rules => [
@@ -480,25 +1205,7 @@ request_param_info('GetFonenumbersFonenumber', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostFonenumbers', 'area_code') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('PutFonenumbersFonenumber', 'fonenumber') ->
-    #{
-        source =>  binding ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('PutFonenumbersFonenumber', 'type') ->
+request_param_info('UpdateFonenumber', 'type') ->
     #{
         source =>   ,
         rules => [
@@ -508,45 +1215,7 @@ request_param_info('PutFonenumbersFonenumber', 'type') ->
         ]
     };
 
-request_param_info('PutFonenumbersFonenumber', 'value') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PutFonenumbersFonenumber', 'url_method') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            {enum, ['GET', 'POST', 'JSON'] },
-            not_required
-        ]
-    };
-
-request_param_info('PutFonenumbersFonenumber', 'url_username') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PutFonenumbersFonenumber', 'url_password') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-
-request_param_info('PostMessagesReceive', 'fonenumber') ->
+request_param_info('UpdateFonenumber', 'value') ->
     #{
         source =>   ,
         rules => [
@@ -555,7 +1224,44 @@ request_param_info('PostMessagesReceive', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostMessagesReceive', 'type') ->
+request_param_info('UpdateFonenumber', 'url_method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('UpdateFonenumber', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateFonenumber', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateFonenumber_0', 'fonenumber') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('UpdateFonenumber_0', 'type') ->
     #{
         source =>   ,
         rules => [
@@ -565,44 +1271,7 @@ request_param_info('PostMessagesReceive', 'type') ->
         ]
     };
 
-request_param_info('PostMessagesReceive', 'value') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PostMessagesReceive', 'url_method') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            {enum, ['GET', 'POST', 'JSON'] },
-            not_required
-        ]
-    };
-
-request_param_info('PostMessagesReceive', 'url_username') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PostMessagesReceive', 'url_password') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PostMessagesReceiveNotify', 'fonenumber') ->
+request_param_info('UpdateFonenumber_0', 'value') ->
     #{
         source =>   ,
         rules => [
@@ -611,7 +1280,7 @@ request_param_info('PostMessagesReceiveNotify', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostMessagesReceiveNotify', 'method') ->
+request_param_info('UpdateFonenumber_0', 'url_method') ->
     #{
         source =>   ,
         rules => [
@@ -621,7 +1290,26 @@ request_param_info('PostMessagesReceiveNotify', 'method') ->
         ]
     };
 
-request_param_info('PostMessagesReceiveNotify', 'url') ->
+request_param_info('UpdateFonenumber_0', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateFonenumber_0', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+
+request_param_info('ConfigureMessageReceive', 'fonenumber') ->
     #{
         source =>   ,
         rules => [
@@ -630,25 +1318,17 @@ request_param_info('PostMessagesReceiveNotify', 'url') ->
         ]
     };
 
-request_param_info('PostMessagesReceiveNotify', 'url_username') ->
+request_param_info('ConfigureMessageReceive', 'type') ->
     #{
         source =>   ,
         rules => [
             {type, 'binary'},
-            not_required
+            {enum, ['None', 'Device', 'Email', 'URL', 'Forward'] },
+            required
         ]
     };
 
-request_param_info('PostMessagesReceiveNotify', 'url_password') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('PostMessagesSend', 'to') ->
+request_param_info('ConfigureMessageReceive', 'value') ->
     #{
         source =>   ,
         rules => [
@@ -657,7 +1337,35 @@ request_param_info('PostMessagesSend', 'to') ->
         ]
     };
 
-request_param_info('PostMessagesSend', 'fonenumber') ->
+request_param_info('ConfigureMessageReceive', 'url_method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceiveNotify', 'fonenumber') ->
     #{
         source =>   ,
         rules => [
@@ -666,7 +1374,17 @@ request_param_info('PostMessagesSend', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostMessagesSend', 'message') ->
+request_param_info('ConfigureMessageReceiveNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceiveNotify', 'url') ->
     #{
         source =>   ,
         rules => [
@@ -675,15 +1393,7 @@ request_param_info('PostMessagesSend', 'message') ->
         ]
     };
 
-request_param_info('PostMessagesSend', 'media_url') ->
-    #{
-        source =>   ,
-        rules => [
-            not_required
-        ]
-    };
-
-request_param_info('PostMessagesSend', 'confirmation_url') ->
+request_param_info('ConfigureMessageReceiveNotify', 'url_username') ->
     #{
         source =>   ,
         rules => [
@@ -692,7 +1402,7 @@ request_param_info('PostMessagesSend', 'confirmation_url') ->
         ]
     };
 
-request_param_info('PostMessagesSend', 'confirmation_url_username') ->
+request_param_info('ConfigureMessageReceiveNotify', 'url_password') ->
     #{
         source =>   ,
         rules => [
@@ -701,7 +1411,35 @@ request_param_info('PostMessagesSend', 'confirmation_url_username') ->
         ]
     };
 
-request_param_info('PostMessagesSend', 'confirmation_url_password') ->
+request_param_info('ConfigureMessageReceiveNotify_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceiveNotify_0', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceiveNotify_0', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceiveNotify_0', 'url_username') ->
     #{
         source =>   ,
         rules => [
@@ -710,7 +1448,226 @@ request_param_info('PostMessagesSend', 'confirmation_url_password') ->
         ]
     };
 
-request_param_info('PostMessagesSend', 'require_confirmation') ->
+request_param_info('ConfigureMessageReceiveNotify_0', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive_0', 'type') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['None', 'Device', 'Email', 'URL', 'Forward'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive_0', 'value') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive_0', 'url_method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive_0', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageReceive_0', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify_0', 'method') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['GET', 'POST', 'JSON'] },
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify_0', 'url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify_0', 'url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('ConfigureMessageSendNotify_0', 'url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage', 'to') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateMessage', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateMessage', 'message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateMessage', 'media_url') ->
+    #{
+        source =>   ,
+        rules => [
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage', 'confirmation_url') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage', 'confirmation_url_username') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage', 'confirmation_url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage', 'require_confirmation') ->
     #{
         source =>   ,
         rules => [
@@ -719,7 +1676,7 @@ request_param_info('PostMessagesSend', 'require_confirmation') ->
         ]
     };
 
-request_param_info('PostMessagesSendNotify', 'fonenumber') ->
+request_param_info('CreateMessage_0', 'to') ->
     #{
         source =>   ,
         rules => [
@@ -728,17 +1685,7 @@ request_param_info('PostMessagesSendNotify', 'fonenumber') ->
         ]
     };
 
-request_param_info('PostMessagesSendNotify', 'method') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            {enum, ['GET', 'POST', 'JSON'] },
-            required
-        ]
-    };
-
-request_param_info('PostMessagesSendNotify', 'url') ->
+request_param_info('CreateMessage_0', 'fonenumber') ->
     #{
         source =>   ,
         rules => [
@@ -747,7 +1694,24 @@ request_param_info('PostMessagesSendNotify', 'url') ->
         ]
     };
 
-request_param_info('PostMessagesSendNotify', 'url_username') ->
+request_param_info('CreateMessage_0', 'message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateMessage_0', 'media_url') ->
+    #{
+        source =>   ,
+        rules => [
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage_0', 'confirmation_url') ->
     #{
         source =>   ,
         rules => [
@@ -756,11 +1720,29 @@ request_param_info('PostMessagesSendNotify', 'url_username') ->
         ]
     };
 
-request_param_info('PostMessagesSendNotify', 'url_password') ->
+request_param_info('CreateMessage_0', 'confirmation_url_username') ->
     #{
         source =>   ,
         rules => [
             {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage_0', 'confirmation_url_password') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateMessage_0', 'require_confirmation') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'boolean'},
             not_required
         ]
     };
@@ -808,57 +1790,201 @@ populate_request_param(OperationID, Name, Req0, ValidatorState) ->
 ) -> ok | no_return().
 
 
-validate_response('PostAuth', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('ConfigureAccountCdrNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
+validate_response('ConfigureAccountCdrNotify', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureAccountCdrNotify_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
+validate_response('ConfigureAccountCdrNotify_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetAccount', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
+validate_response('GetAccount', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetAccount_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
+validate_response('GetAccount_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('UpdateAccount', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
+validate_response('UpdateAccount', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('UpdateAccount_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
+validate_response('UpdateAccount_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
-validate_response('PostCalls', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-
-validate_response('PostCallsReceiveNotify', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-
-validate_response('PostCallsSendNotify', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('CreateToken', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201', 'inline_response_201', Body, ValidatorState);
+validate_response('CreateToken', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
-validate_response('PostFaxes', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-
-validate_response('PostFaxesReceiveNotify', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-
-validate_response('PostFaxesSendNotify', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('CreateToken', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201', 'inline_response_201', Body, ValidatorState);
+validate_response('CreateToken', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
-validate_response('DeleteFonenumbersFonenumber', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('ConfigureCallReceiveNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureCallReceiveNotify', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
+validate_response('ConfigureCallReceiveNotify_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureCallReceiveNotify_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureCallSendNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureCallSendNotify', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureCallSendNotify_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureCallSendNotify_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateCall', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_2', 'inline_response_201_2', Body, ValidatorState);
+validate_response('CreateCall', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateCall_0', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_2', 'inline_response_201_2', Body, ValidatorState);
+validate_response('CreateCall_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+
+validate_response('ConfigureFaxReceiveNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureFaxReceiveNotify', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureFaxReceiveNotify_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureFaxReceiveNotify_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureFaxSendNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureFaxSendNotify', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureFaxSendNotify_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureFaxSendNotify_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateFax', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_1', 'inline_response_201_1', Body, ValidatorState);
+validate_response('CreateFax', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateFax_0', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_1', 'inline_response_201_1', Body, ValidatorState);
+validate_response('CreateFax_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+
+validate_response('CreateFonenumber', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('CreateFonenumber', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateFonenumber_0', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('CreateFonenumber_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('DeleteFonenumber', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('DeleteFonenumber', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('DeleteFonenumber_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('DeleteFonenumber_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetFonenumber', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('GetFonenumber', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetFonenumber_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('GetFonenumber_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetFonenumbers', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200', 'inline_response_200', Body, ValidatorState);
 validate_response('GetFonenumbers', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
-validate_response('GetFonenumbersFonenumber', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('GetFonenumbers_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200', 'inline_response_200', Body, ValidatorState);
+validate_response('GetFonenumbers_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
-validate_response('PostFonenumbers', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('UpdateFonenumber', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('UpdateFonenumber', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
-validate_response('PutFonenumbersFonenumber', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('UpdateFonenumber_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('UpdateFonenumber_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
-validate_response('PostMessagesReceive', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('ConfigureMessageReceive', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureMessageReceive', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
-validate_response('PostMessagesReceiveNotify', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('ConfigureMessageReceiveNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureMessageReceiveNotify', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
-validate_response('PostMessagesSend', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('ConfigureMessageReceiveNotify_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureMessageReceiveNotify_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
-validate_response('PostMessagesSendNotify', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('ConfigureMessageReceive_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureMessageReceive_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureMessageSendNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureMessageSendNotify', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('ConfigureMessageSendNotify_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('ConfigureMessageSendNotify_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateMessage', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
+validate_response('CreateMessage', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateMessage_0', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
+validate_response('CreateMessage_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
 validate_response(_OperationID, _Code, _Body, _ValidatorState) ->

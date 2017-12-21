@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FoneStorm API 2.2.0
+    FoneStorm API 2.2.0 (Breeze)
 
     FracTEL's Middleware API
 
@@ -14,9 +14,35 @@
 from __future__ import absolute_import
 
 # import models into sdk package
+from .models.account import Account
+from .models.authorization import Authorization
+from .models.call import Call
+from .models.error import Error
+from .models.fax import Fax
+from .models.fone_number import FoneNumber
+from .models.fone_number_fax_options import FoneNumberFaxOptions
+from .models.fone_number_fax_options_receive_notify import FoneNumberFaxOptionsReceiveNotify
+from .models.fone_number_fax_options_send_notify import FoneNumberFaxOptionsSendNotify
+from .models.fone_number_sms_options import FoneNumberSmsOptions
+from .models.fone_number_sms_options_receive import FoneNumberSmsOptionsReceive
+from .models.fone_number_sms_options_receive_notify import FoneNumberSmsOptionsReceiveNotify
+from .models.fone_number_sms_options_send_notify import FoneNumberSmsOptionsSendNotify
+from .models.fone_number_voice_options import FoneNumberVoiceOptions
+from .models.fone_number_voice_options_receive_notify import FoneNumberVoiceOptionsReceiveNotify
+from .models.fone_number_voice_options_send_notify import FoneNumberVoiceOptionsSendNotify
+from .models.inline_response_200 import InlineResponse200
+from .models.inline_response_200_1 import InlineResponse2001
+from .models.inline_response_201 import InlineResponse201
+from .models.inline_response_201_1 import InlineResponse2011
+from .models.inline_response_201_2 import InlineResponse2012
+from .models.inline_response_201_3 import InlineResponse2013
+from .models.inline_response_201_4 import InlineResponse2014
+from .models.message import Message
 
 # import apis into sdk package
+from .apis.accounts_api import AccountsApi
 from .apis.auth_api import AuthApi
+from .apis.authorization_api import AuthorizationApi
 from .apis.calls_api import CallsApi
 from .apis.faxes_api import FaxesApi
 from .apis.fonenumbers_api import FonenumbersApi

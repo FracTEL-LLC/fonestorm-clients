@@ -4,15 +4,15 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Create a FoneStorm authentication token.
+[**create_token**](AuthApi.md#create_token) | **POST** /auth | Create Auth Token
 
 
-# **post_auth**
-> str post_auth(username, password, expires=expires)
+# **create_token**
+> InlineResponse201 create_token(username, password, expires=expires)
 
-Create a FoneStorm authentication token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example 
 ```python
@@ -29,11 +29,11 @@ password = 'password_example' # str | FracTEL password
 expires = 56 # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
 
 try: 
-    # Create a FoneStorm authentication token.
-    api_response = api_instance.post_auth(username, password, expires=expires)
+    # Create Auth Token
+    api_response = api_instance.create_token(username, password, expires=expires)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthApi->post_auth: %s\n" % e)
+    print("Exception when calling AuthApi->create_token: %s\n" % e)
 ```
 
 ### Parameters
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 

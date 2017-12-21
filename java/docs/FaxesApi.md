@@ -4,36 +4,50 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postFaxes**](FaxesApi.md#postFaxes) | **POST** /faxes | Create a new fax under the account.
-[**postFaxesReceiveNotify**](FaxesApi.md#postFaxesReceiveNotify) | **POST** /faxes/receive_notify | Configure the callback URL to notify when a fax is received.
-[**postFaxesSendNotify**](FaxesApi.md#postFaxesSendNotify) | **POST** /faxes/send_notify | Configure the callback URL to notify when a fax is made.
+[**configureFaxReceiveNotify**](FaxesApi.md#configureFaxReceiveNotify) | **POST** /faxes/receive_notify | Set Receive Callback
+[**configureFaxReceiveNotify_0**](FaxesApi.md#configureFaxReceiveNotify_0) | **POST** /faxes/receive_notify | Set Receive Callback
+[**configureFaxSendNotify**](FaxesApi.md#configureFaxSendNotify) | **POST** /faxes/send_notify | Set Send Callback
+[**configureFaxSendNotify_0**](FaxesApi.md#configureFaxSendNotify_0) | **POST** /faxes/send_notify | Set Send Callback
+[**createFax**](FaxesApi.md#createFax) | **POST** /faxes | Create Fax
+[**createFax_0**](FaxesApi.md#createFax_0) | **POST** /faxes | Create Fax
 
 
-<a name="postFaxes"></a>
-# **postFaxes**
-> String postFaxes(fonenumber, to, message, pdf)
+<a name="configureFaxReceiveNotify"></a>
+# **configureFaxReceiveNotify**
+> InlineResponse2013 configureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
 
-Create a new fax under the account.
+Set Receive Callback
 
-Returns a JSON response
+Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
 
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.FaxesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: jwt
+ApiKeyAuth jwt = (ApiKeyAuth) defaultClient.getAuthentication("jwt");
+jwt.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.setApiKeyPrefix("Token");
 
 FaxesApi apiInstance = new FaxesApi();
-String fonenumber = "fonenumber_example"; // String | FracTEL phone number to use for fax.
-String to = "to_example"; // String | Phone number to fax.
-String message = "message_example"; // String | Message to fax.
-String pdf = "pdf_example"; // String | 
+String fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
+String method = "method_example"; // String | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+String url = "url_example"; // String | Callback URL. See **Notes** for additional information.
+String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
+String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    String result = apiInstance.postFaxes(fonenumber, to, message, pdf);
+    InlineResponse2013 result = apiInstance.configureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FaxesApi#postFaxes");
+    System.err.println("Exception when calling FaxesApi#configureFaxReceiveNotify");
     e.printStackTrace();
 }
 ```
@@ -42,50 +56,61 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **String**| FracTEL phone number to use for fax. |
- **to** | **String**| Phone number to fax. |
- **message** | **String**| Message to fax. | [optional]
- **pdf** | **String**|  | [optional]
+ **fonenumber** | **String**| FoneNumber associated with the account |
+ **method** | **String**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | [enum: GET, POST, JSON]
+ **url** | **String**| Callback URL. See **Notes** for additional information. |
+ **urlUsername** | **String**| Username for HTTP **Basic** authentication scheme | [optional]
+ **urlPassword** | **String**| Password for HTTP **Basic** authentication scheme | [optional]
 
 ### Return type
 
-**String**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
-<a name="postFaxesReceiveNotify"></a>
-# **postFaxesReceiveNotify**
-> String postFaxesReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
+<a name="configureFaxReceiveNotify_0"></a>
+# **configureFaxReceiveNotify_0**
+> InlineResponse2013 configureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword)
 
-Configure the callback URL to notify when a fax is received.
+Set Receive Callback
 
-Returns a JSON response
+Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
 
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.FaxesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: jwt
+ApiKeyAuth jwt = (ApiKeyAuth) defaultClient.getAuthentication("jwt");
+jwt.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.setApiKeyPrefix("Token");
 
 FaxesApi apiInstance = new FaxesApi();
-String fonenumber = "fonenumber_example"; // String | Your FracTEL phone number.
-String method = "method_example"; // String | Callback URL method.
-String url = "url_example"; // String | Callback URL.
-String urlUsername = "urlUsername_example"; // String | Callback URL username.
-String urlPassword = "urlPassword_example"; // String | Callback URL password.
+String fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
+String method = "method_example"; // String | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+String url = "url_example"; // String | Callback URL. See **Notes** for additional information.
+String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
+String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    String result = apiInstance.postFaxesReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2013 result = apiInstance.configureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FaxesApi#postFaxesReceiveNotify");
+    System.err.println("Exception when calling FaxesApi#configureFaxReceiveNotify_0");
     e.printStackTrace();
 }
 ```
@@ -94,51 +119,61 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **String**| Your FracTEL phone number. |
- **method** | **String**| Callback URL method. | [enum: GET, POST, JSON]
- **url** | **String**| Callback URL. |
- **urlUsername** | **String**| Callback URL username. | [optional]
- **urlPassword** | **String**| Callback URL password. | [optional]
+ **fonenumber** | **String**| FoneNumber associated with the account |
+ **method** | **String**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | [enum: GET, POST, JSON]
+ **url** | **String**| Callback URL. See **Notes** for additional information. |
+ **urlUsername** | **String**| Username for HTTP **Basic** authentication scheme | [optional]
+ **urlPassword** | **String**| Password for HTTP **Basic** authentication scheme | [optional]
 
 ### Return type
 
-**String**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
-<a name="postFaxesSendNotify"></a>
-# **postFaxesSendNotify**
-> String postFaxesSendNotify(fonenumber, method, url, urlUsername, urlPassword)
+<a name="configureFaxSendNotify"></a>
+# **configureFaxSendNotify**
+> InlineResponse2013 configureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword)
 
-Configure the callback URL to notify when a fax is made.
+Set Send Callback
 
-Returns a JSON response
+Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
 
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.FaxesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: jwt
+ApiKeyAuth jwt = (ApiKeyAuth) defaultClient.getAuthentication("jwt");
+jwt.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.setApiKeyPrefix("Token");
 
 FaxesApi apiInstance = new FaxesApi();
-String fonenumber = "fonenumber_example"; // String | Your FracTEL phone number
-String method = "method_example"; // String | Callback URL method.
-String url = "url_example"; // String | Callback URL.
-String urlUsername = "urlUsername_example"; // String | Callback URL username.
-String urlPassword = "urlPassword_example"; // String | Callback URL password.
+String fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
+String method = "method_example"; // String | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+String url = "url_example"; // String | Callback URL. See **Notes** for additional information.
+String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
+String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    String result = apiInstance.postFaxesSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2013 result = apiInstance.configureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FaxesApi#postFaxesSendNotify");
+    System.err.println("Exception when calling FaxesApi#configureFaxSendNotify");
     e.printStackTrace();
 }
 ```
@@ -147,19 +182,204 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **String**| Your FracTEL phone number |
- **method** | **String**| Callback URL method. | [enum: GET, POST, JSON]
- **url** | **String**| Callback URL. |
- **urlUsername** | **String**| Callback URL username. | [optional]
- **urlPassword** | **String**| Callback URL password. | [optional]
+ **fonenumber** | **String**| FoneNumber associated with the account |
+ **method** | **String**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | [enum: GET, POST, JSON]
+ **url** | **String**| Callback URL. See **Notes** for additional information. |
+ **urlUsername** | **String**| Username for HTTP **Basic** authentication scheme | [optional]
+ **urlPassword** | **String**| Password for HTTP **Basic** authentication scheme | [optional]
 
 ### Return type
 
-**String**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="configureFaxSendNotify_0"></a>
+# **configureFaxSendNotify_0**
+> InlineResponse2013 configureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword)
+
+Set Send Callback
+
+Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.FaxesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: jwt
+ApiKeyAuth jwt = (ApiKeyAuth) defaultClient.getAuthentication("jwt");
+jwt.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.setApiKeyPrefix("Token");
+
+FaxesApi apiInstance = new FaxesApi();
+String fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
+String method = "method_example"; // String | Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+String url = "url_example"; // String | Callback URL. See **Notes** for additional information.
+String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
+String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
+try {
+    InlineResponse2013 result = apiInstance.configureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FaxesApi#configureFaxSendNotify_0");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **String**| FoneNumber associated with the account |
+ **method** | **String**| Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. | [enum: GET, POST, JSON]
+ **url** | **String**| Callback URL. See **Notes** for additional information. |
+ **urlUsername** | **String**| Username for HTTP **Basic** authentication scheme | [optional]
+ **urlPassword** | **String**| Password for HTTP **Basic** authentication scheme | [optional]
+
+### Return type
+
+[**InlineResponse2013**](InlineResponse2013.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="createFax"></a>
+# **createFax**
+> InlineResponse2011 createFax(fonenumber, to, message, pdf)
+
+Create Fax
+
+Send a fax to a recipient phone number.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.FaxesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: jwt
+ApiKeyAuth jwt = (ApiKeyAuth) defaultClient.getAuthentication("jwt");
+jwt.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.setApiKeyPrefix("Token");
+
+FaxesApi apiInstance = new FaxesApi();
+String fonenumber = "fonenumber_example"; // String | FoneNumber to use for fax
+String to = "to_example"; // String | Receiving 10 digit phone number
+String message = "message_example"; // String | Message to fax
+String pdf = "pdf_example"; // String | URL of a PDF file to send with fax
+try {
+    InlineResponse2011 result = apiInstance.createFax(fonenumber, to, message, pdf);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FaxesApi#createFax");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **String**| FoneNumber to use for fax |
+ **to** | **String**| Receiving 10 digit phone number |
+ **message** | **String**| Message to fax | [optional]
+ **pdf** | **String**| URL of a PDF file to send with fax | [optional]
+
+### Return type
+
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="createFax_0"></a>
+# **createFax_0**
+> InlineResponse2011 createFax_0(fonenumber, to, message, pdf)
+
+Create Fax
+
+Send a fax to a recipient phone number.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.FaxesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: jwt
+ApiKeyAuth jwt = (ApiKeyAuth) defaultClient.getAuthentication("jwt");
+jwt.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.setApiKeyPrefix("Token");
+
+FaxesApi apiInstance = new FaxesApi();
+String fonenumber = "fonenumber_example"; // String | FoneNumber to use for fax
+String to = "to_example"; // String | Receiving 10 digit phone number
+String message = "message_example"; // String | Message to fax
+String pdf = "pdf_example"; // String | URL of a PDF file to send with fax
+try {
+    InlineResponse2011 result = apiInstance.createFax_0(fonenumber, to, message, pdf);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FaxesApi#createFax_0");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **String**| FoneNumber to use for fax |
+ **to** | **String**| Receiving 10 digit phone number |
+ **message** | **String**| Message to fax | [optional]
+ **pdf** | **String**| URL of a PDF file to send with fax | [optional]
+
+### Return type
+
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 

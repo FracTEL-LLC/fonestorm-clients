@@ -10,7 +10,7 @@
  */
 
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *
@@ -88,144 +88,50 @@ class CallsApi
     }
 
     /**
-     * Operation postCalls
+     * Operation configureCallReceiveNotify
      *
-     * Create a new call under the account.
+     * Set Receive Callback
      *
-     * @param string $fonenumber FracTEL phone number to use as caller. (required)
-     * @param string $to Phone number to call. (required)
-     * @param string $tts Text to speech message. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse2013
      */
-    public function postCalls($fonenumber, $to, $tts = null)
+    public function configureCallReceiveNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
-        list($response) = $this->postCallsWithHttpInfo($fonenumber, $to, $tts);
+        list($response) = $this->configureCallReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
         return $response;
     }
 
     /**
-     * Operation postCallsWithHttpInfo
+     * Operation configureCallReceiveNotifyWithHttpInfo
      *
-     * Create a new call under the account.
+     * Set Receive Callback
      *
-     * @param string $fonenumber FracTEL phone number to use as caller. (required)
-     * @param string $to Phone number to call. (required)
-     * @param string $tts Text to speech message. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postCallsWithHttpInfo($fonenumber, $to, $tts = null)
+    public function configureCallReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
         // verify the required parameter 'fonenumber' is set
         if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling postCalls');
-        }
-        // verify the required parameter 'to' is set
-        if ($to === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $to when calling postCalls');
-        }
-        // parse inputs
-        $resourcePath = "/calls";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
-
-        // form params
-        if ($fonenumber !== null) {
-            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
-        }
-        // form params
-        if ($to !== null) {
-            $formParams['to'] = $this->apiClient->getSerializer()->toFormValue($to);
-        }
-        // form params
-        if ($tts !== null) {
-            $formParams['tts'] = $this->apiClient->getSerializer()->toFormValue($tts);
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'string',
-                '/calls'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation postCallsReceiveNotify
-     *
-     * Configure the callback URL to notify when a call is received.
-     *
-     * @param string $fonenumber Your FracTEL phone number. (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
-     */
-    public function postCallsReceiveNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
-    {
-        list($response) = $this->postCallsReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
-        return $response;
-    }
-
-    /**
-     * Operation postCallsReceiveNotifyWithHttpInfo
-     *
-     * Configure the callback URL to notify when a call is received.
-     *
-     * @param string $fonenumber Your FracTEL phone number. (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function postCallsReceiveNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
-    {
-        // verify the required parameter 'fonenumber' is set
-        if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling postCallsReceiveNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureCallReceiveNotify');
         }
         // verify the required parameter 'method' is set
         if ($method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $method when calling postCallsReceiveNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureCallReceiveNotify');
         }
         // verify the required parameter 'url' is set
         if ($url === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $url when calling postCallsReceiveNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureCallReceiveNotify');
         }
         // parse inputs
         $resourcePath = "/calls/receive_notify";
@@ -266,6 +172,11 @@ class CallsApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -274,15 +185,19 @@ class CallsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse2013',
                 '/calls/receive_notify'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -292,50 +207,169 @@ class CallsApi
     }
 
     /**
-     * Operation postCallsSendNotify
+     * Operation configureCallReceiveNotify_0
      *
-     * Configure the callback URL to notify when a call is made.
+     * Set Receive Callback
      *
-     * @param string $fonenumber Your FracTEL phone number (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse2013
      */
-    public function postCallsSendNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    public function configureCallReceiveNotify_0($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
-        list($response) = $this->postCallsSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
+        list($response) = $this->configureCallReceiveNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
         return $response;
     }
 
     /**
-     * Operation postCallsSendNotifyWithHttpInfo
+     * Operation configureCallReceiveNotify_0WithHttpInfo
      *
-     * Configure the callback URL to notify when a call is made.
+     * Set Receive Callback
      *
-     * @param string $fonenumber Your FracTEL phone number (required)
-     * @param string $method Callback URL method. (required)
-     * @param string $url Callback URL. (required)
-     * @param string $url_username Callback URL username. (optional)
-     * @param string $url_password Callback URL password. (optional)
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postCallsSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    public function configureCallReceiveNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
     {
         // verify the required parameter 'fonenumber' is set
         if ($fonenumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling postCallsSendNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureCallReceiveNotify_0');
         }
         // verify the required parameter 'method' is set
         if ($method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $method when calling postCallsSendNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureCallReceiveNotify_0');
         }
         // verify the required parameter 'url' is set
         if ($url === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $url when calling postCallsSendNotify');
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureCallReceiveNotify_0');
+        }
+        // parse inputs
+        $resourcePath = "/calls/receive_notify";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($method !== null) {
+            $formParams['method'] = $this->apiClient->getSerializer()->toFormValue($method);
+        }
+        // form params
+        if ($url !== null) {
+            $formParams['url'] = $this->apiClient->getSerializer()->toFormValue($url);
+        }
+        // form params
+        if ($url_username !== null) {
+            $formParams['url_username'] = $this->apiClient->getSerializer()->toFormValue($url_username);
+        }
+        // form params
+        if ($url_password !== null) {
+            $formParams['url_password'] = $this->apiClient->getSerializer()->toFormValue($url_password);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/calls/receive_notify'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation configureCallSendNotify
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function configureCallSendNotify($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        list($response) = $this->configureCallSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
+        return $response;
+    }
+
+    /**
+     * Operation configureCallSendNotifyWithHttpInfo
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function configureCallSendNotifyWithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureCallSendNotify');
+        }
+        // verify the required parameter 'method' is set
+        if ($method === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureCallSendNotify');
+        }
+        // verify the required parameter 'url' is set
+        if ($url === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureCallSendNotify');
         }
         // parse inputs
         $resourcePath = "/calls/send_notify";
@@ -376,6 +410,11 @@ class CallsApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -384,15 +423,344 @@ class CallsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse2013',
                 '/calls/send_notify'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation configureCallSendNotify_0
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2013
+     */
+    public function configureCallSendNotify_0($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        list($response) = $this->configureCallSendNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username, $url_password);
+        return $response;
+    }
+
+    /**
+     * Operation configureCallSendNotify_0WithHttpInfo
+     *
+     * Set Send Callback
+     *
+     * @param string $fonenumber FoneNumber associated with the account (required)
+     * @param string $method Callback URL method. Allowed values are &#x60;GET&#x60;,&#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param string $url Callback URL. See **Notes** for additional information. (required)
+     * @param string $url_username Username for HTTP **Basic** authentication scheme (optional)
+     * @param string $url_password Password for HTTP **Basic** authentication scheme (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function configureCallSendNotify_0WithHttpInfo($fonenumber, $method, $url, $url_username = null, $url_password = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling configureCallSendNotify_0');
+        }
+        // verify the required parameter 'method' is set
+        if ($method === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $method when calling configureCallSendNotify_0');
+        }
+        // verify the required parameter 'url' is set
+        if ($url === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $url when calling configureCallSendNotify_0');
+        }
+        // parse inputs
+        $resourcePath = "/calls/send_notify";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($method !== null) {
+            $formParams['method'] = $this->apiClient->getSerializer()->toFormValue($method);
+        }
+        // form params
+        if ($url !== null) {
+            $formParams['url'] = $this->apiClient->getSerializer()->toFormValue($url);
+        }
+        // form params
+        if ($url_username !== null) {
+            $formParams['url_username'] = $this->apiClient->getSerializer()->toFormValue($url_username);
+        }
+        // form params
+        if ($url_password !== null) {
+            $formParams['url_password'] = $this->apiClient->getSerializer()->toFormValue($url_password);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2013',
+                '/calls/send_notify'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2013', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2013', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createCall
+     *
+     * Create Call
+     *
+     * @param string $fonenumber FoneNumber to use as caller (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $tts Text to speech message (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2012
+     */
+    public function createCall($fonenumber, $to, $tts = null)
+    {
+        list($response) = $this->createCallWithHttpInfo($fonenumber, $to, $tts);
+        return $response;
+    }
+
+    /**
+     * Operation createCallWithHttpInfo
+     *
+     * Create Call
+     *
+     * @param string $fonenumber FoneNumber to use as caller (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $tts Text to speech message (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createCallWithHttpInfo($fonenumber, $to, $tts = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling createCall');
+        }
+        // verify the required parameter 'to' is set
+        if ($to === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $to when calling createCall');
+        }
+        // parse inputs
+        $resourcePath = "/calls";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($to !== null) {
+            $formParams['to'] = $this->apiClient->getSerializer()->toFormValue($to);
+        }
+        // form params
+        if ($tts !== null) {
+            $formParams['tts'] = $this->apiClient->getSerializer()->toFormValue($tts);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2012',
+                '/calls'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2012', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2012', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createCall_0
+     *
+     * Create Call
+     *
+     * @param string $fonenumber FoneNumber to use as caller (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $tts Text to speech message (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\InlineResponse2012
+     */
+    public function createCall_0($fonenumber, $to, $tts = null)
+    {
+        list($response) = $this->createCall_0WithHttpInfo($fonenumber, $to, $tts);
+        return $response;
+    }
+
+    /**
+     * Operation createCall_0WithHttpInfo
+     *
+     * Create Call
+     *
+     * @param string $fonenumber FoneNumber to use as caller (required)
+     * @param string $to Receiving 10 digit phone number (required)
+     * @param string $tts Text to speech message (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createCall_0WithHttpInfo($fonenumber, $to, $tts = null)
+    {
+        // verify the required parameter 'fonenumber' is set
+        if ($fonenumber === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fonenumber when calling createCall_0');
+        }
+        // verify the required parameter 'to' is set
+        if ($to === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $to when calling createCall_0');
+        }
+        // parse inputs
+        $resourcePath = "/calls";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/x-www-form-urlencoded']);
+
+        // form params
+        if ($fonenumber !== null) {
+            $formParams['fonenumber'] = $this->apiClient->getSerializer()->toFormValue($fonenumber);
+        }
+        // form params
+        if ($to !== null) {
+            $formParams['to'] = $this->apiClient->getSerializer()->toFormValue($to);
+        }
+        // form params
+        if ($tts !== null) {
+            $formParams['tts'] = $this->apiClient->getSerializer()->toFormValue($tts);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('token');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\InlineResponse2012',
+                '/calls'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2012', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2012', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

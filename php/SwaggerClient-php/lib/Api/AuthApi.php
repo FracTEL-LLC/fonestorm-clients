@@ -10,7 +10,7 @@
  */
 
 /**
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  *
  * FracTEL's Middleware API
  *
@@ -88,42 +88,42 @@ class AuthApi
     }
 
     /**
-     * Operation postAuth
+     * Operation createToken
      *
-     * Create a FoneStorm authentication token.
+     * Create Auth Token
      *
      * @param string $username FracTEL username (required)
      * @param string $password FracTEL password (required)
      * @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return string
+     * @return \Swagger\Client\Model\InlineResponse201
      */
-    public function postAuth($username, $password, $expires = null)
+    public function createToken($username, $password, $expires = null)
     {
-        list($response) = $this->postAuthWithHttpInfo($username, $password, $expires);
+        list($response) = $this->createTokenWithHttpInfo($username, $password, $expires);
         return $response;
     }
 
     /**
-     * Operation postAuthWithHttpInfo
+     * Operation createTokenWithHttpInfo
      *
-     * Create a FoneStorm authentication token.
+     * Create Auth Token
      *
      * @param string $username FracTEL username (required)
      * @param string $password FracTEL password (required)
      * @param int $expires FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postAuthWithHttpInfo($username, $password, $expires = null)
+    public function createTokenWithHttpInfo($username, $password, $expires = null)
     {
         // verify the required parameter 'username' is set
         if ($username === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $username when calling postAuth');
+            throw new \InvalidArgumentException('Missing the required parameter $username when calling createToken');
         }
         // verify the required parameter 'password' is set
         if ($password === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $password when calling postAuth');
+            throw new \InvalidArgumentException('Missing the required parameter $password when calling createToken');
         }
         // parse inputs
         $resourcePath = "/auth";
@@ -164,15 +164,19 @@ class AuthApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                '\Swagger\Client\Model\InlineResponse201',
                 '/auth'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse201', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse201', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

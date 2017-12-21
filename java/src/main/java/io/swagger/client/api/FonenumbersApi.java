@@ -1,5 +1,5 @@
 /*
- * FoneStorm API 2.2.0
+ * FoneStorm API 2.2.0 (Breeze)
  * FracTEL's Middleware API
  *
  * OpenAPI spec version: 2.2.0
@@ -27,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Error;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse2013;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -54,14 +57,268 @@ public class FonenumbersApi {
     }
 
     /**
-     * Build call for deleteFonenumbersFonenumber
-     * @param fonenumber Your FracTEL fonenumber. (required)
+     * Build call for createFonenumber
+     * @param areaCode Valid 3-digit area code (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFonenumbersFonenumberCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createFonenumberCall(String areaCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/fonenumbers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (areaCode != null)
+        localVarFormParams.put("area_code", areaCode);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createFonenumberValidateBeforeCall(String areaCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'areaCode' is set
+        if (areaCode == null) {
+            throw new ApiException("Missing the required parameter 'areaCode' when calling createFonenumber(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = createFonenumberCall(areaCode, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create FoneNumber
+     * Order a new FoneNumber for a given area code.
+     * @param areaCode Valid 3-digit area code (required)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 createFonenumber(String areaCode) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = createFonenumberWithHttpInfo(areaCode);
+        return resp.getData();
+    }
+
+    /**
+     * Create FoneNumber
+     * Order a new FoneNumber for a given area code.
+     * @param areaCode Valid 3-digit area code (required)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> createFonenumberWithHttpInfo(String areaCode) throws ApiException {
+        com.squareup.okhttp.Call call = createFonenumberValidateBeforeCall(areaCode, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create FoneNumber (asynchronously)
+     * Order a new FoneNumber for a given area code.
+     * @param areaCode Valid 3-digit area code (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createFonenumberAsync(String areaCode, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createFonenumberValidateBeforeCall(areaCode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createFonenumber_0
+     * @param areaCode Valid 3-digit area code (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createFonenumber_0Call(String areaCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/fonenumbers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (areaCode != null)
+        localVarFormParams.put("area_code", areaCode);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createFonenumber_0ValidateBeforeCall(String areaCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'areaCode' is set
+        if (areaCode == null) {
+            throw new ApiException("Missing the required parameter 'areaCode' when calling createFonenumber_0(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = createFonenumber_0Call(areaCode, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create FoneNumber
+     * Order a new FoneNumber for a given area code.
+     * @param areaCode Valid 3-digit area code (required)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 createFonenumber_0(String areaCode) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = createFonenumber_0WithHttpInfo(areaCode);
+        return resp.getData();
+    }
+
+    /**
+     * Create FoneNumber
+     * Order a new FoneNumber for a given area code.
+     * @param areaCode Valid 3-digit area code (required)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> createFonenumber_0WithHttpInfo(String areaCode) throws ApiException {
+        com.squareup.okhttp.Call call = createFonenumber_0ValidateBeforeCall(areaCode, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create FoneNumber (asynchronously)
+     * Order a new FoneNumber for a given area code.
+     * @param areaCode Valid 3-digit area code (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createFonenumber_0Async(String areaCode, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createFonenumber_0ValidateBeforeCall(areaCode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteFonenumber
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFonenumberCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -98,20 +355,20 @@ public class FonenumbersApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "jwt" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFonenumbersFonenumberValidateBeforeCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFonenumberValidateBeforeCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'fonenumber' is set
         if (fonenumber == null) {
-            throw new ApiException("Missing the required parameter 'fonenumber' when calling deleteFonenumbersFonenumber(Async)");
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling deleteFonenumber(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = deleteFonenumbersFonenumberCall(fonenumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteFonenumberCall(fonenumber, progressListener, progressRequestListener);
         return call;
 
         
@@ -121,39 +378,39 @@ public class FonenumbersApi {
     }
 
     /**
-     * Delete a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @return String
+     * Delete FoneNumber
+     * Remove a FoneNumber from an account.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return InlineResponse2013
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String deleteFonenumbersFonenumber(String fonenumber) throws ApiException {
-        ApiResponse<String> resp = deleteFonenumbersFonenumberWithHttpInfo(fonenumber);
+    public InlineResponse2013 deleteFonenumber(String fonenumber) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = deleteFonenumberWithHttpInfo(fonenumber);
         return resp.getData();
     }
 
     /**
-     * Delete a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @return ApiResponse&lt;String&gt;
+     * Delete FoneNumber
+     * Remove a FoneNumber from an account.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> deleteFonenumbersFonenumberWithHttpInfo(String fonenumber) throws ApiException {
-        com.squareup.okhttp.Call call = deleteFonenumbersFonenumberValidateBeforeCall(fonenumber, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<InlineResponse2013> deleteFonenumberWithHttpInfo(String fonenumber) throws ApiException {
+        com.squareup.okhttp.Call call = deleteFonenumberValidateBeforeCall(fonenumber, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Delete a fonenumber identified by fonenumber. (asynchronously)
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
+     * Delete FoneNumber (asynchronously)
+     * Remove a FoneNumber from an account.
+     * @param fonenumber FoneNumber associated with the account (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFonenumbersFonenumberAsync(String fonenumber, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFonenumberAsync(String fonenumber, final ApiCallback<InlineResponse2013> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,14 +431,392 @@ public class FonenumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteFonenumbersFonenumberValidateBeforeCall(fonenumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        com.squareup.okhttp.Call call = deleteFonenumberValidateBeforeCall(fonenumber, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteFonenumber_0
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFonenumber_0Call(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/fonenumbers/{fonenumber}"
+            .replaceAll("\\{" + "fonenumber" + "\\}", apiClient.escapeString(fonenumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFonenumber_0ValidateBeforeCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling deleteFonenumber_0(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = deleteFonenumber_0Call(fonenumber, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Delete FoneNumber
+     * Remove a FoneNumber from an account.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 deleteFonenumber_0(String fonenumber) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = deleteFonenumber_0WithHttpInfo(fonenumber);
+        return resp.getData();
+    }
+
+    /**
+     * Delete FoneNumber
+     * Remove a FoneNumber from an account.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> deleteFonenumber_0WithHttpInfo(String fonenumber) throws ApiException {
+        com.squareup.okhttp.Call call = deleteFonenumber_0ValidateBeforeCall(fonenumber, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete FoneNumber (asynchronously)
+     * Remove a FoneNumber from an account.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteFonenumber_0Async(String fonenumber, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFonenumber_0ValidateBeforeCall(fonenumber, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getFonenumber
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFonenumberCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/fonenumbers/{fonenumber}"
+            .replaceAll("\\{" + "fonenumber" + "\\}", apiClient.escapeString(fonenumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFonenumberValidateBeforeCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling getFonenumber(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getFonenumberCall(fonenumber, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get FoneNumber
+     * Get information for a single FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 getFonenumber(String fonenumber) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = getFonenumberWithHttpInfo(fonenumber);
+        return resp.getData();
+    }
+
+    /**
+     * Get FoneNumber
+     * Get information for a single FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> getFonenumberWithHttpInfo(String fonenumber) throws ApiException {
+        com.squareup.okhttp.Call call = getFonenumberValidateBeforeCall(fonenumber, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get FoneNumber (asynchronously)
+     * Get information for a single FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getFonenumberAsync(String fonenumber, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFonenumberValidateBeforeCall(fonenumber, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getFonenumber_0
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFonenumber_0Call(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/fonenumbers/{fonenumber}"
+            .replaceAll("\\{" + "fonenumber" + "\\}", apiClient.escapeString(fonenumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFonenumber_0ValidateBeforeCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling getFonenumber_0(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getFonenumber_0Call(fonenumber, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get FoneNumber
+     * Get information for a single FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 getFonenumber_0(String fonenumber) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = getFonenumber_0WithHttpInfo(fonenumber);
+        return resp.getData();
+    }
+
+    /**
+     * Get FoneNumber
+     * Get information for a single FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> getFonenumber_0WithHttpInfo(String fonenumber) throws ApiException {
+        com.squareup.okhttp.Call call = getFonenumber_0ValidateBeforeCall(fonenumber, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get FoneNumber (asynchronously)
+     * Get information for a single FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getFonenumber_0Async(String fonenumber, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFonenumber_0ValidateBeforeCall(fonenumber, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getFonenumbers
-     * @param filter Filters for the response. (optional)
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -225,7 +860,7 @@ public class FonenumbersApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "jwt" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -243,39 +878,39 @@ public class FonenumbersApi {
     }
 
     /**
-     * Get a list of all active fonenumbers under the account.
-     * Returns a JSON response
-     * @param filter Filters for the response. (optional)
-     * @return String
+     * Get FoneNumbers
+     * Get a list of all FoneNumbers, or a selection based on a filter.
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+     * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String getFonenumbers(String filter) throws ApiException {
-        ApiResponse<String> resp = getFonenumbersWithHttpInfo(filter);
+    public InlineResponse200 getFonenumbers(String filter) throws ApiException {
+        ApiResponse<InlineResponse200> resp = getFonenumbersWithHttpInfo(filter);
         return resp.getData();
     }
 
     /**
-     * Get a list of all active fonenumbers under the account.
-     * Returns a JSON response
-     * @param filter Filters for the response. (optional)
-     * @return ApiResponse&lt;String&gt;
+     * Get FoneNumbers
+     * Get a list of all FoneNumbers, or a selection based on a filter.
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+     * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> getFonenumbersWithHttpInfo(String filter) throws ApiException {
+    public ApiResponse<InlineResponse200> getFonenumbersWithHttpInfo(String filter) throws ApiException {
         com.squareup.okhttp.Call call = getFonenumbersValidateBeforeCall(filter, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get a list of all active fonenumbers under the account. (asynchronously)
-     * Returns a JSON response
-     * @param filter Filters for the response. (optional)
+     * Get FoneNumbers (asynchronously)
+     * Get a list of all FoneNumbers, or a selection based on a filter.
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFonenumbersAsync(String filter, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFonenumbersAsync(String filter, final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -297,157 +932,31 @@ public class FonenumbersApi {
         }
 
         com.squareup.okhttp.Call call = getFonenumbersValidateBeforeCall(filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getFonenumbersFonenumber
-     * @param fonenumber Your FracTEL fonenumber. (required)
+     * Build call for getFonenumbers_0
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFonenumbersFonenumberCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/fonenumbers/{fonenumber}"
-            .replaceAll("\\{" + "fonenumber" + "\\}", apiClient.escapeString(fonenumber.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFonenumbersFonenumberValidateBeforeCall(String fonenumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'fonenumber' is set
-        if (fonenumber == null) {
-            throw new ApiException("Missing the required parameter 'fonenumber' when calling getFonenumbersFonenumber(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = getFonenumbersFonenumberCall(fonenumber, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Get a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String getFonenumbersFonenumber(String fonenumber) throws ApiException {
-        ApiResponse<String> resp = getFonenumbersFonenumberWithHttpInfo(fonenumber);
-        return resp.getData();
-    }
-
-    /**
-     * Get a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> getFonenumbersFonenumberWithHttpInfo(String fonenumber) throws ApiException {
-        com.squareup.okhttp.Call call = getFonenumbersFonenumberValidateBeforeCall(fonenumber, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get a fonenumber identified by fonenumber. (asynchronously)
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getFonenumbersFonenumberAsync(String fonenumber, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getFonenumbersFonenumberValidateBeforeCall(fonenumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postFonenumbers
-     * @param areaCode A valid 3-digit Area Code. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call postFonenumbersCall(String areaCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getFonenumbers_0Call(String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/fonenumbers";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (areaCode != null)
-        localVarFormParams.put("area_code", areaCode);
 
         final String[] localVarAccepts = {
             "application/json"
@@ -473,20 +982,15 @@ public class FonenumbersApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postFonenumbersValidateBeforeCall(String areaCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'areaCode' is set
-        if (areaCode == null) {
-            throw new ApiException("Missing the required parameter 'areaCode' when calling postFonenumbers(Async)");
-        }
+    private com.squareup.okhttp.Call getFonenumbers_0ValidateBeforeCall(String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = postFonenumbersCall(areaCode, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFonenumbers_0Call(filter, progressListener, progressRequestListener);
         return call;
 
         
@@ -496,39 +1000,39 @@ public class FonenumbersApi {
     }
 
     /**
-     * Create a fonenumber under the account.
-     * Returns a JSON response
-     * @param areaCode A valid 3-digit Area Code. (required)
-     * @return String
+     * Get FoneNumbers
+     * Get a list of all FoneNumbers, or a selection based on a filter.
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+     * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String postFonenumbers(String areaCode) throws ApiException {
-        ApiResponse<String> resp = postFonenumbersWithHttpInfo(areaCode);
+    public InlineResponse200 getFonenumbers_0(String filter) throws ApiException {
+        ApiResponse<InlineResponse200> resp = getFonenumbers_0WithHttpInfo(filter);
         return resp.getData();
     }
 
     /**
-     * Create a fonenumber under the account.
-     * Returns a JSON response
-     * @param areaCode A valid 3-digit Area Code. (required)
-     * @return ApiResponse&lt;String&gt;
+     * Get FoneNumbers
+     * Get a list of all FoneNumbers, or a selection based on a filter.
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
+     * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> postFonenumbersWithHttpInfo(String areaCode) throws ApiException {
-        com.squareup.okhttp.Call call = postFonenumbersValidateBeforeCall(areaCode, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<InlineResponse200> getFonenumbers_0WithHttpInfo(String filter) throws ApiException {
+        com.squareup.okhttp.Call call = getFonenumbers_0ValidateBeforeCall(filter, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Create a fonenumber under the account. (asynchronously)
-     * Returns a JSON response
-     * @param areaCode A valid 3-digit Area Code. (required)
+     * Get FoneNumbers (asynchronously)
+     * Get a list of all FoneNumbers, or a selection based on a filter.
+     * @param filter Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postFonenumbersAsync(String areaCode, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFonenumbers_0Async(String filter, final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -549,25 +1053,25 @@ public class FonenumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postFonenumbersValidateBeforeCall(areaCode, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        com.squareup.okhttp.Call call = getFonenumbers_0ValidateBeforeCall(filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for putFonenumbersFonenumber
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @param type Message routing type. (required)
-     * @param value Message routing type value. (optional)
-     * @param urlMethod URL method. (optional)
-     * @param urlUsername URL auth username. (optional)
-     * @param urlPassword URL auth password. (optional)
+     * Build call for updateFonenumber
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call putFonenumbersFonenumberCall(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateFonenumberCall(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -614,25 +1118,35 @@ public class FonenumbersApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "jwt" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putFonenumbersFonenumberValidateBeforeCall(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFonenumberValidateBeforeCall(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'fonenumber' is set
         if (fonenumber == null) {
-            throw new ApiException("Missing the required parameter 'fonenumber' when calling putFonenumbersFonenumber(Async)");
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling updateFonenumber(Async)");
         }
         
         // verify the required parameter 'type' is set
         if (type == null) {
-            throw new ApiException("Missing the required parameter 'type' when calling putFonenumbersFonenumber(Async)");
+            throw new ApiException("Missing the required parameter 'type' when calling updateFonenumber(Async)");
+        }
+        
+        // verify the required parameter 'value' is set
+        if (value == null) {
+            throw new ApiException("Missing the required parameter 'value' when calling updateFonenumber(Async)");
+        }
+        
+        // verify the required parameter 'urlMethod' is set
+        if (urlMethod == null) {
+            throw new ApiException("Missing the required parameter 'urlMethod' when calling updateFonenumber(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = putFonenumbersFonenumberCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateFonenumberCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, progressListener, progressRequestListener);
         return call;
 
         
@@ -642,54 +1156,54 @@ public class FonenumbersApi {
     }
 
     /**
-     * Update a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @param type Message routing type. (required)
-     * @param value Message routing type value. (optional)
-     * @param urlMethod URL method. (optional)
-     * @param urlUsername URL auth username. (optional)
-     * @param urlPassword URL auth password. (optional)
-     * @return String
+     * Update FoneNumber
+     * Update a FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return InlineResponse2013
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String putFonenumbersFonenumber(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword) throws ApiException {
-        ApiResponse<String> resp = putFonenumbersFonenumberWithHttpInfo(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+    public InlineResponse2013 updateFonenumber(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = updateFonenumberWithHttpInfo(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
         return resp.getData();
     }
 
     /**
-     * Update a fonenumber identified by fonenumber.
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @param type Message routing type. (required)
-     * @param value Message routing type value. (optional)
-     * @param urlMethod URL method. (optional)
-     * @param urlUsername URL auth username. (optional)
-     * @param urlPassword URL auth password. (optional)
-     * @return ApiResponse&lt;String&gt;
+     * Update FoneNumber
+     * Update a FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> putFonenumbersFonenumberWithHttpInfo(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword) throws ApiException {
-        com.squareup.okhttp.Call call = putFonenumbersFonenumberValidateBeforeCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<InlineResponse2013> updateFonenumberWithHttpInfo(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword) throws ApiException {
+        com.squareup.okhttp.Call call = updateFonenumberValidateBeforeCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Update a fonenumber identified by fonenumber. (asynchronously)
-     * Returns a JSON response
-     * @param fonenumber Your FracTEL fonenumber. (required)
-     * @param type Message routing type. (required)
-     * @param value Message routing type value. (optional)
-     * @param urlMethod URL method. (optional)
-     * @param urlUsername URL auth username. (optional)
-     * @param urlPassword URL auth password. (optional)
+     * Update FoneNumber (asynchronously)
+     * Update a FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call putFonenumbersFonenumberAsync(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateFonenumberAsync(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ApiCallback<InlineResponse2013> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -710,8 +1224,179 @@ public class FonenumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = putFonenumbersFonenumberValidateBeforeCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        com.squareup.okhttp.Call call = updateFonenumberValidateBeforeCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateFonenumber_0
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateFonenumber_0Call(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/fonenumbers/{fonenumber}"
+            .replaceAll("\\{" + "fonenumber" + "\\}", apiClient.escapeString(fonenumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (type != null)
+        localVarFormParams.put("type", type);
+        if (value != null)
+        localVarFormParams.put("value", value);
+        if (urlMethod != null)
+        localVarFormParams.put("url_method", urlMethod);
+        if (urlUsername != null)
+        localVarFormParams.put("url_username", urlUsername);
+        if (urlPassword != null)
+        localVarFormParams.put("url_password", urlPassword);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "jwt" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateFonenumber_0ValidateBeforeCall(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fonenumber' is set
+        if (fonenumber == null) {
+            throw new ApiException("Missing the required parameter 'fonenumber' when calling updateFonenumber_0(Async)");
+        }
+        
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling updateFonenumber_0(Async)");
+        }
+        
+        // verify the required parameter 'value' is set
+        if (value == null) {
+            throw new ApiException("Missing the required parameter 'value' when calling updateFonenumber_0(Async)");
+        }
+        
+        // verify the required parameter 'urlMethod' is set
+        if (urlMethod == null) {
+            throw new ApiException("Missing the required parameter 'urlMethod' when calling updateFonenumber_0(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = updateFonenumber_0Call(fonenumber, type, value, urlMethod, urlUsername, urlPassword, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Update FoneNumber
+     * Update a FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return InlineResponse2013
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2013 updateFonenumber_0(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword) throws ApiException {
+        ApiResponse<InlineResponse2013> resp = updateFonenumber_0WithHttpInfo(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+        return resp.getData();
+    }
+
+    /**
+     * Update FoneNumber
+     * Update a FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @return ApiResponse&lt;InlineResponse2013&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2013> updateFonenumber_0WithHttpInfo(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword) throws ApiException {
+        com.squareup.okhttp.Call call = updateFonenumber_0ValidateBeforeCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update FoneNumber (asynchronously)
+     * Update a FoneNumber.
+     * @param fonenumber FoneNumber associated with the account (required)
+     * @param type Message routing type. Allowed values are &#x60;None&#x60;, &#x60;Device&#x60;, &#x60;Email&#x60;, &#x60;URL&#x60;, or &#x60;Forward&#x60;. (required)
+     * @param value Message routing type value (required)
+     * @param urlMethod URL method. Allowed values are &#x60;GET&#x60;, &#x60;POST&#x60;, or &#x60;JSON&#x60;. See **Notes** for additional information. (required)
+     * @param urlUsername Username for HTTP **Basic** authentication scheme (optional)
+     * @param urlPassword Password for HTTP **Basic** authentication scheme (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateFonenumber_0Async(String fonenumber, String type, String value, String urlMethod, String urlUsername, String urlPassword, final ApiCallback<InlineResponse2013> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateFonenumber_0ValidateBeforeCall(fonenumber, type, value, urlMethod, urlUsername, urlPassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2013>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

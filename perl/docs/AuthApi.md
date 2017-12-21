@@ -9,15 +9,15 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Create a FoneStorm authentication token.
+[**create_token**](AuthApi.md#create_token) | **POST** /auth | Create Auth Token
 
 
-# **post_auth**
-> string post_auth(username => $username, password => $password, expires => $expires)
+# **create_token**
+> InlineResponse201 create_token(username => $username, password => $password, expires => $expires)
 
-Create a FoneStorm authentication token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example 
 ```perl
@@ -31,11 +31,11 @@ my $password = 'password_example'; # string | FracTEL password
 my $expires = 56; # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
 
 eval { 
-    my $result = $api_instance->post_auth(username => $username, password => $password, expires => $expires);
+    my $result = $api_instance->create_token(username => $username, password => $password, expires => $expires);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling AuthApi->post_auth: $@\n";
+    warn "Exception when calling AuthApi->create_token: $@\n";
 }
 ```
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
