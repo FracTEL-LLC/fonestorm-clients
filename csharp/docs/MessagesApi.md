@@ -4,19 +4,23 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PostMessagesReceive**](MessagesApi.md#postmessagesreceive) | **POST** /messages/receive | Configure the delivery service type used as the destination for received messages.
-[**PostMessagesReceiveNotify**](MessagesApi.md#postmessagesreceivenotify) | **POST** /messages/receive_notify | Configure the callback URL to notify when a message is received.
-[**PostMessagesSend**](MessagesApi.md#postmessagessend) | **POST** /messages/send | Send an SMS or MMS message to a recipient.
-[**PostMessagesSendNotify**](MessagesApi.md#postmessagessendnotify) | **POST** /messages/send_notify | Configure the callback URL to notify when a message is sent.
+[**ConfigureMessageReceive**](MessagesApi.md#configuremessagereceive) | **POST** /messages/receive | Set Delivery Service
+[**ConfigureMessageReceiveNotify**](MessagesApi.md#configuremessagereceivenotify) | **POST** /messages/receive_notify | Set Receive Callback
+[**ConfigureMessageReceiveNotify_0**](MessagesApi.md#configuremessagereceivenotify_0) | **POST** /messages/receive_notify | Set Receive Callback
+[**ConfigureMessageReceive_0**](MessagesApi.md#configuremessagereceive_0) | **POST** /messages/receive | Set Delivery Service
+[**ConfigureMessageSendNotify**](MessagesApi.md#configuremessagesendnotify) | **POST** /messages/send_notify | Set Send Callback
+[**ConfigureMessageSendNotify_0**](MessagesApi.md#configuremessagesendnotify_0) | **POST** /messages/send_notify | Set Send Callback
+[**CreateMessage**](MessagesApi.md#createmessage) | **POST** /messages/send | Create Message
+[**CreateMessage_0**](MessagesApi.md#createmessage_0) | **POST** /messages/send | Create Message
 
 
-<a name="postmessagesreceive"></a>
-# **PostMessagesReceive**
-> string PostMessagesReceive (string fonenumber, string type, string value = null, string urlMethod = null, string urlUsername = null, string urlPassword = null)
+<a name="configuremessagereceive"></a>
+# **ConfigureMessageReceive**
+> InlineResponse2013 ConfigureMessageReceive (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
 
-Configure the delivery service type used as the destination for received messages.
+Set Delivery Service
 
-Returns a JSON response
+Configure the delivery service type used as the destination for messages received at a FoneNumber.
 
 ### Example
 ```csharp
@@ -28,27 +32,32 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostMessagesReceiveExample
+    public class ConfigureMessageReceiveExample
     {
         public void main()
         {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new MessagesApi();
-            var fonenumber = fonenumber_example;  // string | Your FracTEL phone number.
-            var type = type_example;  // string | Message routing type.
-            var value = value_example;  // string | Message routing type value. (optional) 
-            var urlMethod = urlMethod_example;  // string | URL method when type is URL. (optional) 
-            var urlUsername = urlUsername_example;  // string | Optional URL username when type is URL. (optional) 
-            var urlPassword = urlPassword_example;  // string | Optional URL password when type is URL. (optional) 
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var type = type_example;  // string | Message routing type
+            var value = value_example;  // string | Message routing type value
+            var urlMethod = urlMethod_example;  // string | URL method (when `type` is URL)
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
 
             try
             {
-                // Configure the delivery service type used as the destination for received messages.
-                string result = apiInstance.PostMessagesReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+                // Set Delivery Service
+                InlineResponse2013 result = apiInstance.ConfigureMessageReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MessagesApi.PostMessagesReceive: " + e.Message );
+                Debug.Print("Exception when calling MessagesApi.ConfigureMessageReceive: " + e.Message );
             }
         }
     }
@@ -59,35 +68,35 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **string**| Your FracTEL phone number. | 
- **type** | **string**| Message routing type. | 
- **value** | **string**| Message routing type value. | [optional] 
- **urlMethod** | **string**| URL method when type is URL. | [optional] 
- **urlUsername** | **string**| Optional URL username when type is URL. | [optional] 
- **urlPassword** | **string**| Optional URL password when type is URL. | [optional] 
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **type** | **string**| Message routing type | 
+ **value** | **string**| Message routing type value | 
+ **urlMethod** | **string**| URL method (when &#x60;type&#x60; is URL) | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="postmessagesreceivenotify"></a>
-# **PostMessagesReceiveNotify**
-> string PostMessagesReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+<a name="configuremessagereceivenotify"></a>
+# **ConfigureMessageReceiveNotify**
+> InlineResponse2013 ConfigureMessageReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
-Configure the callback URL to notify when a message is received.
+Set Receive Callback
 
-Returns a JSON response
+Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
 
 ### Example
 ```csharp
@@ -99,26 +108,31 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostMessagesReceiveNotifyExample
+    public class ConfigureMessageReceiveNotifyExample
     {
         public void main()
         {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new MessagesApi();
-            var fonenumber = fonenumber_example;  // string | Your FracTEL phone number.
-            var method = method_example;  // string | Callback URL method.
-            var url = url_example;  // string | Callback URL.
-            var urlUsername = urlUsername_example;  // string | Callback URL username. (optional) 
-            var urlPassword = urlPassword_example;  // string | Callback URL password. (optional) 
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var method = method_example;  // string | Callback URL method
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
 
             try
             {
-                // Configure the callback URL to notify when a message is received.
-                string result = apiInstance.PostMessagesReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+                // Set Receive Callback
+                InlineResponse2013 result = apiInstance.ConfigureMessageReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MessagesApi.PostMessagesReceiveNotify: " + e.Message );
+                Debug.Print("Exception when calling MessagesApi.ConfigureMessageReceiveNotify: " + e.Message );
             }
         }
     }
@@ -129,34 +143,34 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **string**| Your FracTEL phone number. | 
- **method** | **string**| Callback URL method. | 
- **url** | **string**| Callback URL. | 
- **urlUsername** | **string**| Callback URL username. | [optional] 
- **urlPassword** | **string**| Callback URL password. | [optional] 
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **method** | **string**| Callback URL method | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="postmessagessend"></a>
-# **PostMessagesSend**
-> string PostMessagesSend (string to, string fonenumber, string message, List<string> mediaUrl = null, string confirmationUrl = null, string confirmationUrlUsername = null, string confirmationUrlPassword = null, bool? requireConfirmation = null)
+<a name="configuremessagereceivenotify_0"></a>
+# **ConfigureMessageReceiveNotify_0**
+> InlineResponse2013 ConfigureMessageReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
-Send an SMS or MMS message to a recipient.
+Set Receive Callback
 
-Returns a JSON response
+Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
 
 ### Example
 ```csharp
@@ -168,29 +182,332 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostMessagesSendExample
+    public class ConfigureMessageReceiveNotify_0Example
     {
         public void main()
         {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new MessagesApi();
-            var to = to_example;  // string | The recipient's 10 digits phone number.
-            var fonenumber = fonenumber_example;  // string | Your FracTEL phone number to use as from
-            var message = message_example;  // string | Content of SMS
-            var mediaUrl = new List<string>(); // List<string> | URL for media for send via SMS (up to 10) (optional) 
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var method = method_example;  // string | Callback URL method
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
+
+            try
+            {
+                // Set Receive Callback
+                InlineResponse2013 result = apiInstance.ConfigureMessageReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MessagesApi.ConfigureMessageReceiveNotify_0: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **method** | **string**| Callback URL method | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
+
+### Return type
+
+[**InlineResponse2013**](InlineResponse2013.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="configuremessagereceive_0"></a>
+# **ConfigureMessageReceive_0**
+> InlineResponse2013 ConfigureMessageReceive_0 (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
+
+Set Delivery Service
+
+Configure the delivery service type used as the destination for messages received at a FoneNumber.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class ConfigureMessageReceive_0Example
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new MessagesApi();
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var type = type_example;  // string | Message routing type
+            var value = value_example;  // string | Message routing type value
+            var urlMethod = urlMethod_example;  // string | URL method (when `type` is URL)
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
+
+            try
+            {
+                // Set Delivery Service
+                InlineResponse2013 result = apiInstance.ConfigureMessageReceive_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MessagesApi.ConfigureMessageReceive_0: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **type** | **string**| Message routing type | 
+ **value** | **string**| Message routing type value | 
+ **urlMethod** | **string**| URL method (when &#x60;type&#x60; is URL) | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
+
+### Return type
+
+[**InlineResponse2013**](InlineResponse2013.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="configuremessagesendnotify"></a>
+# **ConfigureMessageSendNotify**
+> InlineResponse2013 ConfigureMessageSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+
+Set Send Callback
+
+Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class ConfigureMessageSendNotifyExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new MessagesApi();
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var method = method_example;  // string | Callback URL method
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
+
+            try
+            {
+                // Set Send Callback
+                InlineResponse2013 result = apiInstance.ConfigureMessageSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MessagesApi.ConfigureMessageSendNotify: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **method** | **string**| Callback URL method | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
+
+### Return type
+
+[**InlineResponse2013**](InlineResponse2013.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="configuremessagesendnotify_0"></a>
+# **ConfigureMessageSendNotify_0**
+> InlineResponse2013 ConfigureMessageSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+
+Set Send Callback
+
+Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class ConfigureMessageSendNotify_0Example
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new MessagesApi();
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var method = method_example;  // string | Callback URL method
+            var url = url_example;  // string | Callback URL. See **Notes** for additional information.
+            var urlUsername = urlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var urlPassword = urlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
+
+            try
+            {
+                // Set Send Callback
+                InlineResponse2013 result = apiInstance.ConfigureMessageSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MessagesApi.ConfigureMessageSendNotify_0: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **method** | **string**| Callback URL method | 
+ **url** | **string**| Callback URL. See **Notes** for additional information. | 
+ **urlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **urlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
+
+### Return type
+
+[**InlineResponse2013**](InlineResponse2013.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createmessage"></a>
+# **CreateMessage**
+> InlineResponse2014 CreateMessage (string to, string fonenumber, string message, List<string> mediaUrl = null, string confirmationUrl = null, string confirmationUrlUsername = null, string confirmationUrlPassword = null, bool? requireConfirmation = null)
+
+Create Message
+
+Send an SMS or MMS message.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class CreateMessageExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new MessagesApi();
+            var to = to_example;  // string | Receiving 10 digit phone number
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var message = message_example;  // string | Message body
+            var mediaUrl = new List<string>(); // List<string> | URL for MMS media (up to 10) (optional) 
             var confirmationUrl = confirmationUrl_example;  // string | Callback URL for confirmation (optional) 
-            var confirmationUrlUsername = confirmationUrlUsername_example;  // string | Callback URL username for confirmation (optional) 
-            var confirmationUrlPassword = confirmationUrlPassword_example;  // string | Callback URL password for confirmation (optional) 
-            var requireConfirmation = true;  // bool? | Only send message if confirmation is available (optional) 
+            var confirmationUrlUsername = confirmationUrlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var confirmationUrlPassword = confirmationUrlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
+            var requireConfirmation = true;  // bool? | Only send this message if confirmation is available (optional) 
 
             try
             {
-                // Send an SMS or MMS message to a recipient.
-                string result = apiInstance.PostMessagesSend(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
+                // Create Message
+                InlineResponse2014 result = apiInstance.CreateMessage(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MessagesApi.PostMessagesSend: " + e.Message );
+                Debug.Print("Exception when calling MessagesApi.CreateMessage: " + e.Message );
             }
         }
     }
@@ -201,37 +518,37 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **to** | **string**| The recipient&#39;s 10 digits phone number. | 
- **fonenumber** | **string**| Your FracTEL phone number to use as from | 
- **message** | **string**| Content of SMS | 
- **mediaUrl** | [**List&lt;string&gt;**](string.md)| URL for media for send via SMS (up to 10) | [optional] 
+ **to** | **string**| Receiving 10 digit phone number | 
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **message** | **string**| Message body | 
+ **mediaUrl** | [**List&lt;string&gt;**](string.md)| URL for MMS media (up to 10) | [optional] 
  **confirmationUrl** | **string**| Callback URL for confirmation | [optional] 
- **confirmationUrlUsername** | **string**| Callback URL username for confirmation | [optional] 
- **confirmationUrlPassword** | **string**| Callback URL password for confirmation | [optional] 
- **requireConfirmation** | **bool?**| Only send message if confirmation is available | [optional] 
+ **confirmationUrlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **confirmationUrlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
+ **requireConfirmation** | **bool?**| Only send this message if confirmation is available | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="postmessagessendnotify"></a>
-# **PostMessagesSendNotify**
-> string PostMessagesSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+<a name="createmessage_0"></a>
+# **CreateMessage_0**
+> InlineResponse2014 CreateMessage_0 (string to, string fonenumber, string message, List<string> mediaUrl = null, string confirmationUrl = null, string confirmationUrlUsername = null, string confirmationUrlPassword = null, bool? requireConfirmation = null)
 
-Configure the callback URL to notify when a message is sent.
+Create Message
 
-Returns a JSON response
+Send an SMS or MMS message.
 
 ### Example
 ```csharp
@@ -243,26 +560,34 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostMessagesSendNotifyExample
+    public class CreateMessage_0Example
     {
         public void main()
         {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new MessagesApi();
-            var fonenumber = fonenumber_example;  // string | Your FracTEL phone number
-            var method = method_example;  // string | Callback URL method.
-            var url = url_example;  // string | Callback URL.
-            var urlUsername = urlUsername_example;  // string | Callback URL username. (optional) 
-            var urlPassword = urlPassword_example;  // string | Callback URL password. (optional) 
+            var to = to_example;  // string | Receiving 10 digit phone number
+            var fonenumber = fonenumber_example;  // string | Your FracTEL FoneNumber
+            var message = message_example;  // string | Message body
+            var mediaUrl = new List<string>(); // List<string> | URL for MMS media (up to 10) (optional) 
+            var confirmationUrl = confirmationUrl_example;  // string | Callback URL for confirmation (optional) 
+            var confirmationUrlUsername = confirmationUrlUsername_example;  // string | Username for HTTP **Basic** authentication scheme (optional) 
+            var confirmationUrlPassword = confirmationUrlPassword_example;  // string | Password for HTTP **Basic** authentication scheme (optional) 
+            var requireConfirmation = true;  // bool? | Only send this message if confirmation is available (optional) 
 
             try
             {
-                // Configure the callback URL to notify when a message is sent.
-                string result = apiInstance.PostMessagesSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+                // Create Message
+                InlineResponse2014 result = apiInstance.CreateMessage_0(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MessagesApi.PostMessagesSendNotify: " + e.Message );
+                Debug.Print("Exception when calling MessagesApi.CreateMessage_0: " + e.Message );
             }
         }
     }
@@ -273,24 +598,27 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fonenumber** | **string**| Your FracTEL phone number | 
- **method** | **string**| Callback URL method. | 
- **url** | **string**| Callback URL. | 
- **urlUsername** | **string**| Callback URL username. | [optional] 
- **urlPassword** | **string**| Callback URL password. | [optional] 
+ **to** | **string**| Receiving 10 digit phone number | 
+ **fonenumber** | **string**| Your FracTEL FoneNumber | 
+ **message** | **string**| Message body | 
+ **mediaUrl** | [**List&lt;string&gt;**](string.md)| URL for MMS media (up to 10) | [optional] 
+ **confirmationUrl** | **string**| Callback URL for confirmation | [optional] 
+ **confirmationUrlUsername** | **string**| Username for HTTP **Basic** authentication scheme | [optional] 
+ **confirmationUrlPassword** | **string**| Password for HTTP **Basic** authentication scheme | [optional] 
+ **requireConfirmation** | **bool?**| Only send this message if confirmation is available | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

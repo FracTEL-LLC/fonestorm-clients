@@ -56,7 +56,7 @@ rest_init(Req0, {Operations, LogicHandler, ValidatorState}) ->
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostMessagesReceive'
+        operation_id = 'ConfigureMessageReceive'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -64,7 +64,7 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostMessagesReceiveNotify'
+        operation_id = 'ConfigureMessageReceiveNotify'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -72,7 +72,7 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostMessagesSend'
+        operation_id = 'ConfigureMessageReceiveNotify_0'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -80,7 +80,39 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'PostMessagesSendNotify'
+        operation_id = 'ConfigureMessageReceive_0'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'ConfigureMessageSendNotify'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'ConfigureMessageSendNotify_0'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'CreateMessage'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'CreateMessage_0'
     }
 ) ->
     {[<<"POST">>], Req, State};
@@ -95,17 +127,165 @@ allowed_methods(Req, State) ->
         State :: state()
     }.
 
-is_authorized(Req, State) ->
-    {true, Req, State};
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageReceive' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
 
-is_authorized(Req, State) ->
-    {true, Req, State};
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageReceiveNotify' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
 
-is_authorized(Req, State) ->
-    {true, Req, State};
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageReceiveNotify_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
 
-is_authorized(Req, State) ->
-    {true, Req, State};
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageReceive_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageSendNotify' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageSendNotify_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'CreateMessage' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'CreateMessage_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
 
 is_authorized(Req, State) ->
     {{false, <<"">>}, Req, State}.
@@ -128,7 +308,7 @@ content_types_accepted(Req, State) ->
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostMessagesReceive'
+        operation_id = 'ConfigureMessageReceive'
     }
 ) ->
     Headers = [],
@@ -138,7 +318,7 @@ valid_content_headers(
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostMessagesReceiveNotify'
+        operation_id = 'ConfigureMessageReceiveNotify'
     }
 ) ->
     Headers = [],
@@ -148,7 +328,7 @@ valid_content_headers(
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostMessagesSend'
+        operation_id = 'ConfigureMessageReceiveNotify_0'
     }
 ) ->
     Headers = [],
@@ -158,7 +338,47 @@ valid_content_headers(
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'PostMessagesSendNotify'
+        operation_id = 'ConfigureMessageReceive_0'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageSendNotify'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'ConfigureMessageSendNotify_0'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'CreateMessage'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'CreateMessage_0'
     }
 ) ->
     Headers = [],

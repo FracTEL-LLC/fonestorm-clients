@@ -4,15 +4,15 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**create_token**](AuthApi.md#create_token) | **POST** /auth | Create Auth Token
 
 
-# **post_auth**
-> String post_auth(username, password, opts)
+# **create_token**
+> InlineResponse201 create_token(username, password, opts)
 
-Obtain a FracTEL Auth token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example
 ```ruby
@@ -26,15 +26,15 @@ username = "username_example" # String | FracTEL username
 password = "password_example" # String | FracTEL password
 
 opts = { 
-  expires: 56 # Integer | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+  expires: 56 # Integer | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
 }
 
 begin
-  #Obtain a FracTEL Auth token.
-  result = api_instance.post_auth(username, password, opts)
+  #Create Auth Token
+  result = api_instance.create_token(username, password, opts)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling AuthApi->post_auth: #{e}"
+  puts "Exception when calling AuthApi->create_token: #{e}"
 end
 ```
 
@@ -44,11 +44,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| FracTEL username | 
  **password** | **String**| FracTEL password | 
- **expires** | **Integer**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **Integer**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
-**String**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

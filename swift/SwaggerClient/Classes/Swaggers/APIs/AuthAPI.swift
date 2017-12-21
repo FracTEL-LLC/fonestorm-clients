@@ -11,33 +11,37 @@ import Alamofire
 
 public class AuthAPI: APIBase {
     /**
-     Obtain a FracTEL Auth token.
+     Create Auth Token
      
      - parameter username: (form) FracTEL username 
      - parameter password: (form) FracTEL password 
-     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func postAuth(username username: String, password: String, expires: Int32? = nil, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        postAuthWithRequestBuilder(username: username, password: password, expires: expires).execute { (response, error) -> Void in
+    public class func createToken(username username: String, password: String, expires: Int32? = nil, completion: ((data: InlineResponse201?, error: ErrorType?) -> Void)) {
+        createTokenWithRequestBuilder(username: username, password: password, expires: expires).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
 
 
     /**
-     Obtain a FracTEL Auth token.
+     Create Auth Token
      - POST /auth
-     - Returns a token that can be used to make authenticated requests
-     - examples: [{contentType=application/json, example="aeiou"}]
+     - Create an authentication token to use for API requests.
+     - examples: [{contentType=application/json, example={
+  "auth" : {
+    "token" : "aeiou"
+  }
+}}]
      
      - parameter username: (form) FracTEL username 
      - parameter password: (form) FracTEL password 
-     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional)
+     - parameter expires: (form) FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional)
 
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<InlineResponse201> 
      */
-    public class func postAuthWithRequestBuilder(username username: String, password: String, expires: Int32? = nil) -> RequestBuilder<String> {
+    public class func createTokenWithRequestBuilder(username username: String, password: String, expires: Int32? = nil) -> RequestBuilder<InlineResponse201> {
         let path = "/auth"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -51,7 +55,7 @@ public class AuthAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse201>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

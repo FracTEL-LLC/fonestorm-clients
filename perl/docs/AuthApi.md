@@ -9,15 +9,15 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthApi.md#post_auth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**create_token**](AuthApi.md#create_token) | **POST** /auth | Create Auth Token
 
 
-# **post_auth**
-> string post_auth(username => $username, password => $password, expires => $expires)
+# **create_token**
+> InlineResponse201 create_token(username => $username, password => $password, expires => $expires)
 
-Obtain a FracTEL Auth token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example 
 ```perl
@@ -28,14 +28,14 @@ use WWW::SwaggerClient::AuthApi;
 my $api_instance = WWW::SwaggerClient::AuthApi->new();
 my $username = 'username_example'; # string | FracTEL username
 my $password = 'password_example'; # string | FracTEL password
-my $expires = 56; # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours
+my $expires = 56; # int | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)
 
 eval { 
-    my $result = $api_instance->post_auth(username => $username, password => $password, expires => $expires);
+    my $result = $api_instance->create_token(username => $username, password => $password, expires => $expires);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling AuthApi->post_auth: $@\n";
+    warn "Exception when calling AuthApi->create_token: $@\n";
 }
 ```
 
@@ -45,11 +45,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| FracTEL username | 
  **password** | **string**| FracTEL password | 
- **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **int**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
@@ -58,7 +58,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

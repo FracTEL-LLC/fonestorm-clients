@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-08-08T09:24:05.092-06:00
+# ! Generated on: 2017-12-20T17:25:00.503-07:00
 # !
 # !
 # ! Installation:
@@ -297,79 +297,279 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "postAuth[Obtain a FracTEL Auth token.]"             "deleteFonenumbersFonenumber[Remove fonenumber from the account.]" \
-            "getFonenumbers[Get all active fonenumbers listed under the account.]" \
-            "getFonenumbersFonenumber[Get a single fonenumber listed under the account.]" \
-            "postFonenumbers[Order quick fonenumber for the account.]" \
-            "putFonenumbersFonenumber[Configure the service type for an account fonenumber.]"             "postMessagesReceive[Configure the delivery service type used as the destination for received messages.]" \
-            "postMessagesReceiveNotify[Configure the callback URL to notify when a message is received.]" \
-            "postMessagesSend[Send an SMS or MMS message to a recipient.]" \
-            "postMessagesSendNotify[Configure the callback URL to notify when a message is sent.]" 
+            "configureAccountCdrNotify[Set CDR Callback]" \
+            "configureAccountCdrNotify_0[Set CDR Callback]" \
+            "getAccount[Get Account]" \
+            "getAccount_0[Get Account]" \
+            "updateAccount[Update Account]" \
+            "updateAccount_0[Update Account]"             "createToken[Create Auth Token]"             "createToken[Create Auth Token]"             "configureCallReceiveNotify[Set Receive Callback]" \
+            "configureCallReceiveNotify_0[Set Receive Callback]" \
+            "configureCallSendNotify[Set Send Callback]" \
+            "configureCallSendNotify_0[Set Send Callback]" \
+            "createCall[Create Call]" \
+            "createCall_0[Create Call]"             "configureFaxReceiveNotify[Set Receive Callback]" \
+            "configureFaxReceiveNotify_0[Set Receive Callback]" \
+            "configureFaxSendNotify[Set Send Callback]" \
+            "configureFaxSendNotify_0[Set Send Callback]" \
+            "createFax[Create Fax]" \
+            "createFax_0[Create Fax]"             "createFonenumber[Create FoneNumber]" \
+            "createFonenumber_0[Create FoneNumber]" \
+            "deleteFonenumber[Delete FoneNumber]" \
+            "deleteFonenumber_0[Delete FoneNumber]" \
+            "getFonenumber[Get FoneNumber]" \
+            "getFonenumber_0[Get FoneNumber]" \
+            "getFonenumbers[Get FoneNumbers]" \
+            "getFonenumbers_0[Get FoneNumbers]" \
+            "updateFonenumber[Update FoneNumber]" \
+            "updateFonenumber_0[Update FoneNumber]"             "configureMessageReceive[Set Delivery Service]" \
+            "configureMessageReceiveNotify[Set Receive Callback]" \
+            "configureMessageReceiveNotify_0[Set Receive Callback]" \
+            "configureMessageReceive_0[Set Delivery Service]" \
+            "configureMessageSendNotify[Set Send Callback]" \
+            "configureMessageSendNotify_0[Set Send Callback]" \
+            "createMessage[Create Message]" \
+            "createMessage_0[Create Message]" 
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
     ;;
   args)
     case $line[1] in
-      postAuth)
+      configureAccountCdrNotify)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      deleteFonenumbersFonenumber)
+      configureAccountCdrNotify_0)
         local -a _op_arguments
         _op_arguments=(
-          "fonenumber=:[PATH] Your FracTEL fonenumber."
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAccount)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Account id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAccount_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Account id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateAccount)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Account id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateAccount_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Account id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createToken)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createToken)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureCallReceiveNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureCallReceiveNotify_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureCallSendNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureCallSendNotify_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createCall)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createCall_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureFaxReceiveNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureFaxReceiveNotify_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureFaxSendNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureFaxSendNotify_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createFax)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createFax_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createFonenumber)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createFonenumber_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteFonenumber)
+        local -a _op_arguments
+        _op_arguments=(
+          "fonenumber=:[PATH] FoneNumber associated with the account"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteFonenumber_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "fonenumber=:[PATH] FoneNumber associated with the account"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getFonenumber)
+        local -a _op_arguments
+        _op_arguments=(
+          "fonenumber=:[PATH] FoneNumber associated with the account"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getFonenumber_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "fonenumber=:[PATH] FoneNumber associated with the account"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getFonenumbers)
         local -a _op_arguments
         _op_arguments=(
-                    "filter=:[QUERY] Filters for the response."
+                    "filter=:[QUERY] Filter the response attributes. Allowed values are &#39;fonenumbers&#39; or &#39;all&#39;. See **Notes** for additional information."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      getFonenumbersFonenumber)
+      getFonenumbers_0)
         local -a _op_arguments
         _op_arguments=(
-          "fonenumber=:[PATH] Your FracTEL fonenumber."
+                    "filter=:[QUERY] Filter the response attributes. Allowed values are &#39;fonenumbers&#39; or &#39;all&#39;. See **Notes** for additional information."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateFonenumber)
+        local -a _op_arguments
+        _op_arguments=(
+          "fonenumber=:[PATH] FoneNumber associated with the account"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      postFonenumbers)
+      updateFonenumber_0)
         local -a _op_arguments
         _op_arguments=(
-                              )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      putFonenumbersFonenumber)
-        local -a _op_arguments
-        _op_arguments=(
-          "fonenumber=:[PATH] Your FracTEL fonenumber."
+          "fonenumber=:[PATH] FoneNumber associated with the account"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      postMessagesReceive)
+      configureMessageReceive)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      postMessagesReceiveNotify)
+      configureMessageReceiveNotify)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      postMessagesSend)
+      configureMessageReceiveNotify_0)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      postMessagesSendNotify)
+      configureMessageReceive_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureMessageSendNotify)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      configureMessageSendNotify_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createMessage)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createMessage_0)
         local -a _op_arguments
         _op_arguments=(
                               )

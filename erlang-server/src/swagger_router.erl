@@ -55,14 +55,134 @@ group_paths() ->
 
 get_operations() ->
     #{ 
-        'PostAuth' => #{
+        'ConfigureAccountCdrNotify' => #{
+            path => "/v2/accounts/cdr_notify",
+            method => <<"POST">>,
+            handler => 'swagger_accounts_handler'
+        },
+        'ConfigureAccountCdrNotify_0' => #{
+            path => "/v2/accounts/cdr_notify",
+            method => <<"POST">>,
+            handler => 'swagger_accounts_handler'
+        },
+        'GetAccount' => #{
+            path => "/v2/accounts/:id",
+            method => <<"GET">>,
+            handler => 'swagger_accounts_handler'
+        },
+        'GetAccount_0' => #{
+            path => "/v2/accounts/:id",
+            method => <<"GET">>,
+            handler => 'swagger_accounts_handler'
+        },
+        'UpdateAccount' => #{
+            path => "/v2/accounts/:id",
+            method => <<"PUT">>,
+            handler => 'swagger_accounts_handler'
+        },
+        'UpdateAccount_0' => #{
+            path => "/v2/accounts/:id",
+            method => <<"PUT">>,
+            handler => 'swagger_accounts_handler'
+        },
+        'CreateToken' => #{
             path => "/v2/auth",
             method => <<"POST">>,
             handler => 'swagger_auth_handler'
         },
-        'DeleteFonenumbersFonenumber' => #{
+        'CreateToken' => #{
+            path => "/v2/auth",
+            method => <<"POST">>,
+            handler => 'swagger_authorization_handler'
+        },
+        'ConfigureCallReceiveNotify' => #{
+            path => "/v2/calls/receive_notify",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'ConfigureCallReceiveNotify_0' => #{
+            path => "/v2/calls/receive_notify",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'ConfigureCallSendNotify' => #{
+            path => "/v2/calls/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'ConfigureCallSendNotify_0' => #{
+            path => "/v2/calls/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'CreateCall' => #{
+            path => "/v2/calls",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'CreateCall_0' => #{
+            path => "/v2/calls",
+            method => <<"POST">>,
+            handler => 'swagger_calls_handler'
+        },
+        'ConfigureFaxReceiveNotify' => #{
+            path => "/v2/faxes/receive_notify",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'ConfigureFaxReceiveNotify_0' => #{
+            path => "/v2/faxes/receive_notify",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'ConfigureFaxSendNotify' => #{
+            path => "/v2/faxes/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'ConfigureFaxSendNotify_0' => #{
+            path => "/v2/faxes/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'CreateFax' => #{
+            path => "/v2/faxes",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'CreateFax_0' => #{
+            path => "/v2/faxes",
+            method => <<"POST">>,
+            handler => 'swagger_faxes_handler'
+        },
+        'CreateFonenumber' => #{
+            path => "/v2/fonenumbers",
+            method => <<"POST">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'CreateFonenumber_0' => #{
+            path => "/v2/fonenumbers",
+            method => <<"POST">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'DeleteFonenumber' => #{
             path => "/v2/fonenumbers/:fonenumber",
             method => <<"DELETE">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'DeleteFonenumber_0' => #{
+            path => "/v2/fonenumbers/:fonenumber",
+            method => <<"DELETE">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'GetFonenumber' => #{
+            path => "/v2/fonenumbers/:fonenumber",
+            method => <<"GET">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'GetFonenumber_0' => #{
+            path => "/v2/fonenumbers/:fonenumber",
+            method => <<"GET">>,
             handler => 'swagger_fonenumbers_handler'
         },
         'GetFonenumbers' => #{
@@ -70,38 +190,58 @@ get_operations() ->
             method => <<"GET">>,
             handler => 'swagger_fonenumbers_handler'
         },
-        'GetFonenumbersFonenumber' => #{
-            path => "/v2/fonenumbers/:fonenumber",
+        'GetFonenumbers_0' => #{
+            path => "/v2/fonenumbers",
             method => <<"GET">>,
             handler => 'swagger_fonenumbers_handler'
         },
-        'PostFonenumbers' => #{
-            path => "/v2/fonenumbers",
-            method => <<"POST">>,
-            handler => 'swagger_fonenumbers_handler'
-        },
-        'PutFonenumbersFonenumber' => #{
+        'UpdateFonenumber' => #{
             path => "/v2/fonenumbers/:fonenumber",
             method => <<"PUT">>,
             handler => 'swagger_fonenumbers_handler'
         },
-        'PostMessagesReceive' => #{
+        'UpdateFonenumber_0' => #{
+            path => "/v2/fonenumbers/:fonenumber",
+            method => <<"PUT">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'ConfigureMessageReceive' => #{
             path => "/v2/messages/receive",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         },
-        'PostMessagesReceiveNotify' => #{
+        'ConfigureMessageReceiveNotify' => #{
             path => "/v2/messages/receive_notify",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         },
-        'PostMessagesSend' => #{
+        'ConfigureMessageReceiveNotify_0' => #{
+            path => "/v2/messages/receive_notify",
+            method => <<"POST">>,
+            handler => 'swagger_messages_handler'
+        },
+        'ConfigureMessageReceive_0' => #{
+            path => "/v2/messages/receive",
+            method => <<"POST">>,
+            handler => 'swagger_messages_handler'
+        },
+        'ConfigureMessageSendNotify' => #{
+            path => "/v2/messages/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_messages_handler'
+        },
+        'ConfigureMessageSendNotify_0' => #{
+            path => "/v2/messages/send_notify",
+            method => <<"POST">>,
+            handler => 'swagger_messages_handler'
+        },
+        'CreateMessage' => #{
             path => "/v2/messages/send",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         },
-        'PostMessagesSendNotify' => #{
-            path => "/v2/messages/send_notify",
+        'CreateMessage_0' => #{
+            path => "/v2/messages/send",
             method => <<"POST">>,
             handler => 'swagger_messages_handler'
         }

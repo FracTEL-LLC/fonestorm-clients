@@ -4,16 +4,16 @@ All URIs are relative to *http://api.fonestorm.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PostAuth**](AuthApi.md#postauth) | **POST** /auth | Obtain a FracTEL Auth token.
+[**CreateToken**](AuthApi.md#createtoken) | **POST** /auth | Create Auth Token
 
 
-<a name="postauth"></a>
-# **PostAuth**
-> string PostAuth (string username, string password, int? expires = null)
+<a name="createtoken"></a>
+# **CreateToken**
+> InlineResponse201 CreateToken (string username, string password, int? expires = null)
 
-Obtain a FracTEL Auth token.
+Create Auth Token
 
-Returns a token that can be used to make authenticated requests
+Create an authentication token to use for API requests.
 
 ### Example
 ```csharp
@@ -25,24 +25,24 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostAuthExample
+    public class CreateTokenExample
     {
         public void main()
         {
             var apiInstance = new AuthApi();
             var username = username_example;  // string | FracTEL username
             var password = password_example;  // string | FracTEL password
-            var expires = 56;  // int? | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours (optional) 
+            var expires = 56;  // int? | FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) (optional) 
 
             try
             {
-                // Obtain a FracTEL Auth token.
-                string result = apiInstance.PostAuth(username, password, expires);
+                // Create Auth Token
+                InlineResponse201 result = apiInstance.CreateToken(username, password, expires);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthApi.PostAuth: " + e.Message );
+                Debug.Print("Exception when calling AuthApi.CreateToken: " + e.Message );
             }
         }
     }
@@ -55,11 +55,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| FracTEL username | 
  **password** | **string**| FracTEL password | 
- **expires** | **int?**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours | [optional] 
+ **expires** | **int?**| FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours) | [optional] 
 
 ### Return type
 
-**string**
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

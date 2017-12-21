@@ -1,27 +1,82 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "version" : "2.1.2",
-    "title" : "FracTEL API 2.1.2"
+    "description" : "FracTEL's Middleware API",
+    "version" : "2.2.0",
+    "title" : "FoneStorm API 2.2.0 (Breeze)",
+    "termsOfService" : "https://www.fonestorm.com/terms",
+    "contact" : {
+      "name" : "FracTEL, LLC"
+    },
+    "license" : {
+      "name" : "ISC",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
   },
   "host" : "api.fonestorm.com",
   "basePath" : "/v2",
   "tags" : [ {
+    "name" : "accounts",
+    "description" : "Account Functions"
+  }, {
     "name" : "api",
-    "description" : "API Functions",
-    "externalDocs" : {
-      "description" : "Extended API Documentation",
-      "url" : "https://developer.fonestorm.com/"
-    }
+    "description" : "API Functions"
+  }, {
+    "name" : "auth",
+    "description" : "Authentication Functions"
+  }, {
+    "name" : "call-to-actions",
+    "description" : "Call to Action Functions"
+  }, {
+    "name" : "calls",
+    "description" : "Calling"
+  }, {
+    "name" : "campaigns",
+    "description" : "Campaign Functions"
+  }, {
+    "name" : "conferences",
+    "description" : "Conference Functions"
+  }, {
+    "name" : "contacts",
+    "description" : "Contact Functions"
+  }, {
+    "name" : "documents",
+    "description" : "Document Functions"
+  }, {
+    "name" : "emails",
+    "description" : "Emailing Functions"
+  }, {
+    "name" : "events",
+    "description" : "Event Functions"
+  }, {
+    "name" : "faxes",
+    "description" : "Fax Functions"
+  }, {
+    "name" : "fonenumbers",
+    "description" : "Fonenumber Functions"
+  }, {
+    "name" : "lists",
+    "description" : "List Functions"
+  }, {
+    "name" : "messages",
+    "description" : "Messaging Functions"
+  }, {
+    "name" : "surveys",
+    "description" : "Survey Functions"
+  }, {
+    "name" : "templates",
+    "description" : "Template Functions"
   } ],
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
+  "consumes" : [ "application/x-www-form-urlencoded", "application/offset+octet-stream", "multipart/form-data" ],
+  "produces" : [ "application/json" ],
   "paths" : {
     "/auth" : {
       "post" : {
-        "tags" : [ "auth" ],
-        "summary" : "Obtain a FracTEL Auth token.",
-        "description" : "Returns a token that can be used to make authenticated requests",
-        "operationId" : "postAuth",
+        "tags" : [ "Authorization", "auth" ],
+        "summary" : "Create Auth Token",
+        "description" : "Create an authentication token to use for API requests.",
+        "operationId" : "createToken",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "username",
@@ -38,263 +93,313 @@
         }, {
           "name" : "expires",
           "in" : "formData",
-          "description" : "FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours",
+          "description" : "FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 86400 seconds (24 hours)",
           "required" : false,
-          "type" : "integer",
-          "maximum" : 86400
+          "type" : "integer"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "Successful",
+          "201" : {
+            "description" : "Created",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/inline_response_201"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
             }
           }
         }
       }
     },
+    "/faxes" : {
+      "post" : {
+        "tags" : [ "Faxes", "faxes" ],
+        "summary" : "Create Fax",
+        "description" : "Send a fax to a recipient phone number.",
+        "operationId" : "createFax",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FoneNumber to use for fax",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "to",
+          "in" : "formData",
+          "description" : "Receiving 10 digit phone number",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "message",
+          "in" : "formData",
+          "description" : "Message to fax",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "pdf",
+          "in" : "formData",
+          "description" : "URL of a PDF file to send with fax",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_1"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/calls" : {
+      "post" : {
+        "tags" : [ "Calls", "calls" ],
+        "summary" : "Create Call",
+        "description" : "Create a new voice call from a FoneNumber to a recipient phone number.",
+        "operationId" : "createCall",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FoneNumber to use as caller",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "to",
+          "in" : "formData",
+          "description" : "Receiving 10 digit phone number",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "tts",
+          "in" : "formData",
+          "description" : "Text to speech message",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_2"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
     "/fonenumbers" : {
       "get" : {
-        "tags" : [ "fonenumbers" ],
-        "summary" : "Get all active fonenumbers listed under the account.",
-        "description" : "Returns a JSON response",
+        "tags" : [ "Fonenumbers", "fonenumbers" ],
+        "summary" : "Get FoneNumbers",
+        "description" : "Get a list of all FoneNumbers, or a selection based on a filter.",
         "operationId" : "getFonenumbers",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "filter",
           "in" : "query",
-          "description" : "Filters for the response.",
+          "description" : "Filter the response attributes. Allowed values are `fonenumbers` or `all`. See **Notes** for additional information.",
           "required" : false,
           "type" : "string",
           "enum" : [ "fonenumbers", "all" ]
         } ],
         "responses" : {
-          "default" : {
-            "description" : "Successful",
+          "200" : {
+            "description" : "Success",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/inline_response_200"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
             }
           }
-        }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
       },
       "post" : {
-        "tags" : [ "fonenumbers" ],
-        "summary" : "Order quick fonenumber for the account.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postFonenumbers",
+        "tags" : [ "Fonenumbers", "fonenumbers" ],
+        "summary" : "Create FoneNumber",
+        "description" : "Order a new FoneNumber for a given area code.",
+        "operationId" : "createFonenumber",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "area_code",
           "in" : "formData",
-          "description" : "A valid 3-digit Area Code.",
+          "description" : "Valid 3-digit area code",
           "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 3
-          }
+          "type" : "string"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "Successful",
+          "201" : {
+            "description" : "Created",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
             }
           }
-        }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
       }
     },
-    "/messages/receive" : {
-      "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Configure the delivery service type used as the destination for received messages.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postMessagesReceive",
+    "/accounts/{id}" : {
+      "get" : {
+        "tags" : [ "Accounts", "accounts" ],
+        "summary" : "Get Account",
+        "description" : "Get information about an account.",
+        "operationId" : "getAccount",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Account id",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_200_1"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Accounts", "accounts" ],
+        "summary" : "Update Account",
+        "description" : "Update an account.",
+        "operationId" : "updateAccount",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number.",
+          "name" : "id",
+          "in" : "path",
+          "description" : "Account id",
           "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
+          "type" : "string"
         }, {
-          "name" : "type",
+          "name" : "primary_color",
           "in" : "formData",
-          "description" : "Message routing type.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "None", "Device", "Email", "URL", "Forward" ]
-        }, {
-          "name" : "value",
-          "in" : "formData",
-          "description" : "Message routing type value.",
-          "required" : false,
-          "type" : "string",
-          "x-alternatives" : [ {
-            "type" : "string",
-            "description" : "Message routing type value."
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value."
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-format" : {
-              "email" : true
-            }
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-format" : {
-              "uri" : {
-                "scheme" : [ "http", "https" ]
-              }
-            }
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-constraint" : {
-              "length" : 10
-            }
-          } ]
-        }, {
-          "name" : "url_method",
-          "in" : "formData",
-          "description" : "URL method when type is URL.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ],
-          "x-alternatives" : [ {
-            "type" : "string",
-            "description" : "URL method when type is URL.",
-            "enum" : [ "GET", "POST", "JSON" ]
-          } ]
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Optional URL username when type is URL.",
+          "description" : "Branding primary color",
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "url_password",
+          "name" : "secondary_color",
           "in" : "formData",
-          "description" : "Optional URL password when type is URL.",
+          "description" : "Branding secondary color",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "background_color",
+          "in" : "formData",
+          "description" : "Branding background color",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "font_family",
+          "in" : "formData",
+          "description" : "Branding font family",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "logo",
+          "in" : "formData",
+          "description" : "Branding logo",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "Successful",
+          "200" : {
+            "description" : "Success",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/inline_response_200_1"
             }
-          }
-        }
-      }
-    },
-    "/messages/receive_notify" : {
-      "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Configure the callback URL to notify when a message is received.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postMessagesReceive_notify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL phone number.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
+          },
           "default" : {
-            "description" : "Successful",
+            "description" : "Error",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/Error"
             }
           }
-        }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
       }
     },
     "/messages/send" : {
       "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Send an SMS or MMS message to a recipient.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postMessagesSend",
+        "tags" : [ "Messages", "messages" ],
+        "summary" : "Create Message",
+        "description" : "Send an SMS or MMS message.",
+        "operationId" : "createMessage",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "to",
           "in" : "formData",
-          "description" : "The recipient's 10 digits phone number.",
+          "description" : "Receiving 10 digit phone number",
           "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
+          "type" : "string"
         }, {
           "name" : "fonenumber",
           "in" : "formData",
-          "description" : "Your FracTEL phone number to use as from",
+          "description" : "Your FracTEL FoneNumber",
           "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
+          "type" : "string"
         }, {
           "name" : "message",
           "in" : "formData",
-          "description" : "Content of SMS",
+          "description" : "Message body",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "media_url",
           "in" : "formData",
-          "description" : "URL for media for send via SMS (up to 10)",
+          "description" : "URL for MMS media (up to 10)",
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "x-format" : {
-              "uri" : {
-                "scheme" : [ "http", "https" ]
-              }
-            }
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "maxItems" : 10
@@ -303,240 +408,640 @@
           "in" : "formData",
           "description" : "Callback URL for confirmation",
           "required" : false,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
+          "type" : "string"
         }, {
           "name" : "confirmation_url_username",
           "in" : "formData",
-          "description" : "Callback URL username for confirmation",
+          "description" : "Username for HTTP **Basic** authentication scheme",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "confirmation_url_password",
           "in" : "formData",
-          "description" : "Callback URL password for confirmation",
+          "description" : "Password for HTTP **Basic** authentication scheme",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "require_confirmation",
           "in" : "formData",
-          "description" : "Only send message if confirmation is available",
+          "description" : "Only send this message if confirmation is available",
           "required" : false,
           "type" : "boolean"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "Successful",
+          "201" : {
+            "description" : "Created",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/inline_response_201_4"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
             }
           }
-        }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
       }
     },
-    "/messages/send_notify" : {
+    "/messages/receive" : {
       "post" : {
-        "tags" : [ "messages" ],
-        "summary" : "Configure the callback URL to notify when a message is sent.",
-        "description" : "Returns a JSON response",
-        "operationId" : "postMessagesSend_notify",
+        "tags" : [ "Messages", "messages" ],
+        "summary" : "Set Delivery Service",
+        "description" : "Configure the delivery service type used as the destination for messages received at a FoneNumber.",
+        "operationId" : "configureMessageReceive",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "fonenumber",
           "in" : "formData",
-          "description" : "Your FracTEL phone number",
+          "description" : "Your FracTEL FoneNumber",
           "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL.",
-          "required" : true,
-          "type" : "string",
-          "x-format" : {
-            "uri" : {
-              "scheme" : [ "http", "https" ]
-            }
-          }
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Callback URL username.",
-          "required" : false,
           "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Callback URL password.",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/fonenumbers/{fonenumber}" : {
-      "get" : {
-        "tags" : [ "fonenumbers" ],
-        "summary" : "Get a single fonenumber listed under the account.",
-        "description" : "Returns a JSON response",
-        "operationId" : "getFonenumbersFonenumber",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "path",
-          "description" : "Your FracTEL fonenumber.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "Successful",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "fonenumbers" ],
-        "summary" : "Configure the service type for an account fonenumber.",
-        "description" : "Returns a JSON response",
-        "operationId" : "putFonenumbersFonenumber",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "path",
-          "description" : "Your FracTEL fonenumber.",
-          "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
         }, {
           "name" : "type",
           "in" : "formData",
-          "description" : "Message routing type.",
+          "description" : "Message routing type",
           "required" : true,
           "type" : "string",
           "enum" : [ "None", "Device", "Email", "URL", "Forward" ]
         }, {
           "name" : "value",
           "in" : "formData",
-          "description" : "Message routing type value.",
-          "required" : false,
-          "type" : "string",
-          "x-alternatives" : [ {
-            "type" : "string",
-            "description" : "Message routing type value."
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-constraint" : {
-              "length" : 12
-            }
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-format" : {
-              "email" : true
-            }
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-format" : {
-              "uri" : {
-                "scheme" : [ "http", "https" ]
-              }
-            }
-          }, {
-            "type" : "string",
-            "description" : "Message routing type value.",
-            "x-constraint" : {
-              "length" : 10
-            }
-          } ]
+          "description" : "Message routing type value",
+          "required" : true,
+          "type" : "string"
         }, {
           "name" : "url_method",
           "in" : "formData",
-          "description" : "URL method.",
-          "required" : false,
+          "description" : "URL method (when `type` is URL)",
+          "required" : true,
           "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ],
-          "x-alternatives" : [ {
-            "type" : "string",
-            "description" : "URL method.",
-            "enum" : [ "GET", "POST", "JSON" ]
-          } ]
+          "enum" : [ "GET", "POST", "JSON" ]
         }, {
           "name" : "url_username",
           "in" : "formData",
-          "description" : "URL auth username.",
+          "description" : "Username for HTTP **Basic** authentication scheme",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "url_password",
           "in" : "formData",
-          "description" : "URL auth password.",
+          "description" : "Password for HTTP **Basic** authentication scheme",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "Successful",
+          "200" : {
+            "description" : "Success",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
             }
           }
-        }
-      },
-      "delete" : {
-        "tags" : [ "fonenumbers" ],
-        "summary" : "Remove fonenumber from the account.",
-        "description" : "Returns a JSON response",
-        "operationId" : "deleteFonenumbersFonenumber",
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/faxes/send_notify" : {
+      "post" : {
+        "tags" : [ "Faxes", "faxes" ],
+        "summary" : "Set Send Callback",
+        "description" : "Configure the callback URL to notify when an outbound fax is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.",
+        "operationId" : "configureFaxSendNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FoneNumber associated with the account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/calls/send_notify" : {
+      "post" : {
+        "tags" : [ "Calls", "calls" ],
+        "summary" : "Set Send Callback",
+        "description" : "Configure the callback URL to notify when an outbound call is made. Each FoneNumber can be configured to use its own callback URL for handling send notifications.",
+        "operationId" : "configureCallSendNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FoneNumber associated with the account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/accounts/cdr_notify" : {
+      "post" : {
+        "tags" : [ "Accounts", "accounts" ],
+        "summary" : "Set CDR Callback",
+        "description" : "Configure the callback URL to notify when a call dialing record is available.",
+        "operationId" : "configureAccountCdrNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "formData",
+          "description" : "FoneStorm account id",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "username",
+          "in" : "formData",
+          "description" : "Callback URL username",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "formData",
+          "description" : "Callback URL password",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_200_1"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/faxes/receive_notify" : {
+      "post" : {
+        "tags" : [ "Faxes", "faxes" ],
+        "summary" : "Set Receive Callback",
+        "description" : "Configure the callback URL to notify when an inbound fax is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.",
+        "operationId" : "configureFaxReceiveNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FoneNumber associated with the account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/messages/send_notify" : {
+      "post" : {
+        "tags" : [ "Messages", "messages" ],
+        "summary" : "Set Send Callback",
+        "description" : "Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.",
+        "operationId" : "configureMessageSendNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL FoneNumber",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/calls/receive_notify" : {
+      "post" : {
+        "tags" : [ "Calls", "calls" ],
+        "summary" : "Set Receive Callback",
+        "description" : "Configure the callback URL to notify when a call is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.",
+        "operationId" : "configureCallReceiveNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FoneNumber associated with the account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method. Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/messages/receive_notify" : {
+      "post" : {
+        "tags" : [ "Messages", "messages" ],
+        "summary" : "Set Receive Callback",
+        "description" : "Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.",
+        "operationId" : "configureMessageReceiveNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL FoneNumber",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/fonenumbers/{fonenumber}" : {
+      "get" : {
+        "tags" : [ "Fonenumbers", "fonenumbers" ],
+        "summary" : "Get FoneNumber",
+        "description" : "Get information for a single FoneNumber.",
+        "operationId" : "getFonenumber",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "fonenumber",
           "in" : "path",
-          "description" : "Your FracTEL fonenumber.",
+          "description" : "FoneNumber associated with the account",
           "required" : true,
-          "type" : "string",
-          "x-constraint" : {
-            "length" : 10
-          }
+          "type" : "string"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "Successful",
+          "200" : {
+            "description" : "Success",
             "schema" : {
-              "type" : "string"
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
             }
           }
-        }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Fonenumbers", "fonenumbers" ],
+        "summary" : "Update FoneNumber",
+        "description" : "Update a FoneNumber.",
+        "operationId" : "updateFonenumber",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "path",
+          "description" : "FoneNumber associated with the account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "type",
+          "in" : "formData",
+          "description" : "Message routing type. Allowed values are `None`, `Device`, `Email`, `URL`, or `Forward`.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "None", "Device", "Email", "URL", "Forward" ]
+        }, {
+          "name" : "value",
+          "in" : "formData",
+          "description" : "Message routing type value",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_method",
+          "in" : "formData",
+          "description" : "URL method. Allowed values are `GET`, `POST`, or `JSON`. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Fonenumbers", "fonenumbers" ],
+        "summary" : "Delete FoneNumber",
+        "description" : "Remove a FoneNumber from an account.",
+        "operationId" : "deleteFonenumber",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "path",
+          "description" : "FoneNumber associated with the account",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
       }
     }
   },
@@ -547,5 +1052,337 @@
       "in" : "header"
     }
   },
-  "definitions" : { }
+  "definitions" : {
+    "Fax" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of fax."
+        }
+      }
+    },
+    "Call" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of call."
+        }
+      }
+    },
+    "Error" : {
+      "type" : "object",
+      "required" : [ "error", "message", "status_code" ],
+      "properties" : {
+        "error" : {
+          "type" : "string"
+        },
+        "message" : {
+          "type" : "string"
+        },
+        "status_code" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Account" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "background_color" : {
+          "type" : "string",
+          "description" : "Account background color."
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of account."
+        },
+        "cdr_notify_url" : {
+          "type" : "string",
+          "description" : "Call dialing record callback URL."
+        },
+        "cdr_notify_method" : {
+          "type" : "string",
+          "description" : "Call dialing record callback URL method."
+        },
+        "cdr_notify_password" : {
+          "type" : "string",
+          "description" : "Call dialing record callback URL password."
+        },
+        "cdr_notify_username" : {
+          "type" : "string",
+          "description" : "Call dialing record callback URL username."
+        },
+        "font_family" : {
+          "type" : "string",
+          "description" : "Account font family."
+        },
+        "primary_color" : {
+          "type" : "string",
+          "description" : "Account primary brand color."
+        },
+        "secondary_color" : {
+          "type" : "string",
+          "description" : "Account secondary brand color."
+        }
+      }
+    },
+    "Message" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of message."
+        }
+      }
+    },
+    "FoneNumber" : {
+      "type" : "object",
+      "required" : [ "fonenumber" ],
+      "properties" : {
+        "fonenumber" : {
+          "type" : "string",
+          "description" : "FoneNumber."
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "US State for fonenumber."
+        },
+        "rate_center" : {
+          "type" : "string",
+          "description" : "Rate center for fonenumber."
+        },
+        "is_active" : {
+          "type" : "string",
+          "description" : "Status of FoneNumber."
+        },
+        "sms_options" : {
+          "$ref" : "#/definitions/FoneNumber_sms_options"
+        },
+        "voice_options" : {
+          "$ref" : "#/definitions/FoneNumber_voice_options"
+        },
+        "fax_options" : {
+          "$ref" : "#/definitions/FoneNumber_fax_options"
+        }
+      }
+    },
+    "Authorization" : {
+      "type" : "object",
+      "required" : [ "token" ],
+      "properties" : {
+        "token" : {
+          "type" : "string",
+          "description" : "JSON Web Token."
+        }
+      }
+    },
+    "inline_response_201" : {
+      "properties" : {
+        "auth" : {
+          "$ref" : "#/definitions/Authorization"
+        }
+      }
+    },
+    "inline_response_201_1" : {
+      "properties" : {
+        "fax" : {
+          "$ref" : "#/definitions/Fax"
+        }
+      }
+    },
+    "inline_response_201_2" : {
+      "properties" : {
+        "call" : {
+          "$ref" : "#/definitions/Call"
+        }
+      }
+    },
+    "inline_response_200" : {
+      "properties" : {
+        "fonenumbers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/FoneNumber"
+          }
+        }
+      }
+    },
+    "inline_response_201_3" : {
+      "properties" : {
+        "fonenumber" : {
+          "$ref" : "#/definitions/FoneNumber"
+        }
+      }
+    },
+    "inline_response_200_1" : {
+      "properties" : {
+        "account" : {
+          "$ref" : "#/definitions/Account"
+        }
+      }
+    },
+    "inline_response_201_4" : {
+      "properties" : {
+        "message" : {
+          "$ref" : "#/definitions/Message"
+        }
+      }
+    },
+    "FoneNumber_sms_options_receive" : {
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "Configured service type."
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "Email address if configured for email."
+        },
+        "device" : {
+          "type" : "string",
+          "description" : "FracTEL device if configured for device."
+        },
+        "forward" : {
+          "type" : "string",
+          "description" : "Telephone number if configured for forward."
+        },
+        "url" : {
+          "type" : "string",
+          "description" : "HTTP URL if configured for URL."
+        },
+        "url_method" : {
+          "type" : "string",
+          "description" : "HTTP URL method if configured for URL."
+        }
+      },
+      "description" : "Delivery service type used as the destination to receive messages."
+    },
+    "FoneNumber_sms_options_receive_notify" : {
+      "properties" : {
+        "url" : {
+          "type" : "string",
+          "description" : "HTTP URL."
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "HTTP URL method."
+        }
+      },
+      "description" : "Callback URL to notify when a message is received."
+    },
+    "FoneNumber_sms_options_send_notify" : {
+      "properties" : {
+        "url" : {
+          "type" : "string",
+          "description" : "HTTP URL."
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "HTTP URL method."
+        }
+      },
+      "description" : "Callback URL to notify when a message is sent."
+    },
+    "FoneNumber_sms_options" : {
+      "properties" : {
+        "receive" : {
+          "$ref" : "#/definitions/FoneNumber_sms_options_receive"
+        },
+        "receive_notify" : {
+          "$ref" : "#/definitions/FoneNumber_sms_options_receive_notify"
+        },
+        "send_notify" : {
+          "$ref" : "#/definitions/FoneNumber_sms_options_send_notify"
+        },
+        "sms_enabled" : {
+          "type" : "string",
+          "description" : "SMS service is enabled for FoneNumber."
+        },
+        "mms_enabled" : {
+          "type" : "string",
+          "description" : "MMS service is enabled for FoneNumber."
+        }
+      },
+      "description" : "SMS related properties."
+    },
+    "FoneNumber_voice_options_receive_notify" : {
+      "properties" : {
+        "url" : {
+          "type" : "string",
+          "description" : "HTTP URL."
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "HTTP URL method."
+        }
+      },
+      "description" : "Callback URL to notify when a call is received."
+    },
+    "FoneNumber_voice_options_send_notify" : {
+      "properties" : {
+        "url" : {
+          "type" : "string",
+          "description" : "HTTP URL."
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "HTTP URL method."
+        }
+      },
+      "description" : "Callback URL to notify when a call is made."
+    },
+    "FoneNumber_voice_options" : {
+      "properties" : {
+        "receive_notify" : {
+          "$ref" : "#/definitions/FoneNumber_voice_options_receive_notify"
+        },
+        "send_notify" : {
+          "$ref" : "#/definitions/FoneNumber_voice_options_send_notify"
+        }
+      },
+      "description" : "Voice related properties."
+    },
+    "FoneNumber_fax_options_receive_notify" : {
+      "properties" : {
+        "url" : {
+          "type" : "string",
+          "description" : "HTTP URL."
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "HTTP URL method."
+        }
+      },
+      "description" : "Callback URL to notify when a fax is received."
+    },
+    "FoneNumber_fax_options_send_notify" : {
+      "properties" : {
+        "url" : {
+          "type" : "string",
+          "description" : "HTTP URL."
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "HTTP URL method."
+        }
+      },
+      "description" : "Callback URL to notify when a fax is sent."
+    },
+    "FoneNumber_fax_options" : {
+      "properties" : {
+        "receive_notify" : {
+          "$ref" : "#/definitions/FoneNumber_fax_options_receive_notify"
+        },
+        "send_notify" : {
+          "$ref" : "#/definitions/FoneNumber_fax_options_send_notify"
+        }
+      },
+      "description" : "Fax related properties."
+    }
+  }
 }
