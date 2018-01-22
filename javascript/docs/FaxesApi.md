@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.FaxesApi
+# FoneStormApi240Thunder.FaxesApi
 
 All URIs are relative to *http://api.fonestorm.com/v2*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="configureFaxReceiveNotify"></a>
 # **configureFaxReceiveNotify**
-> InlineResponse2013 configureFaxReceiveNotify(fonenumber, method, url, opts)
+> InlineResponse2014 configureFaxReceiveNotify(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -22,8 +22,8 @@ Configure the callback URL to notify when an inbound fax is received. Each FoneN
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -31,7 +31,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FaxesApi();
+var apiInstance = new FoneStormApi240Thunder.FaxesApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="configureFaxReceiveNotify_0"></a>
 # **configureFaxReceiveNotify_0**
-> InlineResponse2013 configureFaxReceiveNotify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configureFaxReceiveNotify_0(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -87,8 +87,8 @@ Configure the callback URL to notify when an inbound fax is received. Each FoneN
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -96,7 +96,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FaxesApi();
+var apiInstance = new FoneStormApi240Thunder.FaxesApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 <a name="configureFaxSendNotify"></a>
 # **configureFaxSendNotify**
-> InlineResponse2013 configureFaxSendNotify(fonenumber, method, url, opts)
+> InlineResponse2014 configureFaxSendNotify(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -152,8 +152,8 @@ Configure the callback URL to notify when an outbound fax is made. Each FoneNumb
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -161,7 +161,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FaxesApi();
+var apiInstance = new FoneStormApi240Thunder.FaxesApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 <a name="configureFaxSendNotify_0"></a>
 # **configureFaxSendNotify_0**
-> InlineResponse2013 configureFaxSendNotify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configureFaxSendNotify_0(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -217,8 +217,8 @@ Configure the callback URL to notify when an outbound fax is made. Each FoneNumb
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -226,7 +226,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FaxesApi();
+var apiInstance = new FoneStormApi240Thunder.FaxesApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 <a name="createFax"></a>
 # **createFax**
-> InlineResponse2011 createFax(fonenumber, to, opts)
+> InlineResponse2012 createFax(fonenumber, to, opts)
 
 Create Fax
 
@@ -282,8 +282,8 @@ Send a fax to a recipient phone number.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -291,7 +291,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FaxesApi();
+var apiInstance = new FoneStormApi240Thunder.FaxesApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber to use for fax
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 <a name="createFax_0"></a>
 # **createFax_0**
-> InlineResponse2011 createFax_0(fonenumber, to, opts)
+> InlineResponse2012 createFax_0(fonenumber, to, opts)
 
 Create Fax
 
@@ -344,8 +344,8 @@ Send a fax to a recipient phone number.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -353,7 +353,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FaxesApi();
+var apiInstance = new FoneStormApi240Thunder.FaxesApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber to use for fax
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 

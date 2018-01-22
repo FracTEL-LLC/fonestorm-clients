@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-12-20T17:25:00.503-07:00
+# ! Generated on: 2018-01-22T07:46:05.086-07:00
 # !
 # !
 # ! System wide installation:
@@ -69,12 +69,6 @@ _()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
-    operations["configureAccountCdrNotify"]=1
-    operations["configureAccountCdrNotify_0"]=1
-    operations["getAccount"]=1
-    operations["getAccount_0"]=1
-    operations["updateAccount"]=1
-    operations["updateAccount_0"]=1
     operations["createToken"]=1
     operations["createToken"]=1
     operations["configureCallReceiveNotify"]=1
@@ -83,6 +77,18 @@ _()
     operations["configureCallSendNotify_0"]=1
     operations["createCall"]=1
     operations["createCall_0"]=1
+    operations["createConference"]=1
+    operations["createConference_0"]=1
+    operations["deleteConference"]=1
+    operations["deleteConference_0"]=1
+    operations["getConference"]=1
+    operations["getConferenceFonenumbers"]=1
+    operations["getConferenceFonenumbers_0"]=1
+    operations["getConference_0"]=1
+    operations["getConferences"]=1
+    operations["getConferences_0"]=1
+    operations["updateConference"]=1
+    operations["updateConference_0"]=1
     operations["configureFaxReceiveNotify"]=1
     operations["configureFaxReceiveNotify_0"]=1
     operations["configureFaxSendNotify"]=1
@@ -97,6 +103,8 @@ _()
     operations["getFonenumber_0"]=1
     operations["getFonenumbers"]=1
     operations["getFonenumbers_0"]=1
+    operations["setFonenumberServiceType"]=1
+    operations["setFonenumberServiceType_0"]=1
     operations["updateFonenumber"]=1
     operations["updateFonenumber_0"]=1
     operations["configureMessageReceive"]=1
@@ -111,12 +119,6 @@ _()
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["configureAccountCdrNotify"]=""
-    operation_parameters["configureAccountCdrNotify_0"]=""
-    operation_parameters["getAccount"]="id= "
-    operation_parameters["getAccount_0"]="id= "
-    operation_parameters["updateAccount"]="id= "
-    operation_parameters["updateAccount_0"]="id= "
     operation_parameters["createToken"]=""
     operation_parameters["createToken"]=""
     operation_parameters["configureCallReceiveNotify"]=""
@@ -125,6 +127,18 @@ _()
     operation_parameters["configureCallSendNotify_0"]=""
     operation_parameters["createCall"]=""
     operation_parameters["createCall_0"]=""
+    operation_parameters["createConference"]=""
+    operation_parameters["createConference_0"]=""
+    operation_parameters["deleteConference"]="id= "
+    operation_parameters["deleteConference_0"]="id= "
+    operation_parameters["getConference"]="id= "
+    operation_parameters["getConferenceFonenumbers"]="id= "
+    operation_parameters["getConferenceFonenumbers_0"]="id= "
+    operation_parameters["getConference_0"]="id= "
+    operation_parameters["getConferences"]=""
+    operation_parameters["getConferences_0"]=""
+    operation_parameters["updateConference"]="id= "
+    operation_parameters["updateConference_0"]="id= "
     operation_parameters["configureFaxReceiveNotify"]=""
     operation_parameters["configureFaxReceiveNotify_0"]=""
     operation_parameters["configureFaxSendNotify"]=""
@@ -139,6 +153,8 @@ _()
     operation_parameters["getFonenumber_0"]="fonenumber= "
     operation_parameters["getFonenumbers"]="filter= "
     operation_parameters["getFonenumbers_0"]="filter= "
+    operation_parameters["setFonenumberServiceType"]="fonenumber= "
+    operation_parameters["setFonenumberServiceType_0"]="fonenumber= "
     operation_parameters["updateFonenumber"]="fonenumber= "
     operation_parameters["updateFonenumber_0"]="fonenumber= "
     operation_parameters["configureMessageReceive"]=""

@@ -12,12 +12,14 @@ Method | HTTP request | Description
 [**getFonenumber_0**](FonenumbersApi.md#getFonenumber_0) | **GET** /fonenumbers/{fonenumber} | Get FoneNumber
 [**getFonenumbers**](FonenumbersApi.md#getFonenumbers) | **GET** /fonenumbers | Get FoneNumbers
 [**getFonenumbers_0**](FonenumbersApi.md#getFonenumbers_0) | **GET** /fonenumbers | Get FoneNumbers
+[**setFonenumberServiceType**](FonenumbersApi.md#setFonenumberServiceType) | **POST** /fonenumbers/{fonenumber}/service | Set Service Type
+[**setFonenumberServiceType_0**](FonenumbersApi.md#setFonenumberServiceType_0) | **POST** /fonenumbers/{fonenumber}/service | Set Service Type
 [**updateFonenumber**](FonenumbersApi.md#updateFonenumber) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
 [**updateFonenumber_0**](FonenumbersApi.md#updateFonenumber_0) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
 
 
 # **createFonenumber**
-> \Swagger\Client\Model\InlineResponse2013 createFonenumber($area_code)
+> \Swagger\Client\Model\InlineResponse2014 createFonenumber($area_code)
 
 Create FoneNumber
 
@@ -53,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -67,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFonenumber_0**
-> \Swagger\Client\Model\InlineResponse2013 createFonenumber_0($area_code)
+> \Swagger\Client\Model\InlineResponse2014 createFonenumber_0($area_code)
 
 Create FoneNumber
 
@@ -103,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -117,7 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteFonenumber**
-> \Swagger\Client\Model\InlineResponse2013 deleteFonenumber($fonenumber)
+> \Swagger\Client\Model\InlineResponse2014 deleteFonenumber($fonenumber)
 
 Delete FoneNumber
 
@@ -153,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -167,7 +169,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteFonenumber_0**
-> \Swagger\Client\Model\InlineResponse2013 deleteFonenumber_0($fonenumber)
+> \Swagger\Client\Model\InlineResponse2014 deleteFonenumber_0($fonenumber)
 
 Delete FoneNumber
 
@@ -203,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -217,7 +219,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFonenumber**
-> \Swagger\Client\Model\InlineResponse2013 getFonenumber($fonenumber)
+> \Swagger\Client\Model\InlineResponse2014 getFonenumber($fonenumber)
 
 Get FoneNumber
 
@@ -253,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -267,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFonenumber_0**
-> \Swagger\Client\Model\InlineResponse2013 getFonenumber_0($fonenumber)
+> \Swagger\Client\Model\InlineResponse2014 getFonenumber_0($fonenumber)
 
 Get FoneNumber
 
@@ -303,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -317,7 +319,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFonenumbers**
-> \Swagger\Client\Model\InlineResponse200 getFonenumbers($filter)
+> \Swagger\Client\Model\InlineResponse2001 getFonenumbers($filter)
 
 Get FoneNumbers
 
@@ -353,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -367,7 +369,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFonenumbers_0**
-> \Swagger\Client\Model\InlineResponse200 getFonenumbers_0($filter)
+> \Swagger\Client\Model\InlineResponse2001 getFonenumbers_0($filter)
 
 Get FoneNumbers
 
@@ -403,7 +405,115 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **setFonenumberServiceType**
+> \Swagger\Client\Model\InlineResponse2014 setFonenumberServiceType($fonenumber, $service_type, $service_id)
+
+Set Service Type
+
+Set service type for a FoneNumber.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\FonenumbersApi();
+$fonenumber = "fonenumber_example"; // string | FoneNumber associated with the account
+$service_type = "service_type_example"; // string | Service type. Allowed values are `Conference`, `Hangup`, `Busy`, `Reject`
+$service_id = "service_id_example"; // string | Service id
+
+try {
+    $result = $api_instance->setFonenumberServiceType($fonenumber, $service_type, $service_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FonenumbersApi->setFonenumberServiceType: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| FoneNumber associated with the account |
+ **service_type** | **string**| Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; |
+ **service_id** | **string**| Service id | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **setFonenumberServiceType_0**
+> \Swagger\Client\Model\InlineResponse2014 setFonenumberServiceType_0($fonenumber, $service_type, $service_id)
+
+Set Service Type
+
+Set service type for a FoneNumber.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\FonenumbersApi();
+$fonenumber = "fonenumber_example"; // string | FoneNumber associated with the account
+$service_type = "service_type_example"; // string | Service type. Allowed values are `Conference`, `Hangup`, `Busy`, `Reject`
+$service_id = "service_id_example"; // string | Service id
+
+try {
+    $result = $api_instance->setFonenumberServiceType_0($fonenumber, $service_type, $service_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FonenumbersApi->setFonenumberServiceType_0: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| FoneNumber associated with the account |
+ **service_type** | **string**| Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; |
+ **service_id** | **string**| Service id | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -417,7 +527,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateFonenumber**
-> \Swagger\Client\Model\InlineResponse2013 updateFonenumber($fonenumber, $type, $value, $url_method, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 updateFonenumber($fonenumber, $type, $value, $url_method, $url_username, $url_password)
 
 Update FoneNumber
 
@@ -463,7 +573,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -477,7 +587,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateFonenumber_0**
-> \Swagger\Client\Model\InlineResponse2013 updateFonenumber_0($fonenumber, $type, $value, $url_method, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 updateFonenumber_0($fonenumber, $type, $value, $url_method, $url_username, $url_password)
 
 Update FoneNumber
 
@@ -523,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 

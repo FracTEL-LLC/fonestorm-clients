@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.FoneNumberVoiceOptionsReceiveNotify
+# FoneStormApi240Thunder.FoneNumberVoiceOptionsReceiveNotify
 
 ## Properties
 Name | Type | Description | Notes

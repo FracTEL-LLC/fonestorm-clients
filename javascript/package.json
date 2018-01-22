@@ -1,6 +1,6 @@
 {
-  "name": "fone_storm_api_220__breeze",
-  "version": "2.2.0",
+  "name": "fone_storm_api_240__thunder",
+  "version": "2.4.0",
   "description": "FracTELs_Middleware_API",
   "license": "Unlicense",
   "main": "src/index.js",

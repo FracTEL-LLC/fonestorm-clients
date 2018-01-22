@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.MessagesApi
+# FoneStormApi240Thunder.MessagesApi
 
 All URIs are relative to *http://api.fonestorm.com/v2*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="configureMessageReceive"></a>
 # **configureMessageReceive**
-> InlineResponse2013 configureMessageReceive(fonenumber, type, value, urlMethod, opts)
+> InlineResponse2014 configureMessageReceive(fonenumber, type, value, urlMethod, opts)
 
 Set Delivery Service
 
@@ -24,8 +24,8 @@ Configure the delivery service type used as the destination for messages receive
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -33,7 +33,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL FoneNumber
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageReceiveNotify"></a>
 # **configureMessageReceiveNotify**
-> InlineResponse2013 configureMessageReceiveNotify(fonenumber, method, url, opts)
+> InlineResponse2014 configureMessageReceiveNotify(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -92,8 +92,8 @@ Configure the callback URL to notify when a message is received. Each FoneNumber
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -101,7 +101,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL FoneNumber
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageReceiveNotify_0"></a>
 # **configureMessageReceiveNotify_0**
-> InlineResponse2013 configureMessageReceiveNotify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configureMessageReceiveNotify_0(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -157,8 +157,8 @@ Configure the callback URL to notify when a message is received. Each FoneNumber
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -166,7 +166,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL FoneNumber
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageReceive_0"></a>
 # **configureMessageReceive_0**
-> InlineResponse2013 configureMessageReceive_0(fonenumber, type, value, urlMethod, opts)
+> InlineResponse2014 configureMessageReceive_0(fonenumber, type, value, urlMethod, opts)
 
 Set Delivery Service
 
@@ -222,8 +222,8 @@ Configure the delivery service type used as the destination for messages receive
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -231,7 +231,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL FoneNumber
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageSendNotify"></a>
 # **configureMessageSendNotify**
-> InlineResponse2013 configureMessageSendNotify(fonenumber, method, url, opts)
+> InlineResponse2014 configureMessageSendNotify(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -290,8 +290,8 @@ Configure the callback URL to notify when a message is sent. Each FoneNumber can
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -299,7 +299,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL FoneNumber
 
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageSendNotify_0"></a>
 # **configureMessageSendNotify_0**
-> InlineResponse2013 configureMessageSendNotify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configureMessageSendNotify_0(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -355,8 +355,8 @@ Configure the callback URL to notify when a message is sent. Each FoneNumber can
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -364,7 +364,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var fonenumber = "fonenumber_example"; // String | Your FracTEL FoneNumber
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 <a name="createMessage"></a>
 # **createMessage**
-> InlineResponse2014 createMessage(to, fonenumber, message, opts)
+> InlineResponse2015 createMessage(to, fonenumber, message, opts)
 
 Create Message
 
@@ -420,8 +420,8 @@ Send an SMS or MMS message.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -429,7 +429,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var to = "to_example"; // String | Receiving 10 digit phone number
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 <a name="createMessage_0"></a>
 # **createMessage_0**
-> InlineResponse2014 createMessage_0(to, fonenumber, message, opts)
+> InlineResponse2015 createMessage_0(to, fonenumber, message, opts)
 
 Create Message
 
@@ -491,8 +491,8 @@ Send an SMS or MMS message.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -500,7 +500,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.MessagesApi();
+var apiInstance = new FoneStormApi240Thunder.MessagesApi();
 
 var to = "to_example"; // String | Receiving 10 digit phone number
 
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 

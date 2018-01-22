@@ -2,8 +2,8 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "FracTEL's Middleware API",
-    "version" : "2.2.0",
-    "title" : "FoneStorm API 2.2.0 (Breeze)",
+    "version" : "2.4.0",
+    "title" : "FoneStorm API 2.4.0 (Thunder)",
     "termsOfService" : "https://www.fonestorm.com/terms",
     "contact" : {
       "name" : "FracTEL, LLC"
@@ -113,6 +113,51 @@
         }
       }
     },
+    "/calls" : {
+      "post" : {
+        "tags" : [ "Calls", "calls" ],
+        "summary" : "Create Call",
+        "description" : "Create a new voice call from a FoneNumber to a recipient phone number.",
+        "operationId" : "createCall",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "FoneNumber to use as caller",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "to",
+          "in" : "formData",
+          "description" : "Receiving 10 digit phone number",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "tts",
+          "in" : "formData",
+          "description" : "Text to speech message",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_1"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
     "/faxes" : {
       "post" : {
         "tags" : [ "Faxes", "faxes" ],
@@ -149,7 +194,7 @@
           "201" : {
             "description" : "Created",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_1"
+              "$ref" : "#/definitions/inline_response_201_2"
             }
           },
           "default" : {
@@ -164,37 +209,91 @@
         } ]
       }
     },
-    "/calls" : {
+    "/conferences" : {
+      "get" : {
+        "tags" : [ "Conferences", "conferences" ],
+        "summary" : "Get Conferences",
+        "description" : "Get a list of all conferences.",
+        "operationId" : "getConferences",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_200"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      },
       "post" : {
-        "tags" : [ "Calls", "calls" ],
-        "summary" : "Create Call",
-        "description" : "Create a new voice call from a FoneNumber to a recipient phone number.",
-        "operationId" : "createCall",
+        "tags" : [ "Conferences", "conferences" ],
+        "summary" : "Create Conference",
+        "description" : "Create a conference.",
+        "operationId" : "createConference",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
+          "name" : "label",
+          "in" : "formData",
+          "description" : "Label of conference",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "start_time",
+          "in" : "formData",
+          "description" : "Start time and date of conference",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "end_time",
+          "in" : "formData",
+          "description" : "End time and date of conference",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
           "name" : "fonenumber",
           "in" : "formData",
-          "description" : "FoneNumber to use as caller",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "to",
-          "in" : "formData",
-          "description" : "Receiving 10 digit phone number",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "tts",
-          "in" : "formData",
-          "description" : "Text to speech message",
+          "description" : "Fonenumber to use for conference",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "format" : "number"
+        }, {
+          "name" : "before_message",
+          "in" : "formData",
+          "description" : "Message to play before conference start time",
+          "required" : false,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "after_message",
+          "in" : "formData",
+          "description" : "Message to play after conference end time",
+          "required" : false,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "max_members",
+          "in" : "formData",
+          "description" : "Maximum number of allowed conference attendees",
+          "required" : false,
+          "type" : "number"
         } ],
         "responses" : {
           "201" : {
             "description" : "Created",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_2"
+              "$ref" : "#/definitions/inline_response_201_3"
             }
           },
           "default" : {
@@ -228,7 +327,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_200"
+              "$ref" : "#/definitions/inline_response_200_1"
             }
           },
           "default" : {
@@ -259,100 +358,7 @@
           "201" : {
             "description" : "Created",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
-            }
-          },
-          "default" : {
-            "description" : "Error",
-            "schema" : {
-              "$ref" : "#/definitions/Error"
-            }
-          }
-        },
-        "security" : [ {
-          "jwt" : [ ]
-        } ]
-      }
-    },
-    "/accounts/{id}" : {
-      "get" : {
-        "tags" : [ "Accounts", "accounts" ],
-        "summary" : "Get Account",
-        "description" : "Get information about an account.",
-        "operationId" : "getAccount",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "Account id",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Success",
-            "schema" : {
-              "$ref" : "#/definitions/inline_response_200_1"
-            }
-          },
-          "default" : {
-            "description" : "Error",
-            "schema" : {
-              "$ref" : "#/definitions/Error"
-            }
-          }
-        },
-        "security" : [ {
-          "jwt" : [ ]
-        } ]
-      },
-      "put" : {
-        "tags" : [ "Accounts", "accounts" ],
-        "summary" : "Update Account",
-        "description" : "Update an account.",
-        "operationId" : "updateAccount",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "Account id",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "primary_color",
-          "in" : "formData",
-          "description" : "Branding primary color",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "secondary_color",
-          "in" : "formData",
-          "description" : "Branding secondary color",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "background_color",
-          "in" : "formData",
-          "description" : "Branding background color",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "font_family",
-          "in" : "formData",
-          "description" : "Branding font family",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "logo",
-          "in" : "formData",
-          "description" : "Branding logo",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Success",
-            "schema" : {
-              "$ref" : "#/definitions/inline_response_200_1"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -432,7 +438,149 @@
           "201" : {
             "description" : "Created",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_4"
+              "$ref" : "#/definitions/inline_response_201_5"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/conferences/{id}" : {
+      "get" : {
+        "tags" : [ "Conferences", "conferences" ],
+        "summary" : "Get Conference",
+        "description" : "Get information about a conference.",
+        "operationId" : "getConference",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Conference id",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Conferences", "conferences" ],
+        "summary" : "Update Conference",
+        "description" : "Update a conference.",
+        "operationId" : "updateConference",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Conference id",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "label",
+          "in" : "formData",
+          "description" : "Label of conference",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "start_time",
+          "in" : "formData",
+          "description" : "Start time and date of conference",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "end_time",
+          "in" : "formData",
+          "description" : "End time and date of conference",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Fonenumber to use for conference",
+          "required" : false,
+          "type" : "string",
+          "format" : "number"
+        }, {
+          "name" : "before_message",
+          "in" : "formData",
+          "description" : "Message to play before conference start time",
+          "required" : false,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "after_message",
+          "in" : "formData",
+          "description" : "Message to play after conference end time",
+          "required" : false,
+          "type" : "string",
+          "format" : "string"
+        }, {
+          "name" : "max_members",
+          "in" : "formData",
+          "description" : "Maximum number of allowed conference attendees",
+          "required" : false,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Conferences", "conferences" ],
+        "summary" : "Delete Conference",
+        "description" : "Delete a conference.",
+        "operationId" : "deleteConference",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Conference id",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_3"
             }
           },
           "default" : {
@@ -497,7 +645,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -555,7 +703,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -613,64 +761,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
-            }
-          },
-          "default" : {
-            "description" : "Error",
-            "schema" : {
-              "$ref" : "#/definitions/Error"
-            }
-          }
-        },
-        "security" : [ {
-          "jwt" : [ ]
-        } ]
-      }
-    },
-    "/accounts/cdr_notify" : {
-      "post" : {
-        "tags" : [ "Accounts", "accounts" ],
-        "summary" : "Set CDR Callback",
-        "description" : "Configure the callback URL to notify when a call dialing record is available.",
-        "operationId" : "configureAccountCdrNotify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "account_id",
-          "in" : "formData",
-          "description" : "FoneStorm account id",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL. See **Notes** for additional information.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "username",
-          "in" : "formData",
-          "description" : "Callback URL username",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "password",
-          "in" : "formData",
-          "description" : "Callback URL password",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Success",
-            "schema" : {
-              "$ref" : "#/definitions/inline_response_200_1"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -728,65 +819,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
-            }
-          },
-          "default" : {
-            "description" : "Error",
-            "schema" : {
-              "$ref" : "#/definitions/Error"
-            }
-          }
-        },
-        "security" : [ {
-          "jwt" : [ ]
-        } ]
-      }
-    },
-    "/messages/send_notify" : {
-      "post" : {
-        "tags" : [ "Messages", "messages" ],
-        "summary" : "Set Send Callback",
-        "description" : "Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.",
-        "operationId" : "configureMessageSendNotify",
-        "consumes" : [ "application/x-www-form-urlencoded" ],
-        "parameters" : [ {
-          "name" : "fonenumber",
-          "in" : "formData",
-          "description" : "Your FracTEL FoneNumber",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "method",
-          "in" : "formData",
-          "description" : "Callback URL method",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "GET", "POST", "JSON" ]
-        }, {
-          "name" : "url",
-          "in" : "formData",
-          "description" : "Callback URL. See **Notes** for additional information.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "url_username",
-          "in" : "formData",
-          "description" : "Username for HTTP **Basic** authentication scheme",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "url_password",
-          "in" : "formData",
-          "description" : "Password for HTTP **Basic** authentication scheme",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Success",
-            "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -844,7 +877,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -859,12 +892,12 @@
         } ]
       }
     },
-    "/messages/receive_notify" : {
+    "/messages/send_notify" : {
       "post" : {
         "tags" : [ "Messages", "messages" ],
-        "summary" : "Set Receive Callback",
-        "description" : "Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.",
-        "operationId" : "configureMessageReceiveNotify",
+        "summary" : "Set Send Callback",
+        "description" : "Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.",
+        "operationId" : "configureMessageSendNotify",
         "consumes" : [ "application/x-www-form-urlencoded" ],
         "parameters" : [ {
           "name" : "fonenumber",
@@ -902,7 +935,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -935,7 +968,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -998,7 +1031,7 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -1029,7 +1062,144 @@
           "200" : {
             "description" : "Success",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_201_3"
+              "$ref" : "#/definitions/inline_response_201_4"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/messages/receive_notify" : {
+      "post" : {
+        "tags" : [ "Messages", "messages" ],
+        "summary" : "Set Receive Callback",
+        "description" : "Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.",
+        "operationId" : "configureMessageReceiveNotify",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "formData",
+          "description" : "Your FracTEL FoneNumber",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "method",
+          "in" : "formData",
+          "description" : "Callback URL method",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "GET", "POST", "JSON" ]
+        }, {
+          "name" : "url",
+          "in" : "formData",
+          "description" : "Callback URL. See **Notes** for additional information.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "url_username",
+          "in" : "formData",
+          "description" : "Username for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url_password",
+          "in" : "formData",
+          "description" : "Password for HTTP **Basic** authentication scheme",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_4"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/conferences/{id}/fonenumbers" : {
+      "get" : {
+        "tags" : [ "Conferences", "conferences" ],
+        "summary" : "Conference Fonenumbers",
+        "description" : "Get fonenumbers assigned to a conference.",
+        "operationId" : "getConferenceFonenumbers",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Conference id",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_200_2"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        },
+        "security" : [ {
+          "jwt" : [ ]
+        } ]
+      }
+    },
+    "/fonenumbers/{fonenumber}/service" : {
+      "post" : {
+        "tags" : [ "Fonenumbers", "fonenumbers" ],
+        "summary" : "Set Service Type",
+        "description" : "Set service type for a FoneNumber.",
+        "operationId" : "setFonenumberServiceType",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "fonenumber",
+          "in" : "path",
+          "description" : "FoneNumber associated with the account",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "service_type",
+          "in" : "formData",
+          "description" : "Service type. Allowed values are `Conference`, `Hangup`, `Busy`, `Reject`",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "Conference", "Hangup", "Busy", "Reject" ]
+        }, {
+          "name" : "service_id",
+          "in" : "formData",
+          "description" : "Service id",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201_4"
             }
           },
           "default" : {
@@ -1088,48 +1258,6 @@
         }
       }
     },
-    "Account" : {
-      "type" : "object",
-      "required" : [ "id" ],
-      "properties" : {
-        "background_color" : {
-          "type" : "string",
-          "description" : "Account background color."
-        },
-        "id" : {
-          "type" : "string",
-          "description" : "Unique identifier of account."
-        },
-        "cdr_notify_url" : {
-          "type" : "string",
-          "description" : "Call dialing record callback URL."
-        },
-        "cdr_notify_method" : {
-          "type" : "string",
-          "description" : "Call dialing record callback URL method."
-        },
-        "cdr_notify_password" : {
-          "type" : "string",
-          "description" : "Call dialing record callback URL password."
-        },
-        "cdr_notify_username" : {
-          "type" : "string",
-          "description" : "Call dialing record callback URL username."
-        },
-        "font_family" : {
-          "type" : "string",
-          "description" : "Account font family."
-        },
-        "primary_color" : {
-          "type" : "string",
-          "description" : "Account primary brand color."
-        },
-        "secondary_color" : {
-          "type" : "string",
-          "description" : "Account secondary brand color."
-        }
-      }
-    },
     "Message" : {
       "type" : "object",
       "required" : [ "id" ],
@@ -1160,6 +1288,9 @@
           "type" : "string",
           "description" : "Status of FoneNumber."
         },
+        "service" : {
+          "$ref" : "#/definitions/FoneNumber_service"
+        },
         "sms_options" : {
           "$ref" : "#/definitions/FoneNumber_sms_options"
         },
@@ -1168,6 +1299,40 @@
         },
         "fax_options" : {
           "$ref" : "#/definitions/FoneNumber_fax_options"
+        }
+      }
+    },
+    "Conference" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of conference."
+        },
+        "end_time" : {
+          "type" : "string",
+          "description" : "End time and date of conference."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "Label for conference."
+        },
+        "start_time" : {
+          "type" : "string",
+          "description" : "Start time and date of conference."
+        },
+        "before_message" : {
+          "type" : "string",
+          "description" : "Message to play before conference start time."
+        },
+        "after_message" : {
+          "type" : "string",
+          "description" : "Message to play after conference end time."
+        },
+        "max_members" : {
+          "type" : "number",
+          "description" : "Maximum number of allowed conference attendees."
         }
       }
     },
@@ -1190,19 +1355,36 @@
     },
     "inline_response_201_1" : {
       "properties" : {
-        "fax" : {
-          "$ref" : "#/definitions/Fax"
-        }
-      }
-    },
-    "inline_response_201_2" : {
-      "properties" : {
         "call" : {
           "$ref" : "#/definitions/Call"
         }
       }
     },
+    "inline_response_201_2" : {
+      "properties" : {
+        "fax" : {
+          "$ref" : "#/definitions/Fax"
+        }
+      }
+    },
     "inline_response_200" : {
+      "properties" : {
+        "conferences" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Conference"
+          }
+        }
+      }
+    },
+    "inline_response_201_3" : {
+      "properties" : {
+        "conference" : {
+          "$ref" : "#/definitions/Conference"
+        }
+      }
+    },
+    "inline_response_200_1" : {
       "properties" : {
         "fonenumbers" : {
           "type" : "array",
@@ -1212,26 +1394,42 @@
         }
       }
     },
-    "inline_response_201_3" : {
+    "inline_response_201_4" : {
       "properties" : {
         "fonenumber" : {
           "$ref" : "#/definitions/FoneNumber"
         }
       }
     },
-    "inline_response_200_1" : {
-      "properties" : {
-        "account" : {
-          "$ref" : "#/definitions/Account"
-        }
-      }
-    },
-    "inline_response_201_4" : {
+    "inline_response_201_5" : {
       "properties" : {
         "message" : {
           "$ref" : "#/definitions/Message"
         }
       }
+    },
+    "inline_response_200_2" : {
+      "properties" : {
+        "fonenumbers" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "FoneNumber_service" : {
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "Delivery service type used for fonenumber."
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Delivery service id used for fonenumber."
+        }
+      },
+      "description" : "Service type related properties."
     },
     "FoneNumber_sms_options_receive" : {
       "properties" : {
@@ -1384,5 +1582,6 @@
       },
       "description" : "Fax related properties."
     }
-  }
+  },
+  "x-samples-languages" : [ "node", "curl", "ruby", "javascript", "python", "java", "php" ]
 }

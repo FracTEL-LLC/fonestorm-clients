@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **state** | **string** | US State for fonenumber. | [optional] 
 **rate_center** | **string** | Rate center for fonenumber. | [optional] 
 **is_active** | **string** | Status of FoneNumber. | [optional] 
+**service** | [**\Swagger\Client\Model\FoneNumberService**](FoneNumberService.md) |  | [optional] 
 **sms_options** | [**\Swagger\Client\Model\FoneNumberSmsOptions**](FoneNumberSmsOptions.md) |  | [optional] 
 **voice_options** | [**\Swagger\Client\Model\FoneNumberVoiceOptions**](FoneNumberVoiceOptions.md) |  | [optional] 
 **fax_options** | [**\Swagger\Client\Model\FoneNumberFaxOptions**](FoneNumberFaxOptions.md) |  | [optional] 

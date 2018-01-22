@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **configure_message_receive**
-> InlineResponse2013 configure_message_receive(fonenumber, type, value, url_method, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_message_receive(fonenumber, type, value, url_method, url_username=url_username, url_password=url_password)
 
 Set Delivery Service
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_message_receive_0**
-> InlineResponse2013 configure_message_receive_0(fonenumber, type, value, url_method, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_message_receive_0(fonenumber, type, value, url_method, url_username=url_username, url_password=url_password)
 
 Set Delivery Service
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_message_receive_notify**
-> InlineResponse2013 configure_message_receive_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_message_receive_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Receive Callback
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_message_receive_notify_0**
-> InlineResponse2013 configure_message_receive_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_message_receive_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Receive Callback
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_message_send_notify**
-> InlineResponse2013 configure_message_send_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_message_send_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Send Callback
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_message_send_notify_0**
-> InlineResponse2013 configure_message_send_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_message_send_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Send Callback
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_message**
-> InlineResponse2014 create_message(to, fonenumber, message, media_url=media_url, confirmation_url=confirmation_url, confirmation_url_username=confirmation_url_username, confirmation_url_password=confirmation_url_password, require_confirmation=require_confirmation)
+> InlineResponse2015 create_message(to, fonenumber, message, media_url=media_url, confirmation_url=confirmation_url, confirmation_url_username=confirmation_url_username, confirmation_url_password=confirmation_url_password, require_confirmation=require_confirmation)
 
 Create Message
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_message_0**
-> InlineResponse2014 create_message_0(to, fonenumber, message, media_url=media_url, confirmation_url=confirmation_url, confirmation_url_username=confirmation_url_username, confirmation_url_password=confirmation_url_password, require_confirmation=require_confirmation)
+> InlineResponse2015 create_message_0(to, fonenumber, message, media_url=media_url, confirmation_url=confirmation_url, confirmation_url_username=confirmation_url_username, confirmation_url_password=confirmation_url_password, require_confirmation=require_confirmation)
 
 Create Message
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 

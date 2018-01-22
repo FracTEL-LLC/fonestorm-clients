@@ -8,12 +8,14 @@ Method | HTTP request | Description
 [**configure_account_cdr_notify_0**](AccountsApi.md#configure_account_cdr_notify_0) | **POST** /accounts/cdr_notify | Set CDR Callback
 [**get_account**](AccountsApi.md#get_account) | **GET** /accounts/{id} | Get Account
 [**get_account_0**](AccountsApi.md#get_account_0) | **GET** /accounts/{id} | Get Account
+[**get_account_integrations**](AccountsApi.md#get_account_integrations) | **GET** /accounts/{id}/integrations | Get Account Integrations
+[**get_account_integrations_0**](AccountsApi.md#get_account_integrations_0) | **GET** /accounts/{id}/integrations | Get Account Integrations
 [**update_account**](AccountsApi.md#update_account) | **PUT** /accounts/{id} | Update Account
 [**update_account_0**](AccountsApi.md#update_account_0) | **PUT** /accounts/{id} | Update Account
 
 
 # **configure_account_cdr_notify**
-> InlineResponse2001 configure_account_cdr_notify(account_id, method, url, username=username, password=password)
+> InlineResponse20011 configure_account_cdr_notify(account_id, method, url, username=username, password=password)
 
 Set CDR Callback
 
@@ -60,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -74,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_account_cdr_notify_0**
-> InlineResponse2001 configure_account_cdr_notify_0(account_id, method, url, username=username, password=password)
+> InlineResponse20011 configure_account_cdr_notify_0(account_id, method, url, username=username, password=password)
 
 Set CDR Callback
 
@@ -121,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -135,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account**
-> InlineResponse2001 get_account(id)
+> InlineResponse20011 get_account(id)
 
 Get Account
 
@@ -174,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -188,7 +190,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account_0**
-> InlineResponse2001 get_account_0(id)
+> InlineResponse20011 get_account_0(id)
 
 Get Account
 
@@ -227,7 +229,113 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_account_integrations**
+> InlineResponse20010 get_account_integrations(id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+swagger_client.configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.AccountsApi()
+id = 'id_example' # str | Account id
+
+try: 
+    # Get Account Integrations
+    api_response = api_instance.get_account_integrations(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AccountsApi->get_account_integrations: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Account id | 
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_account_integrations_0**
+> InlineResponse20010 get_account_integrations_0(id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+swagger_client.configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.AccountsApi()
+id = 'id_example' # str | Account id
+
+try: 
+    # Get Account Integrations
+    api_response = api_instance.get_account_integrations_0(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AccountsApi->get_account_integrations_0: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Account id | 
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -241,7 +349,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_account**
-> InlineResponse2001 update_account(id, primary_color=primary_color, secondary_color=secondary_color, background_color=background_color, font_family=font_family, logo=logo)
+> InlineResponse20011 update_account(id, primary_color=primary_color, secondary_color=secondary_color, background_color=background_color, font_family=font_family, logo=logo)
 
 Update Account
 
@@ -290,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -304,7 +412,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_account_0**
-> InlineResponse2001 update_account_0(id, primary_color=primary_color, secondary_color=secondary_color, background_color=background_color, font_family=font_family, logo=logo)
+> InlineResponse20011 update_account_0(id, primary_color=primary_color, secondary_color=secondary_color, background_color=background_color, font_family=font_family, logo=logo)
 
 Update Account
 
@@ -353,7 +461,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

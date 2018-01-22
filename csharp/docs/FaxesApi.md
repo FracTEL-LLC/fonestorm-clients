@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="configurefaxreceivenotify"></a>
 # **ConfigureFaxReceiveNotify**
-> InlineResponse2013 ConfigureFaxReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureFaxReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Receive Callback
 
@@ -49,7 +49,7 @@ namespace Example
             try
             {
                 // Set Receive Callback
-                InlineResponse2013 result = apiInstance.ConfigureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 <a name="configurefaxreceivenotify_0"></a>
 # **ConfigureFaxReceiveNotify_0**
-> InlineResponse2013 ConfigureFaxReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureFaxReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Receive Callback
 
@@ -123,7 +123,7 @@ namespace Example
             try
             {
                 // Set Receive Callback
-                InlineResponse2013 result = apiInstance.ConfigureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 <a name="configurefaxsendnotify"></a>
 # **ConfigureFaxSendNotify**
-> InlineResponse2013 ConfigureFaxSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureFaxSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Send Callback
 
@@ -197,7 +197,7 @@ namespace Example
             try
             {
                 // Set Send Callback
-                InlineResponse2013 result = apiInstance.ConfigureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 <a name="configurefaxsendnotify_0"></a>
 # **ConfigureFaxSendNotify_0**
-> InlineResponse2013 ConfigureFaxSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureFaxSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Send Callback
 
@@ -271,7 +271,7 @@ namespace Example
             try
             {
                 // Set Send Callback
-                InlineResponse2013 result = apiInstance.ConfigureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 <a name="createfax"></a>
 # **CreateFax**
-> InlineResponse2011 CreateFax (string fonenumber, string to, string message = null, string pdf = null)
+> InlineResponse2012 CreateFax (string fonenumber, string to, string message = null, string pdf = null)
 
 Create Fax
 
@@ -344,7 +344,7 @@ namespace Example
             try
             {
                 // Create Fax
-                InlineResponse2011 result = apiInstance.CreateFax(fonenumber, to, message, pdf);
+                InlineResponse2012 result = apiInstance.CreateFax(fonenumber, to, message, pdf);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 <a name="createfax_0"></a>
 # **CreateFax_0**
-> InlineResponse2011 CreateFax_0 (string fonenumber, string to, string message = null, string pdf = null)
+> InlineResponse2012 CreateFax_0 (string fonenumber, string to, string message = null, string pdf = null)
 
 Create Fax
 
@@ -416,7 +416,7 @@ namespace Example
             try
             {
                 // Create Fax
-                InlineResponse2011 result = apiInstance.CreateFax_0(fonenumber, to, message, pdf);
+                InlineResponse2012 result = apiInstance.CreateFax_0(fonenumber, to, message, pdf);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 

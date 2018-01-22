@@ -29,7 +29,7 @@ public class FaxesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureFaxReceiveNotify(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureFaxReceiveNotify(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureFaxReceiveNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -67,6 +67,10 @@ public class FaxesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -98,9 +102,9 @@ public class FaxesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureFaxReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureFaxReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/faxes/receive_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -116,7 +120,7 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -140,7 +144,7 @@ public class FaxesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureFaxReceiveNotify_0(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureFaxReceiveNotify_0(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureFaxReceiveNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -178,6 +182,10 @@ public class FaxesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -209,9 +217,9 @@ public class FaxesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureFaxReceiveNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureFaxReceiveNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/faxes/receive_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -227,7 +235,7 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -251,7 +259,7 @@ public class FaxesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureFaxSendNotify(fonenumber fonenumber: String, method: Method_configureFaxSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureFaxSendNotify(fonenumber fonenumber: String, method: Method_configureFaxSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureFaxSendNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -289,6 +297,10 @@ public class FaxesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -320,9 +332,9 @@ public class FaxesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureFaxSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureFaxSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/faxes/send_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -338,7 +350,7 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -362,7 +374,7 @@ public class FaxesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureFaxSendNotify_0(fonenumber fonenumber: String, method: Method_configureFaxSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureFaxSendNotify_0(fonenumber fonenumber: String, method: Method_configureFaxSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureFaxSendNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -400,6 +412,10 @@ public class FaxesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -431,9 +447,9 @@ public class FaxesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureFaxSendNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureFaxSendNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureFaxSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/faxes/send_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -449,7 +465,7 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -463,7 +479,7 @@ public class FaxesAPI: APIBase {
      - parameter pdf: (form) URL of a PDF file to send with fax (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createFax(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil, completion: ((data: InlineResponse2011?, error: ErrorType?) -> Void)) {
+    public class func createFax(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil, completion: ((data: InlineResponse2012?, error: ErrorType?) -> Void)) {
         createFaxWithRequestBuilder(fonenumber: fonenumber, to: to, message: message, pdf: pdf).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -488,9 +504,9 @@ public class FaxesAPI: APIBase {
      - parameter message: (form) Message to fax (optional)
      - parameter pdf: (form) URL of a PDF file to send with fax (optional)
 
-     - returns: RequestBuilder<InlineResponse2011> 
+     - returns: RequestBuilder<InlineResponse2012> 
      */
-    public class func createFaxWithRequestBuilder(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil) -> RequestBuilder<InlineResponse2011> {
+    public class func createFaxWithRequestBuilder(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil) -> RequestBuilder<InlineResponse2012> {
         let path = "/faxes"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -505,7 +521,7 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2011>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2012>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -519,7 +535,7 @@ public class FaxesAPI: APIBase {
      - parameter pdf: (form) URL of a PDF file to send with fax (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createFax_0(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil, completion: ((data: InlineResponse2011?, error: ErrorType?) -> Void)) {
+    public class func createFax_0(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil, completion: ((data: InlineResponse2012?, error: ErrorType?) -> Void)) {
         createFax_0WithRequestBuilder(fonenumber: fonenumber, to: to, message: message, pdf: pdf).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -544,9 +560,9 @@ public class FaxesAPI: APIBase {
      - parameter message: (form) Message to fax (optional)
      - parameter pdf: (form) URL of a PDF file to send with fax (optional)
 
-     - returns: RequestBuilder<InlineResponse2011> 
+     - returns: RequestBuilder<InlineResponse2012> 
      */
-    public class func createFax_0WithRequestBuilder(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil) -> RequestBuilder<InlineResponse2011> {
+    public class func createFax_0WithRequestBuilder(fonenumber fonenumber: String, to: String, message: String? = nil, pdf: String? = nil) -> RequestBuilder<InlineResponse2012> {
         let path = "/faxes"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -561,7 +577,7 @@ public class FaxesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2011>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2012>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

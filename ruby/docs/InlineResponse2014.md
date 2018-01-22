@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | [**Message**](Message.md) |  | [optional] 
+**fonenumber** | [**FoneNumber**](FoneNumber.md) |  | [optional] 
 
 

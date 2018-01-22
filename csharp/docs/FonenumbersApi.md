@@ -12,13 +12,15 @@ Method | HTTP request | Description
 [**GetFonenumber_0**](FonenumbersApi.md#getfonenumber_0) | **GET** /fonenumbers/{fonenumber} | Get FoneNumber
 [**GetFonenumbers**](FonenumbersApi.md#getfonenumbers) | **GET** /fonenumbers | Get FoneNumbers
 [**GetFonenumbers_0**](FonenumbersApi.md#getfonenumbers_0) | **GET** /fonenumbers | Get FoneNumbers
+[**SetFonenumberServiceType**](FonenumbersApi.md#setfonenumberservicetype) | **POST** /fonenumbers/{fonenumber}/service | Set Service Type
+[**SetFonenumberServiceType_0**](FonenumbersApi.md#setfonenumberservicetype_0) | **POST** /fonenumbers/{fonenumber}/service | Set Service Type
 [**UpdateFonenumber**](FonenumbersApi.md#updatefonenumber) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
 [**UpdateFonenumber_0**](FonenumbersApi.md#updatefonenumber_0) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
 
 
 <a name="createfonenumber"></a>
 # **CreateFonenumber**
-> InlineResponse2013 CreateFonenumber (string areaCode)
+> InlineResponse2014 CreateFonenumber (string areaCode)
 
 Create FoneNumber
 
@@ -49,7 +51,7 @@ namespace Example
             try
             {
                 // Create FoneNumber
-                InlineResponse2013 result = apiInstance.CreateFonenumber(areaCode);
+                InlineResponse2014 result = apiInstance.CreateFonenumber(areaCode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -69,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -84,7 +86,7 @@ Name | Type | Description  | Notes
 
 <a name="createfonenumber_0"></a>
 # **CreateFonenumber_0**
-> InlineResponse2013 CreateFonenumber_0 (string areaCode)
+> InlineResponse2014 CreateFonenumber_0 (string areaCode)
 
 Create FoneNumber
 
@@ -115,7 +117,7 @@ namespace Example
             try
             {
                 // Create FoneNumber
-                InlineResponse2013 result = apiInstance.CreateFonenumber_0(areaCode);
+                InlineResponse2014 result = apiInstance.CreateFonenumber_0(areaCode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -135,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -150,7 +152,7 @@ Name | Type | Description  | Notes
 
 <a name="deletefonenumber"></a>
 # **DeleteFonenumber**
-> InlineResponse2013 DeleteFonenumber (string fonenumber)
+> InlineResponse2014 DeleteFonenumber (string fonenumber)
 
 Delete FoneNumber
 
@@ -181,7 +183,7 @@ namespace Example
             try
             {
                 // Delete FoneNumber
-                InlineResponse2013 result = apiInstance.DeleteFonenumber(fonenumber);
+                InlineResponse2014 result = apiInstance.DeleteFonenumber(fonenumber);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -201,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -216,7 +218,7 @@ Name | Type | Description  | Notes
 
 <a name="deletefonenumber_0"></a>
 # **DeleteFonenumber_0**
-> InlineResponse2013 DeleteFonenumber_0 (string fonenumber)
+> InlineResponse2014 DeleteFonenumber_0 (string fonenumber)
 
 Delete FoneNumber
 
@@ -247,7 +249,7 @@ namespace Example
             try
             {
                 // Delete FoneNumber
-                InlineResponse2013 result = apiInstance.DeleteFonenumber_0(fonenumber);
+                InlineResponse2014 result = apiInstance.DeleteFonenumber_0(fonenumber);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -267,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -282,7 +284,7 @@ Name | Type | Description  | Notes
 
 <a name="getfonenumber"></a>
 # **GetFonenumber**
-> InlineResponse2013 GetFonenumber (string fonenumber)
+> InlineResponse2014 GetFonenumber (string fonenumber)
 
 Get FoneNumber
 
@@ -313,7 +315,7 @@ namespace Example
             try
             {
                 // Get FoneNumber
-                InlineResponse2013 result = apiInstance.GetFonenumber(fonenumber);
+                InlineResponse2014 result = apiInstance.GetFonenumber(fonenumber);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -333,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -348,7 +350,7 @@ Name | Type | Description  | Notes
 
 <a name="getfonenumber_0"></a>
 # **GetFonenumber_0**
-> InlineResponse2013 GetFonenumber_0 (string fonenumber)
+> InlineResponse2014 GetFonenumber_0 (string fonenumber)
 
 Get FoneNumber
 
@@ -379,7 +381,7 @@ namespace Example
             try
             {
                 // Get FoneNumber
-                InlineResponse2013 result = apiInstance.GetFonenumber_0(fonenumber);
+                InlineResponse2014 result = apiInstance.GetFonenumber_0(fonenumber);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -399,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -414,7 +416,7 @@ Name | Type | Description  | Notes
 
 <a name="getfonenumbers"></a>
 # **GetFonenumbers**
-> InlineResponse200 GetFonenumbers (string filter = null)
+> InlineResponse2001 GetFonenumbers (string filter = null)
 
 Get FoneNumbers
 
@@ -445,7 +447,7 @@ namespace Example
             try
             {
                 // Get FoneNumbers
-                InlineResponse200 result = apiInstance.GetFonenumbers(filter);
+                InlineResponse2001 result = apiInstance.GetFonenumbers(filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -465,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -480,7 +482,7 @@ Name | Type | Description  | Notes
 
 <a name="getfonenumbers_0"></a>
 # **GetFonenumbers_0**
-> InlineResponse200 GetFonenumbers_0 (string filter = null)
+> InlineResponse2001 GetFonenumbers_0 (string filter = null)
 
 Get FoneNumbers
 
@@ -511,7 +513,7 @@ namespace Example
             try
             {
                 // Get FoneNumbers
-                InlineResponse200 result = apiInstance.GetFonenumbers_0(filter);
+                InlineResponse2001 result = apiInstance.GetFonenumbers_0(filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -531,7 +533,147 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setfonenumberservicetype"></a>
+# **SetFonenumberServiceType**
+> InlineResponse2014 SetFonenumberServiceType (string fonenumber, string serviceType, string serviceId = null)
+
+Set Service Type
+
+Set service type for a FoneNumber.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class SetFonenumberServiceTypeExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new FonenumbersApi();
+            var fonenumber = fonenumber_example;  // string | FoneNumber associated with the account
+            var serviceType = serviceType_example;  // string | Service type. Allowed values are `Conference`, `Hangup`, `Busy`, `Reject`
+            var serviceId = serviceId_example;  // string | Service id (optional) 
+
+            try
+            {
+                // Set Service Type
+                InlineResponse2014 result = apiInstance.SetFonenumberServiceType(fonenumber, serviceType, serviceId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FonenumbersApi.SetFonenumberServiceType: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| FoneNumber associated with the account | 
+ **serviceType** | **string**| Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; | 
+ **serviceId** | **string**| Service id | [optional] 
+
+### Return type
+
+[**InlineResponse2014**](InlineResponse2014.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setfonenumberservicetype_0"></a>
+# **SetFonenumberServiceType_0**
+> InlineResponse2014 SetFonenumberServiceType_0 (string fonenumber, string serviceType, string serviceId = null)
+
+Set Service Type
+
+Set service type for a FoneNumber.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class SetFonenumberServiceType_0Example
+    {
+        public void main()
+        {
+            // Configure API key authorization: jwt
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
+            var apiInstance = new FonenumbersApi();
+            var fonenumber = fonenumber_example;  // string | FoneNumber associated with the account
+            var serviceType = serviceType_example;  // string | Service type. Allowed values are `Conference`, `Hangup`, `Busy`, `Reject`
+            var serviceId = serviceId_example;  // string | Service id (optional) 
+
+            try
+            {
+                // Set Service Type
+                InlineResponse2014 result = apiInstance.SetFonenumberServiceType_0(fonenumber, serviceType, serviceId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FonenumbersApi.SetFonenumberServiceType_0: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **string**| FoneNumber associated with the account | 
+ **serviceType** | **string**| Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; | 
+ **serviceId** | **string**| Service id | [optional] 
+
+### Return type
+
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -546,7 +688,7 @@ Name | Type | Description  | Notes
 
 <a name="updatefonenumber"></a>
 # **UpdateFonenumber**
-> InlineResponse2013 UpdateFonenumber (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 UpdateFonenumber (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
 
 Update FoneNumber
 
@@ -582,7 +724,7 @@ namespace Example
             try
             {
                 // Update FoneNumber
-                InlineResponse2013 result = apiInstance.UpdateFonenumber(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.UpdateFonenumber(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -607,7 +749,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -622,7 +764,7 @@ Name | Type | Description  | Notes
 
 <a name="updatefonenumber_0"></a>
 # **UpdateFonenumber_0**
-> InlineResponse2013 UpdateFonenumber_0 (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 UpdateFonenumber_0 (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
 
 Update FoneNumber
 
@@ -658,7 +800,7 @@ namespace Example
             try
             {
                 // Update FoneNumber
-                InlineResponse2013 result = apiInstance.UpdateFonenumber_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.UpdateFonenumber_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -683,7 +825,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 

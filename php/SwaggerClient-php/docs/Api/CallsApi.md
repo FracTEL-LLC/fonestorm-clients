@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **configureCallReceiveNotify**
-> \Swagger\Client\Model\InlineResponse2013 configureCallReceiveNotify($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureCallReceiveNotify($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Receive Callback
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureCallReceiveNotify_0**
-> \Swagger\Client\Model\InlineResponse2013 configureCallReceiveNotify_0($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureCallReceiveNotify_0($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Receive Callback
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureCallSendNotify**
-> \Swagger\Client\Model\InlineResponse2013 configureCallSendNotify($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureCallSendNotify($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Send Callback
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureCallSendNotify_0**
-> \Swagger\Client\Model\InlineResponse2013 configureCallSendNotify_0($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureCallSendNotify_0($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Send Callback
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCall**
-> \Swagger\Client\Model\InlineResponse2012 createCall($fonenumber, $to, $tts)
+> \Swagger\Client\Model\InlineResponse2011 createCall($fonenumber, $to, $tts)
 
 Create Call
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
+[**\Swagger\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
 
 ### Authorization
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCall_0**
-> \Swagger\Client\Model\InlineResponse2012 createCall_0($fonenumber, $to, $tts)
+> \Swagger\Client\Model\InlineResponse2011 createCall_0($fonenumber, $to, $tts)
 
 Create Call
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
+[**\Swagger\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
 
 ### Authorization
 

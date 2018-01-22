@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.Error
+# FoneStormApi240Thunder.Error
 
 ## Properties
 Name | Type | Description | Notes

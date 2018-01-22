@@ -7,13 +7,15 @@ Method | HTTP request | Description
 [**configureAccountCdrNotify**](AccountsApi.md#configureAccountCdrNotify) | **POST** /accounts/cdr_notify | Set CDR Callback
 [**configureAccountCdrNotify_0**](AccountsApi.md#configureAccountCdrNotify_0) | **POST** /accounts/cdr_notify | Set CDR Callback
 [**getAccount**](AccountsApi.md#getAccount) | **GET** /accounts/{id} | Get Account
+[**getAccountIntegrations**](AccountsApi.md#getAccountIntegrations) | **GET** /accounts/{id}/integrations | Get Account Integrations
+[**getAccountIntegrations_0**](AccountsApi.md#getAccountIntegrations_0) | **GET** /accounts/{id}/integrations | Get Account Integrations
 [**getAccount_0**](AccountsApi.md#getAccount_0) | **GET** /accounts/{id} | Get Account
 [**updateAccount**](AccountsApi.md#updateAccount) | **PUT** /accounts/{id} | Update Account
 [**updateAccount_0**](AccountsApi.md#updateAccount_0) | **PUT** /accounts/{id} | Update Account
 
 
 # **configureAccountCdrNotify**
-> \Swagger\Client\Model\InlineResponse2001 configureAccountCdrNotify($account_id, $method, $url, $username, $password)
+> \Swagger\Client\Model\InlineResponse20011 configureAccountCdrNotify($account_id, $method, $url, $username, $password)
 
 Set CDR Callback
 
@@ -57,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Swagger\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -71,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureAccountCdrNotify_0**
-> \Swagger\Client\Model\InlineResponse2001 configureAccountCdrNotify_0($account_id, $method, $url, $username, $password)
+> \Swagger\Client\Model\InlineResponse20011 configureAccountCdrNotify_0($account_id, $method, $url, $username, $password)
 
 Set CDR Callback
 
@@ -115,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Swagger\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -129,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccount**
-> \Swagger\Client\Model\InlineResponse2001 getAccount($id)
+> \Swagger\Client\Model\InlineResponse20011 getAccount($id)
 
 Get Account
 
@@ -165,7 +167,107 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Swagger\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getAccountIntegrations**
+> \Swagger\Client\Model\InlineResponse20010 getAccountIntegrations($id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AccountsApi();
+$id = "id_example"; // string | Account id
+
+try {
+    $result = $api_instance->getAccountIntegrations($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->getAccountIntegrations: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Account id |
+
+### Return type
+
+[**\Swagger\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getAccountIntegrations_0**
+> \Swagger\Client\Model\InlineResponse20010 getAccountIntegrations_0($id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AccountsApi();
+$id = "id_example"; // string | Account id
+
+try {
+    $result = $api_instance->getAccountIntegrations_0($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->getAccountIntegrations_0: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Account id |
+
+### Return type
+
+[**\Swagger\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -179,7 +281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccount_0**
-> \Swagger\Client\Model\InlineResponse2001 getAccount_0($id)
+> \Swagger\Client\Model\InlineResponse20011 getAccount_0($id)
 
 Get Account
 
@@ -215,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Swagger\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -229,7 +331,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccount**
-> \Swagger\Client\Model\InlineResponse2001 updateAccount($id, $primary_color, $secondary_color, $background_color, $font_family, $logo)
+> \Swagger\Client\Model\InlineResponse20011 updateAccount($id, $primary_color, $secondary_color, $background_color, $font_family, $logo)
 
 Update Account
 
@@ -275,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Swagger\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -289,7 +391,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccount_0**
-> \Swagger\Client\Model\InlineResponse2001 updateAccount_0($id, $primary_color, $secondary_color, $background_color, $font_family, $logo)
+> \Swagger\Client\Model\InlineResponse20011 updateAccount_0($id, $primary_color, $secondary_color, $background_color, $font_family, $logo)
 
 Update Account
 
@@ -335,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Swagger\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 

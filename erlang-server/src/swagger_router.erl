@@ -55,36 +55,6 @@ group_paths() ->
 
 get_operations() ->
     #{ 
-        'ConfigureAccountCdrNotify' => #{
-            path => "/v2/accounts/cdr_notify",
-            method => <<"POST">>,
-            handler => 'swagger_accounts_handler'
-        },
-        'ConfigureAccountCdrNotify_0' => #{
-            path => "/v2/accounts/cdr_notify",
-            method => <<"POST">>,
-            handler => 'swagger_accounts_handler'
-        },
-        'GetAccount' => #{
-            path => "/v2/accounts/:id",
-            method => <<"GET">>,
-            handler => 'swagger_accounts_handler'
-        },
-        'GetAccount_0' => #{
-            path => "/v2/accounts/:id",
-            method => <<"GET">>,
-            handler => 'swagger_accounts_handler'
-        },
-        'UpdateAccount' => #{
-            path => "/v2/accounts/:id",
-            method => <<"PUT">>,
-            handler => 'swagger_accounts_handler'
-        },
-        'UpdateAccount_0' => #{
-            path => "/v2/accounts/:id",
-            method => <<"PUT">>,
-            handler => 'swagger_accounts_handler'
-        },
         'CreateToken' => #{
             path => "/v2/auth",
             method => <<"POST">>,
@@ -124,6 +94,66 @@ get_operations() ->
             path => "/v2/calls",
             method => <<"POST">>,
             handler => 'swagger_calls_handler'
+        },
+        'CreateConference' => #{
+            path => "/v2/conferences",
+            method => <<"POST">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'CreateConference_0' => #{
+            path => "/v2/conferences",
+            method => <<"POST">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'DeleteConference' => #{
+            path => "/v2/conferences/:id",
+            method => <<"DELETE">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'DeleteConference_0' => #{
+            path => "/v2/conferences/:id",
+            method => <<"DELETE">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'GetConference' => #{
+            path => "/v2/conferences/:id",
+            method => <<"GET">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'GetConferenceFonenumbers' => #{
+            path => "/v2/conferences/:id/fonenumbers",
+            method => <<"GET">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'GetConferenceFonenumbers_0' => #{
+            path => "/v2/conferences/:id/fonenumbers",
+            method => <<"GET">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'GetConference_0' => #{
+            path => "/v2/conferences/:id",
+            method => <<"GET">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'GetConferences' => #{
+            path => "/v2/conferences",
+            method => <<"GET">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'GetConferences_0' => #{
+            path => "/v2/conferences",
+            method => <<"GET">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'UpdateConference' => #{
+            path => "/v2/conferences/:id",
+            method => <<"PUT">>,
+            handler => 'swagger_conferences_handler'
+        },
+        'UpdateConference_0' => #{
+            path => "/v2/conferences/:id",
+            method => <<"PUT">>,
+            handler => 'swagger_conferences_handler'
         },
         'ConfigureFaxReceiveNotify' => #{
             path => "/v2/faxes/receive_notify",
@@ -193,6 +223,16 @@ get_operations() ->
         'GetFonenumbers_0' => #{
             path => "/v2/fonenumbers",
             method => <<"GET">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'SetFonenumberServiceType' => #{
+            path => "/v2/fonenumbers/:fonenumber/service",
+            method => <<"POST">>,
+            handler => 'swagger_fonenumbers_handler'
+        },
+        'SetFonenumberServiceType_0' => #{
+            path => "/v2/fonenumbers/:fonenumber/service",
+            method => <<"POST">>,
             handler => 'swagger_fonenumbers_handler'
         },
         'UpdateFonenumber' => #{

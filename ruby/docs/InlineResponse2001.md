@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | [**Account**](Account.md) |  | [optional] 
+**fonenumbers** | [**Array&lt;FoneNumber&gt;**](FoneNumber.md) |  | [optional] 
 
 

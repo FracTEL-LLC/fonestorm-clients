@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="configuremessagereceive"></a>
 # **ConfigureMessageReceive**
-> InlineResponse2013 ConfigureMessageReceive (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureMessageReceive (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
 
 Set Delivery Service
 
@@ -52,7 +52,7 @@ namespace Example
             try
             {
                 // Set Delivery Service
-                InlineResponse2013 result = apiInstance.ConfigureMessageReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureMessageReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 <a name="configuremessagereceivenotify"></a>
 # **ConfigureMessageReceiveNotify**
-> InlineResponse2013 ConfigureMessageReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureMessageReceiveNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Receive Callback
 
@@ -127,7 +127,7 @@ namespace Example
             try
             {
                 // Set Receive Callback
-                InlineResponse2013 result = apiInstance.ConfigureMessageReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureMessageReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 <a name="configuremessagereceivenotify_0"></a>
 # **ConfigureMessageReceiveNotify_0**
-> InlineResponse2013 ConfigureMessageReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureMessageReceiveNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Receive Callback
 
@@ -201,7 +201,7 @@ namespace Example
             try
             {
                 // Set Receive Callback
-                InlineResponse2013 result = apiInstance.ConfigureMessageReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureMessageReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 <a name="configuremessagereceive_0"></a>
 # **ConfigureMessageReceive_0**
-> InlineResponse2013 ConfigureMessageReceive_0 (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureMessageReceive_0 (string fonenumber, string type, string value, string urlMethod, string urlUsername = null, string urlPassword = null)
 
 Set Delivery Service
 
@@ -276,7 +276,7 @@ namespace Example
             try
             {
                 // Set Delivery Service
-                InlineResponse2013 result = apiInstance.ConfigureMessageReceive_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureMessageReceive_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 <a name="configuremessagesendnotify"></a>
 # **ConfigureMessageSendNotify**
-> InlineResponse2013 ConfigureMessageSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureMessageSendNotify (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Send Callback
 
@@ -351,7 +351,7 @@ namespace Example
             try
             {
                 // Set Send Callback
-                InlineResponse2013 result = apiInstance.ConfigureMessageSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureMessageSendNotify(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 <a name="configuremessagesendnotify_0"></a>
 # **ConfigureMessageSendNotify_0**
-> InlineResponse2013 ConfigureMessageSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
+> InlineResponse2014 ConfigureMessageSendNotify_0 (string fonenumber, string method, string url, string urlUsername = null, string urlPassword = null)
 
 Set Send Callback
 
@@ -425,7 +425,7 @@ namespace Example
             try
             {
                 // Set Send Callback
-                InlineResponse2013 result = apiInstance.ConfigureMessageSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+                InlineResponse2014 result = apiInstance.ConfigureMessageSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 <a name="createmessage"></a>
 # **CreateMessage**
-> InlineResponse2014 CreateMessage (string to, string fonenumber, string message, List<string> mediaUrl = null, string confirmationUrl = null, string confirmationUrlUsername = null, string confirmationUrlPassword = null, bool? requireConfirmation = null)
+> InlineResponse2015 CreateMessage (string to, string fonenumber, string message, List<string> mediaUrl = null, string confirmationUrl = null, string confirmationUrlUsername = null, string confirmationUrlPassword = null, bool? requireConfirmation = null)
 
 Create Message
 
@@ -502,7 +502,7 @@ namespace Example
             try
             {
                 // Create Message
-                InlineResponse2014 result = apiInstance.CreateMessage(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
+                InlineResponse2015 result = apiInstance.CreateMessage(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 <a name="createmessage_0"></a>
 # **CreateMessage_0**
-> InlineResponse2014 CreateMessage_0 (string to, string fonenumber, string message, List<string> mediaUrl = null, string confirmationUrl = null, string confirmationUrlUsername = null, string confirmationUrlPassword = null, bool? requireConfirmation = null)
+> InlineResponse2015 CreateMessage_0 (string to, string fonenumber, string message, List<string> mediaUrl = null, string confirmationUrl = null, string confirmationUrlUsername = null, string confirmationUrlPassword = null, bool? requireConfirmation = null)
 
 Create Message
 
@@ -582,7 +582,7 @@ namespace Example
             try
             {
                 // Create Message
-                InlineResponse2014 result = apiInstance.CreateMessage_0(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
+                InlineResponse2015 result = apiInstance.CreateMessage_0(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 

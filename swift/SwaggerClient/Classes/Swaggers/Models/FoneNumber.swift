@@ -17,6 +17,7 @@ public class FoneNumber: JSONEncodable {
     public var rateCenter: String?
     /** Status of FoneNumber. */
     public var isActive: String?
+    public var service: FoneNumberService?
     public var smsOptions: FoneNumberSmsOptions?
     public var voiceOptions: FoneNumberVoiceOptions?
     public var faxOptions: FoneNumberFaxOptions?
@@ -30,6 +31,7 @@ public class FoneNumber: JSONEncodable {
         nillableDictionary["state"] = self.state
         nillableDictionary["rate_center"] = self.rateCenter
         nillableDictionary["is_active"] = self.isActive
+        nillableDictionary["service"] = self.service?.encodeToJSON()
         nillableDictionary["sms_options"] = self.smsOptions?.encodeToJSON()
         nillableDictionary["voice_options"] = self.voiceOptions?.encodeToJSON()
         nillableDictionary["fax_options"] = self.faxOptions?.encodeToJSON()

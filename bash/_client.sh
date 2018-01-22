@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-12-20T17:25:00.503-07:00
+# ! Generated on: 2018-01-22T07:46:05.086-07:00
 # !
 # !
 # ! Installation:
@@ -297,17 +297,23 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "configureAccountCdrNotify[Set CDR Callback]" \
-            "configureAccountCdrNotify_0[Set CDR Callback]" \
-            "getAccount[Get Account]" \
-            "getAccount_0[Get Account]" \
-            "updateAccount[Update Account]" \
-            "updateAccount_0[Update Account]"             "createToken[Create Auth Token]"             "createToken[Create Auth Token]"             "configureCallReceiveNotify[Set Receive Callback]" \
+            "createToken[Create Auth Token]"             "createToken[Create Auth Token]"             "configureCallReceiveNotify[Set Receive Callback]" \
             "configureCallReceiveNotify_0[Set Receive Callback]" \
             "configureCallSendNotify[Set Send Callback]" \
             "configureCallSendNotify_0[Set Send Callback]" \
             "createCall[Create Call]" \
-            "createCall_0[Create Call]"             "configureFaxReceiveNotify[Set Receive Callback]" \
+            "createCall_0[Create Call]"             "createConference[Create Conference]" \
+            "createConference_0[Create Conference]" \
+            "deleteConference[Delete Conference]" \
+            "deleteConference_0[Delete Conference]" \
+            "getConference[Get Conference]" \
+            "getConferenceFonenumbers[Conference Fonenumbers]" \
+            "getConferenceFonenumbers_0[Conference Fonenumbers]" \
+            "getConference_0[Get Conference]" \
+            "getConferences[Get Conferences]" \
+            "getConferences_0[Get Conferences]" \
+            "updateConference[Update Conference]" \
+            "updateConference_0[Update Conference]"             "configureFaxReceiveNotify[Set Receive Callback]" \
             "configureFaxReceiveNotify_0[Set Receive Callback]" \
             "configureFaxSendNotify[Set Send Callback]" \
             "configureFaxSendNotify_0[Set Send Callback]" \
@@ -320,6 +326,8 @@ case $state in
             "getFonenumber_0[Get FoneNumber]" \
             "getFonenumbers[Get FoneNumbers]" \
             "getFonenumbers_0[Get FoneNumbers]" \
+            "setFonenumberServiceType[Set Service Type]" \
+            "setFonenumberServiceType_0[Set Service Type]" \
             "updateFonenumber[Update FoneNumber]" \
             "updateFonenumber_0[Update FoneNumber]"             "configureMessageReceive[Set Delivery Service]" \
             "configureMessageReceiveNotify[Set Receive Callback]" \
@@ -335,46 +343,6 @@ case $state in
     ;;
   args)
     case $line[1] in
-      configureAccountCdrNotify)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      configureAccountCdrNotify_0)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      getAccount)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] Account id"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      getAccount_0)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] Account id"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      updateAccount)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] Account id"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      updateAccount_0)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] Account id"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
       createToken)
         local -a _op_arguments
         _op_arguments=(
@@ -421,6 +389,86 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
                               )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createConference)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createConference_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteConference)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteConference_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getConference)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getConferenceFonenumbers)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getConferenceFonenumbers_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getConference_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getConferences)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getConferences_0)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateConference)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateConference_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] Conference id"
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       configureFaxReceiveNotify)
@@ -511,6 +559,20 @@ case $state in
         _op_arguments=(
                     "filter=:[QUERY] Filter the response attributes. Allowed values are &#39;fonenumbers&#39; or &#39;all&#39;. See **Notes** for additional information."
           )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      setFonenumberServiceType)
+        local -a _op_arguments
+        _op_arguments=(
+          "fonenumber=:[PATH] FoneNumber associated with the account"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      setFonenumberServiceType_0)
+        local -a _op_arguments
+        _op_arguments=(
+          "fonenumber=:[PATH] FoneNumber associated with the account"
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       updateFonenumber)

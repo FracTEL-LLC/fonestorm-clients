@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fonenumbers** | [**List&lt;FoneNumber&gt;**](FoneNumber.md) |  |  [optional]
+**conferences** | [**List&lt;Conference&gt;**](Conference.md) |  |  [optional]
 
 
 

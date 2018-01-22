@@ -142,27 +142,6 @@ class Decoders {
                 fatalError("formatter failed to parse \(source)")
             } 
 
-            // Decoder for [Account]
-            Decoders.addDecoder(clazz: [Account].self) { (source: AnyObject) -> [Account] in
-                return Decoders.decode(clazz: [Account].self, source: source)
-            }
-            // Decoder for Account
-            Decoders.addDecoder(clazz: Account.self) { (source: AnyObject) -> Account in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = Account()
-                instance.backgroundColor = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["background_color"])
-                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
-                instance.cdrNotifyUrl = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cdr_notify_url"])
-                instance.cdrNotifyMethod = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cdr_notify_method"])
-                instance.cdrNotifyPassword = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cdr_notify_password"])
-                instance.cdrNotifyUsername = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cdr_notify_username"])
-                instance.fontFamily = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["font_family"])
-                instance.primaryColor = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["primary_color"])
-                instance.secondaryColor = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["secondary_color"])
-                return instance
-            }
-
-
             // Decoder for [Authorization]
             Decoders.addDecoder(clazz: [Authorization].self) { (source: AnyObject) -> [Authorization] in
                 return Decoders.decode(clazz: [Authorization].self, source: source)
@@ -185,6 +164,25 @@ class Decoders {
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = Call()
                 instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                return instance
+            }
+
+
+            // Decoder for [Conference]
+            Decoders.addDecoder(clazz: [Conference].self) { (source: AnyObject) -> [Conference] in
+                return Decoders.decode(clazz: [Conference].self, source: source)
+            }
+            // Decoder for Conference
+            Decoders.addDecoder(clazz: Conference.self) { (source: AnyObject) -> Conference in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Conference()
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.endTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["end_time"])
+                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.startTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["start_time"])
+                instance.beforeMessage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["before_message"])
+                instance.afterMessage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["after_message"])
+                instance.maxMembers = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["max_members"])
                 return instance
             }
 
@@ -229,6 +227,7 @@ class Decoders {
                 instance.state = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["state"])
                 instance.rateCenter = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["rate_center"])
                 instance.isActive = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["is_active"])
+                instance.service = Decoders.decodeOptional(clazz: FoneNumberService.self, source: sourceDictionary["service"])
                 instance.smsOptions = Decoders.decodeOptional(clazz: FoneNumberSmsOptions.self, source: sourceDictionary["sms_options"])
                 instance.voiceOptions = Decoders.decodeOptional(clazz: FoneNumberVoiceOptions.self, source: sourceDictionary["voice_options"])
                 instance.faxOptions = Decoders.decodeOptional(clazz: FoneNumberFaxOptions.self, source: sourceDictionary["fax_options"])
@@ -274,6 +273,20 @@ class Decoders {
                 let instance = FoneNumberFaxOptionsSendNotify()
                 instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"])
                 instance.method = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["method"])
+                return instance
+            }
+
+
+            // Decoder for [FoneNumberService]
+            Decoders.addDecoder(clazz: [FoneNumberService].self) { (source: AnyObject) -> [FoneNumberService] in
+                return Decoders.decode(clazz: [FoneNumberService].self, source: source)
+            }
+            // Decoder for FoneNumberService
+            Decoders.addDecoder(clazz: FoneNumberService.self) { (source: AnyObject) -> FoneNumberService in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = FoneNumberService()
+                instance.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
                 return instance
             }
 
@@ -391,7 +404,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse200.self) { (source: AnyObject) -> InlineResponse200 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse200()
-                instance.fonenumbers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["fonenumbers"])
+                instance.conferences = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["conferences"])
                 return instance
             }
 
@@ -404,7 +417,20 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2001.self) { (source: AnyObject) -> InlineResponse2001 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2001()
-                instance.account = Decoders.decodeOptional(clazz: Account.self, source: sourceDictionary["account"])
+                instance.fonenumbers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["fonenumbers"])
+                return instance
+            }
+
+
+            // Decoder for [InlineResponse2002]
+            Decoders.addDecoder(clazz: [InlineResponse2002].self) { (source: AnyObject) -> [InlineResponse2002] in
+                return Decoders.decode(clazz: [InlineResponse2002].self, source: source)
+            }
+            // Decoder for InlineResponse2002
+            Decoders.addDecoder(clazz: InlineResponse2002.self) { (source: AnyObject) -> InlineResponse2002 in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InlineResponse2002()
+                instance.fonenumbers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["fonenumbers"])
                 return instance
             }
 
@@ -430,7 +456,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2011.self) { (source: AnyObject) -> InlineResponse2011 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2011()
-                instance.fax = Decoders.decodeOptional(clazz: Fax.self, source: sourceDictionary["fax"])
+                instance.call = Decoders.decodeOptional(clazz: Call.self, source: sourceDictionary["call"])
                 return instance
             }
 
@@ -443,7 +469,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2012.self) { (source: AnyObject) -> InlineResponse2012 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2012()
-                instance.call = Decoders.decodeOptional(clazz: Call.self, source: sourceDictionary["call"])
+                instance.fax = Decoders.decodeOptional(clazz: Fax.self, source: sourceDictionary["fax"])
                 return instance
             }
 
@@ -456,7 +482,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2013.self) { (source: AnyObject) -> InlineResponse2013 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2013()
-                instance.fonenumber = Decoders.decodeOptional(clazz: FoneNumber.self, source: sourceDictionary["fonenumber"])
+                instance.conference = Decoders.decodeOptional(clazz: Conference.self, source: sourceDictionary["conference"])
                 return instance
             }
 
@@ -469,6 +495,19 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2014.self) { (source: AnyObject) -> InlineResponse2014 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2014()
+                instance.fonenumber = Decoders.decodeOptional(clazz: FoneNumber.self, source: sourceDictionary["fonenumber"])
+                return instance
+            }
+
+
+            // Decoder for [InlineResponse2015]
+            Decoders.addDecoder(clazz: [InlineResponse2015].self) { (source: AnyObject) -> [InlineResponse2015] in
+                return Decoders.decode(clazz: [InlineResponse2015].self, source: source)
+            }
+            // Decoder for InlineResponse2015
+            Decoders.addDecoder(clazz: InlineResponse2015.self) { (source: AnyObject) -> InlineResponse2015 in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InlineResponse2015()
                 instance.message = Decoders.decodeOptional(clazz: Message.self, source: sourceDictionary["message"])
                 return instance
             }

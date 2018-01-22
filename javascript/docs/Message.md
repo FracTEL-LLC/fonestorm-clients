@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.Message
+# FoneStormApi240Thunder.Message
 
 ## Properties
 Name | Type | Description | Notes

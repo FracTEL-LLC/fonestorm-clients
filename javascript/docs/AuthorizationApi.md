@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.AuthorizationApi
+# FoneStormApi240Thunder.AuthorizationApi
 
 All URIs are relative to *http://api.fonestorm.com/v2*
 
@@ -17,9 +17,9 @@ Create an authentication token to use for API requests.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
 
-var apiInstance = new FoneStormApi220Breeze.AuthorizationApi();
+var apiInstance = new FoneStormApi240Thunder.AuthorizationApi();
 
 var username = "username_example"; // String | FracTEL username
 

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Fonenumbers** | [**List&lt;FoneNumber&gt;**](FoneNumber.md) |  | [optional] 
+**Conferences** | [**List&lt;Conference&gt;**](Conference.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

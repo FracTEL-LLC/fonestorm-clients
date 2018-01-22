@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **configureFaxReceiveNotify**
-> \Swagger\Client\Model\InlineResponse2013 configureFaxReceiveNotify($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureFaxReceiveNotify($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Receive Callback
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureFaxReceiveNotify_0**
-> \Swagger\Client\Model\InlineResponse2013 configureFaxReceiveNotify_0($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureFaxReceiveNotify_0($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Receive Callback
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureFaxSendNotify**
-> \Swagger\Client\Model\InlineResponse2013 configureFaxSendNotify($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureFaxSendNotify($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Send Callback
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureFaxSendNotify_0**
-> \Swagger\Client\Model\InlineResponse2013 configureFaxSendNotify_0($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureFaxSendNotify_0($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Send Callback
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFax**
-> \Swagger\Client\Model\InlineResponse2011 createFax($fonenumber, $to, $message, $pdf)
+> \Swagger\Client\Model\InlineResponse2012 createFax($fonenumber, $to, $message, $pdf)
 
 Create Fax
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
+[**\Swagger\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFax_0**
-> \Swagger\Client\Model\InlineResponse2011 createFax_0($fonenumber, $to, $message, $pdf)
+> \Swagger\Client\Model\InlineResponse2012 createFax_0($fonenumber, $to, $message, $pdf)
 
 Create Fax
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
+[**\Swagger\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
 
 ### Authorization
 

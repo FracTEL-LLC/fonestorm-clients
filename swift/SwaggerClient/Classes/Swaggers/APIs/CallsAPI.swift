@@ -29,7 +29,7 @@ public class CallsAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureCallReceiveNotify(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureCallReceiveNotify(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureCallReceiveNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -67,6 +67,10 @@ public class CallsAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -98,9 +102,9 @@ public class CallsAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureCallReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureCallReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/calls/receive_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -116,7 +120,7 @@ public class CallsAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -140,7 +144,7 @@ public class CallsAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureCallReceiveNotify_0(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureCallReceiveNotify_0(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureCallReceiveNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -178,6 +182,10 @@ public class CallsAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -209,9 +217,9 @@ public class CallsAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureCallReceiveNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureCallReceiveNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/calls/receive_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -227,7 +235,7 @@ public class CallsAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -251,7 +259,7 @@ public class CallsAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureCallSendNotify(fonenumber fonenumber: String, method: Method_configureCallSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureCallSendNotify(fonenumber fonenumber: String, method: Method_configureCallSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureCallSendNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -289,6 +297,10 @@ public class CallsAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -320,9 +332,9 @@ public class CallsAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureCallSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureCallSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/calls/send_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -338,7 +350,7 @@ public class CallsAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -362,7 +374,7 @@ public class CallsAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureCallSendNotify_0(fonenumber fonenumber: String, method: Method_configureCallSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureCallSendNotify_0(fonenumber fonenumber: String, method: Method_configureCallSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureCallSendNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -400,6 +412,10 @@ public class CallsAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -431,9 +447,9 @@ public class CallsAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureCallSendNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureCallSendNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureCallSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/calls/send_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -449,7 +465,7 @@ public class CallsAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -462,7 +478,7 @@ public class CallsAPI: APIBase {
      - parameter tts: (form) Text to speech message (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createCall(fonenumber fonenumber: String, to: String, tts: String? = nil, completion: ((data: InlineResponse2012?, error: ErrorType?) -> Void)) {
+    public class func createCall(fonenumber fonenumber: String, to: String, tts: String? = nil, completion: ((data: InlineResponse2011?, error: ErrorType?) -> Void)) {
         createCallWithRequestBuilder(fonenumber: fonenumber, to: to, tts: tts).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -486,9 +502,9 @@ public class CallsAPI: APIBase {
      - parameter to: (form) Receiving 10 digit phone number 
      - parameter tts: (form) Text to speech message (optional)
 
-     - returns: RequestBuilder<InlineResponse2012> 
+     - returns: RequestBuilder<InlineResponse2011> 
      */
-    public class func createCallWithRequestBuilder(fonenumber fonenumber: String, to: String, tts: String? = nil) -> RequestBuilder<InlineResponse2012> {
+    public class func createCallWithRequestBuilder(fonenumber fonenumber: String, to: String, tts: String? = nil) -> RequestBuilder<InlineResponse2011> {
         let path = "/calls"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -502,7 +518,7 @@ public class CallsAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2012>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2011>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -515,7 +531,7 @@ public class CallsAPI: APIBase {
      - parameter tts: (form) Text to speech message (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createCall_0(fonenumber fonenumber: String, to: String, tts: String? = nil, completion: ((data: InlineResponse2012?, error: ErrorType?) -> Void)) {
+    public class func createCall_0(fonenumber fonenumber: String, to: String, tts: String? = nil, completion: ((data: InlineResponse2011?, error: ErrorType?) -> Void)) {
         createCall_0WithRequestBuilder(fonenumber: fonenumber, to: to, tts: tts).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -539,9 +555,9 @@ public class CallsAPI: APIBase {
      - parameter to: (form) Receiving 10 digit phone number 
      - parameter tts: (form) Text to speech message (optional)
 
-     - returns: RequestBuilder<InlineResponse2012> 
+     - returns: RequestBuilder<InlineResponse2011> 
      */
-    public class func createCall_0WithRequestBuilder(fonenumber fonenumber: String, to: String, tts: String? = nil) -> RequestBuilder<InlineResponse2012> {
+    public class func createCall_0WithRequestBuilder(fonenumber fonenumber: String, to: String, tts: String? = nil) -> RequestBuilder<InlineResponse2011> {
         let path = "/calls"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -555,7 +571,7 @@ public class CallsAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2012>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2011>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

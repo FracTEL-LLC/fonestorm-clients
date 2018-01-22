@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **configure_call_receive_notify**
-> InlineResponse2013 configure_call_receive_notify(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
+> InlineResponse2014 configure_call_receive_notify(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
 
 Set Receive Callback
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_call_receive_notify_0**
-> InlineResponse2013 configure_call_receive_notify_0(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
+> InlineResponse2014 configure_call_receive_notify_0(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
 
 Set Receive Callback
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_call_send_notify**
-> InlineResponse2013 configure_call_send_notify(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
+> InlineResponse2014 configure_call_send_notify(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
 
 Set Send Callback
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_call_send_notify_0**
-> InlineResponse2013 configure_call_send_notify_0(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
+> InlineResponse2014 configure_call_send_notify_0(fonenumber => $fonenumber, method => $method, url => $url, url_username => $url_username, url_password => $url_password)
 
 Set Send Callback
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_call**
-> InlineResponse2012 create_call(fonenumber => $fonenumber, to => $to, tts => $tts)
+> InlineResponse2011 create_call(fonenumber => $fonenumber, to => $to, tts => $tts)
 
 Create Call
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_call_0**
-> InlineResponse2012 create_call_0(fonenumber => $fonenumber, to => $to, tts => $tts)
+> InlineResponse2011 create_call_0(fonenumber => $fonenumber, to => $to, tts => $tts)
 
 Create Call
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 
