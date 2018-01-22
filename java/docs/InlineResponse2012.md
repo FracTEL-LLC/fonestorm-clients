@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**call** | [**Call**](Call.md) |  |  [optional]
+**fax** | [**Fax**](Fax.md) |  |  [optional]
 
 
 

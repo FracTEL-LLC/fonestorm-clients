@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **configureMessageReceive**
-> \Swagger\Client\Model\InlineResponse2013 configureMessageReceive($fonenumber, $type, $value, $url_method, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureMessageReceive($fonenumber, $type, $value, $url_method, $url_username, $url_password)
 
 Set Delivery Service
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureMessageReceiveNotify**
-> \Swagger\Client\Model\InlineResponse2013 configureMessageReceiveNotify($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureMessageReceiveNotify($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Receive Callback
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureMessageReceiveNotify_0**
-> \Swagger\Client\Model\InlineResponse2013 configureMessageReceiveNotify_0($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureMessageReceiveNotify_0($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Receive Callback
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureMessageReceive_0**
-> \Swagger\Client\Model\InlineResponse2013 configureMessageReceive_0($fonenumber, $type, $value, $url_method, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureMessageReceive_0($fonenumber, $type, $value, $url_method, $url_username, $url_password)
 
 Set Delivery Service
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureMessageSendNotify**
-> \Swagger\Client\Model\InlineResponse2013 configureMessageSendNotify($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureMessageSendNotify($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Send Callback
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **configureMessageSendNotify_0**
-> \Swagger\Client\Model\InlineResponse2013 configureMessageSendNotify_0($fonenumber, $method, $url, $url_username, $url_password)
+> \Swagger\Client\Model\InlineResponse2014 configureMessageSendNotify_0($fonenumber, $method, $url, $url_username, $url_password)
 
 Set Send Callback
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
+[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createMessage**
-> \Swagger\Client\Model\InlineResponse2014 createMessage($to, $fonenumber, $message, $media_url, $confirmation_url, $confirmation_url_username, $confirmation_url_password, $require_confirmation)
+> \Swagger\Client\Model\InlineResponse2015 createMessage($to, $fonenumber, $message, $media_url, $confirmation_url, $confirmation_url_username, $confirmation_url_password, $require_confirmation)
 
 Create Message
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
+[**\Swagger\Client\Model\InlineResponse2015**](../Model/InlineResponse2015.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createMessage_0**
-> \Swagger\Client\Model\InlineResponse2014 createMessage_0($to, $fonenumber, $message, $media_url, $confirmation_url, $confirmation_url_username, $confirmation_url_password, $require_confirmation)
+> \Swagger\Client\Model\InlineResponse2015 createMessage_0($to, $fonenumber, $message, $media_url, $confirmation_url, $confirmation_url_username, $confirmation_url_password, $require_confirmation)
 
 Create Message
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2014**](../Model/InlineResponse2014.md)
+[**\Swagger\Client\Model\InlineResponse2015**](../Model/InlineResponse2015.md)
 
 ### Authorization
 

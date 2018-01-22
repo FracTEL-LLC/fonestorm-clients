@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **configure_call_receive_notify**
-> InlineResponse2013 configure_call_receive_notify(fonenumber, method, url, opts)
+> InlineResponse2014 configure_call_receive_notify(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 
 # **configure_call_receive_notify_0**
-> InlineResponse2013 configure_call_receive_notify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configure_call_receive_notify_0(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 
 # **configure_call_send_notify**
-> InlineResponse2013 configure_call_send_notify(fonenumber, method, url, opts)
+> InlineResponse2014 configure_call_send_notify(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 
 # **configure_call_send_notify_0**
-> InlineResponse2013 configure_call_send_notify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configure_call_send_notify_0(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 
 # **create_call**
-> InlineResponse2012 create_call(fonenumber, to, opts)
+> InlineResponse2011 create_call(fonenumber, to, opts)
 
 Create Call
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 
 # **create_call_0**
-> InlineResponse2012 create_call_0(fonenumber, to, opts)
+> InlineResponse2011 create_call_0(fonenumber, to, opts)
 
 Create Call
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 

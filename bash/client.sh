@@ -8,12 +8,12 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-12-20T17:25:00.503-07:00
+# ! Generated on: 2018-01-22T07:46:05.086-07:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for FoneStorm API 2.2.0 (Breeze).
+# This is a Bash client for FoneStorm API 2.4.0 (Thunder).
 #
 # LICENSE:
 # http://www.apache.org/licenses/LICENSE-2.0.html
@@ -67,30 +67,6 @@ declare -A operation_parameters
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurences
-operation_parameters_minimum_occurences["configureAccountCdrNotify:::account_id"]=1
-operation_parameters_minimum_occurences["configureAccountCdrNotify:::method"]=1
-operation_parameters_minimum_occurences["configureAccountCdrNotify:::url"]=1
-operation_parameters_minimum_occurences["configureAccountCdrNotify:::username"]=0
-operation_parameters_minimum_occurences["configureAccountCdrNotify:::password"]=0
-operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::account_id"]=1
-operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::method"]=1
-operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::url"]=1
-operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::username"]=0
-operation_parameters_minimum_occurences["configureAccountCdrNotify_0:::password"]=0
-operation_parameters_minimum_occurences["getAccount:::id"]=1
-operation_parameters_minimum_occurences["getAccount_0:::id"]=1
-operation_parameters_minimum_occurences["updateAccount:::id"]=1
-operation_parameters_minimum_occurences["updateAccount:::primary_color"]=0
-operation_parameters_minimum_occurences["updateAccount:::secondary_color"]=0
-operation_parameters_minimum_occurences["updateAccount:::background_color"]=0
-operation_parameters_minimum_occurences["updateAccount:::font_family"]=0
-operation_parameters_minimum_occurences["updateAccount:::logo"]=0
-operation_parameters_minimum_occurences["updateAccount_0:::id"]=1
-operation_parameters_minimum_occurences["updateAccount_0:::primary_color"]=0
-operation_parameters_minimum_occurences["updateAccount_0:::secondary_color"]=0
-operation_parameters_minimum_occurences["updateAccount_0:::background_color"]=0
-operation_parameters_minimum_occurences["updateAccount_0:::font_family"]=0
-operation_parameters_minimum_occurences["updateAccount_0:::logo"]=0
 operation_parameters_minimum_occurences["createToken:::username"]=1
 operation_parameters_minimum_occurences["createToken:::password"]=1
 operation_parameters_minimum_occurences["createToken:::expires"]=0
@@ -123,6 +99,42 @@ operation_parameters_minimum_occurences["createCall:::tts"]=0
 operation_parameters_minimum_occurences["createCall_0:::fonenumber"]=1
 operation_parameters_minimum_occurences["createCall_0:::to"]=1
 operation_parameters_minimum_occurences["createCall_0:::tts"]=0
+operation_parameters_minimum_occurences["createConference:::label"]=1
+operation_parameters_minimum_occurences["createConference:::start_time"]=0
+operation_parameters_minimum_occurences["createConference:::end_time"]=0
+operation_parameters_minimum_occurences["createConference:::fonenumber"]=0
+operation_parameters_minimum_occurences["createConference:::before_message"]=0
+operation_parameters_minimum_occurences["createConference:::after_message"]=0
+operation_parameters_minimum_occurences["createConference:::max_members"]=0
+operation_parameters_minimum_occurences["createConference_0:::label"]=1
+operation_parameters_minimum_occurences["createConference_0:::start_time"]=0
+operation_parameters_minimum_occurences["createConference_0:::end_time"]=0
+operation_parameters_minimum_occurences["createConference_0:::fonenumber"]=0
+operation_parameters_minimum_occurences["createConference_0:::before_message"]=0
+operation_parameters_minimum_occurences["createConference_0:::after_message"]=0
+operation_parameters_minimum_occurences["createConference_0:::max_members"]=0
+operation_parameters_minimum_occurences["deleteConference:::id"]=1
+operation_parameters_minimum_occurences["deleteConference_0:::id"]=1
+operation_parameters_minimum_occurences["getConference:::id"]=1
+operation_parameters_minimum_occurences["getConferenceFonenumbers:::id"]=1
+operation_parameters_minimum_occurences["getConferenceFonenumbers_0:::id"]=1
+operation_parameters_minimum_occurences["getConference_0:::id"]=1
+operation_parameters_minimum_occurences["updateConference:::id"]=1
+operation_parameters_minimum_occurences["updateConference:::label"]=0
+operation_parameters_minimum_occurences["updateConference:::start_time"]=0
+operation_parameters_minimum_occurences["updateConference:::end_time"]=0
+operation_parameters_minimum_occurences["updateConference:::fonenumber"]=0
+operation_parameters_minimum_occurences["updateConference:::before_message"]=0
+operation_parameters_minimum_occurences["updateConference:::after_message"]=0
+operation_parameters_minimum_occurences["updateConference:::max_members"]=0
+operation_parameters_minimum_occurences["updateConference_0:::id"]=1
+operation_parameters_minimum_occurences["updateConference_0:::label"]=0
+operation_parameters_minimum_occurences["updateConference_0:::start_time"]=0
+operation_parameters_minimum_occurences["updateConference_0:::end_time"]=0
+operation_parameters_minimum_occurences["updateConference_0:::fonenumber"]=0
+operation_parameters_minimum_occurences["updateConference_0:::before_message"]=0
+operation_parameters_minimum_occurences["updateConference_0:::after_message"]=0
+operation_parameters_minimum_occurences["updateConference_0:::max_members"]=0
 operation_parameters_minimum_occurences["configureFaxReceiveNotify:::fonenumber"]=1
 operation_parameters_minimum_occurences["configureFaxReceiveNotify:::method"]=1
 operation_parameters_minimum_occurences["configureFaxReceiveNotify:::url"]=1
@@ -159,6 +171,12 @@ operation_parameters_minimum_occurences["getFonenumber:::fonenumber"]=1
 operation_parameters_minimum_occurences["getFonenumber_0:::fonenumber"]=1
 operation_parameters_minimum_occurences["getFonenumbers:::filter"]=0
 operation_parameters_minimum_occurences["getFonenumbers_0:::filter"]=0
+operation_parameters_minimum_occurences["setFonenumberServiceType:::fonenumber"]=1
+operation_parameters_minimum_occurences["setFonenumberServiceType:::service_type"]=1
+operation_parameters_minimum_occurences["setFonenumberServiceType:::service_id"]=0
+operation_parameters_minimum_occurences["setFonenumberServiceType_0:::fonenumber"]=1
+operation_parameters_minimum_occurences["setFonenumberServiceType_0:::service_type"]=1
+operation_parameters_minimum_occurences["setFonenumberServiceType_0:::service_id"]=0
 operation_parameters_minimum_occurences["updateFonenumber:::fonenumber"]=1
 operation_parameters_minimum_occurences["updateFonenumber:::type"]=1
 operation_parameters_minimum_occurences["updateFonenumber:::value"]=1
@@ -227,30 +245,6 @@ operation_parameters_minimum_occurences["createMessage_0:::require_confirmation"
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurences
-operation_parameters_maximum_occurences["configureAccountCdrNotify:::account_id"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify:::method"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify:::url"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify:::username"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify:::password"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::account_id"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::method"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::url"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::username"]=0
-operation_parameters_maximum_occurences["configureAccountCdrNotify_0:::password"]=0
-operation_parameters_maximum_occurences["getAccount:::id"]=0
-operation_parameters_maximum_occurences["getAccount_0:::id"]=0
-operation_parameters_maximum_occurences["updateAccount:::id"]=0
-operation_parameters_maximum_occurences["updateAccount:::primary_color"]=0
-operation_parameters_maximum_occurences["updateAccount:::secondary_color"]=0
-operation_parameters_maximum_occurences["updateAccount:::background_color"]=0
-operation_parameters_maximum_occurences["updateAccount:::font_family"]=0
-operation_parameters_maximum_occurences["updateAccount:::logo"]=0
-operation_parameters_maximum_occurences["updateAccount_0:::id"]=0
-operation_parameters_maximum_occurences["updateAccount_0:::primary_color"]=0
-operation_parameters_maximum_occurences["updateAccount_0:::secondary_color"]=0
-operation_parameters_maximum_occurences["updateAccount_0:::background_color"]=0
-operation_parameters_maximum_occurences["updateAccount_0:::font_family"]=0
-operation_parameters_maximum_occurences["updateAccount_0:::logo"]=0
 operation_parameters_maximum_occurences["createToken:::username"]=0
 operation_parameters_maximum_occurences["createToken:::password"]=0
 operation_parameters_maximum_occurences["createToken:::expires"]=0
@@ -283,6 +277,42 @@ operation_parameters_maximum_occurences["createCall:::tts"]=0
 operation_parameters_maximum_occurences["createCall_0:::fonenumber"]=0
 operation_parameters_maximum_occurences["createCall_0:::to"]=0
 operation_parameters_maximum_occurences["createCall_0:::tts"]=0
+operation_parameters_maximum_occurences["createConference:::label"]=0
+operation_parameters_maximum_occurences["createConference:::start_time"]=0
+operation_parameters_maximum_occurences["createConference:::end_time"]=0
+operation_parameters_maximum_occurences["createConference:::fonenumber"]=0
+operation_parameters_maximum_occurences["createConference:::before_message"]=0
+operation_parameters_maximum_occurences["createConference:::after_message"]=0
+operation_parameters_maximum_occurences["createConference:::max_members"]=0
+operation_parameters_maximum_occurences["createConference_0:::label"]=0
+operation_parameters_maximum_occurences["createConference_0:::start_time"]=0
+operation_parameters_maximum_occurences["createConference_0:::end_time"]=0
+operation_parameters_maximum_occurences["createConference_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["createConference_0:::before_message"]=0
+operation_parameters_maximum_occurences["createConference_0:::after_message"]=0
+operation_parameters_maximum_occurences["createConference_0:::max_members"]=0
+operation_parameters_maximum_occurences["deleteConference:::id"]=0
+operation_parameters_maximum_occurences["deleteConference_0:::id"]=0
+operation_parameters_maximum_occurences["getConference:::id"]=0
+operation_parameters_maximum_occurences["getConferenceFonenumbers:::id"]=0
+operation_parameters_maximum_occurences["getConferenceFonenumbers_0:::id"]=0
+operation_parameters_maximum_occurences["getConference_0:::id"]=0
+operation_parameters_maximum_occurences["updateConference:::id"]=0
+operation_parameters_maximum_occurences["updateConference:::label"]=0
+operation_parameters_maximum_occurences["updateConference:::start_time"]=0
+operation_parameters_maximum_occurences["updateConference:::end_time"]=0
+operation_parameters_maximum_occurences["updateConference:::fonenumber"]=0
+operation_parameters_maximum_occurences["updateConference:::before_message"]=0
+operation_parameters_maximum_occurences["updateConference:::after_message"]=0
+operation_parameters_maximum_occurences["updateConference:::max_members"]=0
+operation_parameters_maximum_occurences["updateConference_0:::id"]=0
+operation_parameters_maximum_occurences["updateConference_0:::label"]=0
+operation_parameters_maximum_occurences["updateConference_0:::start_time"]=0
+operation_parameters_maximum_occurences["updateConference_0:::end_time"]=0
+operation_parameters_maximum_occurences["updateConference_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["updateConference_0:::before_message"]=0
+operation_parameters_maximum_occurences["updateConference_0:::after_message"]=0
+operation_parameters_maximum_occurences["updateConference_0:::max_members"]=0
 operation_parameters_maximum_occurences["configureFaxReceiveNotify:::fonenumber"]=0
 operation_parameters_maximum_occurences["configureFaxReceiveNotify:::method"]=0
 operation_parameters_maximum_occurences["configureFaxReceiveNotify:::url"]=0
@@ -319,6 +349,12 @@ operation_parameters_maximum_occurences["getFonenumber:::fonenumber"]=0
 operation_parameters_maximum_occurences["getFonenumber_0:::fonenumber"]=0
 operation_parameters_maximum_occurences["getFonenumbers:::filter"]=0
 operation_parameters_maximum_occurences["getFonenumbers_0:::filter"]=0
+operation_parameters_maximum_occurences["setFonenumberServiceType:::fonenumber"]=0
+operation_parameters_maximum_occurences["setFonenumberServiceType:::service_type"]=0
+operation_parameters_maximum_occurences["setFonenumberServiceType:::service_id"]=0
+operation_parameters_maximum_occurences["setFonenumberServiceType_0:::fonenumber"]=0
+operation_parameters_maximum_occurences["setFonenumberServiceType_0:::service_type"]=0
+operation_parameters_maximum_occurences["setFonenumberServiceType_0:::service_id"]=0
 operation_parameters_maximum_occurences["updateFonenumber:::fonenumber"]=0
 operation_parameters_maximum_occurences["updateFonenumber:::type"]=0
 operation_parameters_maximum_occurences["updateFonenumber:::value"]=0
@@ -384,30 +420,6 @@ operation_parameters_maximum_occurences["createMessage_0:::require_confirmation"
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
-operation_parameters_collection_type["configureAccountCdrNotify:::account_id"]=""
-operation_parameters_collection_type["configureAccountCdrNotify:::method"]=""
-operation_parameters_collection_type["configureAccountCdrNotify:::url"]=""
-operation_parameters_collection_type["configureAccountCdrNotify:::username"]=""
-operation_parameters_collection_type["configureAccountCdrNotify:::password"]=""
-operation_parameters_collection_type["configureAccountCdrNotify_0:::account_id"]=""
-operation_parameters_collection_type["configureAccountCdrNotify_0:::method"]=""
-operation_parameters_collection_type["configureAccountCdrNotify_0:::url"]=""
-operation_parameters_collection_type["configureAccountCdrNotify_0:::username"]=""
-operation_parameters_collection_type["configureAccountCdrNotify_0:::password"]=""
-operation_parameters_collection_type["getAccount:::id"]=""
-operation_parameters_collection_type["getAccount_0:::id"]=""
-operation_parameters_collection_type["updateAccount:::id"]=""
-operation_parameters_collection_type["updateAccount:::primary_color"]=""
-operation_parameters_collection_type["updateAccount:::secondary_color"]=""
-operation_parameters_collection_type["updateAccount:::background_color"]=""
-operation_parameters_collection_type["updateAccount:::font_family"]=""
-operation_parameters_collection_type["updateAccount:::logo"]=""
-operation_parameters_collection_type["updateAccount_0:::id"]=""
-operation_parameters_collection_type["updateAccount_0:::primary_color"]=""
-operation_parameters_collection_type["updateAccount_0:::secondary_color"]=""
-operation_parameters_collection_type["updateAccount_0:::background_color"]=""
-operation_parameters_collection_type["updateAccount_0:::font_family"]=""
-operation_parameters_collection_type["updateAccount_0:::logo"]=""
 operation_parameters_collection_type["createToken:::username"]=""
 operation_parameters_collection_type["createToken:::password"]=""
 operation_parameters_collection_type["createToken:::expires"]=""
@@ -440,6 +452,42 @@ operation_parameters_collection_type["createCall:::tts"]=""
 operation_parameters_collection_type["createCall_0:::fonenumber"]=""
 operation_parameters_collection_type["createCall_0:::to"]=""
 operation_parameters_collection_type["createCall_0:::tts"]=""
+operation_parameters_collection_type["createConference:::label"]=""
+operation_parameters_collection_type["createConference:::start_time"]=""
+operation_parameters_collection_type["createConference:::end_time"]=""
+operation_parameters_collection_type["createConference:::fonenumber"]=""
+operation_parameters_collection_type["createConference:::before_message"]=""
+operation_parameters_collection_type["createConference:::after_message"]=""
+operation_parameters_collection_type["createConference:::max_members"]=""
+operation_parameters_collection_type["createConference_0:::label"]=""
+operation_parameters_collection_type["createConference_0:::start_time"]=""
+operation_parameters_collection_type["createConference_0:::end_time"]=""
+operation_parameters_collection_type["createConference_0:::fonenumber"]=""
+operation_parameters_collection_type["createConference_0:::before_message"]=""
+operation_parameters_collection_type["createConference_0:::after_message"]=""
+operation_parameters_collection_type["createConference_0:::max_members"]=""
+operation_parameters_collection_type["deleteConference:::id"]=""
+operation_parameters_collection_type["deleteConference_0:::id"]=""
+operation_parameters_collection_type["getConference:::id"]=""
+operation_parameters_collection_type["getConferenceFonenumbers:::id"]=""
+operation_parameters_collection_type["getConferenceFonenumbers_0:::id"]=""
+operation_parameters_collection_type["getConference_0:::id"]=""
+operation_parameters_collection_type["updateConference:::id"]=""
+operation_parameters_collection_type["updateConference:::label"]=""
+operation_parameters_collection_type["updateConference:::start_time"]=""
+operation_parameters_collection_type["updateConference:::end_time"]=""
+operation_parameters_collection_type["updateConference:::fonenumber"]=""
+operation_parameters_collection_type["updateConference:::before_message"]=""
+operation_parameters_collection_type["updateConference:::after_message"]=""
+operation_parameters_collection_type["updateConference:::max_members"]=""
+operation_parameters_collection_type["updateConference_0:::id"]=""
+operation_parameters_collection_type["updateConference_0:::label"]=""
+operation_parameters_collection_type["updateConference_0:::start_time"]=""
+operation_parameters_collection_type["updateConference_0:::end_time"]=""
+operation_parameters_collection_type["updateConference_0:::fonenumber"]=""
+operation_parameters_collection_type["updateConference_0:::before_message"]=""
+operation_parameters_collection_type["updateConference_0:::after_message"]=""
+operation_parameters_collection_type["updateConference_0:::max_members"]=""
 operation_parameters_collection_type["configureFaxReceiveNotify:::fonenumber"]=""
 operation_parameters_collection_type["configureFaxReceiveNotify:::method"]=""
 operation_parameters_collection_type["configureFaxReceiveNotify:::url"]=""
@@ -476,6 +524,12 @@ operation_parameters_collection_type["getFonenumber:::fonenumber"]=""
 operation_parameters_collection_type["getFonenumber_0:::fonenumber"]=""
 operation_parameters_collection_type["getFonenumbers:::filter"]=""
 operation_parameters_collection_type["getFonenumbers_0:::filter"]=""
+operation_parameters_collection_type["setFonenumberServiceType:::fonenumber"]=""
+operation_parameters_collection_type["setFonenumberServiceType:::service_type"]=""
+operation_parameters_collection_type["setFonenumberServiceType:::service_id"]=""
+operation_parameters_collection_type["setFonenumberServiceType_0:::fonenumber"]=""
+operation_parameters_collection_type["setFonenumberServiceType_0:::service_type"]=""
+operation_parameters_collection_type["setFonenumberServiceType_0:::service_id"]=""
 operation_parameters_collection_type["updateFonenumber:::fonenumber"]=""
 operation_parameters_collection_type["updateFonenumber:::type"]=""
 operation_parameters_collection_type["updateFonenumber:::value"]=""
@@ -980,7 +1034,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 (Breeze) command line client (API version 2.2.0)$(tput sgr0)
+$(tput bold)$(tput setaf 7)FoneStorm API 2.4.0 (Thunder) command line client (API version 2.4.0)$(tput sgr0)
 
 $(tput bold)$(tput setaf 7)Usage$(tput sgr0)
 
@@ -1014,17 +1068,6 @@ EOF
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Operations (grouped by tags)$(tput sgr0)"
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)[accounts]$(tput sgr0)"
-read -d '' ops <<EOF
-  $(tput setaf 6)configureAccountCdrNotify$(tput sgr0);Set CDR Callback
-  $(tput setaf 6)configureAccountCdrNotify_0$(tput sgr0);Set CDR Callback
-  $(tput setaf 6)getAccount$(tput sgr0);Get Account
-  $(tput setaf 6)getAccount_0$(tput sgr0);Get Account
-  $(tput setaf 6)updateAccount$(tput sgr0);Update Account
-  $(tput setaf 6)updateAccount_0$(tput sgr0);Update Account
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
     echo -e "$(tput bold)$(tput setaf 7)[auth]$(tput sgr0)"
 read -d '' ops <<EOF
   $(tput setaf 6)createToken$(tput sgr0);Create Auth Token
@@ -1045,6 +1088,23 @@ read -d '' ops <<EOF
   $(tput setaf 6)configureCallSendNotify_0$(tput sgr0);Set Send Callback
   $(tput setaf 6)createCall$(tput sgr0);Create Call
   $(tput setaf 6)createCall_0$(tput sgr0);Create Call
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[conferences]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)createConference$(tput sgr0);Create Conference
+  $(tput setaf 6)createConference_0$(tput sgr0);Create Conference
+  $(tput setaf 6)deleteConference$(tput sgr0);Delete Conference
+  $(tput setaf 6)deleteConference_0$(tput sgr0);Delete Conference
+  $(tput setaf 6)getConference$(tput sgr0);Get Conference
+  $(tput setaf 6)getConferenceFonenumbers$(tput sgr0);Conference Fonenumbers
+  $(tput setaf 6)getConferenceFonenumbers_0$(tput sgr0);Conference Fonenumbers
+  $(tput setaf 6)getConference_0$(tput sgr0);Get Conference
+  $(tput setaf 6)getConferences$(tput sgr0);Get Conferences
+  $(tput setaf 6)getConferences_0$(tput sgr0);Get Conferences
+  $(tput setaf 6)updateConference$(tput sgr0);Update Conference
+  $(tput setaf 6)updateConference_0$(tput sgr0);Update Conference
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -1069,6 +1129,8 @@ read -d '' ops <<EOF
   $(tput setaf 6)getFonenumber_0$(tput sgr0);Get FoneNumber
   $(tput setaf 6)getFonenumbers$(tput sgr0);Get FoneNumbers
   $(tput setaf 6)getFonenumbers_0$(tput sgr0);Get FoneNumbers
+  $(tput setaf 6)setFonenumberServiceType$(tput sgr0);Set Service Type
+  $(tput setaf 6)setFonenumberServiceType_0$(tput sgr0);Set Service Type
   $(tput setaf 6)updateFonenumber$(tput sgr0);Update FoneNumber
   $(tput setaf 6)updateFonenumber_0$(tput sgr0);Update FoneNumber
 EOF
@@ -1112,7 +1174,7 @@ echo -e "              \t\t\t\t(e.g. 'https://api.fonestorm.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)FoneStorm API 2.2.0 (Breeze) command line client (API version 2.2.0)$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)FoneStorm API 2.4.0 (Thunder) command line client (API version 2.4.0)$(tput sgr0)"
     echo ""
     echo -e "License: ISC"
     echo -e "Contact: "
@@ -1132,344 +1194,10 @@ echo "$appdescription" | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "$(tput bold)FoneStorm API 2.2.0 (Breeze) command line client (API version 2.2.0)$(tput sgr0)"
+    echo -e "$(tput bold)FoneStorm API 2.4.0 (Thunder) command line client (API version 2.4.0)$(tput sgr0)"
     echo ""
 }
 
-##############################################################################
-#
-# Print help for configureAccountCdrNotify operation
-#
-##############################################################################
-print_configureAccountCdrNotify_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)configureAccountCdrNotify - Set CDR Callback$(tput sgr0)"
-    echo -e ""
-    echo -e "Configure the callback URL to notify when a call dialing record is available." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 0 in
-        1*)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
-##############################################################################
-#
-# Print help for configureAccountCdrNotify_0 operation
-#
-##############################################################################
-print_configureAccountCdrNotify_0_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)configureAccountCdrNotify_0 - Set CDR Callback$(tput sgr0)"
-    echo -e ""
-    echo -e "Configure the callback URL to notify when a call dialing record is available." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 0 in
-        1*)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
-##############################################################################
-#
-# Print help for getAccount operation
-#
-##############################################################################
-print_getAccount_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)getAccount - Get Account$(tput sgr0)"
-    echo -e ""
-    echo -e "Get information about an account." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 0 in
-        1*)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
-##############################################################################
-#
-# Print help for getAccount_0 operation
-#
-##############################################################################
-print_getAccount_0_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)getAccount_0 - Get Account$(tput sgr0)"
-    echo -e ""
-    echo -e "Get information about an account." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 0 in
-        1*)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
-##############################################################################
-#
-# Print help for updateAccount operation
-#
-##############################################################################
-print_updateAccount_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)updateAccount - Update Account$(tput sgr0)"
-    echo -e ""
-    echo -e "Update an account." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 0 in
-        1*)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
-##############################################################################
-#
-# Print help for updateAccount_0 operation
-#
-##############################################################################
-print_updateAccount_0_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)updateAccount_0 - Update Account$(tput sgr0)"
-    echo -e ""
-    echo -e "Update an account." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Account id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 0 in
-        1*)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
 ##############################################################################
 #
 # Print help for createToken operation
@@ -1887,6 +1615,672 @@ print_createCall_0_help() {
         ;;
         *)
         echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createConference operation
+#
+##############################################################################
+print_createConference_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createConference - Create Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Create a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for createConference_0 operation
+#
+##############################################################################
+print_createConference_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createConference_0 - Create Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Create a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 201 in
+        1*)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  201;Created$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for deleteConference operation
+#
+##############################################################################
+print_deleteConference_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)deleteConference - Delete Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Delete a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for deleteConference_0 operation
+#
+##############################################################################
+print_deleteConference_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)deleteConference_0 - Delete Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Delete a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getConference operation
+#
+##############################################################################
+print_getConference_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getConference - Get Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Get information about a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getConferenceFonenumbers operation
+#
+##############################################################################
+print_getConferenceFonenumbers_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getConferenceFonenumbers - Conference Fonenumbers$(tput sgr0)"
+    echo -e ""
+    echo -e "Get fonenumbers assigned to a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getConferenceFonenumbers_0 operation
+#
+##############################################################################
+print_getConferenceFonenumbers_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getConferenceFonenumbers_0 - Conference Fonenumbers$(tput sgr0)"
+    echo -e ""
+    echo -e "Get fonenumbers assigned to a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getConference_0 operation
+#
+##############################################################################
+print_getConference_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getConference_0 - Get Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Get information about a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getConferences operation
+#
+##############################################################################
+print_getConferences_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getConferences - Get Conferences$(tput sgr0)"
+    echo -e ""
+    echo -e "Get a list of all conferences." | fold -sw 80
+    echo -e ""
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getConferences_0 operation
+#
+##############################################################################
+print_getConferences_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getConferences_0 - Get Conferences$(tput sgr0)"
+    echo -e ""
+    echo -e "Get a list of all conferences." | fold -sw 80
+    echo -e ""
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for updateConference operation
+#
+##############################################################################
+print_updateConference_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)updateConference - Update Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Update a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for updateConference_0 operation
+#
+##############################################################################
+print_updateConference_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)updateConference_0 - Update Conference$(tput sgr0)"
+    echo -e ""
+    echo -e "Update a conference." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Conference id $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 0 in
@@ -2690,6 +3084,118 @@ print_getFonenumbers_0_help() {
 }
 ##############################################################################
 #
+# Print help for setFonenumberServiceType operation
+#
+##############################################################################
+print_setFonenumberServiceType_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)setFonenumberServiceType - Set Service Type$(tput sgr0)"
+    echo -e ""
+    echo -e "Set service type for a FoneNumber." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for setFonenumberServiceType_0 operation
+#
+##############################################################################
+print_setFonenumberServiceType_0_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)setFonenumberServiceType_0 - Set Service Type$(tput sgr0)"
+    echo -e ""
+    echo -e "Set service type for a FoneNumber." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)fonenumber$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - FoneNumber associated with the account $(tput setaf 3)Specify as: fonenumber=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Success$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 0 in
+        1*)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  0;Error$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
 # Print help for updateFonenumber operation
 #
 ##############################################################################
@@ -3244,192 +3750,6 @@ print_createMessage_0_help() {
 
 ##############################################################################
 #
-# Call configureAccountCdrNotify operation
-#
-##############################################################################
-call_configureAccountCdrNotify() {
-    local path_parameter_names=()
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names)
-    local method="POST"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call configureAccountCdrNotify_0 operation
-#
-##############################################################################
-call_configureAccountCdrNotify_0() {
-    local path_parameter_names=()
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/v2/accounts/cdr_notify" path_parameter_names query_parameter_names)
-    local method="POST"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call getAccount operation
-#
-##############################################################################
-call_getAccount() {
-    local path_parameter_names=(id)
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
-    local method="GET"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call getAccount_0 operation
-#
-##############################################################################
-call_getAccount_0() {
-    local path_parameter_names=(id)
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
-    local method="GET"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call updateAccount operation
-#
-##############################################################################
-call_updateAccount() {
-    local path_parameter_names=(id)
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
-    local method="PUT"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call updateAccount_0 operation
-#
-##############################################################################
-call_updateAccount_0() {
-    local path_parameter_names=(id)
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/v2/accounts/{id}" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/v2/accounts/{id}" path_parameter_names query_parameter_names)
-    local method="PUT"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
 # Call createToken operation
 #
 ##############################################################################
@@ -3660,6 +3980,378 @@ call_createCall_0() {
 
     local path=$(build_request_path "/v2/calls" path_parameter_names query_parameter_names)
     local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createConference operation
+#
+##############################################################################
+call_createConference() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createConference_0 operation
+#
+##############################################################################
+call_createConference_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call deleteConference operation
+#
+##############################################################################
+call_deleteConference() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}" path_parameter_names query_parameter_names)
+    local method="DELETE"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call deleteConference_0 operation
+#
+##############################################################################
+call_deleteConference_0() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}" path_parameter_names query_parameter_names)
+    local method="DELETE"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getConference operation
+#
+##############################################################################
+call_getConference() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getConferenceFonenumbers operation
+#
+##############################################################################
+call_getConferenceFonenumbers() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}/fonenumbers" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}/fonenumbers" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getConferenceFonenumbers_0 operation
+#
+##############################################################################
+call_getConferenceFonenumbers_0() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}/fonenumbers" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}/fonenumbers" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getConference_0 operation
+#
+##############################################################################
+call_getConference_0() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getConferences operation
+#
+##############################################################################
+call_getConferences() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getConferences_0 operation
+#
+##############################################################################
+call_getConferences_0() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call updateConference operation
+#
+##############################################################################
+call_updateConference() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}" path_parameter_names query_parameter_names)
+    local method="PUT"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call updateConference_0 operation
+#
+##############################################################################
+call_updateConference_0() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/conferences/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/conferences/{id}" path_parameter_names query_parameter_names)
+    local method="PUT"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
         headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
@@ -4112,6 +4804,68 @@ call_getFonenumbers_0() {
 
 ##############################################################################
 #
+# Call setFonenumberServiceType operation
+#
+##############################################################################
+call_setFonenumberServiceType() {
+    local path_parameter_names=(fonenumber)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}/service" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}/service" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call setFonenumberServiceType_0 operation
+#
+##############################################################################
+call_setFonenumberServiceType_0() {
+    local path_parameter_names=(fonenumber)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v2/fonenumbers/{fonenumber}/service" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v2/fonenumbers/{fonenumber}/service" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
 # Call updateFonenumber operation
 #
 ##############################################################################
@@ -4505,24 +5259,6 @@ case $key in
     --dry-run)
     print_curl=true
     ;;
-    configureAccountCdrNotify)
-    operation="configureAccountCdrNotify"
-    ;;
-    configureAccountCdrNotify_0)
-    operation="configureAccountCdrNotify_0"
-    ;;
-    getAccount)
-    operation="getAccount"
-    ;;
-    getAccount_0)
-    operation="getAccount_0"
-    ;;
-    updateAccount)
-    operation="updateAccount"
-    ;;
-    updateAccount_0)
-    operation="updateAccount_0"
-    ;;
     createToken)
     operation="createToken"
     ;;
@@ -4546,6 +5282,42 @@ case $key in
     ;;
     createCall_0)
     operation="createCall_0"
+    ;;
+    createConference)
+    operation="createConference"
+    ;;
+    createConference_0)
+    operation="createConference_0"
+    ;;
+    deleteConference)
+    operation="deleteConference"
+    ;;
+    deleteConference_0)
+    operation="deleteConference_0"
+    ;;
+    getConference)
+    operation="getConference"
+    ;;
+    getConferenceFonenumbers)
+    operation="getConferenceFonenumbers"
+    ;;
+    getConferenceFonenumbers_0)
+    operation="getConferenceFonenumbers_0"
+    ;;
+    getConference_0)
+    operation="getConference_0"
+    ;;
+    getConferences)
+    operation="getConferences"
+    ;;
+    getConferences_0)
+    operation="getConferences_0"
+    ;;
+    updateConference)
+    operation="updateConference"
+    ;;
+    updateConference_0)
+    operation="updateConference_0"
     ;;
     configureFaxReceiveNotify)
     operation="configureFaxReceiveNotify"
@@ -4588,6 +5360,12 @@ case $key in
     ;;
     getFonenumbers_0)
     operation="getFonenumbers_0"
+    ;;
+    setFonenumberServiceType)
+    operation="setFonenumberServiceType"
+    ;;
+    setFonenumberServiceType_0)
+    operation="setFonenumberServiceType_0"
     ;;
     updateFonenumber)
     operation="updateFonenumber"
@@ -4703,24 +5481,6 @@ fi
 
 # Run cURL command based on the operation ID
 case $operation in
-    configureAccountCdrNotify)
-    call_configureAccountCdrNotify
-    ;;
-    configureAccountCdrNotify_0)
-    call_configureAccountCdrNotify_0
-    ;;
-    getAccount)
-    call_getAccount
-    ;;
-    getAccount_0)
-    call_getAccount_0
-    ;;
-    updateAccount)
-    call_updateAccount
-    ;;
-    updateAccount_0)
-    call_updateAccount_0
-    ;;
     createToken)
     call_createToken
     ;;
@@ -4744,6 +5504,42 @@ case $operation in
     ;;
     createCall_0)
     call_createCall_0
+    ;;
+    createConference)
+    call_createConference
+    ;;
+    createConference_0)
+    call_createConference_0
+    ;;
+    deleteConference)
+    call_deleteConference
+    ;;
+    deleteConference_0)
+    call_deleteConference_0
+    ;;
+    getConference)
+    call_getConference
+    ;;
+    getConferenceFonenumbers)
+    call_getConferenceFonenumbers
+    ;;
+    getConferenceFonenumbers_0)
+    call_getConferenceFonenumbers_0
+    ;;
+    getConference_0)
+    call_getConference_0
+    ;;
+    getConferences)
+    call_getConferences
+    ;;
+    getConferences_0)
+    call_getConferences_0
+    ;;
+    updateConference)
+    call_updateConference
+    ;;
+    updateConference_0)
+    call_updateConference_0
     ;;
     configureFaxReceiveNotify)
     call_configureFaxReceiveNotify
@@ -4786,6 +5582,12 @@ case $operation in
     ;;
     getFonenumbers_0)
     call_getFonenumbers_0
+    ;;
+    setFonenumberServiceType)
+    call_setFonenumberServiceType
+    ;;
+    setFonenumberServiceType_0)
+    call_setFonenumberServiceType_0
     ;;
     updateFonenumber)
     call_updateFonenumber

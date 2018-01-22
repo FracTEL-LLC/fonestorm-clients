@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.FonenumbersApi
+# FoneStormApi240Thunder.FonenumbersApi
 
 All URIs are relative to *http://api.fonestorm.com/v2*
 
@@ -12,13 +12,15 @@ Method | HTTP request | Description
 [**getFonenumber_0**](FonenumbersApi.md#getFonenumber_0) | **GET** /fonenumbers/{fonenumber} | Get FoneNumber
 [**getFonenumbers**](FonenumbersApi.md#getFonenumbers) | **GET** /fonenumbers | Get FoneNumbers
 [**getFonenumbers_0**](FonenumbersApi.md#getFonenumbers_0) | **GET** /fonenumbers | Get FoneNumbers
+[**setFonenumberServiceType**](FonenumbersApi.md#setFonenumberServiceType) | **POST** /fonenumbers/{fonenumber}/service | Set Service Type
+[**setFonenumberServiceType_0**](FonenumbersApi.md#setFonenumberServiceType_0) | **POST** /fonenumbers/{fonenumber}/service | Set Service Type
 [**updateFonenumber**](FonenumbersApi.md#updateFonenumber) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
 [**updateFonenumber_0**](FonenumbersApi.md#updateFonenumber_0) | **PUT** /fonenumbers/{fonenumber} | Update FoneNumber
 
 
 <a name="createFonenumber"></a>
 # **createFonenumber**
-> InlineResponse2013 createFonenumber(areaCode)
+> InlineResponse2014 createFonenumber(areaCode)
 
 Create FoneNumber
 
@@ -26,8 +28,8 @@ Order a new FoneNumber for a given area code.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -35,7 +37,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var areaCode = "areaCode_example"; // String | Valid 3-digit area code
 
@@ -58,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -71,7 +73,7 @@ Name | Type | Description  | Notes
 
 <a name="createFonenumber_0"></a>
 # **createFonenumber_0**
-> InlineResponse2013 createFonenumber_0(areaCode)
+> InlineResponse2014 createFonenumber_0(areaCode)
 
 Create FoneNumber
 
@@ -79,8 +81,8 @@ Order a new FoneNumber for a given area code.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -88,7 +90,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var areaCode = "areaCode_example"; // String | Valid 3-digit area code
 
@@ -111,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -124,7 +126,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteFonenumber"></a>
 # **deleteFonenumber**
-> InlineResponse2013 deleteFonenumber(fonenumber)
+> InlineResponse2014 deleteFonenumber(fonenumber)
 
 Delete FoneNumber
 
@@ -132,8 +134,8 @@ Remove a FoneNumber from an account.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -141,7 +143,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -164,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -177,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteFonenumber_0"></a>
 # **deleteFonenumber_0**
-> InlineResponse2013 deleteFonenumber_0(fonenumber)
+> InlineResponse2014 deleteFonenumber_0(fonenumber)
 
 Delete FoneNumber
 
@@ -185,8 +187,8 @@ Remove a FoneNumber from an account.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -194,7 +196,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -217,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -230,7 +232,7 @@ Name | Type | Description  | Notes
 
 <a name="getFonenumber"></a>
 # **getFonenumber**
-> InlineResponse2013 getFonenumber(fonenumber)
+> InlineResponse2014 getFonenumber(fonenumber)
 
 Get FoneNumber
 
@@ -238,8 +240,8 @@ Get information for a single FoneNumber.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -247,7 +249,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -270,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -283,7 +285,7 @@ Name | Type | Description  | Notes
 
 <a name="getFonenumber_0"></a>
 # **getFonenumber_0**
-> InlineResponse2013 getFonenumber_0(fonenumber)
+> InlineResponse2014 getFonenumber_0(fonenumber)
 
 Get FoneNumber
 
@@ -291,8 +293,8 @@ Get information for a single FoneNumber.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -300,7 +302,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -323,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -336,7 +338,7 @@ Name | Type | Description  | Notes
 
 <a name="getFonenumbers"></a>
 # **getFonenumbers**
-> InlineResponse200 getFonenumbers(opts)
+> InlineResponse2001 getFonenumbers(opts)
 
 Get FoneNumbers
 
@@ -344,8 +346,8 @@ Get a list of all FoneNumbers, or a selection based on a filter.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -353,7 +355,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var opts = { 
   'filter': "filter_example" // String | Filter the response attributes. Allowed values are `fonenumbers` or `all`. See **Notes** for additional information.
@@ -377,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -390,7 +392,7 @@ Name | Type | Description  | Notes
 
 <a name="getFonenumbers_0"></a>
 # **getFonenumbers_0**
-> InlineResponse200 getFonenumbers_0(opts)
+> InlineResponse2001 getFonenumbers_0(opts)
 
 Get FoneNumbers
 
@@ -398,8 +400,8 @@ Get a list of all FoneNumbers, or a selection based on a filter.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -407,7 +409,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var opts = { 
   'filter': "filter_example" // String | Filter the response attributes. Allowed values are `fonenumbers` or `all`. See **Notes** for additional information.
@@ -431,7 +433,127 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="setFonenumberServiceType"></a>
+# **setFonenumberServiceType**
+> InlineResponse2014 setFonenumberServiceType(fonenumber, serviceType, opts)
+
+Set Service Type
+
+Set service type for a FoneNumber.
+
+### Example
+```javascript
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
+
+// Configure API key authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.apiKeyPrefix = 'Token';
+
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
+
+var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
+
+var serviceType = "serviceType_example"; // String | Service type. Allowed values are `Conference`, `Hangup`, `Busy`, `Reject`
+
+var opts = { 
+  'serviceId': "serviceId_example" // String | Service id
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.setFonenumberServiceType(fonenumber, serviceType, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **String**| FoneNumber associated with the account | 
+ **serviceType** | **String**| Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; | 
+ **serviceId** | **String**| Service id | [optional] 
+
+### Return type
+
+[**InlineResponse2014**](InlineResponse2014.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="setFonenumberServiceType_0"></a>
+# **setFonenumberServiceType_0**
+> InlineResponse2014 setFonenumberServiceType_0(fonenumber, serviceType, opts)
+
+Set Service Type
+
+Set service type for a FoneNumber.
+
+### Example
+```javascript
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
+
+// Configure API key authorization: jwt
+var jwt = defaultClient.authentications['jwt'];
+jwt.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//jwt.apiKeyPrefix = 'Token';
+
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
+
+var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
+
+var serviceType = "serviceType_example"; // String | Service type. Allowed values are `Conference`, `Hangup`, `Busy`, `Reject`
+
+var opts = { 
+  'serviceId': "serviceId_example" // String | Service id
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.setFonenumberServiceType_0(fonenumber, serviceType, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fonenumber** | **String**| FoneNumber associated with the account | 
+ **serviceType** | **String**| Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; | 
+ **serviceId** | **String**| Service id | [optional] 
+
+### Return type
+
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -444,7 +566,7 @@ Name | Type | Description  | Notes
 
 <a name="updateFonenumber"></a>
 # **updateFonenumber**
-> InlineResponse2013 updateFonenumber(fonenumber, type, value, urlMethod, opts)
+> InlineResponse2014 updateFonenumber(fonenumber, type, value, urlMethod, opts)
 
 Update FoneNumber
 
@@ -452,8 +574,8 @@ Update a FoneNumber.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -461,7 +583,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -499,7 +621,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -512,7 +634,7 @@ Name | Type | Description  | Notes
 
 <a name="updateFonenumber_0"></a>
 # **updateFonenumber_0**
-> InlineResponse2013 updateFonenumber_0(fonenumber, type, value, urlMethod, opts)
+> InlineResponse2014 updateFonenumber_0(fonenumber, type, value, urlMethod, opts)
 
 Update FoneNumber
 
@@ -520,8 +642,8 @@ Update a FoneNumber.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -529,7 +651,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.FonenumbersApi();
+var apiInstance = new FoneStormApi240Thunder.FonenumbersApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -567,7 +689,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 

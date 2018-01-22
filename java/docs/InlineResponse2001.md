@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | [**Account**](Account.md) |  |  [optional]
+**fonenumbers** | [**List&lt;FoneNumber&gt;**](FoneNumber.md) |  |  [optional]
 
 
 

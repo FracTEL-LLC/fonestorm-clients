@@ -13,55 +13,6 @@
 -spec request_params(OperationID :: operation_id()) -> [Param :: request_param()].
 
 
-request_params('ConfigureAccountCdrNotify') ->
-    [
-        'account_id',
-        'method',
-        'url',
-        'username',
-        'password'
-    ];
-
-request_params('ConfigureAccountCdrNotify_0') ->
-    [
-        'account_id',
-        'method',
-        'url',
-        'username',
-        'password'
-    ];
-
-request_params('GetAccount') ->
-    [
-        'id'
-    ];
-
-request_params('GetAccount_0') ->
-    [
-        'id'
-    ];
-
-request_params('UpdateAccount') ->
-    [
-        'id',
-        'primary_color',
-        'secondary_color',
-        'background_color',
-        'font_family',
-        'logo'
-    ];
-
-request_params('UpdateAccount_0') ->
-    [
-        'id',
-        'primary_color',
-        'secondary_color',
-        'background_color',
-        'font_family',
-        'logo'
-    ];
-
-
 request_params('CreateToken') ->
     [
         'username',
@@ -126,6 +77,91 @@ request_params('CreateCall_0') ->
         'fonenumber',
         'to',
         'tts'
+    ];
+
+
+request_params('CreateConference') ->
+    [
+        'label',
+        'start_time',
+        'end_time',
+        'fonenumber',
+        'before_message',
+        'after_message',
+        'max_members'
+    ];
+
+request_params('CreateConference_0') ->
+    [
+        'label',
+        'start_time',
+        'end_time',
+        'fonenumber',
+        'before_message',
+        'after_message',
+        'max_members'
+    ];
+
+request_params('DeleteConference') ->
+    [
+        'id'
+    ];
+
+request_params('DeleteConference_0') ->
+    [
+        'id'
+    ];
+
+request_params('GetConference') ->
+    [
+        'id'
+    ];
+
+request_params('GetConferenceFonenumbers') ->
+    [
+        'id'
+    ];
+
+request_params('GetConferenceFonenumbers_0') ->
+    [
+        'id'
+    ];
+
+request_params('GetConference_0') ->
+    [
+        'id'
+    ];
+
+request_params('GetConferences') ->
+    [
+    ];
+
+request_params('GetConferences_0') ->
+    [
+    ];
+
+request_params('UpdateConference') ->
+    [
+        'id',
+        'label',
+        'start_time',
+        'end_time',
+        'fonenumber',
+        'before_message',
+        'after_message',
+        'max_members'
+    ];
+
+request_params('UpdateConference_0') ->
+    [
+        'id',
+        'label',
+        'start_time',
+        'end_time',
+        'fonenumber',
+        'before_message',
+        'after_message',
+        'max_members'
     ];
 
 
@@ -220,6 +256,20 @@ request_params('GetFonenumbers') ->
 request_params('GetFonenumbers_0') ->
     [
         'filter'
+    ];
+
+request_params('SetFonenumberServiceType') ->
+    [
+        'fonenumber',
+        'service_type',
+        'service_id'
+    ];
+
+request_params('SetFonenumberServiceType_0') ->
+    [
+        'fonenumber',
+        'service_type',
+        'service_id'
     ];
 
 request_params('UpdateFonenumber') ->
@@ -351,223 +401,6 @@ request_params(_) ->
     rules => [rule()]
 }.
 
-
-
-request_param_info('ConfigureAccountCdrNotify', 'account_id') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify', 'method') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify', 'url') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify', 'username') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify', 'password') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify_0', 'account_id') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify_0', 'method') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify_0', 'url') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify_0', 'username') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('ConfigureAccountCdrNotify_0', 'password') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('GetAccount', 'id') ->
-    #{
-        source =>  binding ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('GetAccount_0', 'id') ->
-    #{
-        source =>  binding ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('UpdateAccount', 'id') ->
-    #{
-        source =>  binding ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('UpdateAccount', 'primary_color') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount', 'secondary_color') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount', 'background_color') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount', 'font_family') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount', 'logo') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount_0', 'id') ->
-    #{
-        source =>  binding ,
-        rules => [
-            {type, 'binary'},
-            required
-        ]
-    };
-
-request_param_info('UpdateAccount_0', 'primary_color') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount_0', 'secondary_color') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount_0', 'background_color') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount_0', 'font_family') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
-
-request_param_info('UpdateAccount_0', 'logo') ->
-    #{
-        source =>   ,
-        rules => [
-            {type, 'binary'},
-            not_required
-        ]
-    };
 
 
 request_param_info('CreateToken', 'username') ->
@@ -860,6 +693,331 @@ request_param_info('CreateCall_0', 'tts') ->
         source =>   ,
         rules => [
             {type, 'binary'},
+            not_required
+        ]
+    };
+
+
+request_param_info('CreateConference', 'label') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateConference', 'start_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference', 'end_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference', 'before_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference', 'after_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference', 'max_members') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'float'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference_0', 'label') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('CreateConference_0', 'start_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference_0', 'end_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference_0', 'before_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference_0', 'after_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('CreateConference_0', 'max_members') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'float'},
+            not_required
+        ]
+    };
+
+request_param_info('DeleteConference', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('DeleteConference_0', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('GetConference', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('GetConferenceFonenumbers', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('GetConferenceFonenumbers_0', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('GetConference_0', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('UpdateConference', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('UpdateConference', 'label') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference', 'start_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference', 'end_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference', 'before_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference', 'after_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference', 'max_members') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'float'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'id') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'label') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'start_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'end_time') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'date'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'fonenumber') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'before_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'after_message') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('UpdateConference_0', 'max_members') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'float'},
             not_required
         ]
     };
@@ -1192,6 +1350,62 @@ request_param_info('GetFonenumbers_0', 'filter') ->
         rules => [
             {type, 'binary'},
             {enum, ['fonenumbers', 'all'] },
+            not_required
+        ]
+    };
+
+request_param_info('SetFonenumberServiceType', 'fonenumber') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('SetFonenumberServiceType', 'service_type') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['Conference', 'Hangup', 'Busy', 'Reject'] },
+            required
+        ]
+    };
+
+request_param_info('SetFonenumberServiceType', 'service_id') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            not_required
+        ]
+    };
+
+request_param_info('SetFonenumberServiceType_0', 'fonenumber') ->
+    #{
+        source =>  binding ,
+        rules => [
+            {type, 'binary'},
+            required
+        ]
+    };
+
+request_param_info('SetFonenumberServiceType_0', 'service_type') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
+            {enum, ['Conference', 'Hangup', 'Busy', 'Reject'] },
+            required
+        ]
+    };
+
+request_param_info('SetFonenumberServiceType_0', 'service_id') ->
+    #{
+        source =>   ,
+        rules => [
+            {type, 'binary'},
             not_required
         ]
     };
@@ -1790,37 +2004,6 @@ populate_request_param(OperationID, Name, Req0, ValidatorState) ->
 ) -> ok | no_return().
 
 
-validate_response('ConfigureAccountCdrNotify', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
-validate_response('ConfigureAccountCdrNotify', 0, Body, ValidatorState) ->
-    validate_response_body('Error', 'Error', Body, ValidatorState);
-
-validate_response('ConfigureAccountCdrNotify_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
-validate_response('ConfigureAccountCdrNotify_0', 0, Body, ValidatorState) ->
-    validate_response_body('Error', 'Error', Body, ValidatorState);
-
-validate_response('GetAccount', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
-validate_response('GetAccount', 0, Body, ValidatorState) ->
-    validate_response_body('Error', 'Error', Body, ValidatorState);
-
-validate_response('GetAccount_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
-validate_response('GetAccount_0', 0, Body, ValidatorState) ->
-    validate_response_body('Error', 'Error', Body, ValidatorState);
-
-validate_response('UpdateAccount', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
-validate_response('UpdateAccount', 0, Body, ValidatorState) ->
-    validate_response_body('Error', 'Error', Body, ValidatorState);
-
-validate_response('UpdateAccount_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
-validate_response('UpdateAccount_0', 0, Body, ValidatorState) ->
-    validate_response_body('Error', 'Error', Body, ValidatorState);
-
-
 validate_response('CreateToken', 201, Body, ValidatorState) ->
     validate_response_body('inline_response_201', 'inline_response_201', Body, ValidatorState);
 validate_response('CreateToken', 0, Body, ValidatorState) ->
@@ -1834,155 +2017,226 @@ validate_response('CreateToken', 0, Body, ValidatorState) ->
 
 
 validate_response('ConfigureCallReceiveNotify', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureCallReceiveNotify', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureCallReceiveNotify_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureCallReceiveNotify_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureCallSendNotify', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureCallSendNotify', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureCallSendNotify_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureCallSendNotify_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('CreateCall', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_2', 'inline_response_201_2', Body, ValidatorState);
+    validate_response_body('inline_response_201_1', 'inline_response_201_1', Body, ValidatorState);
 validate_response('CreateCall', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('CreateCall_0', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_2', 'inline_response_201_2', Body, ValidatorState);
+    validate_response_body('inline_response_201_1', 'inline_response_201_1', Body, ValidatorState);
 validate_response('CreateCall_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
-validate_response('ConfigureFaxReceiveNotify', 200, Body, ValidatorState) ->
+validate_response('CreateConference', 201, Body, ValidatorState) ->
     validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('CreateConference', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('CreateConference_0', 201, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('CreateConference_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('DeleteConference', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('DeleteConference', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('DeleteConference_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('DeleteConference_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetConference', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('GetConference', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetConferenceFonenumbers', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_2', 'inline_response_200_2', Body, ValidatorState);
+validate_response('GetConferenceFonenumbers', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetConferenceFonenumbers_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200_2', 'inline_response_200_2', Body, ValidatorState);
+validate_response('GetConferenceFonenumbers_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetConference_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('GetConference_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetConferences', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200', 'inline_response_200', Body, ValidatorState);
+validate_response('GetConferences', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('GetConferences_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_200', 'inline_response_200', Body, ValidatorState);
+validate_response('GetConferences_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('UpdateConference', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('UpdateConference', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('UpdateConference_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+validate_response('UpdateConference_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+
+validate_response('ConfigureFaxReceiveNotify', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureFaxReceiveNotify', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureFaxReceiveNotify_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureFaxReceiveNotify_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureFaxSendNotify', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureFaxSendNotify', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureFaxSendNotify_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureFaxSendNotify_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('CreateFax', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_1', 'inline_response_201_1', Body, ValidatorState);
+    validate_response_body('inline_response_201_2', 'inline_response_201_2', Body, ValidatorState);
 validate_response('CreateFax', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('CreateFax_0', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_1', 'inline_response_201_1', Body, ValidatorState);
+    validate_response_body('inline_response_201_2', 'inline_response_201_2', Body, ValidatorState);
 validate_response('CreateFax_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
 validate_response('CreateFonenumber', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('CreateFonenumber', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('CreateFonenumber_0', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('CreateFonenumber_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('DeleteFonenumber', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('DeleteFonenumber', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('DeleteFonenumber_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('DeleteFonenumber_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('GetFonenumber', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('GetFonenumber', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('GetFonenumber_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('GetFonenumber_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('GetFonenumbers', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200', 'inline_response_200', Body, ValidatorState);
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
 validate_response('GetFonenumbers', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('GetFonenumbers_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_200', 'inline_response_200', Body, ValidatorState);
+    validate_response_body('inline_response_200_1', 'inline_response_200_1', Body, ValidatorState);
 validate_response('GetFonenumbers_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
+validate_response('SetFonenumberServiceType', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
+validate_response('SetFonenumberServiceType', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
+validate_response('SetFonenumberServiceType_0', 200, Body, ValidatorState) ->
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
+validate_response('SetFonenumberServiceType_0', 0, Body, ValidatorState) ->
+    validate_response_body('Error', 'Error', Body, ValidatorState);
+
 validate_response('UpdateFonenumber', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('UpdateFonenumber', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('UpdateFonenumber_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('UpdateFonenumber_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 
 validate_response('ConfigureMessageReceive', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureMessageReceive', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureMessageReceiveNotify', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureMessageReceiveNotify', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureMessageReceiveNotify_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureMessageReceiveNotify_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureMessageReceive_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureMessageReceive_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureMessageSendNotify', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureMessageSendNotify', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('ConfigureMessageSendNotify_0', 200, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_3', 'inline_response_201_3', Body, ValidatorState);
+    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
 validate_response('ConfigureMessageSendNotify_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('CreateMessage', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
+    validate_response_body('inline_response_201_5', 'inline_response_201_5', Body, ValidatorState);
 validate_response('CreateMessage', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 
 validate_response('CreateMessage_0', 201, Body, ValidatorState) ->
-    validate_response_body('inline_response_201_4', 'inline_response_201_4', Body, ValidatorState);
+    validate_response_body('inline_response_201_5', 'inline_response_201_5', Body, ValidatorState);
 validate_response('CreateMessage_0', 0, Body, ValidatorState) ->
     validate_response_body('Error', 'Error', Body, ValidatorState);
 

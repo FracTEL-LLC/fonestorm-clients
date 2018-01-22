@@ -1,7 +1,7 @@
-# FoneStorm API 2.2.0 (Breeze) Bash client
+# FoneStorm API 2.4.0 (Thunder) Bash client
 
 ## Overview
-This is a Bash client script for accessing FoneStorm API 2.2.0 (Breeze) service.
+This is a Bash client script for accessing FoneStorm API 2.4.0 (Thunder) service.
 
 The script uses  cURL underneath for making all REST calls.
 

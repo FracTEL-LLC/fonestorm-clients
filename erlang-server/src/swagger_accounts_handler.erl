@@ -80,6 +80,22 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
+        operation_id = 'GetAccountIntegrations'
+    }
+) ->
+    {[<<"GET">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'GetAccountIntegrations_0'
+    }
+) ->
+    {[<<"GET">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
         operation_id = 'GetAccount_0'
     }
 ) ->
@@ -155,6 +171,46 @@ is_authorized(
     Req0,
     State = #state{
         operation_id = 'GetAccount' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'GetAccountIntegrations' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'GetAccountIntegrations_0' = OperationID,
         logic_handler = LogicHandler
     }
 ) ->
@@ -273,6 +329,26 @@ valid_content_headers(
     Req0,
     State = #state{
         operation_id = 'GetAccount'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'GetAccountIntegrations'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'GetAccountIntegrations_0'
     }
 ) ->
     Headers = [],

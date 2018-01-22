@@ -9,14 +9,14 @@ import Foundation
 
 
 public class InlineResponse2001: JSONEncodable {
-    public var account: Account?
+    public var fonenumbers: [FoneNumber]?
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["account"] = self.account?.encodeToJSON()
+        nillableDictionary["fonenumbers"] = self.fonenumbers?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

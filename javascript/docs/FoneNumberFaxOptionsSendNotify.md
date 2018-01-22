@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.FoneNumberFaxOptionsSendNotify
+# FoneStormApi240Thunder.FoneNumberFaxOptionsSendNotify
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.InlineResponse201
+# FoneStormApi240Thunder.InlineResponse201
 
 ## Properties
 Name | Type | Description | Notes

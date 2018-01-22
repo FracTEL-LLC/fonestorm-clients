@@ -8,12 +8,14 @@ Method | HTTP request | Description
 [**configure_account_cdr_notify_0**](AccountsApi.md#configure_account_cdr_notify_0) | **POST** /accounts/cdr_notify | Set CDR Callback
 [**get_account**](AccountsApi.md#get_account) | **GET** /accounts/{id} | Get Account
 [**get_account_0**](AccountsApi.md#get_account_0) | **GET** /accounts/{id} | Get Account
+[**get_account_integrations**](AccountsApi.md#get_account_integrations) | **GET** /accounts/{id}/integrations | Get Account Integrations
+[**get_account_integrations_0**](AccountsApi.md#get_account_integrations_0) | **GET** /accounts/{id}/integrations | Get Account Integrations
 [**update_account**](AccountsApi.md#update_account) | **PUT** /accounts/{id} | Update Account
 [**update_account_0**](AccountsApi.md#update_account_0) | **PUT** /accounts/{id} | Update Account
 
 
 # **configure_account_cdr_notify**
-> InlineResponse2001 configure_account_cdr_notify(account_id, method, url, opts)
+> InlineResponse20011 configure_account_cdr_notify(account_id, method, url, opts)
 
 Set CDR Callback
 
@@ -65,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -79,7 +81,7 @@ Name | Type | Description  | Notes
 
 
 # **configure_account_cdr_notify_0**
-> InlineResponse2001 configure_account_cdr_notify_0(account_id, method, url, opts)
+> InlineResponse20011 configure_account_cdr_notify_0(account_id, method, url, opts)
 
 Set CDR Callback
 
@@ -131,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -145,7 +147,7 @@ Name | Type | Description  | Notes
 
 
 # **get_account**
-> InlineResponse2001 get_account(id)
+> InlineResponse20011 get_account(id)
 
 Get Account
 
@@ -185,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -199,7 +201,7 @@ Name | Type | Description  | Notes
 
 
 # **get_account_0**
-> InlineResponse2001 get_account_0(id)
+> InlineResponse20011 get_account_0(id)
 
 Get Account
 
@@ -239,7 +241,115 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **get_account_integrations**
+> InlineResponse20010 get_account_integrations(id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: jwt
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::AccountsApi.new
+
+id = "id_example" # String | Account id
+
+
+begin
+  #Get Account Integrations
+  result = api_instance.get_account_integrations(id)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling AccountsApi->get_account_integrations: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Account id | 
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **get_account_integrations_0**
+> InlineResponse20010 get_account_integrations_0(id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: jwt
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::AccountsApi.new
+
+id = "id_example" # String | Account id
+
+
+begin
+  #Get Account Integrations
+  result = api_instance.get_account_integrations_0(id)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling AccountsApi->get_account_integrations_0: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Account id | 
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -253,7 +363,7 @@ Name | Type | Description  | Notes
 
 
 # **update_account**
-> InlineResponse2001 update_account(id, opts)
+> InlineResponse20011 update_account(id, opts)
 
 Update Account
 
@@ -305,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -319,7 +429,7 @@ Name | Type | Description  | Notes
 
 
 # **update_account_0**
-> InlineResponse2001 update_account_0(id, opts)
+> InlineResponse20011 update_account_0(id, opts)
 
 Update Account
 
@@ -371,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

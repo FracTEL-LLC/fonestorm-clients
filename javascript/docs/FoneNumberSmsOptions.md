@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.FoneNumberSmsOptions
+# FoneStormApi240Thunder.FoneNumberSmsOptions
 
 ## Properties
 Name | Type | Description | Notes

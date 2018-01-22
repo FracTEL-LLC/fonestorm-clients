@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="configureCallReceiveNotify"></a>
 # **configureCallReceiveNotify**
-> InlineResponse2013 configureCallReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureCallReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Receive Callback
 
@@ -44,7 +44,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureCallReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureCallReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CallsApi#configureCallReceiveNotify");
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="configureCallReceiveNotify_0"></a>
 # **configureCallReceiveNotify_0**
-> InlineResponse2013 configureCallReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureCallReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Receive Callback
 
@@ -107,7 +107,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureCallReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureCallReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CallsApi#configureCallReceiveNotify_0");
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 <a name="configureCallSendNotify"></a>
 # **configureCallSendNotify**
-> InlineResponse2013 configureCallSendNotify(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureCallSendNotify(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Send Callback
 
@@ -170,7 +170,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureCallSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureCallSendNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CallsApi#configureCallSendNotify");
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 <a name="configureCallSendNotify_0"></a>
 # **configureCallSendNotify_0**
-> InlineResponse2013 configureCallSendNotify_0(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureCallSendNotify_0(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Send Callback
 
@@ -233,7 +233,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureCallSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureCallSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CallsApi#configureCallSendNotify_0");
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 <a name="createCall"></a>
 # **createCall**
-> InlineResponse2012 createCall(fonenumber, to, tts)
+> InlineResponse2011 createCall(fonenumber, to, tts)
 
 Create Call
 
@@ -294,7 +294,7 @@ String fonenumber = "fonenumber_example"; // String | FoneNumber to use as calle
 String to = "to_example"; // String | Receiving 10 digit phone number
 String tts = "tts_example"; // String | Text to speech message
 try {
-    InlineResponse2012 result = apiInstance.createCall(fonenumber, to, tts);
+    InlineResponse2011 result = apiInstance.createCall(fonenumber, to, tts);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CallsApi#createCall");
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 <a name="createCall_0"></a>
 # **createCall_0**
-> InlineResponse2012 createCall_0(fonenumber, to, tts)
+> InlineResponse2011 createCall_0(fonenumber, to, tts)
 
 Create Call
 
@@ -353,7 +353,7 @@ String fonenumber = "fonenumber_example"; // String | FoneNumber to use as calle
 String to = "to_example"; // String | Receiving 10 digit phone number
 String tts = "tts_example"; // String | Text to speech message
 try {
-    InlineResponse2012 result = apiInstance.createCall_0(fonenumber, to, tts);
+    InlineResponse2011 result = apiInstance.createCall_0(fonenumber, to, tts);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CallsApi#createCall_0");
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 

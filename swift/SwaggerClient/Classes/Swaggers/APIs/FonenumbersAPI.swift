@@ -16,7 +16,7 @@ public class FonenumbersAPI: APIBase {
      - parameter areaCode: (form) Valid 3-digit area code 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createFonenumber(areaCode areaCode: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func createFonenumber(areaCode areaCode: String, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         createFonenumberWithRequestBuilder(areaCode: areaCode).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -54,6 +54,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -81,9 +85,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter areaCode: (form) Valid 3-digit area code 
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func createFonenumberWithRequestBuilder(areaCode areaCode: String) -> RequestBuilder<InlineResponse2013> {
+    public class func createFonenumberWithRequestBuilder(areaCode areaCode: String) -> RequestBuilder<InlineResponse2014> {
         let path = "/fonenumbers"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -95,7 +99,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -106,7 +110,7 @@ public class FonenumbersAPI: APIBase {
      - parameter areaCode: (form) Valid 3-digit area code 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createFonenumber_0(areaCode areaCode: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func createFonenumber_0(areaCode areaCode: String, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         createFonenumber_0WithRequestBuilder(areaCode: areaCode).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -144,6 +148,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -171,9 +179,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter areaCode: (form) Valid 3-digit area code 
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func createFonenumber_0WithRequestBuilder(areaCode areaCode: String) -> RequestBuilder<InlineResponse2013> {
+    public class func createFonenumber_0WithRequestBuilder(areaCode areaCode: String) -> RequestBuilder<InlineResponse2014> {
         let path = "/fonenumbers"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -185,7 +193,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -196,7 +204,7 @@ public class FonenumbersAPI: APIBase {
      - parameter fonenumber: (path) FoneNumber associated with the account 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteFonenumber(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func deleteFonenumber(fonenumber fonenumber: String, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         deleteFonenumberWithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -234,6 +242,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -261,9 +273,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter fonenumber: (path) FoneNumber associated with the account 
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func deleteFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+    public class func deleteFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2014> {
         var path = "/fonenumbers/{fonenumber}"
         path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -274,7 +286,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
@@ -285,7 +297,7 @@ public class FonenumbersAPI: APIBase {
      - parameter fonenumber: (path) FoneNumber associated with the account 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteFonenumber_0(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func deleteFonenumber_0(fonenumber fonenumber: String, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         deleteFonenumber_0WithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -323,6 +335,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -350,9 +366,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter fonenumber: (path) FoneNumber associated with the account 
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func deleteFonenumber_0WithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+    public class func deleteFonenumber_0WithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2014> {
         var path = "/fonenumbers/{fonenumber}"
         path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -363,7 +379,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
@@ -374,7 +390,7 @@ public class FonenumbersAPI: APIBase {
      - parameter fonenumber: (path) FoneNumber associated with the account 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getFonenumber(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func getFonenumber(fonenumber fonenumber: String, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         getFonenumberWithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -412,6 +428,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -439,9 +459,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter fonenumber: (path) FoneNumber associated with the account 
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func getFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+    public class func getFonenumberWithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2014> {
         var path = "/fonenumbers/{fonenumber}"
         path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -452,7 +472,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
@@ -463,7 +483,7 @@ public class FonenumbersAPI: APIBase {
      - parameter fonenumber: (path) FoneNumber associated with the account 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getFonenumber_0(fonenumber fonenumber: String, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func getFonenumber_0(fonenumber fonenumber: String, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         getFonenumber_0WithRequestBuilder(fonenumber: fonenumber).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -501,6 +521,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -528,9 +552,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter fonenumber: (path) FoneNumber associated with the account 
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func getFonenumber_0WithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2013> {
+    public class func getFonenumber_0WithRequestBuilder(fonenumber fonenumber: String) -> RequestBuilder<InlineResponse2014> {
         var path = "/fonenumbers/{fonenumber}"
         path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -541,7 +565,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
@@ -560,7 +584,7 @@ public class FonenumbersAPI: APIBase {
      - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getFonenumbers(filter filter: Filter_getFonenumbers? = nil, completion: ((data: InlineResponse200?, error: ErrorType?) -> Void)) {
+    public class func getFonenumbers(filter filter: Filter_getFonenumbers? = nil, completion: ((data: InlineResponse2001?, error: ErrorType?) -> Void)) {
         getFonenumbersWithRequestBuilder(filter: filter).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -598,6 +622,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -625,9 +653,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
 
-     - returns: RequestBuilder<InlineResponse200> 
+     - returns: RequestBuilder<InlineResponse2001> 
      */
-    public class func getFonenumbersWithRequestBuilder(filter filter: Filter_getFonenumbers? = nil) -> RequestBuilder<InlineResponse200> {
+    public class func getFonenumbersWithRequestBuilder(filter filter: Filter_getFonenumbers? = nil) -> RequestBuilder<InlineResponse2001> {
         let path = "/fonenumbers"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -639,7 +667,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2001>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -658,7 +686,7 @@ public class FonenumbersAPI: APIBase {
      - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getFonenumbers_0(filter filter: Filter_getFonenumbers_0? = nil, completion: ((data: InlineResponse200?, error: ErrorType?) -> Void)) {
+    public class func getFonenumbers_0(filter filter: Filter_getFonenumbers_0? = nil, completion: ((data: InlineResponse2001?, error: ErrorType?) -> Void)) {
         getFonenumbers_0WithRequestBuilder(filter: filter).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -696,6 +724,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -723,9 +755,9 @@ public class FonenumbersAPI: APIBase {
      
      - parameter filter: (query) Filter the response attributes. Allowed values are &#x60;fonenumbers&#x60; or &#x60;all&#x60;. See **Notes** for additional information. (optional)
 
-     - returns: RequestBuilder<InlineResponse200> 
+     - returns: RequestBuilder<InlineResponse2001> 
      */
-    public class func getFonenumbers_0WithRequestBuilder(filter filter: Filter_getFonenumbers_0? = nil) -> RequestBuilder<InlineResponse200> {
+    public class func getFonenumbers_0WithRequestBuilder(filter filter: Filter_getFonenumbers_0? = nil) -> RequestBuilder<InlineResponse2001> {
         let path = "/fonenumbers"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -737,9 +769,229 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2001>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     * enum for parameter serviceType
+     */
+    public enum ServiceType_setFonenumberServiceType: String { 
+        case Conference = "Conference"
+        case Hangup = "Hangup"
+        case Busy = "Busy"
+        case Reject = "Reject"
+    }
+
+    /**
+     Set Service Type
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter serviceType: (form) Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; 
+     - parameter serviceId: (form) Service id (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func setFonenumberServiceType(fonenumber fonenumber: String, serviceType: ServiceType_setFonenumberServiceType, serviceId: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
+        setFonenumberServiceTypeWithRequestBuilder(fonenumber: fonenumber, serviceType: serviceType, serviceId: serviceId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Set Service Type
+     - POST /fonenumbers/{fonenumber}/service
+     - Set service type for a FoneNumber.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter serviceType: (form) Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; 
+     - parameter serviceId: (form) Service id (optional)
+
+     - returns: RequestBuilder<InlineResponse2014> 
+     */
+    public class func setFonenumberServiceTypeWithRequestBuilder(fonenumber fonenumber: String, serviceType: ServiceType_setFonenumberServiceType, serviceId: String? = nil) -> RequestBuilder<InlineResponse2014> {
+        var path = "/fonenumbers/{fonenumber}/service"
+        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "service_type": serviceType.rawValue,
+            "service_id": serviceId
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
+    }
+
+    /**
+     * enum for parameter serviceType
+     */
+    public enum ServiceType_setFonenumberServiceType_0: String { 
+        case Conference = "Conference"
+        case Hangup = "Hangup"
+        case Busy = "Busy"
+        case Reject = "Reject"
+    }
+
+    /**
+     Set Service Type
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter serviceType: (form) Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; 
+     - parameter serviceId: (form) Service id (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func setFonenumberServiceType_0(fonenumber fonenumber: String, serviceType: ServiceType_setFonenumberServiceType_0, serviceId: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
+        setFonenumberServiceType_0WithRequestBuilder(fonenumber: fonenumber, serviceType: serviceType, serviceId: serviceId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Set Service Type
+     - POST /fonenumbers/{fonenumber}/service
+     - Set service type for a FoneNumber.
+     - API Key:
+       - type: apiKey token 
+       - name: jwt
+     - examples: [{contentType=application/json, example={
+  "fonenumber" : {
+    "fax_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "rate_center" : "aeiou",
+    "is_active" : "aeiou",
+    "voice_options" : {
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
+    "fonenumber" : "aeiou",
+    "state" : "aeiou",
+    "sms_options" : {
+      "receive" : {
+        "forward" : "aeiou",
+        "type" : "aeiou",
+        "device" : "aeiou",
+        "email" : "aeiou",
+        "url" : "aeiou",
+        "url_method" : "aeiou"
+      },
+      "sms_enabled" : "aeiou",
+      "mms_enabled" : "aeiou",
+      "send_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      },
+      "receive_notify" : {
+        "method" : "aeiou",
+        "url" : "aeiou"
+      }
+    }
+  }
+}}]
+     
+     - parameter fonenumber: (path) FoneNumber associated with the account 
+     - parameter serviceType: (form) Service type. Allowed values are &#x60;Conference&#x60;, &#x60;Hangup&#x60;, &#x60;Busy&#x60;, &#x60;Reject&#x60; 
+     - parameter serviceId: (form) Service id (optional)
+
+     - returns: RequestBuilder<InlineResponse2014> 
+     */
+    public class func setFonenumberServiceType_0WithRequestBuilder(fonenumber fonenumber: String, serviceType: ServiceType_setFonenumberServiceType_0, serviceId: String? = nil) -> RequestBuilder<InlineResponse2014> {
+        var path = "/fonenumbers/{fonenumber}/service"
+        path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+
+        let nillableParameters: [String:AnyObject?] = [
+            "service_type": serviceType.rawValue,
+            "service_id": serviceId
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
@@ -773,7 +1025,7 @@ public class FonenumbersAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func updateFonenumber(fonenumber fonenumber: String, type: ModelType_updateFonenumber, value: String, urlMethod: UrlMethod_updateFonenumber, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func updateFonenumber(fonenumber fonenumber: String, type: ModelType_updateFonenumber, value: String, urlMethod: UrlMethod_updateFonenumber, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         updateFonenumberWithRequestBuilder(fonenumber: fonenumber, type: type, value: value, urlMethod: urlMethod, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -811,6 +1063,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -843,9 +1099,9 @@ public class FonenumbersAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func updateFonenumberWithRequestBuilder(fonenumber fonenumber: String, type: ModelType_updateFonenumber, value: String, urlMethod: UrlMethod_updateFonenumber, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func updateFonenumberWithRequestBuilder(fonenumber fonenumber: String, type: ModelType_updateFonenumber, value: String, urlMethod: UrlMethod_updateFonenumber, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         var path = "/fonenumbers/{fonenumber}"
         path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -862,7 +1118,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -898,7 +1154,7 @@ public class FonenumbersAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func updateFonenumber_0(fonenumber fonenumber: String, type: ModelType_updateFonenumber_0, value: String, urlMethod: UrlMethod_updateFonenumber_0, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func updateFonenumber_0(fonenumber fonenumber: String, type: ModelType_updateFonenumber_0, value: String, urlMethod: UrlMethod_updateFonenumber_0, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         updateFonenumber_0WithRequestBuilder(fonenumber: fonenumber, type: type, value: value, urlMethod: urlMethod, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -936,6 +1192,10 @@ public class FonenumbersAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -968,9 +1228,9 @@ public class FonenumbersAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func updateFonenumber_0WithRequestBuilder(fonenumber fonenumber: String, type: ModelType_updateFonenumber_0, value: String, urlMethod: UrlMethod_updateFonenumber_0, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func updateFonenumber_0WithRequestBuilder(fonenumber fonenumber: String, type: ModelType_updateFonenumber_0, value: String, urlMethod: UrlMethod_updateFonenumber_0, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         var path = "/fonenumbers/{fonenumber}"
         path = path.stringByReplacingOccurrencesOfString("{fonenumber}", withString: "\(fonenumber)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -987,7 +1247,7 @@ public class FonenumbersAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

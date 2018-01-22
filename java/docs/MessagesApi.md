@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="configureMessageReceive"></a>
 # **configureMessageReceive**
-> InlineResponse2013 configureMessageReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword)
+> InlineResponse2014 configureMessageReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword)
 
 Set Delivery Service
 
@@ -47,7 +47,7 @@ String urlMethod = "urlMethod_example"; // String | URL method (when `type` is U
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureMessageReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureMessageReceive(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#configureMessageReceive");
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageReceiveNotify"></a>
 # **configureMessageReceiveNotify**
-> InlineResponse2013 configureMessageReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureMessageReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Receive Callback
 
@@ -111,7 +111,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureMessageReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureMessageReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#configureMessageReceiveNotify");
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageReceiveNotify_0"></a>
 # **configureMessageReceiveNotify_0**
-> InlineResponse2013 configureMessageReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureMessageReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Receive Callback
 
@@ -174,7 +174,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureMessageReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureMessageReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#configureMessageReceiveNotify_0");
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageReceive_0"></a>
 # **configureMessageReceive_0**
-> InlineResponse2013 configureMessageReceive_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword)
+> InlineResponse2014 configureMessageReceive_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword)
 
 Set Delivery Service
 
@@ -238,7 +238,7 @@ String urlMethod = "urlMethod_example"; // String | URL method (when `type` is U
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureMessageReceive_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureMessageReceive_0(fonenumber, type, value, urlMethod, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#configureMessageReceive_0");
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageSendNotify"></a>
 # **configureMessageSendNotify**
-> InlineResponse2013 configureMessageSendNotify(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureMessageSendNotify(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Send Callback
 
@@ -302,7 +302,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureMessageSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureMessageSendNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#configureMessageSendNotify");
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 <a name="configureMessageSendNotify_0"></a>
 # **configureMessageSendNotify_0**
-> InlineResponse2013 configureMessageSendNotify_0(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureMessageSendNotify_0(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Send Callback
 
@@ -365,7 +365,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureMessageSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureMessageSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#configureMessageSendNotify_0");
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 <a name="createMessage"></a>
 # **createMessage**
-> InlineResponse2014 createMessage(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation)
+> InlineResponse2015 createMessage(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation)
 
 Create Message
 
@@ -431,7 +431,7 @@ String confirmationUrlUsername = "confirmationUrlUsername_example"; // String | 
 String confirmationUrlPassword = "confirmationUrlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 Boolean requireConfirmation = true; // Boolean | Only send this message if confirmation is available
 try {
-    InlineResponse2014 result = apiInstance.createMessage(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
+    InlineResponse2015 result = apiInstance.createMessage(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#createMessage");
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 <a name="createMessage_0"></a>
 # **createMessage_0**
-> InlineResponse2014 createMessage_0(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation)
+> InlineResponse2015 createMessage_0(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation)
 
 Create Message
 
@@ -500,7 +500,7 @@ String confirmationUrlUsername = "confirmationUrlUsername_example"; // String | 
 String confirmationUrlPassword = "confirmationUrlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 Boolean requireConfirmation = true; // Boolean | Only send this message if confirmation is available
 try {
-    InlineResponse2014 result = apiInstance.createMessage_0(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
+    InlineResponse2015 result = apiInstance.createMessage_0(to, fonenumber, message, mediaUrl, confirmationUrl, confirmationUrlUsername, confirmationUrlPassword, requireConfirmation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MessagesApi#createMessage_0");
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 

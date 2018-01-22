@@ -13,12 +13,14 @@ Method | HTTP request | Description
 [**configure_account_cdr_notify_0**](AccountsApi.md#configure_account_cdr_notify_0) | **POST** /accounts/cdr_notify | Set CDR Callback
 [**get_account**](AccountsApi.md#get_account) | **GET** /accounts/{id} | Get Account
 [**get_account_0**](AccountsApi.md#get_account_0) | **GET** /accounts/{id} | Get Account
+[**get_account_integrations**](AccountsApi.md#get_account_integrations) | **GET** /accounts/{id}/integrations | Get Account Integrations
+[**get_account_integrations_0**](AccountsApi.md#get_account_integrations_0) | **GET** /accounts/{id}/integrations | Get Account Integrations
 [**update_account**](AccountsApi.md#update_account) | **PUT** /accounts/{id} | Update Account
 [**update_account_0**](AccountsApi.md#update_account_0) | **PUT** /accounts/{id} | Update Account
 
 
 # **configure_account_cdr_notify**
-> InlineResponse2001 configure_account_cdr_notify(account_id => $account_id, method => $method, url => $url, username => $username, password => $password)
+> InlineResponse20011 configure_account_cdr_notify(account_id => $account_id, method => $method, url => $url, username => $username, password => $password)
 
 Set CDR Callback
 
@@ -63,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_account_cdr_notify_0**
-> InlineResponse2001 configure_account_cdr_notify_0(account_id => $account_id, method => $method, url => $url, username => $username, password => $password)
+> InlineResponse20011 configure_account_cdr_notify_0(account_id => $account_id, method => $method, url => $url, username => $username, password => $password)
 
 Set CDR Callback
 
@@ -122,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -136,7 +138,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account**
-> InlineResponse2001 get_account(id => $id)
+> InlineResponse20011 get_account(id => $id)
 
 Get Account
 
@@ -173,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -187,7 +189,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account_0**
-> InlineResponse2001 get_account_0(id => $id)
+> InlineResponse20011 get_account_0(id => $id)
 
 Get Account
 
@@ -224,7 +226,109 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_account_integrations**
+> InlineResponse20010 get_account_integrations(id => $id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::AccountsApi;
+
+# Configure API key authorization: jwt
+$WWW::SwaggerClient::Configuration::api_key->{'token'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'token'} = "Bearer";
+
+my $api_instance = WWW::SwaggerClient::AccountsApi->new();
+my $id = 'id_example'; # string | Account id
+
+eval { 
+    my $result = $api_instance->get_account_integrations(id => $id);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AccountsApi->get_account_integrations: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Account id | 
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded, application/offset+octet-stream, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_account_integrations_0**
+> InlineResponse20010 get_account_integrations_0(id => $id)
+
+Get Account Integrations
+
+Get configured account integrations.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::AccountsApi;
+
+# Configure API key authorization: jwt
+$WWW::SwaggerClient::Configuration::api_key->{'token'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'token'} = "Bearer";
+
+my $api_instance = WWW::SwaggerClient::AccountsApi->new();
+my $id = 'id_example'; # string | Account id
+
+eval { 
+    my $result = $api_instance->get_account_integrations_0(id => $id);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AccountsApi->get_account_integrations_0: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Account id | 
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -238,7 +342,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_account**
-> InlineResponse2001 update_account(id => $id, primary_color => $primary_color, secondary_color => $secondary_color, background_color => $background_color, font_family => $font_family, logo => $logo)
+> InlineResponse20011 update_account(id => $id, primary_color => $primary_color, secondary_color => $secondary_color, background_color => $background_color, font_family => $font_family, logo => $logo)
 
 Update Account
 
@@ -285,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -299,7 +403,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_account_0**
-> InlineResponse2001 update_account_0(id => $id, primary_color => $primary_color, secondary_color => $secondary_color, background_color => $background_color, font_family => $font_family, logo => $logo)
+> InlineResponse20011 update_account_0(id => $id, primary_color => $primary_color, secondary_color => $secondary_color, background_color => $background_color, font_family => $font_family, logo => $logo)
 
 Update Account
 
@@ -346,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

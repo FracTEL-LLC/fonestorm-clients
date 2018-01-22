@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-FoneStorm API 2.2.0 (Breeze)
+FoneStorm API 2.4.0 (Thunder)
 
 FracTEL's Middleware API
 
-OpenAPI spec version: 2.2.0
+OpenAPI spec version: 2.4.0
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 2.2.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4ACE6C9D-D29E-4BDD-8DCB-F342B2E4F846}</ProjectGuid>
+    <ProjectGuid>{779BEA3F-AEFB-48D3-9D42-E4B028069A23}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IO.Swagger</RootNamespace>

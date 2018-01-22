@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **configure_fax_receive_notify**
-> InlineResponse2013 configure_fax_receive_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_fax_receive_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Receive Callback
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_fax_receive_notify_0**
-> InlineResponse2013 configure_fax_receive_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_fax_receive_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Receive Callback
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_fax_send_notify**
-> InlineResponse2013 configure_fax_send_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_fax_send_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Send Callback
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **configure_fax_send_notify_0**
-> InlineResponse2013 configure_fax_send_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
+> InlineResponse2014 configure_fax_send_notify_0(fonenumber, method, url, url_username=url_username, url_password=url_password)
 
 Set Send Callback
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_fax**
-> InlineResponse2011 create_fax(fonenumber, to, message=message, pdf=pdf)
+> InlineResponse2012 create_fax(fonenumber, to, message=message, pdf=pdf)
 
 Create Fax
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_fax_0**
-> InlineResponse2011 create_fax_0(fonenumber, to, message=message, pdf=pdf)
+> InlineResponse2012 create_fax_0(fonenumber, to, message=message, pdf=pdf)
 
 Create Fax
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 

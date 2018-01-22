@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.CallsApi
+# FoneStormApi240Thunder.CallsApi
 
 All URIs are relative to *http://api.fonestorm.com/v2*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="configureCallReceiveNotify"></a>
 # **configureCallReceiveNotify**
-> InlineResponse2013 configureCallReceiveNotify(fonenumber, method, url, opts)
+> InlineResponse2014 configureCallReceiveNotify(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -22,8 +22,8 @@ Configure the callback URL to notify when a call is received. Each FoneNumber ca
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -31,7 +31,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.CallsApi();
+var apiInstance = new FoneStormApi240Thunder.CallsApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="configureCallReceiveNotify_0"></a>
 # **configureCallReceiveNotify_0**
-> InlineResponse2013 configureCallReceiveNotify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configureCallReceiveNotify_0(fonenumber, method, url, opts)
 
 Set Receive Callback
 
@@ -87,8 +87,8 @@ Configure the callback URL to notify when a call is received. Each FoneNumber ca
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -96,7 +96,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.CallsApi();
+var apiInstance = new FoneStormApi240Thunder.CallsApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 <a name="configureCallSendNotify"></a>
 # **configureCallSendNotify**
-> InlineResponse2013 configureCallSendNotify(fonenumber, method, url, opts)
+> InlineResponse2014 configureCallSendNotify(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -152,8 +152,8 @@ Configure the callback URL to notify when an outbound call is made. Each FoneNum
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -161,7 +161,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.CallsApi();
+var apiInstance = new FoneStormApi240Thunder.CallsApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 <a name="configureCallSendNotify_0"></a>
 # **configureCallSendNotify_0**
-> InlineResponse2013 configureCallSendNotify_0(fonenumber, method, url, opts)
+> InlineResponse2014 configureCallSendNotify_0(fonenumber, method, url, opts)
 
 Set Send Callback
 
@@ -217,8 +217,8 @@ Configure the callback URL to notify when an outbound call is made. Each FoneNum
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -226,7 +226,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.CallsApi();
+var apiInstance = new FoneStormApi240Thunder.CallsApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber associated with the account
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 <a name="createCall"></a>
 # **createCall**
-> InlineResponse2012 createCall(fonenumber, to, opts)
+> InlineResponse2011 createCall(fonenumber, to, opts)
 
 Create Call
 
@@ -282,8 +282,8 @@ Create a new voice call from a FoneNumber to a recipient phone number.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -291,7 +291,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.CallsApi();
+var apiInstance = new FoneStormApi240Thunder.CallsApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber to use as caller
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 <a name="createCall_0"></a>
 # **createCall_0**
-> InlineResponse2012 createCall_0(fonenumber, to, opts)
+> InlineResponse2011 createCall_0(fonenumber, to, opts)
 
 Create Call
 
@@ -342,8 +342,8 @@ Create a new voice call from a FoneNumber to a recipient phone number.
 
 ### Example
 ```javascript
-var FoneStormApi220Breeze = require('fone_storm_api_220__breeze');
-var defaultClient = FoneStormApi220Breeze.ApiClient.instance;
+var FoneStormApi240Thunder = require('fone_storm_api_240__thunder');
+var defaultClient = FoneStormApi240Thunder.ApiClient.instance;
 
 // Configure API key authorization: jwt
 var jwt = defaultClient.authentications['jwt'];
@@ -351,7 +351,7 @@ jwt.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //jwt.apiKeyPrefix = 'Token';
 
-var apiInstance = new FoneStormApi220Breeze.CallsApi();
+var apiInstance = new FoneStormApi240Thunder.CallsApi();
 
 var fonenumber = "fonenumber_example"; // String | FoneNumber to use as caller
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 

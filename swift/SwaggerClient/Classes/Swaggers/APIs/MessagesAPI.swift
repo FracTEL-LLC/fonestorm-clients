@@ -41,7 +41,7 @@ public class MessagesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureMessageReceive(fonenumber fonenumber: String, type: ModelType_configureMessageReceive, value: String, urlMethod: UrlMethod_configureMessageReceive, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureMessageReceive(fonenumber fonenumber: String, type: ModelType_configureMessageReceive, value: String, urlMethod: UrlMethod_configureMessageReceive, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureMessageReceiveWithRequestBuilder(fonenumber: fonenumber, type: type, value: value, urlMethod: urlMethod, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -79,6 +79,10 @@ public class MessagesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -111,9 +115,9 @@ public class MessagesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureMessageReceiveWithRequestBuilder(fonenumber fonenumber: String, type: ModelType_configureMessageReceive, value: String, urlMethod: UrlMethod_configureMessageReceive, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureMessageReceiveWithRequestBuilder(fonenumber fonenumber: String, type: ModelType_configureMessageReceive, value: String, urlMethod: UrlMethod_configureMessageReceive, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/messages/receive"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -130,7 +134,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -154,7 +158,7 @@ public class MessagesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureMessageReceiveNotify(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureMessageReceiveNotify(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureMessageReceiveNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -192,6 +196,10 @@ public class MessagesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -223,9 +231,9 @@ public class MessagesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureMessageReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureMessageReceiveNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/messages/receive_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -241,7 +249,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -265,7 +273,7 @@ public class MessagesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureMessageReceiveNotify_0(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureMessageReceiveNotify_0(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureMessageReceiveNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -303,6 +311,10 @@ public class MessagesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -334,9 +346,9 @@ public class MessagesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureMessageReceiveNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureMessageReceiveNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageReceiveNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/messages/receive_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -352,7 +364,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -388,7 +400,7 @@ public class MessagesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureMessageReceive_0(fonenumber fonenumber: String, type: ModelType_configureMessageReceive_0, value: String, urlMethod: UrlMethod_configureMessageReceive_0, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureMessageReceive_0(fonenumber fonenumber: String, type: ModelType_configureMessageReceive_0, value: String, urlMethod: UrlMethod_configureMessageReceive_0, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureMessageReceive_0WithRequestBuilder(fonenumber: fonenumber, type: type, value: value, urlMethod: urlMethod, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -426,6 +438,10 @@ public class MessagesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -458,9 +474,9 @@ public class MessagesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureMessageReceive_0WithRequestBuilder(fonenumber fonenumber: String, type: ModelType_configureMessageReceive_0, value: String, urlMethod: UrlMethod_configureMessageReceive_0, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureMessageReceive_0WithRequestBuilder(fonenumber fonenumber: String, type: ModelType_configureMessageReceive_0, value: String, urlMethod: UrlMethod_configureMessageReceive_0, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/messages/receive"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -477,7 +493,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -501,7 +517,7 @@ public class MessagesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureMessageSendNotify(fonenumber fonenumber: String, method: Method_configureMessageSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureMessageSendNotify(fonenumber fonenumber: String, method: Method_configureMessageSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureMessageSendNotifyWithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -539,6 +555,10 @@ public class MessagesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -570,9 +590,9 @@ public class MessagesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureMessageSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureMessageSendNotifyWithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageSendNotify, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/messages/send_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -588,7 +608,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -612,7 +632,7 @@ public class MessagesAPI: APIBase {
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func configureMessageSendNotify_0(fonenumber fonenumber: String, method: Method_configureMessageSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2013?, error: ErrorType?) -> Void)) {
+    public class func configureMessageSendNotify_0(fonenumber fonenumber: String, method: Method_configureMessageSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
         configureMessageSendNotify_0WithRequestBuilder(fonenumber: fonenumber, method: method, url: url, urlUsername: urlUsername, urlPassword: urlPassword).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -650,6 +670,10 @@ public class MessagesAPI: APIBase {
         "url" : "aeiou"
       }
     },
+    "service" : {
+      "id" : "aeiou",
+      "type" : "aeiou"
+    },
     "fonenumber" : "aeiou",
     "state" : "aeiou",
     "sms_options" : {
@@ -681,9 +705,9 @@ public class MessagesAPI: APIBase {
      - parameter urlUsername: (form) Username for HTTP **Basic** authentication scheme (optional)
      - parameter urlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
 
-     - returns: RequestBuilder<InlineResponse2013> 
+     - returns: RequestBuilder<InlineResponse2014> 
      */
-    public class func configureMessageSendNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2013> {
+    public class func configureMessageSendNotify_0WithRequestBuilder(fonenumber fonenumber: String, method: Method_configureMessageSendNotify_0, url: String, urlUsername: String? = nil, urlPassword: String? = nil) -> RequestBuilder<InlineResponse2014> {
         let path = "/messages/send_notify"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -699,7 +723,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2013>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -717,7 +741,7 @@ public class MessagesAPI: APIBase {
      - parameter requireConfirmation: (form) Only send this message if confirmation is available (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createMessage(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
+    public class func createMessage(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil, completion: ((data: InlineResponse2015?, error: ErrorType?) -> Void)) {
         createMessageWithRequestBuilder(to: to, fonenumber: fonenumber, message: message, mediaUrl: mediaUrl, confirmationUrl: confirmationUrl, confirmationUrlUsername: confirmationUrlUsername, confirmationUrlPassword: confirmationUrlPassword, requireConfirmation: requireConfirmation).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -746,9 +770,9 @@ public class MessagesAPI: APIBase {
      - parameter confirmationUrlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter requireConfirmation: (form) Only send this message if confirmation is available (optional)
 
-     - returns: RequestBuilder<InlineResponse2014> 
+     - returns: RequestBuilder<InlineResponse2015> 
      */
-    public class func createMessageWithRequestBuilder(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil) -> RequestBuilder<InlineResponse2014> {
+    public class func createMessageWithRequestBuilder(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil) -> RequestBuilder<InlineResponse2015> {
         let path = "/messages/send"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -767,7 +791,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2015>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -785,7 +809,7 @@ public class MessagesAPI: APIBase {
      - parameter requireConfirmation: (form) Only send this message if confirmation is available (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func createMessage_0(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil, completion: ((data: InlineResponse2014?, error: ErrorType?) -> Void)) {
+    public class func createMessage_0(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil, completion: ((data: InlineResponse2015?, error: ErrorType?) -> Void)) {
         createMessage_0WithRequestBuilder(to: to, fonenumber: fonenumber, message: message, mediaUrl: mediaUrl, confirmationUrl: confirmationUrl, confirmationUrlUsername: confirmationUrlUsername, confirmationUrlPassword: confirmationUrlPassword, requireConfirmation: requireConfirmation).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -814,9 +838,9 @@ public class MessagesAPI: APIBase {
      - parameter confirmationUrlPassword: (form) Password for HTTP **Basic** authentication scheme (optional)
      - parameter requireConfirmation: (form) Only send this message if confirmation is available (optional)
 
-     - returns: RequestBuilder<InlineResponse2014> 
+     - returns: RequestBuilder<InlineResponse2015> 
      */
-    public class func createMessage_0WithRequestBuilder(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil) -> RequestBuilder<InlineResponse2014> {
+    public class func createMessage_0WithRequestBuilder(to to: String, fonenumber: String, message: String, mediaUrl: [String]? = nil, confirmationUrl: String? = nil, confirmationUrlUsername: String? = nil, confirmationUrlPassword: String? = nil, requireConfirmation: Bool? = nil) -> RequestBuilder<InlineResponse2015> {
         let path = "/messages/send"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -835,7 +859,7 @@ public class MessagesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2014>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2015>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

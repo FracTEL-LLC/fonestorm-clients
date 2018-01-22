@@ -120,6 +120,22 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
+        operation_id = 'SetFonenumberServiceType'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
+        operation_id = 'SetFonenumberServiceType_0'
+    }
+) ->
+    {[<<"POST">>], Req, State};
+
+allowed_methods(
+    Req,
+    State = #state{
         operation_id = 'UpdateFonenumber'
     }
 ) ->
@@ -306,6 +322,46 @@ is_authorized(
 is_authorized(
     Req0,
     State = #state{
+        operation_id = 'SetFonenumberServiceType' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
+        operation_id = 'SetFonenumberServiceType_0' = OperationID,
+        logic_handler = LogicHandler
+    }
+) ->
+    From = header,
+    Result = swagger_auth:authorize_api_key(
+        LogicHandler,
+        OperationID,
+        From,
+        "token",
+        Req0
+    ),
+    case Result of
+        {true, Context, Req} ->  {true, Req, State#state{context = Context}};
+        {false, AuthHeader, Req} ->  {{false, AuthHeader}, Req, State}
+    end;
+
+is_authorized(
+    Req0,
+    State = #state{
         operation_id = 'UpdateFonenumber' = OperationID,
         logic_handler = LogicHandler
     }
@@ -435,6 +491,26 @@ valid_content_headers(
     Req0,
     State = #state{
         operation_id = 'GetFonenumbers_0'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'SetFonenumberServiceType'
+    }
+) ->
+    Headers = [],
+    {Result, Req} = validate_headers(Headers, Req0),
+    {Result, Req, State};
+
+valid_content_headers(
+    Req0,
+    State = #state{
+        operation_id = 'SetFonenumberServiceType_0'
     }
 ) ->
     Headers = [],

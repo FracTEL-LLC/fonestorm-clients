@@ -1,8 +1,8 @@
-# FoneStormApi220Breeze.InlineResponse2013
+# FoneStormApi240Thunder.InlineResponse2013
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fonenumber** | [**FoneNumber**](FoneNumber.md) |  | [optional] 
+**conference** | [**Conference**](Conference.md) |  | [optional] 
 
 

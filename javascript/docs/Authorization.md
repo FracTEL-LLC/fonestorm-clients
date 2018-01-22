@@ -1,4 +1,4 @@
-# FoneStormApi220Breeze.Authorization
+# FoneStormApi240Thunder.Authorization
 
 ## Properties
 Name | Type | Description | Notes

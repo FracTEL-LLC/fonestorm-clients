@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **state** | **string** | US State for fonenumber. | [optional] 
 **rate_center** | **string** | Rate center for fonenumber. | [optional] 
 **is_active** | **string** | Status of FoneNumber. | [optional] 
+**service** | [**FoneNumberService**](FoneNumberService.md) |  | [optional] 
 **sms_options** | [**FoneNumberSmsOptions**](FoneNumberSmsOptions.md) |  | [optional] 
 **voice_options** | [**FoneNumberVoiceOptions**](FoneNumberVoiceOptions.md) |  | [optional] 
 **fax_options** | [**FoneNumberFaxOptions**](FoneNumberFaxOptions.md) |  | [optional] 

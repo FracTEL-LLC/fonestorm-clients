@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="configureFaxReceiveNotify"></a>
 # **configureFaxReceiveNotify**
-> InlineResponse2013 configureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Receive Callback
 
@@ -44,7 +44,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureFaxReceiveNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaxesApi#configureFaxReceiveNotify");
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="configureFaxReceiveNotify_0"></a>
 # **configureFaxReceiveNotify_0**
-> InlineResponse2013 configureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Receive Callback
 
@@ -107,7 +107,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureFaxReceiveNotify_0(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaxesApi#configureFaxReceiveNotify_0");
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 <a name="configureFaxSendNotify"></a>
 # **configureFaxSendNotify**
-> InlineResponse2013 configureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Send Callback
 
@@ -170,7 +170,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureFaxSendNotify(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaxesApi#configureFaxSendNotify");
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 <a name="configureFaxSendNotify_0"></a>
 # **configureFaxSendNotify_0**
-> InlineResponse2013 configureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword)
+> InlineResponse2014 configureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword)
 
 Set Send Callback
 
@@ -233,7 +233,7 @@ String url = "url_example"; // String | Callback URL. See **Notes** for addition
 String urlUsername = "urlUsername_example"; // String | Username for HTTP **Basic** authentication scheme
 String urlPassword = "urlPassword_example"; // String | Password for HTTP **Basic** authentication scheme
 try {
-    InlineResponse2013 result = apiInstance.configureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
+    InlineResponse2014 result = apiInstance.configureFaxSendNotify_0(fonenumber, method, url, urlUsername, urlPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaxesApi#configureFaxSendNotify_0");
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 <a name="createFax"></a>
 # **createFax**
-> InlineResponse2011 createFax(fonenumber, to, message, pdf)
+> InlineResponse2012 createFax(fonenumber, to, message, pdf)
 
 Create Fax
 
@@ -295,7 +295,7 @@ String to = "to_example"; // String | Receiving 10 digit phone number
 String message = "message_example"; // String | Message to fax
 String pdf = "pdf_example"; // String | URL of a PDF file to send with fax
 try {
-    InlineResponse2011 result = apiInstance.createFax(fonenumber, to, message, pdf);
+    InlineResponse2012 result = apiInstance.createFax(fonenumber, to, message, pdf);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaxesApi#createFax");
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 <a name="createFax_0"></a>
 # **createFax_0**
-> InlineResponse2011 createFax_0(fonenumber, to, message, pdf)
+> InlineResponse2012 createFax_0(fonenumber, to, message, pdf)
 
 Create Fax
 
@@ -356,7 +356,7 @@ String to = "to_example"; // String | Receiving 10 digit phone number
 String message = "message_example"; // String | Message to fax
 String pdf = "pdf_example"; // String | URL of a PDF file to send with fax
 try {
-    InlineResponse2011 result = apiInstance.createFax_0(fonenumber, to, message, pdf);
+    InlineResponse2012 result = apiInstance.createFax_0(fonenumber, to, message, pdf);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaxesApi#createFax_0");
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 

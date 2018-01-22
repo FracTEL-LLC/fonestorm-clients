@@ -1,8 +1,8 @@
-# FoneStormApi220Breeze.InlineResponse2011
+# FoneStormApi240Thunder.InlineResponse2011
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fax** | [**Fax**](Fax.md) |  | [optional] 
+**call** | [**Call**](Call.md) |  | [optional] 
 
 
